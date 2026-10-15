@@ -34,8 +34,9 @@ DESKTOP EDITORIAL ZINE ARCHITECTURE
  │    ├── Red Taped Crosses (❌): Hand-drawn brush cross marks slapped over photo corners
  │    ├── Washi Tape Strips: Semi-translucent paper tape holding banners and cards
  │    └── Krongauz Sticker Badges: Angled pills with asterisk (✳) and department tags
- └── 5. ASYMMETRIC LOOKBOOK GRID BREAKS
-      ├── Responsive 3 to 4 column desktop layout with varied aspect ratios
+ └── 5. ASYMMETRIC LOOKBOOK GRID BREAKS (1200px EDITORIAL CONTAINER)
+      ├── Refined 1200px maximum container width with comfortable outer margins
+      ├── Balanced 3-column desktop layout (~360px per card)
       ├── Featured Wide Editorial Cards spanning 2 columns
       ├── Full-Width Student Lookbook Spread (FC & FD monsoon layering study)
       └── Solid Carmine Red Quote Break (Anastasia Krongauz split composition)
@@ -161,7 +162,7 @@ As mandated by the Creative Director:
 3. **Desktop Horizontal Navigation Bar:**
    Clean top nav tabs with numbered indices (`01 DISCOVER FEED`, `+ SELL STUDIO`, `02 ACTIVITY & DROPS`, `03 MY CLOSET`) and quick commercial jump chips. All filtering is unified on the Discover feed deck.
 4. **Asymmetric Grid with Lookbook Breaks:**
-   Mix of 3-column and 4-column cards with red taped crosses (`❌`), wide featured cards, student lookbook spreads, and solid red quote blocks.
+   Balanced 3-column cards with red taped crosses (`❌`), wide featured cards, student lookbook spreads, and solid red quote blocks framed inside 1200px.
 5. **Desktop Split-Screen Modals:**
    - **PDP:** High-resolution multi-angle photo gallery on the left; structured garment dossier with flat-lay measurements, flaw disclosure, and bifurcated action bar on the right.
    - **Live Bidding Floor:** Carmine Red inverted sheet with real-time student bids log and quick increment chips (`+₹50`, `+₹100`, `+₹200`).
