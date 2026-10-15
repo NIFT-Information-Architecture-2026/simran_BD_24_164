@@ -1,0 +1,1806 @@
+/**
+ * NIFT HYDERABAD THRIFT CLOSET — INTERACTIVE PROTOTYPE ENGINE
+ * Hyperlocal Campus Architecture: Exclusively NIFT Hyderabad (Madhapur)
+ * Pricing Paradigms: Fixed Price (Tiers 1-3) vs. Live Bidding (Tiers 4-5)
+ * Fulfillment: Physical Break Drops at Campus Courtyard & Amphitheatre (Zero Courier)
+ */
+
+// ==========================================================================
+// 1. STATE & MOCK REPOSITORY
+// ==========================================================================
+
+const AppState = {
+  activeTab: 'view-discover',
+  curatedFilter: 'all',
+  categoryFilter: 'all',
+  searchQuery: '',
+  searchCondition: 'all',
+  searchPricingParadigm: 'all', // 'all', 'fixed', 'bidding'
+  searchDept: 'all',
+  searchMaxPrice: 4000,
+  searchSwapOnly: false,
+  closetMode: 'closet', // 'closet' or 'saved'
+  savedIds: new Set([1, 4]),
+
+  // Current User (Fashion Communication, NIFT Hyderabad)
+  currentUser: {
+    name: 'Simran Singh',
+    handle: '@simran_archives',
+    dept: 'Fashion Comm (FC)',
+    campus: 'NIFT Hyderabad',
+    rating: 4.95,
+    salesCount: 16,
+    swapsCount: 7,
+    earnings: 6850
+  },
+
+  // Garment Catalog (Hyperlocal NIFT Hyderabad Wardrobes)
+  listings: [
+    {
+      id: 1,
+      title: "Boxy Cropped Canvas Work Jacket",
+      brand: "Carhartt",
+      category: "Outerwear",
+      condition: "Gently Used",
+      conditionTier: 3,
+      pricingModel: "fixed", // Tiers 1-3: FIXED PRICE ONLY
+      price: 2400,
+      size: "Size L (Fits Boxy M)",
+      heroImage: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80",
+        "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=700&q=80"
+      ],
+      openForSwap: true,
+      tradeWishlist: "Open to swap for chunky boots or vintage leather vest",
+      flaws: "Minor normal wear on inner cuff; clean and pre-washed.",
+      measurements: {
+        chest: "22.5 in",
+        shoulder: "19.0 in",
+        length: "24.0 in",
+        sleeve: "23.5 in"
+      },
+      seller: {
+        name: "Ria Sharma",
+        handle: "@ria_fc",
+        dept: "Fashion Comm (FC)",
+        rating: 4.9,
+        circulations: 28,
+        location: "NIFT Canteen Courtyard",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+      },
+      tags: ["#Streetwear", "#Workwear", "#Archive"],
+      dropZones: ["Canteen Amphitheatre", "Textile Lawn"],
+      isJustListed: true
+    },
+    {
+      id: 2,
+      title: "Raw Hem Baggy Cargo Denims",
+      brand: "Zara",
+      category: "Bottoms",
+      condition: "Like New",
+      conditionTier: 2,
+      pricingModel: "fixed", // Tiers 1-3: FIXED PRICE ONLY
+      price: 950,
+      size: "Tag 30 (Fits 29-31)",
+      heroImage: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80"
+      ],
+      openForSwap: false,
+      flaws: "None. Worn once for photography studio session.",
+      measurements: {
+        waist: "30.0 in",
+        hip: "38.5 in",
+        inseam: "32.0 in"
+      },
+      seller: {
+        name: "Arjun Verma",
+        handle: "@arjun_fd",
+        dept: "Fashion Design (FD)",
+        rating: 5.0,
+        circulations: 12,
+        location: "Resource Centre Lobby",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+      },
+      tags: ["#Streetwear", "#Y2K", "#BaggyFit"],
+      dropZones: ["Canteen Amphitheatre"],
+      isJustListed: true
+    },
+    {
+      id: 3,
+      title: "Distressed Denim Trucker Jacket",
+      brand: "Levi's (90s Vintage)",
+      category: "Outerwear",
+      condition: "Visible Wear / Flaws",
+      conditionTier: 5,
+      pricingModel: "bidding", // Tiers 4-5: CAMPUS LIVE BIDDING
+      startingBid: 600,
+      currentHighestBid: 1100,
+      bidsCount: 4,
+      biddingEnds: "Friday Lunch Break (1:30 PM)",
+      size: "Tag M",
+      heroImage: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=700&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=700&q=80"
+      ],
+      openForSwap: true,
+      tradeWishlist: "Open to swap for cropped knitwear or silver jewelry",
+      flaws: "Mandatory Disclosure: Authentic vintage collar fraying and small 3mm fade spot on back pocket.",
+      measurements: {
+        chest: "21.5 in",
+        shoulder: "18.5 in",
+        length: "23.5 in"
+      },
+      seller: {
+        name: "Devika Rao",
+        handle: "@devika_td",
+        dept: "Textile Design (TD)",
+        rating: 4.8,
+        circulations: 42,
+        location: "Textile Department Lawns",
+        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+      },
+      tags: ["#Archive", "#90s", "#Distressed"],
+      dropZones: ["Canteen Amphitheatre", "Textile Lawn"],
+      isJustListed: false
+    },
+    {
+      id: 4,
+      title: "Handloom Indigo Block Print Kurta",
+      brand: "Fabindia Archive",
+      category: "Indian / Ethnic Wear",
+      condition: "Gently Used",
+      conditionTier: 3,
+      pricingModel: "fixed", // Tiers 1-3: FIXED PRICE ONLY
+      price: 650,
+      size: "Fits Size S / M",
+      heroImage: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80"
+      ],
+      openForSwap: true,
+      tradeWishlist: "Looking to swap for tote bags or ethnic silver jhumkas",
+      flaws: "Zero flaws. Natural indigo dye variation characteristic of handloom.",
+      measurements: {
+        chest: "36.0 in",
+        length: "41.5 in",
+        shoulder: "15.0 in"
+      },
+      seller: {
+        name: "Ananya Sen",
+        handle: "@ananya_td",
+        dept: "Textile Design (TD)",
+        rating: 4.95,
+        circulations: 19,
+        location: "Textile Department Lawn",
+        avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80"
+      },
+      tags: ["#Ethnic", "#Handloom", "#Indie"],
+      dropZones: ["Textile Lawn", "Canteen Amphitheatre"],
+      isJustListed: false
+    },
+    {
+      id: 5,
+      title: "1990s Nirvana Graphic Tee",
+      brand: "Fruit of the Loom (Vintage)",
+      category: "Tops",
+      condition: "Well Used",
+      conditionTier: 4,
+      pricingModel: "bidding", // Tiers 4-5: CAMPUS LIVE BIDDING
+      startingBid: 400,
+      currentHighestBid: 850,
+      bidsCount: 6,
+      biddingEnds: "Friday Lunch Break (1:30 PM)",
+      size: "Tag L (Boxy Fit)",
+      heroImage: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=700&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=700&q=80"
+      ],
+      openForSwap: true,
+      tradeWishlist: "Swap for other 90s band tees or Dickies trousers",
+      flaws: "Softened vintage wash fade, minor authentic graphic cracking.",
+      measurements: {
+        chest: "22.0 in",
+        shoulder: "20.0 in",
+        length: "28.0 in"
+      },
+      seller: {
+        name: "Karan Joshi",
+        handle: "@karan_fc",
+        dept: "Fashion Comm (FC)",
+        rating: 4.88,
+        circulations: 31,
+        location: "Canteen Steps",
+        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+      },
+      tags: ["#Y2K", "#Grunge", "#Archive"],
+      dropZones: ["Canteen Amphitheatre"],
+      isJustListed: false
+    },
+    {
+      id: 6,
+      title: "Minimalist Cowl Neck Slip Midi Dress",
+      brand: "Urbanic Studio",
+      category: "Dresses",
+      condition: "Like New",
+      conditionTier: 2,
+      pricingModel: "fixed", // Tiers 1-3: FIXED PRICE ONLY
+      price: 890,
+      size: "Size S",
+      heroImage: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80"
+      ],
+      openForSwap: false,
+      flaws: "Worn once for Spectrum college fest gala. Dry cleaned.",
+      measurements: {
+        bust: "34.0 in",
+        waist: "27.5 in",
+        hip: "36.0 in",
+        length: "44.0 in"
+      },
+      seller: {
+        name: "Meera Nair",
+        handle: "@meera_ad",
+        dept: "Accessory Design (AD)",
+        rating: 5.0,
+        circulations: 9,
+        location: "Resource Centre Lobby",
+        avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80"
+      },
+      tags: ["#Minimal", "#Party", "#SlipDress"],
+      dropZones: ["Library Lobby", "Canteen Amphitheatre"],
+      isJustListed: true
+    },
+    {
+      id: 7,
+      title: "1461 Smooth Leather 3-Eye Oxford",
+      brand: "Dr. Martens",
+      category: "Footwear",
+      condition: "Gently Used",
+      conditionTier: 3,
+      pricingModel: "fixed", // Tiers 1-3: FIXED PRICE ONLY
+      price: 2900,
+      size: "UK 7 / EU 41",
+      heroImage: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80"
+      ],
+      openForSwap: true,
+      tradeWishlist: "Only trading for Birkenstock Bostons or Salomon XT-6",
+      flaws: "Natural leather break-in creasing; soles at 90% life.",
+      measurements: {
+        insoleLength: "26.5 cm",
+        soleDrop: "1.2 in"
+      },
+      seller: {
+        name: "Zayn Khan",
+        handle: "@zayn_kd",
+        dept: "Knitwear Design (KD)",
+        rating: 4.92,
+        circulations: 15,
+        location: "Canteen Courtyard",
+        avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=200&q=80"
+      },
+      tags: ["#Archive", "#Streetwear", "#Footwear"],
+      dropZones: ["Canteen Amphitheatre"],
+      isJustListed: false
+    },
+    {
+      id: 8,
+      title: "Heavy Canvas Utility Crossbody Tote",
+      brand: "Carhartt WIP",
+      category: "Bags",
+      condition: "Gently Used",
+      conditionTier: 3,
+      pricingModel: "fixed", // Tiers 1-3: FIXED PRICE ONLY
+      price: 750,
+      size: "One Size (15L)",
+      heroImage: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80"
+      ],
+      openForSwap: true,
+      tradeWishlist: "Looking for leather studio belts or silver rings",
+      flaws: "Clean, washed duck canvas. No rips or hardware issues.",
+      measurements: {
+        width: "16.0 in",
+        height: "14.5 in",
+        depth: "4.0 in"
+      },
+      seller: {
+        name: "Pooja Hegde",
+        handle: "@pooja_fc",
+        dept: "Fashion Comm (FC)",
+        rating: 4.85,
+        circulations: 24,
+        location: "Library Lobby",
+        avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80"
+      },
+      tags: ["#Workwear", "#Accessories", "#Streetwear"],
+      dropZones: ["Library Lobby", "Canteen Amphitheatre"],
+      isJustListed: false
+    }
+  ],
+
+  // Current User's Closet (Available for Trade or Sale)
+  userCloset: [
+    {
+      id: 101,
+      title: "Diesel Straight Leg Bleach Denims",
+      brand: "Diesel",
+      category: "Bottoms",
+      condition: "Like New",
+      conditionTier: 2,
+      pricingModel: "fixed",
+      price: 2100,
+      size: "Waist 30 / Inseam 32",
+      heroImage: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80",
+      openForSwap: true,
+      flaws: "None. Perfect bleach fade.",
+      measurements: { waist: "30.0 in", hip: "38.0 in", inseam: "32.0 in" },
+      isMine: true
+    },
+    {
+      id: 102,
+      title: "Y2K Cropped Mesh Layering Top",
+      brand: "Bershka Archive",
+      category: "Tops",
+      condition: "Gently Used",
+      conditionTier: 3,
+      pricingModel: "fixed",
+      price: 850,
+      size: "Size S",
+      heroImage: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80",
+      openForSwap: true,
+      flaws: "Clean condition, no seam pulls.",
+      measurements: { chest: "18.0 in", length: "19.5 in", shoulder: "14.5 in" },
+      isMine: true
+    },
+    {
+      id: 103,
+      title: "Chunky Lugged Penny Loafers",
+      brand: "Vagabond",
+      category: "Footwear",
+      condition: "Well Used",
+      conditionTier: 4,
+      pricingModel: "bidding",
+      startingBid: 600,
+      currentHighestBid: 950,
+      bidsCount: 3,
+      size: "EU 38",
+      heroImage: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=600&q=80",
+      openForSwap: true,
+      flaws: "Minor leather scuffs at toe box, treated with black polish.",
+      measurements: { insoleLength: "24.5 cm" },
+      isMine: true
+    }
+  ],
+
+  // Activity stream (Orders, Bids, Trades)
+  activity: [
+    {
+      id: 'act-1',
+      type: 'trade',
+      status: 'pending',
+      timestamp: '25m ago',
+      targetItemTitle: 'Diesel Straight Leg Bleach Denims',
+      counterItemTitle: 'Vintage Carhartt Cropped Vest',
+      cashAdjustment: 300,
+      senderHandle: '@alisha_fd',
+      senderLocation: 'NIFT Canteen Amphitheatre',
+      message: 'Hey Simran! Would love to swap my Carhartt vest + ₹300 for your Diesel denims at the Friday lunch break courtyard drop!'
+    },
+    {
+      id: 'act-2',
+      type: 'order',
+      status: 'scheduled',
+      timestamp: 'Friday Break • 1:30 PM',
+      itemTitle: 'Vintage Dickies Vest',
+      price: 1200,
+      counterpartHandle: '@karan_fc',
+      counterpartLocation: 'NIFT Canteen Amphitheatre Steps',
+      fulfillmentMode: 'Friday Courtyard Meetup Drop',
+      message: 'Campus drop confirmed. Meet during lunch break to inspect and complete the exchange.'
+    },
+    {
+      id: 'act-3',
+      type: 'bid',
+      status: 'active',
+      timestamp: '1h ago',
+      itemTitle: "Distressed Denim Trucker Jacket",
+      yourBid: 1100,
+      highestBid: 1100,
+      isLeading: true,
+      message: 'You are currently the highest bidder! Drop handoff at Canteen Amphitheatre.'
+    }
+  ],
+
+  // Active PDP & Modal States
+  currentPdpItem: null,
+  biddingTargetItem: null,
+  tradeTargetItem: null,
+  selectedTradeClosetItemId: null,
+  cashTopUpAmount: 0,
+
+  // Sell Wizard State
+  wizardStep: 1,
+  wizardConditionTier: 3,
+  wizardPricingModel: 'fixed'
+};
+
+
+// ==========================================================================
+// 2. INITIALIZATION & DOM BINDINGS
+// ==========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavigation();
+  initCuratedFilters();
+  initCategoryFilters();
+  initSearch();
+  initSellWizard();
+  initClosetDualMode();
+  initPdpModals();
+  initBiddingModal();
+  initTradeDrawer();
+  initHandoffModal();
+  initCampusDropBeacon();
+
+  // Initial Renders
+  renderDiscoverFeed();
+  renderActivityStream();
+  renderClosetView();
+  updateBadgeCounts();
+});
+
+
+// ==========================================================================
+// 3. NAVIGATION CONTROLLER
+// ==========================================================================
+
+function initNavigation() {
+  const tabs = document.querySelectorAll('.nav-tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.dataset.target;
+      if (targetId) switchTab(targetId);
+    });
+  });
+
+  // Top header triggers
+  document.getElementById('header-search-trigger')?.addEventListener('click', () => {
+    switchTab('view-search');
+  });
+  
+  const desktopBeaconBtn = document.getElementById('desktop-beacon-btn');
+  if (desktopBeaconBtn) {
+    desktopBeaconBtn.addEventListener('click', () => {
+      showToast("📍 Friday Lunch Break Drop @ Canteen Amphitheatre!");
+      switchTab('view-activity');
+    });
+  }
+  
+  const mobileBeaconBtn = document.getElementById('mobile-beacon-btn');
+  if (mobileBeaconBtn) {
+    mobileBeaconBtn.addEventListener('click', () => {
+      showToast("📍 Friday Lunch Break Drop @ Canteen Amphitheatre!");
+      switchTab('view-activity');
+    });
+  }
+
+  const listBtn = document.getElementById('closet-list-new-btn');
+  if (listBtn) {
+    listBtn.addEventListener('click', () => {
+      switchTab('view-sell');
+    });
+  }
+}
+
+function switchTab(targetId) {
+  AppState.activeTab = targetId;
+
+  document.querySelectorAll('.tab-view').forEach(view => {
+    view.classList.remove('active');
+  });
+  const targetView = document.getElementById(targetId);
+  if (targetView) targetView.classList.add('active');
+
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    if (tab.dataset.target === targetId) {
+      tab.classList.add('active');
+    } else {
+      tab.classList.remove('active');
+    }
+  });
+
+  const main = document.querySelector('.app-main');
+  if (main) main.scrollTop = 0;
+
+  if (targetId === 'view-closet') renderClosetView();
+  if (targetId === 'view-activity') renderActivityStream();
+}
+
+
+// ==========================================================================
+// 4. CAMPUS EVENT BROADCAST BEACON
+// ==========================================================================
+
+function initCampusDropBeacon() {
+  const rsvpBtn = document.getElementById('btn-rsvp-drop');
+  if (rsvpBtn) {
+    rsvpBtn.addEventListener('click', () => {
+      showToast("✓ RSVP Confirmed! Meet at Canteen Amphitheatre @ 1:30 PM.");
+      rsvpBtn.textContent = "✓ RSVP Confirmed";
+      rsvpBtn.style.backgroundColor = "#03543F";
+    });
+  }
+}
+
+
+// ==========================================================================
+// 5. DISCOVER FEED ENGINE (TWO-COLUMN MASONRY EDITORIAL)
+// ==========================================================================
+
+function initCuratedFilters() {
+  const pills = document.querySelectorAll('.curated-pill');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      AppState.curatedFilter = pill.dataset.curated;
+      renderDiscoverFeed();
+    });
+  });
+}
+
+function initCategoryFilters() {
+  const chips = document.querySelectorAll('.cat-chip');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      AppState.categoryFilter = chip.dataset.category;
+      renderDiscoverFeed();
+    });
+  });
+}
+
+function renderDiscoverFeed() {
+  const grid = document.getElementById('discover-product-grid');
+  const countEl = document.getElementById('feed-item-count');
+  if (!grid) return;
+
+  let filtered = [...AppState.listings];
+
+  // Category filter
+  if (AppState.categoryFilter !== 'all') {
+    filtered = filtered.filter(item => item.category === AppState.categoryFilter);
+  }
+
+  // Curated Capsule & Pricing Paradigm filters
+  if (AppState.curatedFilter === 'fixed-price') {
+    filtered = filtered.filter(item => item.pricingModel === 'fixed');
+  } else if (AppState.curatedFilter === 'live-bids') {
+    filtered = filtered.filter(item => item.pricingModel === 'bidding');
+  } else if (AppState.curatedFilter === 'swaps-only') {
+    filtered = filtered.filter(item => item.openForSwap);
+  } else if (AppState.curatedFilter === 'under-800') {
+    filtered = filtered.filter(item => (item.price || item.currentHighestBid || item.startingBid) <= 800);
+  } else if (AppState.curatedFilter === 'y2k') {
+    filtered = filtered.filter(item => item.tags.some(t => t.includes('Y2K')));
+  } else if (AppState.curatedFilter === 'fc-dept') {
+    filtered = filtered.filter(item => item.seller.dept.includes('FC'));
+  } else if (AppState.curatedFilter === 'fd-dept') {
+    filtered = filtered.filter(item => item.seller.dept.includes('FD'));
+  }
+
+  if (countEl) {
+    countEl.textContent = `Showing ${filtered.length} campus garment${filtered.length === 1 ? '' : 's'}`;
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: span 2; text-align: center; padding: 40px 10px; color: var(--text-secondary);">
+        <p style="font-weight: 700; margin-bottom: 4px;">No garments found in this campus filter.</p>
+        <p style="font-size: 12px;">Try switching categories or exploring "All Campus Drops".</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(item => renderGarmentCardHTML(item)).join('');
+  attachCardListeners(grid);
+}
+
+function renderGarmentCardHTML(item) {
+  const isSaved = AppState.savedIds.has(item.id);
+  const conditionBadgeClass = getConditionBadgeClass(item.condition);
+  const isBidding = item.pricingModel === 'bidding';
+  const deptCode = item.seller.dept.split('(')[1]?.replace(')', '') || 'FC';
+
+  return `
+    <article class="garment-card" data-id="${item.id}">
+      <div class="card-media">
+        <img src="${item.heroImage}" alt="${item.title}" loading="lazy">
+        <div class="card-tag-overlay">
+          ${isBidding ? '<span class="sticker-pill bidding-tag">🔥 LIVE BIDS</span>' : '<span class="sticker-pill fixed-tag">🔒 FIXED</span>'}
+          ${item.openForSwap ? '<span class="sticker-pill swap-tag">⇄ SWAP</span>' : ''}
+        </div>
+        <button class="card-save-btn ${isSaved ? 'saved' : ''}" data-id="${item.id}" title="Save Piece" onclick="event.stopPropagation(); toggleSaveItem(${item.id})">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="${isSaved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="card-brand-row">
+          <span class="card-brand">${item.brand}</span>
+          <span class="card-dept-tag">✳ ${deptCode}</span>
+        </div>
+        <h4 class="card-title">${item.title}</h4>
+        <span class="card-condition-pill ${conditionBadgeClass}">✳ ${item.condition}</span>
+        <div class="card-meta-row">
+          <div class="card-price-col">
+            <span class="price-sub-caption">${isBidding ? 'High Bid' : 'Price'}</span>
+            <span class="card-price ${isBidding ? 'bidding-price' : ''}">₹${(isBidding ? item.currentHighestBid : item.price).toLocaleString()}</span>
+          </div>
+          <span class="card-size">${item.size.split('(')[0].trim()}</span>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function getConditionBadgeClass(cond) {
+  if (cond.includes('New / Unworn')) return 'pill-new';
+  if (cond.includes('Like New')) return 'pill-likenew';
+  if (cond.includes('Gently Used')) return 'pill-gentlyused';
+  if (cond.includes('Well Used')) return 'pill-wellused';
+  return 'pill-flawed';
+}
+
+function attachCardListeners(container) {
+  container.querySelectorAll('.garment-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = parseInt(card.dataset.id, 10);
+      const garment = AppState.listings.find(i => i.id === id) || AppState.userCloset.find(i => i.id === id);
+      if (garment) openPdpModal(garment);
+    });
+  });
+}
+
+function toggleSaveItem(id) {
+  if (AppState.savedIds.has(id)) {
+    AppState.savedIds.delete(id);
+    showToast("Removed from your saved archive.");
+  } else {
+    AppState.savedIds.add(id);
+    showToast("Archived to your saved wishlist! ♡");
+  }
+  renderDiscoverFeed();
+  renderClosetView();
+  updateBadgeCounts();
+}
+
+
+// ==========================================================================
+// 6. SEARCH & FILTER CONTROLLER
+// ==========================================================================
+
+function initSearch() {
+  const searchInput = document.getElementById('search-input');
+  const clearBtn = document.getElementById('search-clear-btn');
+  const priceSlider = document.getElementById('price-slider');
+  const priceDisplay = document.getElementById('price-slider-display');
+  const swapToggle = document.getElementById('filter-swap-toggle');
+  const catSelect = document.getElementById('search-category-select');
+  const deptSelect = document.getElementById('search-dept-select');
+  const paradigmChips = document.querySelectorAll('#search-pricing-paradigm .toggle-filter-chip');
+  const condChips = document.querySelectorAll('#search-condition-filters .toggle-filter-chip');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      AppState.searchQuery = e.target.value.toLowerCase().trim();
+      renderSearchResults();
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      AppState.searchQuery = '';
+      renderSearchResults();
+    });
+  }
+
+  if (priceSlider) {
+    priceSlider.addEventListener('input', (e) => {
+      AppState.searchMaxPrice = parseInt(e.target.value, 10);
+      priceDisplay.textContent = `₹${AppState.searchMaxPrice.toLocaleString()}`;
+      renderSearchResults();
+    });
+  }
+
+  if (swapToggle) {
+    swapToggle.addEventListener('change', (e) => {
+      AppState.searchSwapOnly = e.target.checked;
+      renderSearchResults();
+    });
+  }
+
+  if (deptSelect) {
+    deptSelect.addEventListener('change', (e) => {
+      AppState.searchDept = e.target.value;
+      renderSearchResults();
+    });
+  }
+
+  if (catSelect) {
+    catSelect.addEventListener('change', (e) => {
+      const val = e.target.value;
+      const bottomsBox = document.getElementById('contextual-filter-bottoms');
+      if (val === 'Bottoms') {
+        bottomsBox.style.display = 'block';
+      } else {
+        bottomsBox.style.display = 'none';
+      }
+      renderSearchResults();
+    });
+  }
+
+  paradigmChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      paradigmChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      AppState.searchPricingParadigm = chip.dataset.paradigm;
+      renderSearchResults();
+    });
+  });
+
+  condChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      condChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      AppState.searchCondition = chip.dataset.condition;
+      renderSearchResults();
+    });
+  });
+
+  const waistMin = document.getElementById('filter-waist-min');
+  const waistMax = document.getElementById('filter-waist-max');
+  if (waistMin) waistMin.addEventListener('input', renderSearchResults);
+  if (waistMax) waistMax.addEventListener('input', renderSearchResults);
+
+  renderSearchResults();
+}
+
+function renderSearchResults() {
+  const grid = document.getElementById('search-product-grid');
+  const countEl = document.getElementById('search-results-count');
+  if (!grid) return;
+
+  const catSelect = document.getElementById('search-category-select');
+  const selectedCat = catSelect ? catSelect.value : 'all';
+
+  let results = AppState.listings.filter(item => {
+    // Text search
+    if (AppState.searchQuery) {
+      const matchesTitle = item.title.toLowerCase().includes(AppState.searchQuery);
+      const matchesBrand = item.brand.toLowerCase().includes(AppState.searchQuery);
+      const matchesTags = item.tags.some(t => t.toLowerCase().includes(AppState.searchQuery));
+      if (!matchesTitle && !matchesBrand && !matchesTags) return false;
+    }
+
+    // Category
+    if (selectedCat !== 'all' && item.category !== selectedCat) return false;
+
+    // Dept
+    if (AppState.searchDept !== 'all' && !item.seller.dept.includes(AppState.searchDept)) return false;
+
+    // Pricing Paradigm filter
+    if (AppState.searchPricingParadigm === 'fixed' && item.pricingModel !== 'fixed') return false;
+    if (AppState.searchPricingParadigm === 'bidding' && item.pricingModel !== 'bidding') return false;
+
+    // Price
+    const effectivePrice = item.pricingModel === 'bidding' ? item.currentHighestBid : item.price;
+    if (effectivePrice > AppState.searchMaxPrice) return false;
+
+    // Swap toggle
+    if (AppState.searchSwapOnly && !item.openForSwap) return false;
+
+    // Condition
+    if (AppState.searchCondition !== 'all') {
+      if (!item.condition.toLowerCase().includes(AppState.searchCondition.toLowerCase())) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  if (countEl) {
+    countEl.textContent = `${results.length} Campus Garment${results.length === 1 ? '' : 's'} Matched`;
+  }
+
+  if (results.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: span 2; text-align: center; padding: 40px 10px; color: var(--text-secondary);">
+        <p style="font-weight: 700;">No matching campus garments.</p>
+        <p style="font-size: 12px; margin-top: 4px;">Adjust price slider, paradigm, or category filter.</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = results.map(item => renderGarmentCardHTML(item)).join('');
+  attachCardListeners(grid);
+}
+
+
+// ==========================================================================
+// 7. SELL WIZARD ENGINE (6-STEP GUIDED WIZARD WITH CONDITION PARADIGMS)
+// ==========================================================================
+
+function initSellWizard() {
+  const prevBtn = document.getElementById('wizard-prev-btn');
+  const nextBtn = document.getElementById('wizard-next-btn');
+  const catSelect = document.getElementById('sell-category');
+  const conditionRadios = document.querySelectorAll('input[name="sell-condition"]');
+
+  if (catSelect) {
+    catSelect.addEventListener('change', (e) => {
+      updateDynamicMeasurementInputs(e.target.value);
+    });
+    updateDynamicMeasurementInputs('Outerwear');
+  }
+
+  conditionRadios.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      const paradigm = e.target.dataset.paradigm;
+      AppState.wizardPricingModel = paradigm;
+      updatePricingStepFields(paradigm);
+    });
+  });
+
+  if (nextBtn) nextBtn.addEventListener('click', handleWizardNext);
+  if (prevBtn) prevBtn.addEventListener('click', handleWizardPrev);
+
+  updateWizardStepUI();
+}
+
+function updatePricingStepFields(paradigm) {
+  const priceLabel = document.getElementById('price-input-label');
+  const explainer = document.getElementById('price-mode-explainer');
+  const stepTitle = document.getElementById('pricing-step-title');
+
+  if (paradigm === 'bidding') {
+    if (stepTitle) stepTitle.textContent = "Campus Auction / Bidding Setup";
+    if (priceLabel) priceLabel.textContent = "Starting Minimum Bid (₹ INR) *";
+    if (explainer) explainer.innerHTML = "🔥 <strong>Tiers 4 & 5 enter Live Campus Bidding:</strong> Enter your base starting bid. NIFT students place bids that close before the Friday break drop!";
+  } else {
+    if (stepTitle) stepTitle.textContent = "Direct Fixed Pricing Setup";
+    if (priceLabel) priceLabel.textContent = "Direct Fixed Price (₹ INR) *";
+    if (explainer) explainer.innerHTML = "🔒 <strong>Tiers 1–3 use Direct Fixed Pricing:</strong> Zero bidding or bargaining allowed. Students purchase directly at your listed price.";
+  }
+}
+
+function updateDynamicMeasurementInputs(category) {
+  const container = document.getElementById('dynamic-meas-inputs');
+  const catBadge = document.getElementById('meas-cat-label');
+  if (!container) return;
+
+  if (catBadge) catBadge.textContent = category.toUpperCase();
+
+  let fieldsHTML = '';
+  if (category === 'Bottoms') {
+    fieldsHTML = `
+      <div class="meas-input-item"><label>Waist (Flat × 2)</label><input type="text" value="30.0 in"></div>
+      <div class="meas-input-item"><label>Hip (Widest)</label><input type="text" value="38.5 in"></div>
+      <div class="meas-input-item"><label>Inseam Length</label><input type="text" value="32.0 in"></div>
+      <div class="meas-input-item"><label>Rise</label><input type="text" value="11.5 in"></div>
+    `;
+  } else if (category === 'Dresses') {
+    fieldsHTML = `
+      <div class="meas-input-item"><label>Bust (Pit-to-pit)</label><input type="text" value="34.0 in"></div>
+      <div class="meas-input-item"><label>Waist</label><input type="text" value="28.0 in"></div>
+      <div class="meas-input-item"><label>Hip</label><input type="text" value="36.0 in"></div>
+      <div class="meas-input-item"><label>Total Length</label><input type="text" value="44.0 in"></div>
+    `;
+  } else if (category === 'Indian / Ethnic Wear') {
+    fieldsHTML = `
+      <div class="meas-input-item"><label>Bust / Chest</label><input type="text" value="36.0 in"></div>
+      <div class="meas-input-item"><label>Shoulder Width</label><input type="text" value="15.0 in"></div>
+      <div class="meas-input-item"><label>Garment Length</label><input type="text" value="42.0 in"></div>
+      <div class="meas-input-item"><label>Sleeve Length</label><input type="text" value="18.0 in"></div>
+    `;
+  } else {
+    fieldsHTML = `
+      <div class="meas-input-item"><label>Chest (Pit-to-pit)</label><input type="text" value="22.5 in"></div>
+      <div class="meas-input-item"><label>Shoulder Width</label><input type="text" value="19.0 in"></div>
+      <div class="meas-input-item"><label>Center Back Length</label><input type="text" value="24.0 in"></div>
+      <div class="meas-input-item"><label>Sleeve Length</label><input type="text" value="23.5 in"></div>
+    `;
+  }
+
+  container.innerHTML = fieldsHTML;
+}
+
+function handleWizardNext() {
+  if (AppState.wizardStep < 6) {
+    AppState.wizardStep++;
+    if (AppState.wizardStep === 6) renderWizardPreview();
+    updateWizardStepUI();
+  } else {
+    publishNewListing();
+  }
+}
+
+function handleWizardPrev() {
+  if (AppState.wizardStep > 1) {
+    AppState.wizardStep--;
+    updateWizardStepUI();
+  }
+}
+
+function updateWizardStepUI() {
+  const stepTitles = [
+    "STEP 1: CURATE PHOTOS",
+    "STEP 2: BASIC IDENTITY",
+    "STEP 3: CONDITION & FIT",
+    "STEP 4: PRICING / BIDDING",
+    "STEP 5: CAMPUS DROP ZONES",
+    "STEP 6: EDITORIAL PREVIEW"
+  ];
+
+  const titleEl = document.getElementById('wizard-step-title');
+  const counterEl = document.getElementById('wizard-step-counter');
+  const fillEl = document.getElementById('wizard-progress-fill');
+  const prevBtn = document.getElementById('wizard-prev-btn');
+  const nextBtn = document.getElementById('wizard-next-btn');
+
+  if (titleEl) titleEl.textContent = stepTitles[AppState.wizardStep - 1];
+  if (counterEl) counterEl.textContent = `${AppState.wizardStep} of 6`;
+  if (fillEl) fillEl.style.width = `${(AppState.wizardStep / 6) * 100}%`;
+
+  document.querySelectorAll('.wizard-step-pane').forEach(pane => {
+    if (parseInt(pane.dataset.step, 10) === AppState.wizardStep) {
+      pane.classList.add('active');
+    } else {
+      pane.classList.remove('active');
+    }
+  });
+
+  if (prevBtn) prevBtn.style.visibility = AppState.wizardStep === 1 ? 'hidden' : 'visible';
+  if (nextBtn) nextBtn.textContent = AppState.wizardStep === 6 ? 'Curate & Broadcast Drop' : 'Next Step';
+}
+
+function renderWizardPreview() {
+  const container = document.getElementById('wizard-preview-container');
+  if (!container) return;
+
+  const title = document.getElementById('sell-title')?.value || "Workwear Canvas Jacket";
+  const brand = document.getElementById('sell-brand')?.value || "Carhartt";
+  const price = parseInt(document.getElementById('sell-price')?.value, 10) || 1800;
+  const isSwap = document.getElementById('sell-exchange-toggle')?.checked;
+  const selectedCond = document.querySelector('input[name="sell-condition"]:checked')?.value || "Gently Used";
+  const isBidding = AppState.wizardPricingModel === 'bidding';
+
+  container.innerHTML = `
+    <div style="background-color: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; max-width: 240px; margin: 0 auto; box-shadow: var(--shadow-subtle);">
+      <div style="position: relative; aspect-ratio: 4/5; background-color: #E2DDD5;">
+        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80" style="width:100%; height:100%; object-fit: cover;">
+        ${isBidding ? '<span class="card-paradigm-badge bidding" style="position: absolute; top: 8px; left: 8px;">🔥 Live Bids</span>' : '<span class="card-paradigm-badge fixed" style="position: absolute; top: 8px; left: 8px;">🔒 Fixed</span>'}
+        ${isSwap ? '<span class="card-swap-pill" style="position: absolute; bottom: 8px; left: 8px;">⇄ Swap</span>' : ''}
+      </div>
+      <div style="padding: 12px;">
+        <span style="font-size: 10px; font-weight: 800; color: var(--text-tertiary); text-transform: uppercase;">${brand}</span>
+        <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin: 2px 0 6px;">${title}</h4>
+        <span class="card-condition-pill ${getConditionBadgeClass(selectedCond)}">${selectedCond}</span>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; padding-top: 6px; border-top: 1px solid var(--border-subtle);">
+          <span style="font-size: 14px; font-weight: 800; font-family: var(--font-mono);">${isBidding ? 'Start Bid: ' : ''}₹${price.toLocaleString()}</span>
+          <span style="font-size: 10px; font-weight: 700; color: var(--accent-cobalt);">NIFT FC</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function publishNewListing() {
+  const title = document.getElementById('sell-title')?.value || "Vintage Workwear Jacket";
+  const brand = document.getElementById('sell-brand')?.value || "Carhartt";
+  const category = document.getElementById('sell-category')?.value || "Outerwear";
+  const dept = document.getElementById('sell-dept')?.value || "Fashion Communication (FC)";
+  const price = parseInt(document.getElementById('sell-price')?.value, 10) || 1800;
+  const isSwap = document.getElementById('sell-exchange-toggle')?.checked;
+  const condition = document.querySelector('input[name="sell-condition"]:checked')?.value || "Gently Used";
+  const flaws = document.getElementById('sell-flaws')?.value || "No stains; laundered studio piece.";
+  const labelSize = document.getElementById('sell-label-size')?.value || "Size L";
+  const isBidding = AppState.wizardPricingModel === 'bidding';
+
+  const newId = Date.now();
+
+  const newGarment = {
+    id: newId,
+    title,
+    brand,
+    category,
+    condition,
+    conditionTier: isBidding ? 4 : 3,
+    pricingModel: isBidding ? 'bidding' : 'fixed',
+    price: isBidding ? undefined : price,
+    startingBid: isBidding ? price : undefined,
+    currentHighestBid: isBidding ? price : undefined,
+    bidsCount: isBidding ? 0 : undefined,
+    biddingEnds: isBidding ? "Friday Lunch Break (1:30 PM)" : undefined,
+    size: labelSize,
+    heroImage: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80"
+    ],
+    openForSwap: isSwap,
+    tradeWishlist: "Open to swap at Friday Courtyard drop",
+    flaws,
+    measurements: { chest: "22.5 in", shoulder: "19.0 in", length: "24.0 in" },
+    seller: {
+      name: AppState.currentUser.name,
+      handle: AppState.currentUser.handle,
+      dept,
+      rating: AppState.currentUser.rating,
+      circulations: AppState.currentUser.salesCount,
+      location: "Canteen Amphitheatre",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+    },
+    tags: ["#Streetwear", "#CampusDrop", "#NewPiece"],
+    dropZones: ["Canteen Amphitheatre", "Textile Lawn"],
+    isJustListed: true,
+    isMine: true
+  };
+
+  AppState.listings.unshift(newGarment);
+  AppState.userCloset.unshift(newGarment);
+
+  const successMsg = document.getElementById('wizard-success-msg');
+  if (successMsg) successMsg.style.display = 'block';
+
+  showToast("Piece curated & broadcasted to NIFT Campus! ✨");
+
+  setTimeout(() => {
+    if (successMsg) successMsg.style.display = 'none';
+    AppState.wizardStep = 1;
+    updateWizardStepUI();
+    switchTab('view-discover');
+    renderDiscoverFeed();
+    renderClosetView();
+  }, 1200);
+}
+
+
+// ==========================================================================
+// 8. UNIFIED ACTIVITY STREAM (BIDS, SWAPS, CAMPUS DROPS)
+// ==========================================================================
+
+function renderActivityStream(filter = 'all') {
+  const container = document.getElementById('activity-stream');
+  if (!container) return;
+
+  const segmentBtns = document.querySelectorAll('.activity-segment-btn');
+  segmentBtns.forEach(btn => {
+    btn.onclick = () => {
+      segmentBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderActivityStream(btn.dataset.segment);
+    };
+  });
+
+  let items = [...AppState.activity];
+  if (filter === 'bids') items = items.filter(i => i.type === 'bid');
+  if (filter === 'trades') items = items.filter(i => i.type === 'trade');
+  if (filter === 'drops') items = items.filter(i => i.type === 'order');
+
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 40px 10px; color: var(--text-secondary);">
+        <p style="font-weight: 700;">No active ${filter} right now.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = items.map(act => {
+    if (act.type === 'bid') {
+      return `
+        <div class="activity-card highlight" id="${act.id}">
+          <div class="activity-card-header">
+            <span class="activity-type-tag type-bid">🔥 Live Campus Bid</span>
+            <span class="activity-time">${act.timestamp}</span>
+          </div>
+          <h4 class="activity-garment-title">${act.itemTitle}</h4>
+          <p class="activity-detail-text">
+            <strong>Your Active Bid:</strong> ₹${act.yourBid.toLocaleString()} • ${act.isLeading ? '👑 You are currently the highest bidder!' : '⚠️ Outbid!'}
+          </p>
+          <div style="font-size: 11px; background-color: var(--bg-primary); padding: 8px; border-radius: var(--radius-xs); border: 1px solid var(--border-subtle); margin-top: 4px;">
+            📍 Physical Drop Handoff: Friday Lunch Break @ Canteen Amphitheatre
+          </div>
+        </div>
+      `;
+    } else if (act.type === 'trade') {
+      return `
+        <div class="activity-card highlight" id="${act.id}">
+          <div class="activity-card-header">
+            <span class="activity-type-tag type-trade">⇄ Campus Swap Proposal</span>
+            <span class="activity-time">${act.timestamp}</span>
+          </div>
+          <h4 class="activity-garment-title">${act.senderHandle} wants to swap:</h4>
+          <p class="activity-detail-text">
+            <strong>For:</strong> "${act.targetItemTitle}"<br>
+            <strong>Offers:</strong> "${act.counterItemTitle}" ${act.cashAdjustment ? `+ ₹${act.cashAdjustment} Cash Top-up` : ''}
+          </p>
+          <div style="font-size: 11px; background-color: var(--bg-primary); padding: 8px; border-radius: var(--radius-xs); border: 1px solid var(--border-subtle); margin-top: 4px;">
+            💬 "${act.message}"
+          </div>
+          <div class="activity-actions-row">
+            <button class="btn-sm-primary" onclick="acceptTradeProposal('${act.id}')">Accept Swap for Drop</button>
+            <button class="btn-sm-secondary" onclick="declineTradeProposal('${act.id}')">Decline</button>
+          </div>
+        </div>
+      `;
+    } else if (act.type === 'order') {
+      return `
+        <div class="activity-card highlight" id="${act.id}">
+          <div class="activity-card-header">
+            <span class="activity-type-tag type-order">📍 Break Drop Scheduled</span>
+            <span class="activity-time">${act.timestamp}</span>
+          </div>
+          <h4 class="activity-garment-title">${act.itemTitle}</h4>
+          <p class="activity-detail-text">
+            <strong>Drop Hub:</strong> ${act.counterpartLocation}<br>
+            <strong>With:</strong> ${act.counterpartHandle} • Direct Inspection Required
+          </p>
+          <div class="activity-actions-row">
+            <button class="btn-sm-primary" onclick="openHandoffModal('${act.id}')">Open Drop Inspection</button>
+          </div>
+        </div>
+      `;
+    }
+    return '';
+  }).join('');
+}
+
+function acceptTradeProposal(actId) {
+  const act = AppState.activity.find(a => a.id === actId);
+  if (!act) return;
+
+  act.type = 'order';
+  act.status = 'scheduled';
+  act.itemTitle = `${act.targetItemTitle} ⇄ ${act.counterItemTitle}`;
+  act.counterpartHandle = act.senderHandle;
+  act.counterpartLocation = 'NIFT Canteen Amphitheatre Steps';
+  act.timestamp = 'Friday Lunch Break (1:30 PM)';
+
+  showToast("Swap locked for the Friday Courtyard Drop! 📍");
+  renderActivityStream();
+  updateBadgeCounts();
+}
+
+function declineTradeProposal(actId) {
+  AppState.activity = AppState.activity.filter(a => a.id !== actId);
+  showToast("Swap proposal politely declined.");
+  renderActivityStream();
+  updateBadgeCounts();
+}
+
+
+// ==========================================================================
+// 9. DUAL-MODE "MY CLOSET" CONTROLLER
+// ==========================================================================
+
+function initClosetDualMode() {
+  const btnCloset = document.getElementById('btn-mode-closet');
+  const btnSaved = document.getElementById('btn-mode-saved');
+  const panelCloset = document.getElementById('panel-my-closet');
+  const panelSaved = document.getElementById('panel-my-saved');
+
+  if (btnCloset && btnSaved) {
+    btnCloset.addEventListener('click', () => {
+      btnCloset.classList.add('active');
+      btnSaved.classList.remove('active');
+      panelCloset.classList.add('active');
+      panelSaved.classList.remove('active');
+      AppState.closetMode = 'closet';
+    });
+
+    btnSaved.addEventListener('click', () => {
+      btnSaved.classList.add('active');
+      btnCloset.classList.remove('active');
+      panelSaved.classList.add('active');
+      panelCloset.classList.remove('active');
+      AppState.closetMode = 'saved';
+      renderSavedGrid();
+    });
+  }
+}
+
+function renderClosetView() {
+  const closetGrid = document.getElementById('closet-product-grid');
+  const countCloset = document.getElementById('count-mode-closet');
+  const countActive = document.getElementById('closet-active-count');
+
+  if (closetGrid) {
+    closetGrid.innerHTML = AppState.userCloset.map(item => renderGarmentCardHTML(item)).join('');
+    attachCardListeners(closetGrid);
+  }
+
+  if (countCloset) countCloset.textContent = `(${AppState.userCloset.length})`;
+  if (countActive) countActive.textContent = AppState.userCloset.length;
+
+  renderSavedGrid();
+}
+
+function renderSavedGrid() {
+  const savedGrid = document.getElementById('saved-product-grid');
+  const countSaved = document.getElementById('count-mode-saved');
+  if (!savedGrid) return;
+
+  const savedList = AppState.listings.filter(i => AppState.savedIds.has(i.id));
+  if (countSaved) countSaved.textContent = `(${savedList.length})`;
+
+  if (savedList.length === 0) {
+    savedGrid.innerHTML = `
+      <div style="grid-column: span 2; text-align: center; padding: 40px 10px; color: var(--text-secondary);">
+        <p style="font-weight: 700;">No saved pieces in your archive yet.</p>
+        <p style="font-size: 12px; margin-top: 4px;">Tap the heart icon on any campus piece to save it.</p>
+      </div>
+    `;
+    return;
+  }
+
+  savedGrid.innerHTML = savedList.map(item => renderGarmentCardHTML(item)).join('');
+  attachCardListeners(savedGrid);
+}
+
+
+// ==========================================================================
+// 10. PRODUCT DETAIL MODAL (PDP) - PARADIGM-AWARE 7-LAYER SYSTEM
+// ==========================================================================
+
+function initPdpModals() {
+  const closeBtn = document.getElementById('pdp-close-btn');
+  const modal = document.getElementById('pdp-modal');
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      AppState.currentPdpItem = null;
+    });
+  }
+
+  const favBtn = document.getElementById('pdp-favorite-btn');
+  if (favBtn) {
+    favBtn.addEventListener('click', () => {
+      if (AppState.currentPdpItem) {
+        toggleSaveItem(AppState.currentPdpItem.id);
+        updatePdpFavButtonState();
+      }
+    });
+  }
+
+  const shareBtn = document.getElementById('pdp-share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      showToast("Campus piece link copied to clipboard!");
+    });
+  }
+}
+
+function openPdpModal(item) {
+  AppState.currentPdpItem = item;
+  const modal = document.getElementById('pdp-modal');
+  const body = document.getElementById('pdp-body-content');
+  const actionBar = document.getElementById('pdp-action-bar');
+  if (!modal || !body || !actionBar) return;
+
+  updatePdpFavButtonState();
+  const isBidding = item.pricingModel === 'bidding';
+
+  // Render the 7 Structured Content Layers
+  body.innerHTML = `
+    <!-- 1. HERO IMAGE CAROUSEL -->
+    <div class="pdp-hero-gallery">
+      <img src="${item.heroImage}" alt="${item.title}">
+      <span class="pdp-gallery-counter">1 of ${item.gallery ? item.gallery.length : 1}</span>
+    </div>
+
+    <!-- 2. ITEM IDENTITY & CONDITION BADGE -->
+    <div class="pdp-section-padding">
+      <div class="pdp-brand-row">
+        <span class="pdp-brand-name">${item.brand} • ${item.seller.dept}</span>
+        ${isBidding ? '<span class="card-paradigm-badge bidding">🔥 Live Auction</span>' : '<span class="card-paradigm-badge fixed">🔒 Fixed Price</span>'}
+      </div>
+      <h2 class="pdp-title">${item.title}</h2>
+      <div class="pdp-price-condition-row">
+        <span class="pdp-price ${isBidding ? 'bidding-price' : ''}">
+          ${isBidding ? `High Bid: ₹${item.currentHighestBid.toLocaleString()}` : `₹${item.price.toLocaleString()}`}
+        </span>
+        <span class="card-condition-pill ${getConditionBadgeClass(item.condition)}">${item.condition}</span>
+      </div>
+
+      ${isBidding ? `
+        <div class="pdp-bidding-card">
+          <div class="bidding-card-top">
+            <span class="bidding-status-tag">🔥 CAMPUS BIDDING ACTIVE</span>
+            <span class="bidding-countdown">Closes Friday 1:30 PM</span>
+          </div>
+          <div class="bidding-amounts-row">
+            <div>
+              <span class="sub-label">CURRENT HIGH BID</span>
+              <div class="bid-current-high">₹${item.currentHighestBid.toLocaleString()}</div>
+            </div>
+            <span class="bid-count-badge">${item.bidsCount} bids placed</span>
+          </div>
+        </div>
+      ` : ''}
+    </div>
+
+    <!-- 3. FIT & MEASUREMENT SPEC SHEET -->
+    <div class="pdp-section-padding">
+      <div class="measurement-table-card">
+        <div class="meas-table-header">
+          <span class="meas-title">True Flat-Lay Fit Specs</span>
+          <span class="meas-tag-label">${item.size}</span>
+        </div>
+        <div class="meas-grid-spec">
+          ${renderMeasurementsGrid(item.measurements)}
+        </div>
+      </div>
+      <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 6px;">
+        *Measured seam-to-seam flat lay. Compare with your favorite garment.
+      </div>
+    </div>
+
+    <!-- 4. CONDITION & FLAW TRANSPARENCY -->
+    <div class="pdp-section-padding">
+      <h4 style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 6px;">Condition & Flaw Integrity</h4>
+      <div class="${item.conditionTier >= 4 ? 'flaw-disclosure-card' : ''}" style="${item.conditionTier < 4 ? 'background-color: var(--bg-secondary); padding: 10px; border-radius: var(--radius-sm); font-size: 12px;' : ''}">
+        ${item.conditionTier >= 4 ? '<div class="flaw-header">⚠️ Mandatory Flaw Disclosure (Auction Grade)</div>' : ''}
+        <p class="${item.conditionTier >= 4 ? 'flaw-text' : ''}">${item.flaws || "Laundered studio garment, no defects or odors."}</p>
+      </div>
+    </div>
+
+    <!-- 5. CURATORIAL ATTRIBUTES -->
+    <div class="pdp-section-padding">
+      <h4 style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 6px;">Curated Tags & Swap Wishlist</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+        ${item.tags ? item.tags.map(t => `<span style="font-size: 11px; font-weight: 600; padding: 3px 8px; background-color: var(--bg-secondary); border-radius: var(--radius-pill);">${t}</span>`).join('') : ''}
+      </div>
+      ${item.tradeWishlist ? `<p style="font-size: 12px; color: var(--text-secondary);"><strong>Curator's Swap Wishlist:</strong> ${item.tradeWishlist}</p>` : ''}
+    </div>
+
+    <!-- 6. SELLER CREDIBILITY & WARDROBE -->
+    <div class="pdp-section-padding">
+      <div class="pdp-seller-card">
+        <div class="seller-avatar">
+          <img src="${item.seller.avatar}" alt="${item.seller.name}">
+        </div>
+        <div class="seller-meta">
+          <h4>${item.seller.name} <span style="font-size: 11px; font-weight: normal; color: var(--text-secondary);">${item.seller.handle}</span></h4>
+          <p>★ <strong>${item.seller.rating}</strong> (${item.seller.circulations} campus drops) • ${item.seller.dept}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. CAMPUS DROP HANDOFF PROTOCOL -->
+    <div class="pdp-section-padding">
+      <h4 style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 6px;">Campus Drop Locations (Zero Courier)</h4>
+      <ul style="list-style: none; font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px;">
+        ${item.dropZones ? item.dropZones.map(z => `<li>📍 ${z} (Lunch Break Drop)</li>`).join('') : '<li>📍 NIFT Canteen Amphitheatre</li>'}
+      </ul>
+    </div>
+  `;
+
+  // Render Action Bar based on Commercial Paradigm
+  if (item.isMine) {
+    actionBar.innerHTML = `
+      <div style="width: 100%; text-align: center; font-size: 12px; font-weight: 700; color: var(--text-secondary);">
+        This piece is currently circulating from your closet.
+      </div>
+    `;
+  } else if (isBidding) {
+    // TIERS 4 & 5: CAMPUS BIDDING PARADIGM
+    actionBar.innerHTML = `
+      ${item.openForSwap ? '<button class="btn-pdp-trade" id="btn-action-trade">⇄ Propose Swap</button>' : ''}
+      <button class="btn-pdp-bid" id="btn-action-bid">🔥 Place Bid (Min ₹${(item.currentHighestBid + 50).toLocaleString()})</button>
+    `;
+
+    document.getElementById('btn-action-bid').addEventListener('click', () => {
+      openBiddingModal(item);
+    });
+
+    if (item.openForSwap) {
+      document.getElementById('btn-action-trade').addEventListener('click', () => {
+        openTradeModal(item);
+      });
+    }
+  } else {
+    // TIERS 1, 2, 3: DIRECT FIXED PRICE ONLY (NO BIDDING / HAGGLING)
+    actionBar.innerHTML = `
+      ${item.openForSwap ? '<button class="btn-pdp-trade" id="btn-action-trade">⇄ Propose Swap</button>' : ''}
+      <button class="btn-pdp-buy" id="btn-action-buy">Buy for ₹${item.price.toLocaleString()} (Fixed)</button>
+    `;
+
+    document.getElementById('btn-action-buy').addEventListener('click', () => {
+      executeDirectBuy(item);
+    });
+
+    if (item.openForSwap) {
+      document.getElementById('btn-action-trade').addEventListener('click', () => {
+        openTradeModal(item);
+      });
+    }
+  }
+
+  modal.classList.add('active');
+}
+
+function updatePdpFavButtonState() {
+  const favBtn = document.getElementById('pdp-favorite-btn');
+  if (!favBtn || !AppState.currentPdpItem) return;
+  const isSaved = AppState.savedIds.has(AppState.currentPdpItem.id);
+  favBtn.innerHTML = `
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="${isSaved ? '#FF4757' : 'none'}" stroke="${isSaved ? '#FF4757' : 'currentColor'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+  `;
+}
+
+function renderMeasurementsGrid(specs) {
+  if (!specs) return '<span>No measurements recorded.</span>';
+  return Object.entries(specs).map(([key, val]) => {
+    const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+    return `
+      <div class="meas-spec-box">
+        <span class="spec-name">${formattedKey}</span>
+        <span class="spec-val">${val}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function executeDirectBuy(item) {
+  const orderId = 'drop-' + Date.now();
+  AppState.activity.unshift({
+    id: orderId,
+    type: 'order',
+    status: 'scheduled',
+    timestamp: 'Friday Break • 1:30 PM',
+    itemTitle: item.title,
+    price: item.price,
+    counterpartHandle: item.seller.handle,
+    counterpartLocation: 'NIFT Canteen Amphitheatre Steps',
+    fulfillmentMode: 'Friday Courtyard Meetup Drop',
+    message: `Fixed-price purchase confirmed for ₹${item.price.toLocaleString()}. Meet at Canteen Amphitheatre during lunch break to inspect and collect.`
+  });
+
+  document.getElementById('pdp-modal').classList.remove('active');
+  showToast(`Reserved! Collect at Friday Lunch Break Drop from ${item.seller.handle}.`);
+  switchTab('view-activity');
+  updateBadgeCounts();
+}
+
+
+// ==========================================================================
+// 11. LIVE BIDDING MODAL ENGINE (TIERS 4 & 5)
+// ==========================================================================
+
+function initBiddingModal() {
+  const closeBtn = document.getElementById('bidding-modal-close');
+  const submitBtn = document.getElementById('submit-bid-btn');
+  const chip50 = document.getElementById('bid-plus-50');
+  const chip100 = document.getElementById('bid-plus-100');
+  const chip200 = document.getElementById('bid-plus-200');
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      document.getElementById('bidding-modal').classList.remove('active');
+    });
+  }
+
+  const applyIncrement = (inc) => {
+    if (AppState.biddingTargetItem) {
+      const minBid = AppState.biddingTargetItem.currentHighestBid + 50;
+      const input = document.getElementById('bid-input-amount');
+      const currentVal = parseInt(input.value, 10) || minBid;
+      input.value = currentVal + inc;
+    }
+  };
+
+  if (chip50) chip50.addEventListener('click', () => applyIncrement(50));
+  if (chip100) chip100.addEventListener('click', () => applyIncrement(100));
+  if (chip200) chip200.addEventListener('click', () => applyIncrement(200));
+
+  if (submitBtn) {
+    submitBtn.addEventListener('click', submitCampusBid);
+  }
+}
+
+function openBiddingModal(item) {
+  AppState.biddingTargetItem = item;
+  const modal = document.getElementById('bidding-modal');
+  const summary = document.getElementById('bidding-item-summary');
+  const highestDisp = document.getElementById('highest-bid-display');
+  const bidsCountDisp = document.getElementById('bids-count-display');
+  const minBidDisp = document.getElementById('min-bid-display');
+  const input = document.getElementById('bid-input-amount');
+  if (!modal || !summary || !input) return;
+
+  const minBid = item.currentHighestBid + 50;
+
+  summary.innerHTML = `
+    <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">${item.title}</div>
+    <div style="font-size: 11.5px; color: var(--text-secondary);">Seller: <strong>${item.seller.handle} (${item.seller.dept})</strong></div>
+  `;
+
+  highestDisp.textContent = `₹${item.currentHighestBid.toLocaleString()}`;
+  bidsCountDisp.textContent = `${item.bidsCount} bids`;
+  minBidDisp.textContent = `₹${minBid.toLocaleString()}`;
+  input.value = minBid;
+
+  modal.classList.add('active');
+}
+
+function submitCampusBid() {
+  const item = AppState.biddingTargetItem;
+  const input = document.getElementById('bid-input-amount');
+  const bidVal = parseInt(input?.value, 10);
+  const minBid = item.currentHighestBid + 50;
+
+  if (!bidVal || bidVal < minBid) {
+    showToast(`Bid must be at least ₹${minBid.toLocaleString()}`);
+    return;
+  }
+
+  // Update item state
+  item.currentHighestBid = bidVal;
+  item.bidsCount += 1;
+
+  // Add to Activity as active lead bid
+  const bidId = 'bid-' + Date.now();
+  AppState.activity.unshift({
+    id: bidId,
+    type: 'bid',
+    status: 'active',
+    timestamp: 'Just now',
+    itemTitle: item.title,
+    yourBid: bidVal,
+    highestBid: bidVal,
+    isLeading: true,
+    message: `You are the leading bidder at ₹${bidVal.toLocaleString()}! Collect at Friday Lunch Break Drop.`
+  });
+
+  document.getElementById('bidding-modal').classList.remove('active');
+  document.getElementById('pdp-modal').classList.remove('active');
+
+  showToast(`Bid of ₹${bidVal.toLocaleString()} submitted! You are the high bidder! 🔥`);
+  renderDiscoverFeed();
+  renderActivityStream();
+  switchTab('view-activity');
+  updateBadgeCounts();
+}
+
+
+// ==========================================================================
+// 12. BILATERAL TRADE MODAL ENGINE
+// ==========================================================================
+
+function initTradeDrawer() {
+  const closeBtn = document.getElementById('trade-modal-close');
+  const minusBtn = document.getElementById('cash-minus-btn');
+  const plusBtn = document.getElementById('cash-plus-btn');
+  const submitBtn = document.getElementById('trade-submit-btn');
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      document.getElementById('trade-modal').classList.remove('active');
+    });
+  }
+
+  if (minusBtn && plusBtn) {
+    minusBtn.addEventListener('click', () => {
+      if (AppState.cashTopUpAmount >= 100) {
+        AppState.cashTopUpAmount -= 100;
+        updateCashDisplay();
+      }
+    });
+    plusBtn.addEventListener('click', () => {
+      AppState.cashTopUpAmount += 100;
+      updateCashDisplay();
+    });
+  }
+
+  if (submitBtn) submitBtn.addEventListener('click', submitTradeProposal);
+}
+
+function updateCashDisplay() {
+  const display = document.getElementById('cash-topup-display');
+  if (display) display.textContent = `₹${AppState.cashTopUpAmount.toLocaleString()}`;
+}
+
+function openTradeModal(targetGarment) {
+  AppState.tradeTargetItem = targetGarment;
+  AppState.selectedTradeClosetItemId = AppState.userCloset[0] ? AppState.userCloset[0].id : null;
+  AppState.cashTopUpAmount = 0;
+  updateCashDisplay();
+
+  const modal = document.getElementById('trade-modal');
+  const targetDisplay = document.getElementById('trade-target-display');
+  const closetPicker = document.getElementById('trade-closet-options');
+  if (!modal || !targetDisplay || !closetPicker) return;
+
+  targetDisplay.innerHTML = `
+    <img src="${targetGarment.heroImage}" class="target-thumb" alt="${targetGarment.title}">
+    <div>
+      <span style="font-size: 9.5px; font-weight: 800; color: var(--text-tertiary); text-transform: uppercase;">REQUESTING SWAP</span>
+      <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary);">${targetGarment.title}</h4>
+      <span style="font-size: 12px; font-family: var(--font-mono); font-weight: 700;">${targetGarment.seller.handle} (${targetGarment.seller.dept})</span>
+    </div>
+  `;
+
+  closetPicker.innerHTML = AppState.userCloset.map(piece => {
+    const isSelected = piece.id === AppState.selectedTradeClosetItemId;
+    return `
+      <div class="picker-item-card ${isSelected ? 'selected' : ''}" data-id="${piece.id}" onclick="selectTradeClosetItem(${piece.id})">
+        <img src="${piece.heroImage}" class="picker-thumb" alt="${piece.title}">
+        <div class="picker-info">
+          <div class="picker-title">${piece.title}</div>
+          <div class="picker-val">₹${piece.price.toLocaleString()}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  modal.classList.add('active');
+}
+
+window.selectTradeClosetItem = function(id) {
+  AppState.selectedTradeClosetItemId = id;
+  document.querySelectorAll('.picker-item-card').forEach(card => {
+    if (parseInt(card.dataset.id, 10) === id) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+  });
+};
+
+function submitTradeProposal() {
+  if (!AppState.selectedTradeClosetItemId) {
+    showToast("Please choose an item from your closet to trade.");
+    return;
+  }
+
+  const offeredPiece = AppState.userCloset.find(p => p.id === AppState.selectedTradeClosetItemId);
+  const targetPiece = AppState.tradeTargetItem;
+  const userNote = document.getElementById('trade-note-input')?.value || "Let's swap at Friday lunch break drop!";
+
+  const newActivityId = 'trade-' + Date.now();
+  AppState.activity.unshift({
+    id: newActivityId,
+    type: 'trade',
+    status: 'sent',
+    timestamp: 'Just now',
+    targetItemTitle: targetPiece.title,
+    counterItemTitle: offeredPiece.title,
+    cashAdjustment: AppState.cashTopUpAmount,
+    senderHandle: `@you (${AppState.currentUser.handle})`,
+    message: userNote
+  });
+
+  document.getElementById('trade-modal').classList.remove('active');
+  document.getElementById('pdp-modal').classList.remove('active');
+
+  showToast(`Swap proposal sent to ${targetPiece.seller.handle}! ⇄`);
+  switchTab('view-activity');
+  updateBadgeCounts();
+}
+
+
+// ==========================================================================
+// 13. CAMPUS DROP HANDOFF & INSPECTION MODAL
+// ==========================================================================
+
+function initHandoffModal() {
+  const closeBtn = document.getElementById('handoff-modal-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      document.getElementById('handoff-modal').classList.remove('active');
+    });
+  }
+}
+
+function openHandoffModal(activityId) {
+  const act = AppState.activity.find(a => a.id === activityId);
+  const modal = document.getElementById('handoff-modal');
+  const content = document.getElementById('handoff-modal-content');
+  if (!modal || !content || !act) return;
+
+  content.innerHTML = `
+    <div style="background-color: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); margin-bottom: 14px;">
+      <span style="font-size: 9.5px; font-weight: 800; color: var(--text-tertiary); text-transform: uppercase;">CAMPUS DROP INSPECTION</span>
+      <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin: 2px 0;">${act.itemTitle}</h4>
+      <p style="font-size: 12px; color: var(--text-secondary);">With: <strong>${act.counterpartHandle}</strong> at ${act.counterpartLocation}</p>
+    </div>
+
+    <div style="margin-bottom: 14px;">
+      <label style="font-size: 10.5px; font-weight: 800; text-transform: uppercase; color: var(--text-secondary); display: block; margin-bottom: 6px;">Garment Physical Inspection Checklist:</label>
+      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+        <label style="display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" id="check-measurements" checked style="accent-color: var(--accent-cobalt);">
+          <span>Flat-lay dimensions verified on campus</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" id="check-condition" checked style="accent-color: var(--accent-cobalt);">
+          <span>Condition tier verified & clean</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" id="check-flaws" checked style="accent-color: var(--accent-cobalt);">
+          <span>Inspected for any undisclosed defects</span>
+        </label>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <button class="btn btn-primary" onclick="confirmHandoffComplete('${act.id}')">
+        ✓ Received & Confirmed at Drop
+      </button>
+      <button class="btn btn-secondary" onclick="reportDiscrepancy('${act.id}')" style="font-size: 11px; color: #9C3D28;">
+        Report Discrepancy / Cancel Drop
+      </button>
+    </div>
+  `;
+
+  modal.classList.add('active');
+}
+
+window.confirmHandoffComplete = function(activityId) {
+  const modal = document.getElementById('handoff-modal');
+  if (modal) modal.classList.remove('active');
+
+  AppState.activity = AppState.activity.filter(a => a.id !== activityId);
+  AppState.currentUser.salesCount += 1;
+  AppState.currentUser.earnings += 1200;
+
+  showToast("Drop completed! Piece circulated & 5-star rating recorded. ✨");
+  renderActivityStream();
+  renderClosetView();
+  updateBadgeCounts();
+};
+
+window.reportDiscrepancy = function(activityId) {
+  const modal = document.getElementById('handoff-modal');
+  if (modal) modal.classList.remove('active');
+
+  showToast("Drop paused. Return garment to peer curator.");
+};
+
+
+// ==========================================================================
+// 14. UTILITIES & TOASTS
+// ==========================================================================
+
+function showToast(message) {
+  const toast = document.getElementById('toast-notify');
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2400);
+}
+
+function updateBadgeCounts() {
+  const badge = document.getElementById('activity-badge-count');
+  if (badge) {
+    const count = AppState.activity.length;
+    badge.textContent = count;
+    badge.style.display = count > 0 ? 'flex' : 'none';
+  }
+}
