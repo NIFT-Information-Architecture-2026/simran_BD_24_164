@@ -74,15 +74,46 @@ DESKTOP EDITORIAL ZINE ARCHITECTURE
   --sticker-red-bg: #D02323;      /* Red sticker box for beige sections */
   --sticker-red-text: #F5EFEB;
 
-  /* Graphic Outlines & Brutalist Shadows */
-  --border-dark: #111111;         /* 1.5px - 2px solid indie zine outline */
-  --border-red: #D02323;          /* Graphic red borders */
-  --border-beige: #E2D7C8;        /* Subtle hairline dividers */
-  --shadow-brutal: 4px 4px 0px #111111;
-  --shadow-brutal-sm: 2px 2px 0px #111111;
-  --shadow-sheet: 0 20px 60px rgba(17, 17, 17, 0.35);
+  /* Graphic Accents, Fluid Gradients & Organic Elevation */
+  --border-dark: #111111;         /* Structural accents */
+  --border-red: #D02323;          /* Graphic red accents */
+  --border-subtle: rgba(17, 17, 17, 0.08); /* Soft organic boundary */
+  --gradient-broadcast: radial-gradient(circle at 85% 20%, rgba(208, 35, 35, 0.85) 0%, rgba(179, 24, 24, 0.95) 50%, #8A0E0E 100%);
+  --shadow-organic: 0 16px 36px -8px rgba(17, 17, 17, 0.12), 0 6px 12px -4px rgba(17, 17, 17, 0.06);
+  --shadow-sheet: 0 24px 64px rgba(17, 17, 17, 0.28);
+  --radius-pill: 30px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
 }
 ```
+
+---
+
+## 2.1 Authentic 20-Piece Student Lookbook Catalog
+Extracted directly from the NIFT student portfolio lookbook (`images/product-1.jpg` – `images/product-20.jpg`):
+
+| Product ID | Garment / Object Title | Department / Subculture | Condition Tier | Pricing Paradigm | Visual Asset |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **01** | Y2K Tartan Checked Ruched Hobo Bag | Subversive Studio | Tier 3 (Gently Used) | Fixed: ₹1,250 | `images/product-1.jpg` |
+| **02** | Asymmetric Plaid Peplum Tie Blouse | FC Atelier Drape Lab | Tier 2 (Like New) | Fixed: ₹1,400 | `images/product-2.jpg` |
+| **03** | Glossy Cherry Crimson Ring Hobo | Vintage Milan Archive | Tier 3 (Gently Used) | Fixed: ₹1,850 | `images/product-3.jpg` |
+| **04** | Distressed Grommet Buckle Shoulder Bag | Diesel Archive | Tier 4 (Well Used) | **Live Bidding (Min ₹550)** | `images/product-4.jpg` |
+| **05** | Ornate Silver Concho Leather Belt | Rajasthan Guild / AD | Tier 3 (Gently Used) | Fixed: ₹1,100 | `images/product-5.jpg` |
+| **06** | Molten Gold & Amber Resin Bangle Stack | AD Studio Handcast | Tier 1 (New / Unworn) | Fixed: ₹950 | `images/product-6.jpg` |
+| **07** | Tribal Flame Embroidered Baggy Jeans | Jaded London Archive | Tier 2 (Like New) | Fixed: ₹3,200 | `images/product-7.jpg` |
+| **08** | Noir Moto Leather Ruched Baguette | Mango Premium | Tier 3 (Gently Used) | Fixed: ₹1,650 | `images/product-8.jpg` |
+| **09** | Sand-Wash Extreme Wide Leg Denims | Weekday Archive | Tier 4 (Well Used) | **Live Bidding (Min ₹700)** | `images/product-9.jpg` |
+| **10** | Chanderi Multi-Stripe Lantern Sleeve Blouse | Textile Dept Handloom | Tier 1 (New / Unworn) | Fixed: ₹2,600 | `images/product-10.jpg` |
+| **11** | 'From Venice With Love' Embroidered Shirt | Bode Archive Study | Tier 3 (Gently Used) | Fixed: ₹1,500 | `images/product-11.jpg` |
+| **12** | Statue Print Striped Oxford Shirt | FC Screenprint Atelier | Tier 2 (Like New) | Fixed: ₹1,950 | `images/product-12.jpg` |
+| **13** | Tailored Brown Stripe Utility Blouse | Zara Woman Vintage | Tier 3 (Gently Used) | Fixed: ₹850 | `images/product-13.jpg` |
+| **14** | 1997 Archive 'Fragment Low Stance' Tee | Vintage Japanese Import | Tier 5 (Visible Wear) | **Live Bidding (Min ₹450)** | `images/product-14.jpg` |
+| **15** | Hourglass Flared Peplum Striped Blouse | FD Patternmaking Lab | Tier 2 (Like New) | Fixed: ₹1,800 | `images/product-15.jpg` |
+| **16** | Adidas Samba OG 'Cow Print Pony Hair' | Adidas Originals | Tier 2 (Like New) | Fixed: ₹4,200 | `images/product-16.jpg` |
+| **101 (Closet)** | House 40 Patent Crimson Mary Janes | Simran's Archive | Tier 2 (Like New) | Fixed: ₹2,100 | `images/product-17.jpg` |
+| **102 (Closet)** | Minka Espresso Patent Pointed Slingbacks | Simran's Archive | Tier 3 (Gently Used) | Fixed: ₹1,750 | `images/product-18.jpg` |
+| **103 (Closet)** | Plum Square-Toe Leather Glove Flats | Simran's Archive | Tier 2 (Like New) | Fixed: ₹1,600 | `images/product-19.jpg` |
+| **104 (Closet)** | Subversive Moto Jacket with Pony Hair Belt | Simran's Archive | Tier 3 (Gently Used) | Fixed: ₹3,800 | `images/product-20.jpg` |
 
 ---
 
