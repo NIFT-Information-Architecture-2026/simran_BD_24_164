@@ -733,7 +733,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initCuratedFilters();
   initCategoryFilters();
-  initSearch();
   initSellWizard();
   initClosetDualMode();
   initPdpModals();
@@ -763,11 +762,6 @@ function initNavigation() {
     });
   });
 
-  // Top header triggers
-  document.getElementById('header-search-trigger')?.addEventListener('click', () => {
-    switchTab('view-search');
-  });
-  
   const desktopBeaconBtn = document.getElementById('desktop-beacon-btn');
   if (desktopBeaconBtn) {
     desktopBeaconBtn.addEventListener('click', () => {
@@ -1053,161 +1047,7 @@ function toggleSaveItem(id) {
 
 
 // ==========================================================================
-// 6. SEARCH & FILTER CONTROLLER
-// ==========================================================================
-
-function initSearch() {
-  const searchInput = document.getElementById('search-input');
-  const clearBtn = document.getElementById('search-clear-btn');
-  const priceSlider = document.getElementById('price-slider');
-  const priceDisplay = document.getElementById('price-slider-display');
-  const swapToggle = document.getElementById('filter-swap-toggle');
-  const catSelect = document.getElementById('search-category-select');
-  const deptSelect = document.getElementById('search-dept-select');
-  const paradigmChips = document.querySelectorAll('#search-pricing-paradigm .toggle-filter-chip');
-  const condChips = document.querySelectorAll('#search-condition-filters .toggle-filter-chip');
-
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      AppState.searchQuery = e.target.value.toLowerCase().trim();
-      renderSearchResults();
-    });
-  }
-
-  if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      AppState.searchQuery = '';
-      renderSearchResults();
-    });
-  }
-
-  if (priceSlider) {
-    priceSlider.addEventListener('input', (e) => {
-      AppState.searchMaxPrice = parseInt(e.target.value, 10);
-      priceDisplay.textContent = `₹${AppState.searchMaxPrice.toLocaleString()}`;
-      renderSearchResults();
-    });
-  }
-
-  if (swapToggle) {
-    swapToggle.addEventListener('change', (e) => {
-      AppState.searchSwapOnly = e.target.checked;
-      renderSearchResults();
-    });
-  }
-
-  if (deptSelect) {
-    deptSelect.addEventListener('change', (e) => {
-      AppState.searchDept = e.target.value;
-      renderSearchResults();
-    });
-  }
-
-  if (catSelect) {
-    catSelect.addEventListener('change', (e) => {
-      const val = e.target.value;
-      const bottomsBox = document.getElementById('contextual-filter-bottoms');
-      if (val === 'Bottoms') {
-        bottomsBox.style.display = 'block';
-      } else {
-        bottomsBox.style.display = 'none';
-      }
-      renderSearchResults();
-    });
-  }
-
-  paradigmChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      paradigmChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      AppState.searchPricingParadigm = chip.dataset.paradigm;
-      renderSearchResults();
-    });
-  });
-
-  condChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      condChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      AppState.searchCondition = chip.dataset.condition;
-      renderSearchResults();
-    });
-  });
-
-  const waistMin = document.getElementById('filter-waist-min');
-  const waistMax = document.getElementById('filter-waist-max');
-  if (waistMin) waistMin.addEventListener('input', renderSearchResults);
-  if (waistMax) waistMax.addEventListener('input', renderSearchResults);
-
-  renderSearchResults();
-}
-
-function renderSearchResults() {
-  const grid = document.getElementById('search-product-grid');
-  const countEl = document.getElementById('search-results-count');
-  if (!grid) return;
-
-  const catSelect = document.getElementById('search-category-select');
-  const selectedCat = catSelect ? catSelect.value : 'all';
-
-  let results = AppState.listings.filter(item => {
-    // Text search
-    if (AppState.searchQuery) {
-      const matchesTitle = item.title.toLowerCase().includes(AppState.searchQuery);
-      const matchesBrand = item.brand.toLowerCase().includes(AppState.searchQuery);
-      const matchesTags = item.tags.some(t => t.toLowerCase().includes(AppState.searchQuery));
-      if (!matchesTitle && !matchesBrand && !matchesTags) return false;
-    }
-
-    // Category
-    if (selectedCat !== 'all' && item.category !== selectedCat) return false;
-
-    // Dept
-    if (AppState.searchDept !== 'all' && !item.seller.dept.includes(AppState.searchDept)) return false;
-
-    // Pricing Paradigm filter
-    if (AppState.searchPricingParadigm === 'fixed' && item.pricingModel !== 'fixed') return false;
-    if (AppState.searchPricingParadigm === 'bidding' && item.pricingModel !== 'bidding') return false;
-
-    // Price
-    const effectivePrice = item.pricingModel === 'bidding' ? item.currentHighestBid : item.price;
-    if (effectivePrice > AppState.searchMaxPrice) return false;
-
-    // Swap toggle
-    if (AppState.searchSwapOnly && !item.openForSwap) return false;
-
-    // Condition
-    if (AppState.searchCondition !== 'all') {
-      if (!item.condition.toLowerCase().includes(AppState.searchCondition.toLowerCase())) {
-        return false;
-      }
-    }
-
-    return true;
-  });
-
-  if (countEl) {
-    countEl.textContent = `${results.length} Campus Garment${results.length === 1 ? '' : 's'} Matched`;
-  }
-
-  if (results.length === 0) {
-    grid.innerHTML = `
-      <div style="grid-column: span 2; text-align: center; padding: 40px 10px; color: var(--text-secondary);">
-        <p style="font-weight: 700;">No matching campus garments.</p>
-        <p style="font-size: 12px; margin-top: 4px;">Adjust price slider, paradigm, or category filter.</p>
-      </div>
-    `;
-    return;
-  }
-
-  grid.innerHTML = results.map(item => renderGarmentCardHTML(item)).join('');
-  attachCardListeners(grid);
-}
-
-
-// ==========================================================================
-// 7. SELL WIZARD ENGINE (6-STEP GUIDED WIZARD WITH CONDITION PARADIGMS)
+// 6. SELL WIZARD ENGINE (6-STEP GUIDED WIZARD WITH CONDITION PARADIGMS)
 // ==========================================================================
 
 function initSellWizard() {

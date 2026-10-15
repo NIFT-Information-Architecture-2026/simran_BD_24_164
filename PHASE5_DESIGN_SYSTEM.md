@@ -159,7 +159,7 @@ As mandated by the Creative Director:
 2. **Dazed Spray Paint Masthead:**
    Oversized condensed title backed by an airbrushed red spray aura, paired with NIFT student metadata and department tags.
 3. **Desktop Horizontal Navigation Bar:**
-   Clean top nav tabs with numbered indices (`01 DISCOVER FEED`, `02 SEARCH & FILTER`, `+ SELL STUDIO`, `03 ACTIVITY`, `04 MY CLOSET`) and quick commercial jump chips.
+   Clean top nav tabs with numbered indices (`01 DISCOVER FEED`, `+ SELL STUDIO`, `02 ACTIVITY & DROPS`, `03 MY CLOSET`) and quick commercial jump chips. All filtering is unified on the Discover feed deck.
 4. **Asymmetric Grid with Lookbook Breaks:**
    Mix of 3-column and 4-column cards with red taped crosses (`❌`), wide featured cards, student lookbook spreads, and solid red quote blocks.
 5. **Desktop Split-Screen Modals:**

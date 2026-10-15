@@ -74,10 +74,6 @@
             <span class="live-dot-red"></span>
             <span class="action-text">NEXT DROP: FRI 1:30 PM</span>
           </button>
-          <button class="header-action-pill" id="header-search-trigger" title="Quick Search Archive">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <span>SEARCH</span>
-          </button>
           <div class="user-profile-badge" onclick="switchTab('view-closet')" style="cursor:pointer;" title="View Simran's Archive">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Simran" class="badge-avatar">
             <div class="badge-text">
@@ -96,21 +92,17 @@
             <span class="nav-num">01</span>
             <span class="nav-label">DISCOVER FEED</span>
           </button>
-          <button class="nav-tab" data-target="view-search">
-            <span class="nav-num">02</span>
-            <span class="nav-label">SEARCH & FILTER</span>
-          </button>
           <button class="nav-tab sell-nav-tab" data-target="view-sell">
             <span class="nav-num">+</span>
             <span class="nav-label">SELL STUDIO (LIST PIECE)</span>
           </button>
           <button class="nav-tab" data-target="view-activity">
-            <span class="nav-num">03</span>
+            <span class="nav-num">02</span>
             <span class="nav-label">ACTIVITY & DROPS</span>
             <span class="nav-counter-chip" id="activity-badge-count">2</span>
           </button>
           <button class="nav-tab" data-target="view-closet">
-            <span class="nav-num">04</span>
+            <span class="nav-num">03</span>
             <span class="nav-label">MY CLOSET & SAVED</span>
           </button>
         </div>
@@ -197,117 +189,7 @@
 
 
       <!-- ============================================================ -->
-      <!-- TAB 2: SEARCH & FILTER VIEW (DESKTOP 2-COLUMN ATELIER SEARCH)  -->
-      <!-- ============================================================ -->
-      <section id="view-search" class="tab-view">
-        <div class="search-panel">
-          
-          <!-- Left Sticky Filter Sidebar -->
-          <div class="search-sidebar">
-            <div class="search-input-wrapper">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input type="text" id="search-input" placeholder="Search brands, NIFT closets, aesthetics...">
-              <button id="search-clear-btn" class="clear-btn">&times;</button>
-            </div>
-
-            <!-- Pricing Model Segmentation -->
-            <div class="filter-group">
-              <label class="filter-label">COMMERCIAL PARADIGM</label>
-              <div class="filter-options-wrap" id="search-pricing-paradigm">
-                <button class="toggle-filter-chip active" data-paradigm="all">ALL</button>
-                <button class="toggle-filter-chip" data-paradigm="fixed">FIXED PRICE (TIERS 1-3)</button>
-                <button class="toggle-filter-chip chip-red" data-paradigm="bidding">🔥 LIVE BIDS (TIERS 4-5)</button>
-              </div>
-            </div>
-
-            <!-- Condition Rubric Tiers -->
-            <div class="filter-group">
-              <label class="filter-label">CONDITION TIER</label>
-              <div class="filter-options-wrap" id="search-condition-filters">
-                <button class="toggle-filter-chip active" data-condition="all">ANY</button>
-                <button class="toggle-filter-chip" data-condition="New / Unworn">NEW / UNWORN</button>
-                <button class="toggle-filter-chip" data-condition="Like New">LIKE NEW</button>
-                <button class="toggle-filter-chip" data-condition="Gently Used">GENTLY USED</button>
-                <button class="toggle-filter-chip" data-condition="Well Used">WELL USED [BID]</button>
-                <button class="toggle-filter-chip" data-condition="Visible Wear / Flaws">FLAWED [BID]</button>
-              </div>
-            </div>
-
-            <!-- NIFT Campus Department Filter -->
-            <div class="filter-group">
-              <label class="filter-label">NIFT DEPARTMENT</label>
-              <select id="search-dept-select" class="form-select">
-                <option value="all">ALL CAMPUS DEPARTMENTS</option>
-                <option value="FC">FASHION COMMUNICATION (FC)</option>
-                <option value="FD">FASHION DESIGN (FD)</option>
-                <option value="TD">TEXTILE DESIGN (TD)</option>
-                <option value="AD">ACCESSORY DESIGN (AD)</option>
-                <option value="KD">KNITWEAR DESIGN (KD)</option>
-              </select>
-            </div>
-
-            <!-- Category Filter -->
-            <div class="filter-group">
-              <label class="filter-label">GARMENT CATEGORY</label>
-              <select id="search-category-select" class="form-select">
-                <option value="all">ALL CATEGORIES</option>
-                <option value="Tops">TOPS</option>
-                <option value="Bottoms">BOTTOMS</option>
-                <option value="Outerwear">OUTERWEAR</option>
-                <option value="Dresses">DRESSES</option>
-                <option value="Indian / Ethnic Wear">INDIAN / ETHNIC WEAR</option>
-                <option value="Footwear">FOOTWEAR</option>
-                <option value="Bags">BAGS</option>
-                <option value="Accessories">ACCESSORIES</option>
-              </select>
-            </div>
-
-            <!-- Swap Only Toggle -->
-            <div class="filter-group">
-              <label class="filter-label">BARTER / SWAP (⇄)</label>
-              <div class="toggle-switch-row">
-                <input type="checkbox" id="filter-swap-toggle">
-                <span>Only pieces open for Wardrobe Swap</span>
-              </div>
-            </div>
-
-            <!-- Price Slider -->
-            <div class="filter-group">
-              <label class="filter-label">MAX PRICE / START BID</label>
-              <div class="price-slider-row">
-                <input type="range" id="price-slider" class="range-slider" min="200" max="4000" step="100" value="4000">
-                <span id="price-slider-display" class="price-val-badge">₹4,000</span>
-              </div>
-            </div>
-
-            <!-- Contextual Bottoms Waist Filter -->
-            <div class="filter-group" id="contextual-filter-bottoms" style="display:none;">
-              <label class="filter-label">WAIST RANGE (BOTTOMS)</label>
-              <div style="display: flex; gap: 8px; align-items: center;">
-                <input type="number" id="filter-waist-min" placeholder="Min 26&quot;" class="form-input" style="padding:6px;">
-                <span>to</span>
-                <input type="number" id="filter-waist-max" placeholder="Max 34&quot;" class="form-input" style="padding:6px;">
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Right Search Results Column -->
-          <div class="search-results-col">
-            <div class="search-results-header">
-              <span class="feed-counter" id="search-results-count">SEARCH RESULTS</span>
-            </div>
-            <div class="product-grid" id="search-product-grid">
-              <!-- Rendered via JS -->
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-      <!-- ============================================================ -->
-      <!-- TAB 3: SELL STUDIO (6-STEP GUIDED ATELIER WIZARD)            -->
+      <!-- TAB 2: SELL STUDIO (6-STEP GUIDED ATELIER WIZARD)            -->
       <!-- ============================================================ -->
       <section id="view-sell" class="tab-view">
         <div class="wizard-container">
