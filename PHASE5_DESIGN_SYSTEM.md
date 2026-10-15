@@ -1,48 +1,54 @@
-# Phase 5: Visual Design System & Tokens — The "Dazed & Krongauz" Indie Zine Edition
+# Phase 5: Visual Design System & Tokens — Desktop Editorial Indie Zine Edition
 
-**Platform Identity:** NIFT Hyderabad Thrift Closet  
-**Curatorial Direction:** Indie Fashion Zine × Editorial Collage × Dazed & Krongauz Scrapbook Aesthetic  
-**Campus Scope:** Exclusively National Institute of Fashion Technology (NIFT), Hyderabad  
-**Creative Director & Product Lead:** Simran Singh (BD/24/164, Fashion Communication, NIFT Hyderabad)  
+**Platform Identity:** NIFT Hyderabad Thrift Closet (Campus Atelier Archive)  
+**Curatorial Direction:** Avant-Garde Fashion Editorial × Dazed Digital Zine × Anastasia Krongauz Scrapbook Collage  
+**Architecture:** **Desktop-First, Fully Responsive Website** (Engineered primarily for laptop and desktop screens)  
+**Campus Scope:** Exclusively National Institute of Fashion Technology (NIFT), Hyderabad (Madhapur Campus)  
+**Creative Director & Product Lead:** Simran Singh (`BD/24/164`, Fashion Communication, NIFT Hyderabad)  
 **Technical Architect & UX Mentor:** Antigravity AI  
 
 ---
 
-## 1. Visual Precedent & UX Deconstruction
+## 1. Visual Pivot & UX Architecture
 
-Based on the curatorial references provided by the Creative Director (**Anastasia Krongauz portfolio** and **Dazed Magazine digital editorial**), the design system pivots completely away from generic mobile app interfaces. 
+In response to the Creative Director's critique:
+> *"I like the way the app is right now but it looks bad visually and is confusing at the same time... build a desktop first, fully responsive website, not a mobile application for now. Design primarily for laptop and desktop screens. The site display should be more playful and easy to move, rather than a rigid structured app."*
 
-It adopts the tactile, raw, and high-fashion visual language of an **avant-garde print zine**:
+The architecture has completely broken free of the 440px mobile device simulator. It now delivers a **spacious, expansive desktop-first editorial zine experience** directly modeled after *Dazed Magazine* and *Anastasia Krongauz*'s experimental visual design.
 
 ```
-DAZED × KRONGAUZ VISUAL DNA
- ├── 1. BEIGE & RED DUAL-INVERSION PALETTE
- │    ├── Warm Vintage Beige / Oatmeal Canvas as the primary ground
- │    ├── Solid Saturated Carmine Red blocks for high-energy editorial moments
- │    └── Strict Alternation: Red backgrounds host Beige typography & Beige sticker boxes;
- │        Beige backgrounds host Deep Black / Carmine Red typography & Red sticker boxes.
- ├── 2. TYPOGRAPHIC DRAMA (THE DAZED MASTHEAD EFFECT)
- │    ├── Ultra-Bold Condensed Headlines (Bebas Neue / Anton / Impact vibe)
- │    ├── Mixed Editorial Typography (Bold condensed grotesque + playful italic/serif accents)
- │    └── Wide Letter-Spacing Subheaders: "C A M P U S   D R O P" • "R E A D   M O R E"
- ├── 3. PLAYFUL SCRAPBOOK STICKER BADGES (KRONGAUZ INSPIRATION)
- │    ├── Tactile rounded sticker pills with asterisk/flower motifs: ✳ GENTLY USED, ✳ 4 BIDS
- │    ├── Subtle retro graphic tilts (-1deg to +2deg) for an analog zine collage feel
- │    └── Distinctive sticker tints (Olive green, warm beige, carmine red)
- └── 4. UN-CLUTTERING & BOLD BLOCK HIERARCHY
-      ├── Clean 2px brutalist graphic borders
-      ├── Removing tiny, cramped metadata in favor of bold, scannable numbers
-      └── Heavy, punchy action buttons with high tactile feedback
+DESKTOP EDITORIAL ZINE ARCHITECTURE
+ ├── 1. RISOGRAPH / GRAIN PAPER TEXTURE OVERLAY
+ │    ├── Ultra-subtle SVG fractal noise filter covering the viewport
+ │    ├── Gives the screen the physical tooth of unbleached cardstock
+ │    └── Non-intrusive (opacity: 0.045, mix-blend-mode: multiply, pointer-events: none)
+ ├── 2. TYPOGRAPHIC DUO: CONDENSED DISPLAY × FLOWING CURSIVE SCRIPT
+ │    ├── Massive Condensed Grotesque (Anton / Bebas Neue): Saturated, tight, uppercase punch
+ │    ├── Expressive Cursive Script (Italianno / Playfair Display): Flowing, human, atelier touch
+ │    ├── Crisp Short Gray Secondary Text (#736E65): Short, concise editorial sentences
+ │    └── Monospaced Technical Specs (Space Mono): Flat-lay measurements, timestamps, lots
+ ├── 3. STRICT ALTERNATING BEIGE & CARMINE RED INVERSION
+ │    ├── Beige Ground: Deep Ink Black / Carmine Red text, olive green & red sticker pills
+ │    └── Red Ground: Warm Beige text, Warm Beige input boxes & action buttons with red ink
+ ├── 4. EDITORIAL GRAPHIC DETAILS: SCRIBBLER DOODLES & TAPED CROSSES ❌
+ │    ├── Red Taped Crosses (❌): Hand-drawn brush cross marks slapped over photo corners
+ │    ├── Washi Tape Strips: Semi-translucent paper tape holding banners and cards
+ │    └── Krongauz Sticker Badges: Angled pills with asterisk (✳) and department tags
+ └── 5. ASYMMETRIC LOOKBOOK GRID BREAKS
+      ├── Responsive 3 to 4 column desktop layout with varied aspect ratios
+      ├── Featured Wide Editorial Cards spanning 2 columns
+      ├── Full-Width Student Lookbook Spread (FC & FD monsoon layering study)
+      └── Solid Carmine Red Quote Break (Anastasia Krongauz split composition)
 ```
 
 ---
 
-## 2. Codified Color Tokens: The Alternating Beige & Red Paradigm
+## 2. Codified Color Tokens: The Alternating Inversion System
 
 ```css
 :root {
   /* Primary Canvas Grounds */
-  --bg-beige: #F5EFEB;            /* Warm vintage oatmeal / sketchbook beige */
+  --bg-beige: #F5EFEB;            /* Warm vintage oatmeal / unbleached sketchbook cardstock */
   --bg-beige-card: #ECE4D8;       /* Deeper kraft cream for cards & layers */
   --bg-beige-light: #FAF6EF;      /* Clean unbleached paper tint */
   --bg-beige-hover: #E4DACB;
@@ -50,31 +56,31 @@ DAZED × KRONGAUZ VISUAL DNA
   /* Editorial Saturated Red */
   --red-carmine: #D02323;         /* Saturated Dazed/Krongauz editorial red */
   --red-deep: #B31818;            /* Deep blood red for active pressed states */
-  --red-tint: rgba(208, 35, 35, 0.12); /* Soft highlight wash */
+  --red-glow: rgba(208, 35, 35, 0.45); /* Dazed spray paint / airbrush blur aura */
+  --red-tint: rgba(208, 35, 35, 0.08); /* Soft highlight wash */
 
   /* Alternating Typography Inks */
   --text-dark: #111111;           /* Deep ink black on beige ground */
-  --text-beige: #F5EFEB;          /* Beige typography when ground is Red */
-  --text-red: #D02323;            /* Red display typography on beige ground */
-  --text-muted: #736E65;          /* Muted editorial secondary captions */
+  --text-beige: #F5EFEB;          /* Warm beige typography when ground is Red */
+  --text-red: #D02323;            /* Carmine red display typography */
+  --text-muted: #736E65;          /* Crisp short gray secondary captions (Dazed style) */
+  --text-muted-light: #9B9488;    /* Lighter editorial gray */
 
   /* Krongauz Scrapbook Sticker Accents */
-  --sticker-green-bg: #8FA85B;    /* Olive green sticker pill */
+  --sticker-green-bg: #8FA85B;    /* Olive moss green sticker pill */
   --sticker-green-text: #FFFFFF;
   --sticker-beige-bg: #F5EFEB;    /* Beige sticker box for red sections */
   --sticker-beige-text: #D02323;
   --sticker-red-bg: #D02323;      /* Red sticker box for beige sections */
   --sticker-red-text: #F5EFEB;
 
-  /* Graphic Outlines & Borders */
+  /* Graphic Outlines & Brutalist Shadows */
   --border-dark: #111111;         /* 1.5px - 2px solid indie zine outline */
   --border-red: #D02323;          /* Graphic red borders */
-  --border-beige: #E5DCCF;        /* Subtle hairline dividers */
-
-  /* Elevation & Shadows */
-  --shadow-brutal: 3px 3px 0px #111111;       /* Offset graphic drop shadow */
-  --shadow-brutal-red: 3px 3px 0px #D02323;   /* Offset red graphic shadow */
-  --shadow-sheet: 0 -8px 30px rgba(17, 17, 17, 0.25);
+  --border-beige: #E2D7C8;        /* Subtle hairline dividers */
+  --shadow-brutal: 4px 4px 0px #111111;
+  --shadow-brutal-sm: 2px 2px 0px #111111;
+  --shadow-sheet: 0 20px 60px rgba(17, 17, 17, 0.35);
 }
 ```
 
@@ -82,63 +88,51 @@ DAZED × KRONGAUZ VISUAL DNA
 
 ## 3. Typographic Hierarchy & Magazine Layout Rules
 
-| Scale Token | Typeface | Size | Weight / Style | Letter Spacing | Usage Context |
+| Role | Font Family | Size | Style / Weight | Letter Spacing | Purpose |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Masthead Display** | `Bebas Neue` / `Anton` | `32px – 42px` | 800 Bold Condensed | `+0.02em` | App Title, "DAZED" style category banners |
-| **Section Tag Tracked**| `Plus Jakarta Sans` | `11px` | 800 ExtraBold | `+0.25em` | **`C A M P U S   D R O P   B E A C O N`** |
-| **Garment Display** | `Bebas Neue` / `Anton` | `20px – 24px` | 700 Condensed | `+0.01em` | Garment Titles, Big Price Numerals |
-| **Editorial Accent** | `Playfair Display` | `14px` | *Italic* | `0.00em` | Subtitles, Department notes (*"Curated by FC '26"*) |
-| **Body & Specs** | `Plus Jakarta Sans` | `13px – 14px` | 500 Medium | `0.00em` | Condition notes, descriptions, stories |
-| **Tabular Measurements**| `Space Mono` | `12px – 13px` | 700 Bold Monospace | `+0.02em` | **Chest 22.5", Waist 30", Length 24"** |
-| **Zine Sticker Pill** | `Plus Jakarta Sans` | `10px` | 800 ExtraBold | `+0.05em` | `✳ LIKE NEW`, `🔥 4 BIDS`, `⇄ SWAP` |
+| **Dazed Masthead** | `Anton` / `Bebas Neue` | `58px` | Bold Condensed Grotesque | `-0.02em` | Main App Title with airbrushed red spray aura |
+| **Spliced Cursive Accent** | `Italianno` / `Playfair Display` | `54px` | Expressive Cursive / Script | Normal | Spliced right inside titles (*"THRIFT <span class='script'>Atelier</span> CLOSET"*) |
+| **Section Headings** | `Anton` / `Bebas Neue` | `34px – 40px` | Heavy Condensed | `+0.02em` | Lookbook Headlines, Drop Beacon Title |
+| **Garment Titles** | `Anton` | `20px` | Uppercase Condensed | `+0.02em` | Card titles in product grid |
+| **Crisp Secondary Gray**| `Plus Jakarta Sans` | `12px – 13px`| 500 Medium (Color: `#736E65`) | `0.00em` | Short, punchy editorial descriptions (Dazed caption style) |
+| **Tracked Editorial Links**| `Anton` / `Bebas Neue` | `13px – 17px`| Uppercase Spaced | `+0.18em to +0.22em`| **`R E A D   M O R E`**, **`V I E W   P I E C E`** |
+| **Flat-Lay Specs & Prices**| `Space Mono` | `11px – 24px`| 700 Bold Monospace | `+0.04em` | Measurements, lot numbers, INR prices, drop times |
 
 ---
 
-## 4. The Inversion Rulebook: Background & Font Pairing
+## 4. Strict Color Inversion Rules
 
-To execute the Creative Director's mandate:  
-> *"If there is a red effect going on in the background, the font and font boxes should be beige."*
+As mandated by the Creative Director:
+> *"If there is a red effect going on in background the font and font boxes should be beige."*
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│ STATE 1: BEIGE SECTION (e.g. Discover Feed, PDP Body, My Closet)       │
-├────────────────────────────────────────────────────────────────────────┤
-│ • Background: Warm Vintage Oatmeal (#F5EFEB)                           │
-│ • Primary Titles: Heavy Black (#111111) & Crimson Red (#D02323)        │
-│ • Garment Cards: Deeper Cream (#ECE4D8) with 2px Black Border          │
-│ • Sticker Pills: Red Box with Beige Text OR Olive Green Sticker Pill   │
-│ • Accent Line / Underlines: Red Scribble or Solid 2px Red Divider       │
-└────────────────────────────────────────────────────────────────────────┘
+### On Warm Beige Canvas (`--bg-beige` / `#F5EFEB`):
+- Background: Unbleached Paper Beige (`#F5EFEB` or `#ECE4D8`).
+- Headings: Deep Ink Black (`#111111`) or Carmine Red (`#D02323`).
+- Secondary Text: Crisp Editorial Gray (`#736E65`).
+- Sticker Badges: Olive Green (`#8FA85B`), Beige cardstock, or Carmine Red pills.
+- Action Buttons: Carmine Red background with Beige text, or Beige background with brutalist border and drop shadow.
 
-┌────────────────────────────────────────────────────────────────────────┐
-│ STATE 2: RED SECTION (e.g. Drop Beacon, Bidding Modal, Big CTAs)       │
-├────────────────────────────────────────────────────────────────────────┤
-│ • Background: Saturated Carmine Red (#D02323)                          │
-│ • Primary Titles: Crisp Oatmeal Beige (#F5EFEB)                        │
-│ • Explainer & Subtitles: Soft Tinted Cream (#FCEAEA)                   │
-│ • Font Boxes & Inputs: BEIGE BOXES (#F5EFEB) with Red/Black Text       │
-│ • Primary Buttons inside Red: Solid Beige Pill with Crimson Red Text    │
-│ • Sticker Pills inside Red: Inverted Beige Box (#F5EFEB) with Red Text │
-└────────────────────────────────────────────────────────────────────────┘
-```
+### On Carmine Red Canvas (`--red-carmine` / `#D02323`):
+- Background: Solid Saturated Red (`#D02323`).
+- All Typography: Light Unbleached Warm Beige (`#F5EFEB` / `#FFEFE0`).
+- Input Boxes & Text Enclosures: Warm Beige background (`#F5EFEB`) with Carmine Red or Dark Ink text.
+- Action Buttons: Solid Warm Beige (`#F5EFEB`) with Carmine Red text (`#D02323`) and 2px solid black borders.
+- Badges: Warm Beige boxes with Carmine Red typography.
 
 ---
 
-## 5. What Else Makes It Look Like Dazed & Krongauz?
+## 5. Desktop-First Components & Modals
 
-Beyond the beige and red color shift, here are the **5 specific UX & visual enhancements** introduced:
-
-1. **Scrapbook Sticker Badges (✳):**
-   Instead of boring corporate rounded rectangles, condition and department tags are styled like physical vinyl stickers with tiny asterisk `✳` icons and slight 1-degree organic tilts.
-2. **Offset Brutalist Drop Shadows (`3px 3px 0px #111111`):**
-   Buttons and cards feature flat, hard-edged offset drop shadows giving them physical pop and zine tactile depth.
-3. **Wide Spaced Editorial Microcopy:**
-   Headers like `C A M P U S   D R O P`, `R E A D   M O R E`, and `B I D D I N G   A C T I V E` create instant fashion editorial rhythm.
-4. **Un-cluttered Card Anatomy:**
-   Removed 5 competing rows of micro-text from product cards. Now cards feature:
-   - Big 4:5 image with physical 2px border.
-   - Large bold condensed title & price in red.
-   - A single prominent sticker badge (`✳ GENTLY USED` or `🔥 4 BIDS`).
-   - Clean, unmistakable department tag (`FC`, `FD`, `TD`).
-5. **Bold Red Inverted Action Strips:**
-   Interactive sections (like the Live Bidding drawer and Campus Drop Beacon) are full saturated red blocks that command attention, instantly separating them from ordinary browsing.
+1. **Top Campus Broadcast Ticker Ribbon:**
+   Carmine Red full-width marquee with live campus announcements, meetup times, and department highlights.
+2. **Dazed Spray Paint Masthead:**
+   Oversized condensed title backed by an airbrushed red spray aura, paired with NIFT student metadata and department tags.
+3. **Desktop Horizontal Navigation Bar:**
+   Clean top nav tabs with numbered indices (`01 DISCOVER FEED`, `02 SEARCH & FILTER`, `+ SELL STUDIO`, `03 ACTIVITY`, `04 MY CLOSET`) and quick commercial jump chips.
+4. **Asymmetric Grid with Lookbook Breaks:**
+   Mix of 3-column and 4-column cards with red taped crosses (`❌`), wide featured cards, student lookbook spreads, and solid red quote blocks.
+5. **Desktop Split-Screen Modals:**
+   - **PDP:** High-resolution multi-angle photo gallery on the left; structured garment dossier with flat-lay measurements, flaw disclosure, and bifurcated action bar on the right.
+   - **Live Bidding Floor:** Carmine Red inverted sheet with real-time student bids log and quick increment chips (`+₹50`, `+₹100`, `+₹200`).
+   - **Bilateral Trade Builder:** Side-by-side closet selection and cash balancing stepper.
+   - **Campus Drop Daylight Inspection Ticket:** Courtyard handoff verification with QR code.

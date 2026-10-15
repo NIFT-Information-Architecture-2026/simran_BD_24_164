@@ -6,689 +6,682 @@
   <title>THRIFT CLOSET • NIFT Hyderabad Campus Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,600;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Italianno&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- App Wrapper (Mobile Viewport Device Shell on Desktop) -->
-  <div class="device-shell">
-    <div class="app-container">
+  <!-- Physical Risograph / Unbleached Paper Grain Tooth Filter Overlay -->
+  <div class="risograph-grain-overlay" aria-hidden="true"></div>
 
-      <!-- TOP EDITORIAL MASTHEAD (DAZED & KRONGAUZ STYLE) -->
-      <header class="app-header">
-        <div class="header-branding">
-          <span class="brand-sub">NIFT HYDERABAD • ATELIER RESALE</span>
-          <h1 class="brand-title">THRIFT CLOSET</h1>
+  <!-- Full-Width Desktop Editorial Zine Wrapper -->
+  <div class="editorial-site-wrapper">
+
+    <!-- ============================================================== -->
+    <!-- 1. TOP CAMPUS BROADCAST ANNOUNCEMENT MARQUEE                   -->
+    <!-- ============================================================== -->
+    <div class="top-announcement-ticker">
+      <div class="ticker-content">
+        <span>⚡ CAMPUS BROADCAST: NEXT LUNCH DROP — FRIDAY 1:30 PM @ CANTEEN AMPHITHEATRE STEPS (HYDERABAD)</span>
+        <span class="ticker-separator">✦</span>
+        <span>ZERO COURIER • IN-PERSON INSPECTION ONLY • NIFT HYDERABAD ATELIER ARCHIVE</span>
+        <span class="ticker-separator">✦</span>
+        <span>TIERS 1–3 DIRECT FIXED PRICE • TIERS 4–5 LIVE CAMPUS BIDDING • BILATERAL TRADE (⇄)</span>
+        <span class="ticker-separator">✦</span>
+        <span>FC • FD • TD • AD • KD DEPARTMENTS</span>
+        <span class="ticker-separator">✦</span>
+        <span>⚡ CAMPUS BROADCAST: NEXT LUNCH DROP — FRIDAY 1:30 PM @ CANTEEN AMPHITHEATRE STEPS (HYDERABAD)</span>
+        <span class="ticker-separator">✦</span>
+        <span>ZERO COURIER • IN-PERSON INSPECTION ONLY • NIFT HYDERABAD ATELIER ARCHIVE</span>
+      </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- 2. DESKTOP EDITORIAL HERO MASTHEAD (DAZED & KRONGAUZ STYLE)    -->
+    <!-- ============================================================== -->
+    <header class="desktop-editorial-header">
+      <div class="masthead-main-row">
+        
+        <!-- Left Archival Identity -->
+        <div class="masthead-left">
+          <div class="nift-badge-tag">
+            <span class="dept-dot"></span> NIFT HYDERABAD
+          </div>
+          <div class="student-id-tag">ARCHIVE BD/24/164</div>
+          <div class="editorial-meta-caption">Simran Singh Atelier Archive</div>
         </div>
-        <div class="header-actions">
-          <button class="icon-btn-zine" id="header-beacon-btn" title="Campus Drop Event Beacon">
-            <span class="beacon-mini-badge">DROP</span>
-            <span class="pulse-beacon-dot"></span>
+
+        <!-- Center Oversized Spliced Title with Dazed Airbrush Red Blur Aura -->
+        <div class="masthead-center-block" onclick="switchTab('view-discover')" title="Return to Discover Feed">
+          <div class="masthead-airbrush-blur" aria-hidden="true"></div>
+          <div class="masthead-spliced-title">
+            <span class="title-word">THRIFT</span>
+            <span class="script-accent-title">Atelier</span>
+            <span class="title-word">CLOSET</span>
+          </div>
+          <div class="masthead-sub-tagline">
+            <span>FASHION EDITORIAL</span>
+            <span class="dot-sep">•</span>
+            <span>CAMPUS RESALE ARCHIVE</span>
+            <span class="dot-sep">•</span>
+            <span>YOUTH CULTURE</span>
+          </div>
+        </div>
+
+        <!-- Right Quick Actions & Curator Profile -->
+        <div class="masthead-right">
+          <button class="header-action-pill" id="desktop-beacon-btn" title="Campus Drop Event Beacon">
+            <span class="live-dot-red"></span>
+            <span class="action-text">NEXT DROP: FRI 1:30 PM</span>
           </button>
-          <button class="icon-btn-zine" id="header-search-trigger" title="Quick Search">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <button class="header-action-pill" id="header-search-trigger" title="Quick Search Archive">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>SEARCH</span>
+          </button>
+          <div class="user-profile-badge" onclick="switchTab('view-closet')" style="cursor:pointer;" title="View Simran's Archive">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Simran" class="badge-avatar">
+            <div class="badge-text">
+              <span class="badge-name">SIMRAN SINGH</span>
+              <span class="badge-dept">FC DEPT '26</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Primary Desktop Horizontal Navigation Tabs -->
+      <nav class="desktop-nav-bar">
+        <div class="nav-links-cluster">
+          <button class="nav-tab active" data-target="view-discover">
+            <span class="nav-num">01</span>
+            <span class="nav-label">DISCOVER FEED</span>
+          </button>
+          <button class="nav-tab" data-target="view-search">
+            <span class="nav-num">02</span>
+            <span class="nav-label">SEARCH & FILTER</span>
+          </button>
+          <button class="nav-tab sell-nav-tab" data-target="view-sell">
+            <span class="nav-num">+</span>
+            <span class="nav-label">SELL STUDIO (LIST PIECE)</span>
+          </button>
+          <button class="nav-tab" data-target="view-activity">
+            <span class="nav-num">03</span>
+            <span class="nav-label">ACTIVITY & DROPS</span>
+            <span class="nav-counter-chip" id="activity-badge-count">2</span>
+          </button>
+          <button class="nav-tab" data-target="view-closet">
+            <span class="nav-num">04</span>
+            <span class="nav-label">MY CLOSET & SAVED</span>
           </button>
         </div>
-      </header>
+        
+        <div class="nav-quick-filters">
+          <span class="filter-quick-label">COMMERCIAL JUMP:</span>
+          <button class="nav-chip-filter" onclick="quickFilterParadigm('fixed-price')">🔒 FIXED PRICE (TIERS 1-3)</button>
+          <button class="nav-chip-filter chip-bids" onclick="quickFilterParadigm('live-bids')">🔥 LIVE BIDS (TIERS 4-5)</button>
+        </div>
+      </nav>
+    </header>
 
-      <!-- MAIN TAB CONTENT VIEWS -->
-      <main class="app-main">
 
-        <!-- ============================================== -->
-        <!-- TAB 1: DISCOVER VIEW                           -->
-        <!-- ============================================== -->
-        <section id="view-discover" class="tab-view active">
+    <!-- ============================================================== -->
+    <!-- MAIN TAB CONTENT VIEWS                                         -->
+    <!-- ============================================================== -->
+    <main class="app-main">
+
+      <!-- ============================================================ -->
+      <!-- TAB 1: DISCOVER VIEW (DESKTOP EDITORIAL ASYMMETRIC ZINE)      -->
+      <!-- ============================================================ -->
+      <section id="view-discover" class="tab-view active">
+        
+        <!-- CAMPUS DROP EVENT BROADCAST BEACON (SOLID CARMINE RED WITH WARM BEIGE INVERSION) -->
+        <div class="campus-broadcast-beacon" id="campus-drop-banner">
+          <div class="tape-strip"></div>
+          <div class="beacon-top-row">
+            <span class="beacon-live-badge"><span class="live-dot"></span> ✳ CAMPUS DROP BEACON • NIFT HYDERABAD</span>
+            <span class="beacon-timer-box" id="drop-timer-countdown">FRIDAY • 1:30 PM</span>
+          </div>
+          <div class="beacon-headline-wrap">
+            <h2 class="beacon-headline">
+              COURTYARD THRIFT MEET <span class="script-accent-beige">Lunch Drop</span>
+            </h2>
+          </div>
+          <p class="beacon-details">
+            📍 <strong>Canteen Amphitheatre Steps & Textile Lawns</strong>. All NIFT buyers, sellers & barterers gather face-to-face during Friday lunch break. 100% Daylight inspection before payment. Zero packaging waste. Zero courier delays.
+          </p>
+          <div class="beacon-action-row">
+            <span class="beacon-rsvp-box">👥 <strong>42 students</strong> RSVP'd from FC, FD, TD, AD, KD</span>
+            <button class="btn-beacon-rsvp" id="btn-rsvp-drop">RSVP & VIEW DROP ZONE</button>
+          </div>
+        </div>
+
+        <!-- Curated Pills Scroll -->
+        <div class="curated-pills-scroll">
+          <button class="curated-pill active" data-curated="all">✳ ALL CAMPUS DROPS</button>
+          <button class="curated-pill" data-curated="fixed-price">🔒 FIXED PRICE (TIERS 1-3)</button>
+          <button class="curated-pill red-pill" data-curated="live-bids">🔥 LIVE BIDS (TIERS 4-5)</button>
+          <button class="curated-pill" data-curated="swaps-only">⇄ OPEN FOR SWAP</button>
+          <button class="curated-pill" data-curated="under-800">⚡ UNDER ₹800</button>
+          <button class="curated-pill" data-curated="y2k">#Y2K ARCHIVE</button>
+          <button class="curated-pill" data-curated="fc-dept">FASHION COMM (FC)</button>
+          <button class="curated-pill" data-curated="fd-dept">FASHION DESIGN (FD)</button>
+        </div>
+
+        <!-- Category Horizontal Chips Bar -->
+        <div class="category-chips-bar">
+          <button class="cat-chip active" data-category="all">ALL</button>
+          <button class="cat-chip" data-category="Tops">TOPS</button>
+          <button class="cat-chip" data-category="Bottoms">BOTTOMS</button>
+          <button class="cat-chip" data-category="Outerwear">OUTERWEAR</button>
+          <button class="cat-chip" data-category="Dresses">DRESSES</button>
+          <button class="cat-chip" data-category="Indian / Ethnic Wear">ETHNIC WEAR</button>
+          <button class="cat-chip" data-category="Footwear">FOOTWEAR</button>
+          <button class="cat-chip" data-category="Bags">BAGS</button>
+          <button class="cat-chip" data-category="Accessories">ACCESSORIES</button>
+        </div>
+
+        <!-- Feed Section Header with Spliced Cursive Type -->
+        <div class="feed-section-header">
+          <div class="feed-title-spliced">
+            <span class="title-lead">CAMPUS ARCHIVE</span>
+            <span class="title-script">Feed</span>
+          </div>
+          <span class="feed-counter" id="feed-item-count">8 PIECES CIRCULATING</span>
+        </div>
+
+        <!-- Asymmetric Editorial Product Grid (Populated via app.js) -->
+        <div class="product-grid" id="discover-product-grid">
+          <!-- Dynamically populated via app.js with lookbook breaks and tape crosses -->
+        </div>
+
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- TAB 2: SEARCH & FILTER VIEW (DESKTOP 2-COLUMN ATELIER SEARCH)  -->
+      <!-- ============================================================ -->
+      <section id="view-search" class="tab-view">
+        <div class="search-panel">
           
-          <!-- CAMPUS DROP EVENT BROADCAST BEACON (SOLID RED BLOCK WITH BEIGE INVERSION) -->
-          <div class="campus-broadcast-beacon" id="campus-drop-banner">
-            <div class="beacon-top-row">
-              <span class="beacon-live-badge"><span class="live-dot"></span> ✳ CAMPUS DROP BEACON</span>
-              <span class="beacon-timer-box" id="drop-timer-countdown">FRIDAY • 1:30 PM</span>
-            </div>
-            <h2 class="beacon-headline">COURTYARD THRIFT MEET</h2>
-            <p class="beacon-details">
-              📍 <strong>Canteen Amphitheatre Steps</strong>. All NIFT buyers & sellers meet during lunch break. In-person daylight inspection. Zero packaging. Zero shipping.
-            </p>
-            <div class="beacon-action-row">
-              <span class="beacon-rsvp-box">👥 <strong>42 students</strong> RSVP'd</span>
-              <button class="btn-beacon-rsvp" id="btn-rsvp-drop">RSVP & DROP ZONE</button>
-            </div>
-          </div>
-
-          <!-- Quick Curated & Pricing Paradigm Filters -->
-          <div class="curated-pills-scroll">
-            <button class="curated-pill active" data-curated="all">✳ ALL DROPS</button>
-            <button class="curated-pill" data-curated="fixed-price">🔒 FIXED PRICE (TIERS 1-3)</button>
-            <button class="curated-pill red-pill" data-curated="live-bids">🔥 LIVE BIDS (TIERS 4-5)</button>
-            <button class="curated-pill" data-curated="swaps-only">⇄ OPEN FOR SWAP</button>
-            <button class="curated-pill" data-curated="under-800">⚡ UNDER ₹800</button>
-            <button class="curated-pill" data-curated="y2k">#Y2K ARCHIVE</button>
-            <button class="curated-pill" data-curated="fc-dept">FASHION COMM (FC)</button>
-            <button class="curated-pill" data-curated="fd-dept">FASHION DESIGN (FD)</button>
-          </div>
-
-          <!-- Category Horizontal Carousel -->
-          <div class="category-chips-bar">
-            <button class="cat-chip active" data-category="all">ALL</button>
-            <button class="cat-chip" data-category="Tops">TOPS</button>
-            <button class="cat-chip" data-category="Bottoms">BOTTOMS</button>
-            <button class="cat-chip" data-category="Outerwear">OUTERWEAR</button>
-            <button class="cat-chip" data-category="Dresses">DRESSES</button>
-            <button class="cat-chip" data-category="Indian / Ethnic Wear">ETHNIC WEAR</button>
-            <button class="cat-chip" data-category="Footwear">FOOTWEAR</button>
-            <button class="cat-chip" data-category="Bags">BAGS</button>
-            <button class="cat-chip" data-category="Accessories">ACCESSORIES</button>
-          </div>
-
-          <!-- Section Label with Counter -->
-          <div class="feed-section-header">
-            <span class="section-title">THE CAMPUS CLOSET FEED</span>
-            <span class="feed-counter" id="feed-item-count">8 PIECES</span>
-          </div>
-
-          <!-- 2-Column Editorial Product Grid (DAZED & KRONGAUZ SCRAPBOOK CARDS) -->
-          <div class="product-grid" id="discover-product-grid">
-            <!-- Dynamically populated via app.js -->
-          </div>
-        </section>
-
-
-        <!-- ============================================== -->
-        <!-- TAB 2: SEARCH & FILTER VIEW                    -->
-        <!-- ============================================== -->
-        <section id="view-search" class="tab-view">
-          <div class="search-panel">
+          <!-- Left Sticky Filter Sidebar -->
+          <div class="search-sidebar">
             <div class="search-input-wrapper">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               <input type="text" id="search-input" placeholder="Search brands, NIFT closets, aesthetics...">
               <button id="search-clear-btn" class="clear-btn">&times;</button>
             </div>
 
-            <!-- Taxonomy & Pricing Paradigm Filter Controls -->
-            <div class="filter-controls-card">
-              
-              <!-- Pricing Model Segmentation -->
-              <div class="filter-group">
-                <label class="filter-label">COMMERCIAL PARADIGM</label>
-                <div class="filter-options-wrap" id="search-pricing-paradigm">
-                  <button class="toggle-filter-chip active" data-paradigm="all">ALL</button>
-                  <button class="toggle-filter-chip" data-paradigm="fixed">FIXED PRICE (TIERS 1-3)</button>
-                  <button class="toggle-filter-chip chip-red" data-paradigm="bidding">🔥 LIVE BIDS (TIERS 4-5)</button>
-                </div>
-              </div>
-
-              <div class="filter-group">
-                <label class="filter-label">CONDITION TIER</label>
-                <div class="filter-options-wrap" id="search-condition-filters">
-                  <button class="toggle-filter-chip active" data-condition="all">ANY</button>
-                  <button class="toggle-filter-chip" data-condition="New / Unworn">NEW / UNWORN</button>
-                  <button class="toggle-filter-chip" data-condition="Like New">LIKE NEW</button>
-                  <button class="toggle-filter-chip" data-condition="Gently Used">GENTLY USED</button>
-                  <button class="toggle-filter-chip" data-condition="Well Used">WELL USED [BID]</button>
-                  <button class="toggle-filter-chip" data-condition="Visible Wear / Flaws">FLAWED [AUCTION]</button>
-                </div>
-              </div>
-
-              <div class="filter-group">
-                <label class="filter-label">NIFT DEPARTMENT</label>
-                <select id="search-dept-select" class="form-select">
-                  <option value="all">ALL CAMPUS DEPARTMENTS</option>
-                  <option value="FC">FASHION COMMUNICATION (FC)</option>
-                  <option value="FD">FASHION DESIGN (FD)</option>
-                  <option value="TD">TEXTILE DESIGN (TD)</option>
-                  <option value="AD">ACCESSORY DESIGN (AD)</option>
-                  <option value="KD">KNITWEAR DESIGN (KD)</option>
-                </select>
-              </div>
-
-              <div class="filter-group">
-                <label class="filter-label">BARTER / SWAP (⇄)</label>
-                <div class="toggle-switch-row">
-                  <span>Only items open for Wardrobe Swap</span>
-                  <label class="switch">
-                    <input type="checkbox" id="filter-swap-toggle">
-                    <span class="slider round"></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="filter-group">
-                <label class="filter-label">MAX PRICE / START BID: <span id="price-slider-display" class="price-val-highlight">₹4,000</span></label>
-                <input type="range" id="price-slider" min="200" max="4000" step="100" value="4000">
-              </div>
-
-              <!-- Contextual Category Filter -->
-              <div class="filter-group">
-                <label class="filter-label">GARMENT CATEGORY</label>
-                <select id="search-category-select" class="form-select">
-                  <option value="all">ALL CATEGORIES</option>
-                  <option value="Tops">TOPS</option>
-                  <option value="Bottoms">BOTTOMS</option>
-                  <option value="Outerwear">OUTERWEAR</option>
-                  <option value="Dresses">DRESSES</option>
-                  <option value="Indian / Ethnic Wear">INDIAN / ETHNIC WEAR</option>
-                  <option value="Footwear">FOOTWEAR</option>
-                  <option value="Bags">BAGS</option>
-                  <option value="Accessories">ACCESSORIES</option>
-                </select>
-              </div>
-
-              <!-- Contextual Measurement Filter -->
-              <div class="filter-group contextual-measurement-box" id="contextual-filter-bottoms" style="display:none;">
-                <label class="filter-label">WAIST RANGE (BOTTOMS)</label>
-                <div class="range-inputs-row">
-                  <input type="number" id="filter-waist-min" placeholder="Min (26&quot;)" class="form-input-sm">
-                  <span>to</span>
-                  <input type="number" id="filter-waist-max" placeholder="Max (32&quot;)" class="form-input-sm">
-                </div>
+            <!-- Pricing Model Segmentation -->
+            <div class="filter-group">
+              <label class="filter-label">COMMERCIAL PARADIGM</label>
+              <div class="filter-options-wrap" id="search-pricing-paradigm">
+                <button class="toggle-filter-chip active" data-paradigm="all">ALL</button>
+                <button class="toggle-filter-chip" data-paradigm="fixed">FIXED PRICE (TIERS 1-3)</button>
+                <button class="toggle-filter-chip chip-red" data-paradigm="bidding">🔥 LIVE BIDS (TIERS 4-5)</button>
               </div>
             </div>
 
-            <!-- Search Results Stream -->
-            <div class="search-results-summary">
-              <span id="search-results-count">RESULTS</span>
+            <!-- Condition Rubric Tiers -->
+            <div class="filter-group">
+              <label class="filter-label">CONDITION TIER</label>
+              <div class="filter-options-wrap" id="search-condition-filters">
+                <button class="toggle-filter-chip active" data-condition="all">ANY</button>
+                <button class="toggle-filter-chip" data-condition="New / Unworn">NEW / UNWORN</button>
+                <button class="toggle-filter-chip" data-condition="Like New">LIKE NEW</button>
+                <button class="toggle-filter-chip" data-condition="Gently Used">GENTLY USED</button>
+                <button class="toggle-filter-chip" data-condition="Well Used">WELL USED [BID]</button>
+                <button class="toggle-filter-chip" data-condition="Visible Wear / Flaws">FLAWED [BID]</button>
+              </div>
             </div>
-            <div class="product-grid" id="search-product-grid"></div>
+
+            <!-- NIFT Campus Department Filter -->
+            <div class="filter-group">
+              <label class="filter-label">NIFT DEPARTMENT</label>
+              <select id="search-dept-select" class="form-select">
+                <option value="all">ALL CAMPUS DEPARTMENTS</option>
+                <option value="FC">FASHION COMMUNICATION (FC)</option>
+                <option value="FD">FASHION DESIGN (FD)</option>
+                <option value="TD">TEXTILE DESIGN (TD)</option>
+                <option value="AD">ACCESSORY DESIGN (AD)</option>
+                <option value="KD">KNITWEAR DESIGN (KD)</option>
+              </select>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="filter-group">
+              <label class="filter-label">GARMENT CATEGORY</label>
+              <select id="search-category-select" class="form-select">
+                <option value="all">ALL CATEGORIES</option>
+                <option value="Tops">TOPS</option>
+                <option value="Bottoms">BOTTOMS</option>
+                <option value="Outerwear">OUTERWEAR</option>
+                <option value="Dresses">DRESSES</option>
+                <option value="Indian / Ethnic Wear">INDIAN / ETHNIC WEAR</option>
+                <option value="Footwear">FOOTWEAR</option>
+                <option value="Bags">BAGS</option>
+                <option value="Accessories">ACCESSORIES</option>
+              </select>
+            </div>
+
+            <!-- Swap Only Toggle -->
+            <div class="filter-group">
+              <label class="filter-label">BARTER / SWAP (⇄)</label>
+              <div class="toggle-switch-row">
+                <input type="checkbox" id="filter-swap-toggle">
+                <span>Only pieces open for Wardrobe Swap</span>
+              </div>
+            </div>
+
+            <!-- Price Slider -->
+            <div class="filter-group">
+              <label class="filter-label">MAX PRICE / START BID</label>
+              <div class="price-slider-row">
+                <input type="range" id="price-slider" class="range-slider" min="200" max="4000" step="100" value="4000">
+                <span id="price-slider-display" class="price-val-badge">₹4,000</span>
+              </div>
+            </div>
+
+            <!-- Contextual Bottoms Waist Filter -->
+            <div class="filter-group" id="contextual-filter-bottoms" style="display:none;">
+              <label class="filter-label">WAIST RANGE (BOTTOMS)</label>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <input type="number" id="filter-waist-min" placeholder="Min 26&quot;" class="form-input" style="padding:6px;">
+                <span>to</span>
+                <input type="number" id="filter-waist-max" placeholder="Max 34&quot;" class="form-input" style="padding:6px;">
+              </div>
+            </div>
+
           </div>
-        </section>
+
+          <!-- Right Search Results Column -->
+          <div class="search-results-col">
+            <div class="search-results-header">
+              <span class="feed-counter" id="search-results-count">SEARCH RESULTS</span>
+            </div>
+            <div class="product-grid" id="search-product-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+        </div>
+      </section>
 
 
-        <!-- ============================================== -->
-        <!-- TAB 3: SELL (6-STEP GUIDED WIZARD)             -->
-        <!-- ============================================== -->
-        <section id="view-sell" class="tab-view">
-          <div class="wizard-container">
-            
-            <!-- Wizard Progress Header -->
-            <div class="wizard-header">
-              <div class="wizard-progress-bar">
-                <div class="wizard-progress-fill" id="wizard-progress-fill"></div>
+      <!-- ============================================================ -->
+      <!-- TAB 3: SELL STUDIO (6-STEP GUIDED ATELIER WIZARD)            -->
+      <!-- ============================================================ -->
+      <section id="view-sell" class="tab-view">
+        <div class="wizard-container">
+          
+          <!-- Wizard Progress Header -->
+          <div class="wizard-header">
+            <div class="wizard-progress-bar">
+              <div class="wizard-progress-fill" id="wizard-progress-fill"></div>
+            </div>
+            <div class="wizard-step-indicator">
+              <span id="wizard-step-title">STEP 1: CURATE PHOTOS</span>
+              <span id="wizard-step-counter">1 of 6</span>
+            </div>
+          </div>
+
+          <form id="sell-wizard-form" onsubmit="return false;">
+
+            <!-- STEP 1: Photos & Flaw Disclosure -->
+            <div class="wizard-step-pane active" data-step="1">
+              <h3 class="step-pane-heading">UPLOAD GARMENT PHOTOS</h3>
+              <p class="step-pane-sub">Studio lighting or campus sunlight. Front, back, label, and flaws.</p>
+
+              <div class="photo-uploader-grid">
+                <div class="photo-slot">
+                  <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80" alt="Front">
+                  <span class="slot-badge">FRONT (HERO)</span>
+                </div>
+                <div class="photo-slot">
+                  <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80" alt="Back">
+                  <span class="slot-badge">BACK</span>
+                </div>
+                <div class="photo-slot">
+                  <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&q=80" alt="Label">
+                  <span class="slot-badge">LABEL</span>
+                </div>
+                <div class="photo-slot">
+                  <div class="slot-placeholder">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span>FLAW DETAIL (TIER 5)</span>
+                  </div>
+                </div>
               </div>
-              <div class="wizard-step-indicator">
-                <span id="wizard-step-title">STEP 1: CURATE PHOTOS</span>
-                <span id="wizard-step-counter">1 of 6</span>
+              <div class="helper-note-zine">
+                <span>✳ RULE: Pieces in Tiers 1–3 are sold at Direct Fixed Price. Tiers 4 & 5 enter Campus Live Bidding!</span>
               </div>
             </div>
 
-            <form id="sell-wizard-form" onsubmit="return false;">
+            <!-- STEP 2: Basic Identity -->
+            <div class="wizard-step-pane" data-step="2">
+              <h3 class="step-pane-heading">GARMENT IDENTITY</h3>
+              <p class="step-pane-sub">Tell fellow NIFT students what piece you are circulating.</p>
 
-              <!-- STEP 1: Photos & Flaw Disclosure -->
-              <div class="wizard-step-pane active" data-step="1">
-                <h3 class="step-pane-heading">UPLOAD GARMENT PHOTOS</h3>
-                <p class="step-pane-sub">Studio lighting or natural campus sunlight. Front, back, label, and flaws.</p>
-
-                <div class="photo-uploader-grid">
-                  <div class="photo-slot primary-slot">
-                    <img id="preview-photo-1" src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80" alt="Front angle">
-                    <span class="slot-badge">FRONT (HERO)</span>
-                  </div>
-                  <div class="photo-slot">
-                    <img id="preview-photo-2" src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80" alt="Back angle">
-                    <span class="slot-badge">BACK</span>
-                  </div>
-                  <div class="photo-slot">
-                    <img id="preview-photo-3" src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&q=80" alt="Fabric label">
-                    <span class="slot-badge">LABEL</span>
-                  </div>
-                  <div class="photo-slot flaw-slot" id="flaw-photo-slot">
-                    <div class="slot-placeholder">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                      <span>FLAW PHOTO (MANDATORY IF TIER 5)</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="helper-note-zine">
-                  <span>✳ RULE: Pieces in Tiers 1–3 are sold at Direct Fixed Price. Tiers 4 & 5 enter Campus Live Bidding!</span>
-                </div>
+              <div class="form-field">
+                <label class="form-label">TITLE / HEADLINE *</label>
+                <input type="text" id="sell-title" class="form-input" placeholder="e.g. Cropped Workwear Canvas Jacket" value="Vintage Boxy Workwear Canvas Jacket">
               </div>
 
-              <!-- STEP 2: Basic Identity -->
-              <div class="wizard-step-pane" data-step="2">
-                <h3 class="step-pane-heading">GARMENT IDENTITY</h3>
-                <p class="step-pane-sub">Tell fellow NIFT students what piece you are circulating.</p>
-
+              <div class="form-field-row">
                 <div class="form-field">
-                  <label class="form-label">TITLE / HEADLINE *</label>
-                  <input type="text" id="sell-title" class="form-input" placeholder="e.g. Cropped Workwear Canvas Jacket" value="Vintage Boxy Workwear Canvas Jacket">
-                </div>
-
-                <div class="form-field-row">
-                  <div class="form-field">
-                    <label class="form-label">CATEGORY *</label>
-                    <select id="sell-category" class="form-select">
-                      <option value="Outerwear" selected>OUTERWEAR</option>
-                      <option value="Tops">TOPS</option>
-                      <option value="Bottoms">BOTTOMS</option>
-                      <option value="Dresses">DRESSES</option>
-                      <option value="Indian / Ethnic Wear">INDIAN / ETHNIC WEAR</option>
-                      <option value="Footwear">FOOTWEAR</option>
-                      <option value="Bags">BAGS</option>
-                      <option value="Accessories">ACCESSORIES</option>
-                    </select>
-                  </div>
-                  <div class="form-field">
-                    <label class="form-label">BRAND / ARCHIVE *</label>
-                    <input type="text" id="sell-brand" class="form-input" placeholder="e.g. Carhartt / Vintage / Studio" value="Carhartt">
-                  </div>
-                </div>
-
-                <div class="form-field">
-                  <label class="form-label">YOUR NIFT DEPARTMENT</label>
-                  <select id="sell-dept" class="form-select">
-                    <option value="Fashion Communication (FC)" selected>FASHION COMMUNICATION (FC)</option>
-                    <option value="Fashion Design (FD)">FASHION DESIGN (FD)</option>
-                    <option value="Textile Design (TD)">TEXTILE DESIGN (TD)</option>
-                    <option value="Accessory Design (AD)">ACCESSORY DESIGN (AD)</option>
-                    <option value="Knitwear Design (KD)">KNITWEAR DESIGN (KD)</option>
+                  <label class="form-label">CATEGORY *</label>
+                  <select id="sell-category" class="form-select">
+                    <option value="Outerwear" selected>OUTERWEAR</option>
+                    <option value="Tops">TOPS</option>
+                    <option value="Bottoms">BOTTOMS</option>
+                    <option value="Dresses">DRESSES</option>
+                    <option value="Indian / Ethnic Wear">INDIAN / ETHNIC WEAR</option>
+                    <option value="Footwear">FOOTWEAR</option>
+                    <option value="Bags">BAGS</option>
+                    <option value="Accessories">ACCESSORIES</option>
                   </select>
                 </div>
-
                 <div class="form-field">
-                  <label class="form-label">AESTHETIC TAGS</label>
-                  <div class="tag-selector-row">
-                    <label class="tag-checkbox"><input type="checkbox" name="sell-tags" value="Y2K / Archive"> <span>#Y2K ARCHIVE</span></label>
-                    <label class="tag-checkbox"><input type="checkbox" name="sell-tags" value="Streetwear" checked> <span>#STREETWEAR</span></label>
-                    <label class="tag-checkbox"><input type="checkbox" name="sell-tags" value="Minimal"> <span>#MINIMAL</span></label>
-                    <label class="tag-checkbox"><input type="checkbox" name="sell-tags" value="Handloom"> <span>#HANDLOOM</span></label>
-                  </div>
+                  <label class="form-label">BRAND / ARCHIVE *</label>
+                  <input type="text" id="sell-brand" class="form-input" placeholder="e.g. Carhartt / Vintage / Studio" value="Carhartt">
                 </div>
               </div>
 
-              <!-- STEP 3: Condition & Dynamic Fit Measurements -->
-              <div class="wizard-step-pane" data-step="3">
-                <h3 class="step-pane-heading">CONDITION & PRICING TRACK</h3>
-                <p class="step-pane-sub">Condition determines whether your item has a Fixed Price or enters Live Bidding.</p>
-
-                <!-- 5-Tier Condition Selector with Paradigm Badges -->
-                <div class="form-field">
-                  <label class="form-label">5-TIER CONDITION RUBRIC *</label>
-                  <div class="condition-picker-grid">
-                    <label class="condition-radio">
-                      <input type="radio" name="sell-condition" value="New / Unworn" data-paradigm="fixed">
-                      <div class="condition-box">
-                        <span class="cond-name">1. NEW / UNWORN</span>
-                        <span class="cond-badge-tag fixed">🔒 FIXED PRICE</span>
-                      </div>
-                    </label>
-                    <label class="condition-radio">
-                      <input type="radio" name="sell-condition" value="Like New" data-paradigm="fixed">
-                      <div class="condition-box">
-                        <span class="cond-name">2. LIKE NEW</span>
-                        <span class="cond-badge-tag fixed">🔒 FIXED PRICE</span>
-                      </div>
-                    </label>
-                    <label class="condition-radio">
-                      <input type="radio" name="sell-condition" value="Gently Used" data-paradigm="fixed" checked>
-                      <div class="condition-box">
-                        <span class="cond-name">3. GENTLY USED</span>
-                        <span class="cond-badge-tag fixed">🔒 FIXED PRICE</span>
-                      </div>
-                    </label>
-                    <label class="condition-radio">
-                      <input type="radio" name="sell-condition" value="Well Used" data-paradigm="bidding">
-                      <div class="condition-box">
-                        <span class="cond-name">4. WELL USED</span>
-                        <span class="cond-badge-tag bidding">🔥 LIVE BIDDING</span>
-                      </div>
-                    </label>
-                    <label class="condition-radio">
-                      <input type="radio" name="sell-condition" value="Visible Wear / Flaws" data-paradigm="bidding">
-                      <div class="condition-box">
-                        <span class="cond-name">5. VISIBLE FLAWS</span>
-                        <span class="cond-badge-tag bidding">🔥 LIVE BIDDING</span>
-                      </div>
-                    </label>
-                  </div>
-                </div>
-
-                <div class="form-field">
-                  <label class="form-label">FLAW DISCLOSURE (MANDATORY FOR TIERS 4 & 5)</label>
-                  <input type="text" id="sell-flaws" class="form-input" placeholder="e.g. Minor 2mm cuff distress; clean studio piece" value="Slight distress on left cuff seam; clean pre-washed">
-                </div>
-
-                <div class="form-field-row">
-                  <div class="form-field">
-                    <label class="form-label">LABEL SIZE *</label>
-                    <input type="text" id="sell-label-size" class="form-input" placeholder="e.g. M / L / 32" value="Size L (Fits Boxy M)">
-                  </div>
-                </div>
-
-                <!-- Dynamic Flat-Lay Fields (Changes with Category) -->
-                <div class="dynamic-measurements-panel">
-                  <div class="dynamic-meas-header">
-                    <span class="meas-title">FLAT-LAY FIT SPECS (INCHES)</span>
-                    <span class="meas-badge" id="meas-cat-label">OUTERWEAR</span>
-                  </div>
-                  <div class="dynamic-fields-grid" id="dynamic-meas-inputs">
-                    <!-- Populated via JS based on selected category -->
-                  </div>
-                </div>
+              <div class="form-field">
+                <label class="form-label">YOUR NIFT DEPARTMENT</label>
+                <select id="sell-dept" class="form-select">
+                  <option value="Fashion Communication (FC)" selected>FASHION COMMUNICATION (FC)</option>
+                  <option value="Fashion Design (FD)">FASHION DESIGN (FD)</option>
+                  <option value="Textile Design (TD)">TEXTILE DESIGN (TD)</option>
+                  <option value="Accessory Design (AD)">ACCESSORY DESIGN (AD)</option>
+                  <option value="Knitwear Design (KD)">KNITWEAR DESIGN (KD)</option>
+                </select>
               </div>
+            </div>
 
-              <!-- STEP 4: Pricing / Bidding Setup & Swap -->
-              <div class="wizard-step-pane" data-step="4">
-                <h3 class="step-pane-heading" id="pricing-step-title">COMMERCIAL TERMS</h3>
-                <p class="step-pane-sub" id="pricing-step-sub">Set your pricing parameters for the NIFT community.</p>
+            <!-- STEP 3: Condition & Dynamic Fit Measurements -->
+            <div class="wizard-step-pane" data-step="3">
+              <h3 class="step-pane-heading">CONDITION & PRICING TRACK</h3>
+              <p class="step-pane-sub">Condition determines whether your item has a Fixed Price or enters Live Bidding.</p>
 
-                <!-- Inverted Block on Demand -->
-                <div class="form-field" id="pricing-mode-box">
-                  <label class="form-label" id="price-input-label">DIRECT FIXED PRICE (₹ INR) *</label>
-                  <div class="price-input-wrap">
-                    <span class="currency-symbol">₹</span>
-                    <input type="number" id="sell-price" class="form-input price-input" value="1800">
-                  </div>
-                  <p class="pricing-explainer" id="price-mode-explainer">
-                    🔒 Tiers 1–3 use Direct Fixed Pricing: Buyers cannot bargain or lowball. They purchase immediately at your stated price.
-                  </p>
-                </div>
-
-                <div class="exchange-toggle-card">
-                  <div class="exchange-toggle-info">
-                    <div class="toggle-title-row">
-                      <span class="exchange-icon">⇄</span>
-                      <h4>AVAILABLE FOR CAMPUS WARDROBE SWAP</h4>
-                    </div>
-                    <p>Allow fellow students to propose an item from their closet (+ optional cash adjustment).</p>
-                  </div>
-                  <label class="switch">
-                    <input type="checkbox" id="sell-exchange-toggle" checked>
-                    <span class="slider round"></span>
+              <div class="form-field">
+                <label class="form-label">5-TIER CONDITION RUBRIC *</label>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
+                    <input type="radio" name="sell-condition" value="New / Unworn" data-paradigm="fixed">
+                    <span style="font-weight:700; font-size:12px; display:block;">1. NEW / UNWORN</span>
+                    <span style="font-size:10px; color:var(--text-muted);">🔒 Fixed Price</span>
+                  </label>
+                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
+                    <input type="radio" name="sell-condition" value="Like New" data-paradigm="fixed">
+                    <span style="font-weight:700; font-size:12px; display:block;">2. LIKE NEW</span>
+                    <span style="font-size:10px; color:var(--text-muted);">🔒 Fixed Price</span>
+                  </label>
+                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
+                    <input type="radio" name="sell-condition" value="Gently Used" data-paradigm="fixed" checked>
+                    <span style="font-weight:700; font-size:12px; display:block;">3. GENTLY USED</span>
+                    <span style="font-size:10px; color:var(--text-muted);">🔒 Fixed Price</span>
+                  </label>
+                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
+                    <input type="radio" name="sell-condition" value="Well Used" data-paradigm="bidding">
+                    <span style="font-weight:700; font-size:12px; display:block; color:var(--red-carmine);">4. WELL USED</span>
+                    <span style="font-size:10px; color:var(--red-carmine);">🔥 Live Bidding</span>
+                  </label>
+                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
+                    <input type="radio" name="sell-condition" value="Visible Wear / Flaws" data-paradigm="bidding">
+                    <span style="font-weight:700; font-size:12px; display:block; color:var(--red-carmine);">5. VISIBLE FLAWS</span>
+                    <span style="font-size:10px; color:var(--red-carmine);">🔥 Live Bidding</span>
                   </label>
                 </div>
-
-                <div class="form-field" id="exchange-notes-field">
-                  <label class="form-label">SWAP PREFERENCES (OPTIONAL)</label>
-                  <input type="text" id="sell-trade-notes" class="form-input" placeholder="e.g. Open to trade for raw denim or chunky loafers" value="Looking for raw denim or chunky loafers">
-                </div>
               </div>
 
-              <!-- STEP 5: Campus Event Drop Zones (Zero Courier) -->
-              <div class="wizard-step-pane" data-step="5">
-                <h3 class="step-pane-heading">CAMPUS DROP ZONES</h3>
-                <p class="step-pane-sub">No courier parcel shipping. Select where on campus you will meet during break drops:</p>
-
-                <div class="fulfillment-options-list">
-                  <label class="fulfillment-check-card">
-                    <input type="checkbox" id="drop-zone-canteen" checked>
-                    <div class="fulfill-text">
-                      <span class="fulfill-name">📍 CANTEEN AMPHITHEATRE & STEPS (CAMPUS MAIN HUB)</span>
-                      <span class="fulfill-desc">Active during 1:15 PM – 2:00 PM Friday lunch break thrift drops.</span>
-                    </div>
-                  </label>
-                  <label class="fulfillment-check-card">
-                    <input type="checkbox" id="drop-zone-textile" checked>
-                    <div class="fulfill-text">
-                      <span class="fulfill-name">📍 TEXTILE DEPARTMENT LAWN & CORRIDORS</span>
-                      <span class="fulfill-desc">Ideal for quick studio break handoffs.</span>
-                    </div>
-                  </label>
-                  <label class="fulfillment-check-card">
-                    <input type="checkbox" id="drop-zone-library" checked>
-                    <div class="fulfill-text">
-                      <span class="fulfill-name">📍 RESOURCE CENTRE / LIBRARY LOBBY</span>
-                      <span class="fulfill-desc">Quiet indoor meeting spot for detailed inspection.</span>
-                    </div>
-                  </label>
-                </div>
-
-                <div class="helper-note-zine" style="margin-top: 14px;">
-                  <span>✳ ZERO PACKAGING WASTE: Transactions execute directly face-to-face during campus break drops!</span>
-                </div>
+              <div class="form-field">
+                <label class="form-label">FLAW DISCLOSURE</label>
+                <input type="text" id="sell-flaws" class="form-input" placeholder="e.g. Minor 2mm cuff distress; clean studio piece" value="Slight distress on left cuff seam; clean pre-washed">
               </div>
 
-              <!-- STEP 6: Editorial Preview & Publish -->
-              <div class="wizard-step-pane" data-step="6">
-                <h3 class="step-pane-heading">EDITORIAL PREVIEW</h3>
-                <p class="step-pane-sub">Review how your garment card appears in the NIFT Hyderabad feed.</p>
-
-                <div class="preview-card-wrapper" id="wizard-preview-container">
-                  <!-- Live preview injected by app.js -->
-                </div>
-
-                <div class="publish-success-banner" id="wizard-success-msg" style="display:none;">
-                  ✓ Piece curated & broadcasted to NIFT Campus!
-                </div>
+              <div class="form-field">
+                <label class="form-label">LABEL SIZE *</label>
+                <input type="text" id="sell-label-size" class="form-input" placeholder="e.g. M / L / 32" value="Size L (Fits Boxy M)">
               </div>
 
-              <!-- Wizard Sticky Controls Navigation -->
-              <div class="wizard-nav-bar">
-                <button type="button" class="btn btn-secondary" id="wizard-prev-btn" style="visibility:hidden;">BACK</button>
-                <button type="button" class="btn btn-primary" id="wizard-next-btn">NEXT STEP</button>
+              <div class="form-field">
+                <label class="form-label">FLAT-LAY FIT MEASUREMENTS (<span id="meas-cat-label">OUTERWEAR</span>)</label>
+                <div class="form-field-row" id="dynamic-meas-inputs">
+                  <!-- Populated via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4: Pricing / Bidding Setup & Swap -->
+            <div class="wizard-step-pane" data-step="4">
+              <h3 class="step-pane-heading" id="pricing-step-title">COMMERCIAL TERMS</h3>
+              <p class="step-pane-sub">Set your pricing parameters for the NIFT community.</p>
+
+              <div class="form-field">
+                <label class="form-label" id="price-input-label">DIRECT FIXED PRICE (₹ INR) *</label>
+                <div style="position:relative;">
+                  <span style="position:absolute; left:12px; top:12px; font-weight:700;">₹</span>
+                  <input type="number" id="sell-price" class="form-input" style="padding-left:28px;" value="1800">
+                </div>
+                <p style="font-size:12px; color:var(--text-muted); margin-top:6px;" id="price-mode-explainer">
+                  🔒 Tiers 1–3 use Direct Fixed Pricing: Buyers cannot bargain or lowball. They purchase immediately at your stated price.
+                </p>
               </div>
 
-            </form>
+              <div class="form-field" style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:16px; border-radius:4px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div>
+                    <h4 style="font-family:var(--font-display); font-size:16px;">⇄ AVAILABLE FOR WARDROBE SWAP</h4>
+                    <p style="font-size:12px; color:var(--text-muted);">Allow fellow students to propose an item from their closet (+ cash adjustment).</p>
+                  </div>
+                  <input type="checkbox" id="sell-exchange-toggle" checked style="width:20px; height:20px; accent-color:var(--red-carmine);">
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 5: Campus Event Drop Zones (Zero Courier) -->
+            <div class="wizard-step-pane" data-step="5">
+              <h3 class="step-pane-heading">CAMPUS DROP ZONES</h3>
+              <p class="step-pane-sub">No courier parcel shipping. Select where on campus you will meet during break drops:</p>
+
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:14px; display:flex; gap:12px; align-items:center; border-radius:4px;">
+                  <input type="checkbox" checked style="accent-color:var(--red-carmine); width:18px; height:18px;">
+                  <div>
+                    <strong style="font-size:13px; font-family:var(--font-mono);">📍 CANTEEN AMPHITHEATRE & STEPS (CAMPUS MAIN HUB)</strong>
+                    <div style="font-size:12px; color:var(--text-muted);">Active during 1:15 PM – 2:00 PM Friday lunch break thrift drops.</div>
+                  </div>
+                </label>
+                <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:14px; display:flex; gap:12px; align-items:center; border-radius:4px;">
+                  <input type="checkbox" checked style="accent-color:var(--red-carmine); width:18px; height:18px;">
+                  <div>
+                    <strong style="font-size:13px; font-family:var(--font-mono);">📍 TEXTILE DEPARTMENT LAWN & CORRIDORS</strong>
+                    <div style="font-size:12px; color:var(--text-muted);">Ideal for quick studio break handoffs.</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- STEP 6: Editorial Preview & Publish -->
+            <div class="wizard-step-pane" data-step="6">
+              <h3 class="step-pane-heading">EDITORIAL PREVIEW</h3>
+              <p class="step-pane-sub">Review how your garment card appears in the NIFT Hyderabad feed.</p>
+
+              <div id="wizard-preview-container">
+                <!-- Live preview injected by app.js -->
+              </div>
+
+              <div id="wizard-success-msg" style="display:none; background:var(--sticker-green-bg); color:#fff; padding:12px; text-align:center; font-family:var(--font-display); font-size:16px; margin-top:16px; border:2px solid var(--border-dark);">
+                ✓ Piece curated & broadcasted to NIFT Campus!
+              </div>
+            </div>
+
+            <!-- Wizard Controls -->
+            <div class="wizard-footer-nav">
+              <button type="button" class="btn-wizard-prev" id="wizard-prev-btn" style="visibility:hidden;">← BACK</button>
+              <button type="button" class="btn-wizard-next" id="wizard-next-btn">NEXT STEP →</button>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- TAB 4: CAMPUS ACTIVITY & DROP CENTER                           -->
+      <!-- ============================================================ -->
+      <section id="view-activity" class="tab-view">
+        <div class="activity-container">
+          <div class="activity-header">
+            <h2 class="view-heading">CAMPUS ACTIVITY</h2>
+            <span style="font-size: 13px; color: var(--text-muted);">Live bids, wardrobe swaps, and scheduled courtyard drops.</span>
           </div>
-        </section>
+
+          <div class="activity-segments">
+            <button class="activity-segment-btn active" data-segment="all">ALL</button>
+            <button class="activity-segment-btn" data-segment="bids">🔥 LIVE BIDS</button>
+            <button class="activity-segment-btn" data-segment="trades">⇄ SWAPS</button>
+            <button class="activity-segment-btn" data-segment="drops">📍 DROP MEETS</button>
+          </div>
+
+          <div class="activity-list" id="activity-stream">
+            <!-- Populated via app.js -->
+          </div>
+        </div>
+      </section>
 
 
-        <!-- ============================================== -->
-        <!-- TAB 4: UNIFIED ACTIVITY & DROP CENTER          -->
-        <!-- ============================================== -->
-        <section id="view-activity" class="tab-view">
-          <div class="activity-container">
-            <div class="activity-header">
-              <h2 class="view-heading">CAMPUS ACTIVITY</h2>
-              <span class="activity-sub">Live bids, wardrobe swaps, and scheduled courtyard drops.</span>
+      <!-- ============================================================ -->
+      <!-- TAB 5: DUAL-MODE "MY CLOSET" & SAVED ARCHIVE                  -->
+      <!-- ============================================================ -->
+      <section id="view-closet" class="tab-view">
+        <div class="closet-container">
+          
+          <!-- Curator Profile Card -->
+          <div class="closet-profile-card">
+            <div class="profile-avatar-row">
+              <div class="avatar-frame">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Simran">
+              </div>
+              <div class="profile-info">
+                <h3 class="profile-name">SIMRAN SINGH</h3>
+                <div class="profile-handle">@simran_archives • Fashion Comm (FC '26)</div>
+                <div style="font-size:12px; margin-top:4px;">★ <strong>4.95</strong> (16 drops) • ⇄ <strong>7</strong> swaps</div>
+              </div>
             </div>
 
-            <!-- Segment Filters -->
-            <div class="activity-segments">
-              <button class="activity-segment-btn active" data-segment="all">ALL</button>
-              <button class="activity-segment-btn" data-segment="bids">🔥 LIVE BIDS</button>
-              <button class="activity-segment-btn" data-segment="trades">⇄ SWAPS</button>
-              <button class="activity-segment-btn" data-segment="drops">📍 DROP MEETS</button>
-            </div>
-
-            <!-- Activity Items Stream -->
-            <div class="activity-list" id="activity-stream">
-              <!-- Dynamically populated via app.js -->
+            <div class="closet-ledger-grid">
+              <div class="ledger-metric">
+                <span class="metric-num red-accent">₹6,850</span>
+                <span class="metric-label">CIRCULATED</span>
+              </div>
+              <div class="ledger-metric">
+                <span class="metric-num" id="closet-active-count">3</span>
+                <span class="metric-label">IN CLOSET</span>
+              </div>
+              <div class="ledger-metric">
+                <span class="metric-num">12</span>
+                <span class="metric-label">RE-HOMED</span>
+              </div>
             </div>
           </div>
-        </section>
 
-
-        <!-- ============================================== -->
-        <!-- TAB 5: DUAL-MODE "MY CLOSET"                   -->
-        <!-- ============================================== -->
-        <section id="view-closet" class="tab-view">
-          <div class="closet-container">
-            
-            <!-- Curator Profile Identity Header -->
-            <div class="closet-profile-card">
-              <div class="profile-avatar-row">
-                <div class="avatar-frame">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Curator Avatar">
-                </div>
-                <div class="profile-info">
-                  <div class="profile-name-row">
-                    <h3 class="profile-name">SIMRAN SINGH</h3>
-                    <span class="verified-badge">NIFT FC '26 ✓</span>
-                  </div>
-                  <span class="profile-handle">@simran_archives • Fashion Comm</span>
-                  <div class="profile-stats-row">
-                    <span>★ <strong>4.95</strong> (16 drops)</span>
-                    <span>•</span>
-                    <span>⇄ <strong>7</strong> swaps</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Curator Resale Ledger Metrics -->
-              <div class="closet-ledger-grid">
-                <div class="ledger-metric">
-                  <span class="metric-num">₹6,850</span>
-                  <span class="metric-label">CIRCULATED</span>
-                </div>
-                <div class="ledger-metric">
-                  <span class="metric-num" id="closet-active-count">3</span>
-                  <span class="metric-label">IN CLOSET</span>
-                </div>
-                <div class="ledger-metric">
-                  <span class="metric-num">12</span>
-                  <span class="metric-label">RE-HOMED</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- DUAL-MODE SWITCHER (BEIGE & RED INVERSION) -->
-            <div class="dual-mode-switcher">
-              <button class="mode-toggle-btn active" id="btn-mode-closet" data-mode="closet">
-                <span class="mode-title">MY CLOSET</span>
-                <span class="mode-count" id="count-mode-closet">(3)</span>
+          <!-- Dual Mode Switcher -->
+          <div class="closet-tabs-row">
+            <div class="closet-mode-toggles">
+              <button class="btn-closet-mode active" id="btn-mode-closet" data-mode="closet">
+                MY CLOSET <span id="count-mode-closet">(3)</span>
               </button>
-              <button class="mode-toggle-btn" id="btn-mode-saved" data-mode="saved">
-                <span class="mode-title">MY SAVED GEMS</span>
-                <span class="mode-count" id="count-mode-saved">(0)</span>
+              <button class="btn-closet-mode" id="btn-mode-saved" data-mode="saved">
+                SAVED ARCHIVE <span id="count-mode-saved">(0)</span>
               </button>
             </div>
-
-            <!-- MODE A: MY CLOSET -->
-            <div class="closet-panel active" id="panel-my-closet">
-              <div class="closet-sub-nav">
-                <span class="sub-nav-title">ACTIVE IN YOUR WARDROBE</span>
-                <button class="btn-micro" id="closet-list-new-btn">+ LIST NEW PIECE</button>
-              </div>
-              <div class="product-grid" id="closet-product-grid">
-                <!-- User's own listed items -->
-              </div>
-            </div>
-
-            <!-- MODE B: MY SAVED -->
-            <div class="closet-panel" id="panel-my-saved">
-              <div class="closet-sub-nav">
-                <span class="sub-nav-title">SAVED ARCHIVE PIECES</span>
-              </div>
-              <div class="product-grid" id="saved-product-grid">
-                <!-- User's favorited items -->
-              </div>
-            </div>
-
+            <button class="btn-list-new" id="closet-list-new-btn">+ LIST NEW PIECE</button>
           </div>
-        </section>
 
-      </main>
-
-
-      <!-- ============================================== -->
-      <!-- GLOBAL BOTTOM NAVIGATION BAR (5 TABS)          -->
-      <!-- ============================================== -->
-      <nav class="bottom-nav">
-        <button class="nav-tab active" data-target="view-discover">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          <span>FEED</span>
-        </button>
-
-        <button class="nav-tab" data-target="view-search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <span>SEARCH</span>
-        </button>
-
-        <button class="nav-tab sell-tab-btn" data-target="view-sell">
-          <div class="sell-plus-icon">+</div>
-          <span>SELL</span>
-        </button>
-
-        <button class="nav-tab" data-target="view-activity">
-          <div class="nav-icon-wrap">
-            <span class="nav-badge" id="activity-badge-count">2</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <!-- Panel A: Closet -->
+          <div id="panel-my-closet">
+            <div class="product-grid" id="closet-product-grid"></div>
           </div>
-          <span>ACTIVITY</span>
-        </button>
 
-        <button class="nav-tab" data-target="view-closet">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          <span>MY CLOSET</span>
-        </button>
-      </nav>
+          <!-- Panel B: Saved -->
+          <div id="panel-my-saved" style="display:none;">
+            <div class="product-grid" id="saved-product-grid"></div>
+          </div>
 
-    </div>
+        </div>
+      </section>
+
+    </main>
+
   </div>
 
 
-  <!-- =================================================== -->
-  <!-- MODAL 1: GARMENT DETAIL PAGE (PDP) - 7 LAYERS       -->
-  <!-- =================================================== -->
+  <!-- ================================================================ -->
+  <!-- MODALS (DESKTOP EDITORIAL SHEETS)                                -->
+  <!-- ================================================================ -->
+
+  <!-- MODAL 1: PRODUCT DETAIL PAGE (PDP) -->
   <div class="pdp-modal-overlay" id="pdp-modal">
     <div class="pdp-modal-sheet">
-      
-      <!-- Top Dismiss Header -->
       <div class="pdp-sheet-header">
-        <button class="sheet-close-btn" id="pdp-close-btn">&larr; BACK TO FEED</button>
-        <div class="sheet-header-actions">
-          <button class="icon-btn-sm" id="pdp-share-btn" title="Share with NIFTian">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        <button class="sheet-close-btn" id="pdp-close-btn">&larr; BACK TO ARCHIVE</button>
+        <div style="display:flex; gap:10px;">
+          <button class="icon-btn-zine" id="pdp-share-btn" title="Share with NIFTian">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            <span>SHARE</span>
           </button>
-          <button class="icon-btn-sm" id="pdp-favorite-btn" title="Save to Archives">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <button class="icon-btn-zine" id="pdp-favorite-btn" title="Save to Archives">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>ARCHIVE</span>
           </button>
         </div>
       </div>
-
-      <!-- Scrollable PDP Body (The 7 Structured Layers) -->
-      <div class="pdp-scroll-body" id="pdp-body-content">
-        <!-- Rendered dynamically via app.js -->
-      </div>
-
-      <!-- Sticky PDP Action Bar (Changes based on Fixed Price vs Live Bidding) -->
-      <div class="pdp-sticky-bar" id="pdp-action-bar">
-        <!-- Injected dynamically via app.js -->
-      </div>
+      <div class="pdp-scroll-body" id="pdp-body-content"></div>
+      <div class="pdp-sticky-bar" id="pdp-action-bar"></div>
     </div>
   </div>
 
-
-  <!-- =================================================== -->
-  <!-- MODAL 2: LIVE BIDDING MODAL (TIERS 4 & 5 - RED BLOCK INVERSION) -->
-  <!-- =================================================== -->
+  <!-- MODAL 2: LIVE BIDDING MODAL (TIERS 4 & 5 - CARMINE RED INVERSION) -->
   <div class="bidding-modal-overlay" id="bidding-modal">
     <div class="bidding-modal-sheet">
       <div class="modal-sheet-header">
         <h3 class="sheet-title">🔥 PLACE A CAMPUS BID</h3>
         <button class="modal-close-x" id="bidding-modal-close">&times;</button>
       </div>
-      <div class="bidding-modal-content">
-        <div class="bid-item-summary" id="bidding-item-summary"></div>
-        
-        <div class="current-bid-indicator">
-          <div class="bid-metric-col">
-            <span class="sub-label">CURRENT HIGHEST BID</span>
-            <span class="highest-bid-val" id="highest-bid-display">₹1,100</span>
-          </div>
-          <div class="bid-metric-col right">
-            <span class="sub-label">TOTAL BIDS</span>
-            <span class="bids-count-val" id="bids-count-display">4 bids</span>
-          </div>
+      <div class="bid-item-summary" id="bidding-item-summary"></div>
+      
+      <div class="current-bid-indicator">
+        <div>
+          <span style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; color:#FFE4D6;">CURRENT HIGHEST BID</span>
+          <div class="highest-bid-val" id="highest-bid-display">₹1,100</div>
         </div>
-
-        <div class="form-field">
-          <label class="form-label" style="color: var(--text-beige);">YOUR BID (₹ INR) — MINIMUM NEXT BID: <span id="min-bid-display" style="color: #FFD480;">₹1,150</span></label>
-          <div class="price-input-wrap">
-            <span class="currency-symbol">₹</span>
-            <input type="number" id="bid-input-amount" class="form-input price-input">
-          </div>
+        <div style="text-align:right;">
+          <span style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; color:#FFE4D6;">TOTAL BIDS</span>
+          <div class="bids-count-val" id="bids-count-display">4 bids</div>
         </div>
-
-        <div class="quick-counter-chips">
-          <button class="counter-chip-beige" id="bid-plus-50">+ ₹50</button>
-          <button class="counter-chip-beige" id="bid-plus-100">+ ₹100</button>
-          <button class="counter-chip-beige" id="bid-plus-200">+ ₹200</button>
-        </div>
-
-        <p class="bidding-policy-note">
-          ⚡ Bidding closes prior to Friday Lunch Break Drop. Highest bidder collects directly at the Canteen Amphitheatre!
-        </p>
-
-        <button class="btn btn-beige-invert btn-block" id="submit-bid-btn">CONFIRM & SUBMIT BID</button>
       </div>
+
+      <div class="form-field">
+        <label class="form-label" style="color: var(--text-beige);">YOUR BID (₹ INR) — MINIMUM: <span id="min-bid-display" style="color: #FFD480;">₹1,150</span></label>
+        <input type="number" id="bid-input-amount" class="form-input" style="font-size:18px; font-weight:700;">
+      </div>
+
+      <div class="quick-counter-chips">
+        <button class="counter-chip-beige" id="bid-plus-50">+ ₹50</button>
+        <button class="counter-chip-beige" id="bid-plus-100">+ ₹100</button>
+        <button class="counter-chip-beige" id="bid-plus-200">+ ₹200</button>
+      </div>
+
+      <p class="bidding-policy-note">
+        ⚡ Bidding closes prior to Friday Lunch Break Drop. Highest bidder collects directly at the Canteen Amphitheatre!
+      </p>
+
+      <button class="btn-beige-invert" style="width:100%; text-align:center; padding:12px;" id="submit-bid-btn">CONFIRM & SUBMIT BID</button>
     </div>
   </div>
 
-
-  <!-- =================================================== -->
-  <!-- MODAL 3: BILATERAL PROPOSE TRADE DRAWER             -->
-  <!-- =================================================== -->
+  <!-- MODAL 3: BILATERAL PROPOSE TRADE DRAWER -->
   <div class="trade-modal-overlay" id="trade-modal">
     <div class="trade-modal-sheet">
       <div class="modal-sheet-header">
@@ -696,50 +689,35 @@
         <button class="modal-close-x" id="trade-modal-close">&times;</button>
       </div>
 
-      <div class="trade-sheet-content">
-        <!-- Target Garment Summary -->
-        <div class="trade-target-card" id="trade-target-display">
-          <!-- Injected via JS -->
-        </div>
+      <div class="trade-target-card" id="trade-target-display" style="margin-bottom:16px;"></div>
 
-        <div class="trade-section-label">1. CHOOSE A PIECE FROM YOUR CLOSET TO OFFER:</div>
-        <div class="trade-closet-picker" id="trade-closet-options">
-          <!-- Injected via JS from User's Closet -->
-        </div>
+      <div class="trade-section-label">1. CHOOSE A PIECE FROM YOUR CLOSET TO OFFER:</div>
+      <div class="trade-closet-picker" id="trade-closet-options"></div>
 
-        <div class="trade-section-label">2. OPTIONAL CASH TOP-UP (BALANCING VALUE):</div>
-        <div class="cash-topup-card">
-          <p class="cash-topup-note">Offer extra cash if the requested piece holds higher value:</p>
-          <div class="cash-stepper-row">
-            <button class="btn-stepper" id="cash-minus-btn">- ₹100</button>
-            <span class="stepper-amount" id="cash-topup-display">₹0</span>
-            <button class="btn-stepper" id="cash-plus-btn">+ ₹100</button>
-          </div>
-        </div>
+      <div class="trade-section-label">2. OPTIONAL CASH TOP-UP (BALANCING VALUE):</div>
+      <div class="cash-stepper-row">
+        <button class="btn-stepper" id="cash-minus-btn">- ₹100</button>
+        <span class="stepper-amount" id="cash-topup-display">₹0</span>
+        <button class="btn-stepper" id="cash-plus-btn">+ ₹100</button>
+      </div>
 
-        <div class="trade-section-label">3. MESSAGE FOR CAMPUS MEETUP (Optional):</div>
-        <input type="text" id="trade-note-input" class="form-input" placeholder="e.g. Worn twice, can swap at Canteen Amphitheatre during lunch break!">
+      <div class="trade-section-label">3. MESSAGE FOR CAMPUS MEETUP:</div>
+      <input type="text" id="trade-note-input" class="form-input" placeholder="e.g. Can meet at Canteen Steps during Friday lunch drop!">
 
-        <div class="trade-submit-row">
-          <button class="btn btn-primary btn-block" id="trade-submit-btn">SEND SWAP PROPOSAL</button>
-        </div>
+      <div style="margin-top:24px;">
+        <button class="btn-pdp-buy" style="width:100%;" id="trade-submit-btn">SEND SWAP PROPOSAL</button>
       </div>
     </div>
   </div>
 
-
-  <!-- =================================================== -->
-  <!-- MODAL 4: CAMPUS DROP HANDOFF & INSPECTION           -->
-  <!-- =================================================== -->
+  <!-- MODAL 4: CAMPUS DROP HANDOFF & INSPECTION -->
   <div class="handoff-modal-overlay" id="handoff-modal">
-    <div class="handoff-modal-sheet">
+    <div class="trade-modal-sheet" style="max-width:540px;">
       <div class="modal-sheet-header">
         <h3 class="sheet-title">CAMPUS DROP DAYLIGHT INSPECTION</h3>
         <button class="modal-close-x" id="handoff-modal-close">&times;</button>
       </div>
-      <div class="handoff-content" id="handoff-modal-content">
-        <!-- Injected via JS -->
-      </div>
+      <div id="handoff-modal-content"></div>
     </div>
   </div>
 

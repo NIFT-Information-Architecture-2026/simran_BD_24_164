@@ -597,20 +597,76 @@ function renderDiscoverFeed() {
   }
 
   if (countEl) {
-    countEl.textContent = `Showing ${filtered.length} campus garment${filtered.length === 1 ? '' : 's'}`;
+    countEl.textContent = `${filtered.length} CAMPUS PIECE${filtered.length === 1 ? '' : 'S'} CIRCULATING`;
   }
 
   if (filtered.length === 0) {
     grid.innerHTML = `
-      <div style="grid-column: span 2; text-align: center; padding: 40px 10px; color: var(--text-secondary);">
-        <p style="font-weight: 700; margin-bottom: 4px;">No garments found in this campus filter.</p>
-        <p style="font-size: 12px;">Try switching categories or exploring "All Campus Drops".</p>
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background-color: var(--bg-beige-card); border: 2px solid var(--border-dark); box-shadow: var(--shadow-brutal);">
+        <p style="font-family: var(--font-display); font-size: 24px; margin-bottom: 6px;">NO GARMENTS FOUND IN THIS FILTER</p>
+        <p style="font-size: 13px; color: var(--text-muted);">Try switching categories or exploring "ALL CAMPUS DROPS".</p>
       </div>
     `;
     return;
   }
 
-  grid.innerHTML = filtered.map(item => renderGarmentCardHTML(item)).join('');
+  const isFullFeed = (AppState.curatedFilter === 'all' && AppState.categoryFilter === 'all');
+  let html = '';
+
+  filtered.forEach((item, index) => {
+    html += renderGarmentCardHTML(item);
+
+    // After item 2: Insert the Dazed & Krongauz Editorial Lookbook Spread Break
+    if (isFullFeed && index === 1) {
+      html += `
+        <div class="editorial-lookbook-spread">
+          <div class="tape-cross-red" style="top:-10px; right:-10px; left:auto;">
+            <svg viewBox="0 0 32 32">
+              <line x1="6" y1="6" x2="26" y2="26" stroke="#D02323" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="26" y1="6" x2="6" y2="26" stroke="#D02323" stroke-width="4.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="lookbook-visual-cluster">
+            <img class="lookbook-img-primary" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" alt="FC Styling">
+            <img class="lookbook-img-secondary" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80" alt="FD Drape">
+          </div>
+          <div class="lookbook-text-col">
+            <span class="lookbook-tagline">✳ STUDENT EDITORIAL SPOTLIGHT • FC & FD DEPT</span>
+            <h3 class="lookbook-headline">
+              HYDERABAD MONSOON LAYERS: <span class="headline-script">Styling</span> ARCHIVE WORKWEAR
+            </h3>
+            <p class="lookbook-lead-text">
+              A collaborative study on the Canteen Steps by Simran Singh & Ria Sharma. Exploring boxy Carhartt canvas mixed with handloom indigo drapes. Every single styled garment is recirculating in this Friday's break drop.
+            </p>
+            <div class="lookbook-action-row">
+              <span class="link-read-more" onclick="showToast('Lookbook Chapter: Studying Boxy Proportions on Campus')">R E A D   M O R E</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // After item 4: Insert the Anastasia Krongauz Solid Red Split Quote Break (Beige font on Red Ground!)
+    if (isFullFeed && index === 3) {
+      html += `
+        <div class="editorial-quote-spread">
+          <div class="quote-photo-side">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Editorial Fashion">
+          </div>
+          <div class="quote-content-side">
+            <div class="quote-sticker-box">✳ NIFT ATELIER ETHOS</div>
+            <h3 class="quote-text-lead">
+              "NOT A RESALE APP. A LIVING CAMPUS <span class="quote-script">Archive</span> — WEAR IT, STUDY IT, TRADE IT, PASS IT FORWARD."
+            </h3>
+            <div class="quote-author">— SIMRAN SINGH, FASHION COMMUNICATION (BD/24/164)</div>
+            <button class="btn-beige-invert" onclick="quickFilterParadigm('swaps-only')">EXPLORE SWAP PIECES (⇄)</button>
+          </div>
+        </div>
+      `;
+    }
+  });
+
+  grid.innerHTML = html;
   attachCardListeners(grid);
 }
 
@@ -622,6 +678,13 @@ function renderGarmentCardHTML(item) {
 
   return `
     <article class="garment-card" data-id="${item.id}">
+      <div class="tape-cross-red" aria-hidden="true">
+        <svg viewBox="0 0 32 32">
+          <line x1="6" y1="6" x2="26" y2="26" stroke="#D02323" stroke-width="4.5" stroke-linecap="round"/>
+          <line x1="26" y1="6" x2="6" y2="26" stroke="#D02323" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
       <div class="card-media">
         <img src="${item.heroImage}" alt="${item.title}" loading="lazy">
         <div class="card-tag-overlay">
@@ -632,19 +695,31 @@ function renderGarmentCardHTML(item) {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="${isSaved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
         </button>
       </div>
+
       <div class="card-body">
         <div class="card-brand-row">
           <span class="card-brand">${item.brand}</span>
-          <span class="card-dept-tag">✳ ${deptCode}</span>
+          <span class="card-dept-tag">✳ ${deptCode} DEPT</span>
         </div>
         <h4 class="card-title">${item.title}</h4>
         <span class="card-condition-pill ${conditionBadgeClass}">✳ ${item.condition}</span>
+        
+        <p class="card-secondary-caption">
+          ${item.flaws || item.tradeWishlist || "Circulated from NIFT campus studio wardrobe. Inspected in natural light."}
+        </p>
+
         <div class="card-meta-row">
           <div class="card-price-col">
-            <span class="price-sub-caption">${isBidding ? 'High Bid' : 'Price'}</span>
+            <span class="price-sub-caption">${isBidding ? 'High Bid' : 'Direct Price'}</span>
             <span class="card-price ${isBidding ? 'bidding-price' : ''}">₹${(isBidding ? item.currentHighestBid : item.price).toLocaleString()}</span>
           </div>
           <span class="card-size">${item.size.split('(')[0].trim()}</span>
+        </div>
+
+        <div class="card-inspect-row">
+          <span class="card-inspect-link">
+            ${isBidding ? 'P L A C E   B I D' : 'V I E W   P I E C E'} &rarr;
+          </span>
         </div>
       </div>
     </article>
@@ -1304,96 +1379,103 @@ function openPdpModal(item) {
 
   // Render the 7 Structured Content Layers
   body.innerHTML = `
-    <!-- 1. HERO IMAGE CAROUSEL -->
+    <!-- 1. HERO IMAGE CAROUSEL WITH RED TAPED CROSS -->
     <div class="pdp-hero-gallery">
+      <div class="tape-cross-red" style="top:12px; left:12px;">
+        <svg viewBox="0 0 32 32">
+          <line x1="6" y1="6" x2="26" y2="26" stroke="#D02323" stroke-width="4.5" stroke-linecap="round"/>
+          <line x1="26" y1="6" x2="6" y2="26" stroke="#D02323" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <img src="${item.heroImage}" alt="${item.title}">
       <span class="pdp-gallery-counter">1 of ${item.gallery ? item.gallery.length : 1}</span>
     </div>
 
-    <!-- 2. ITEM IDENTITY & CONDITION BADGE -->
-    <div class="pdp-section-padding">
-      <div class="pdp-brand-row">
-        <span class="pdp-brand-name">${item.brand} • ${item.seller.dept}</span>
-        ${isBidding ? '<span class="card-paradigm-badge bidding">🔥 Live Auction</span>' : '<span class="card-paradigm-badge fixed">🔒 Fixed Price</span>'}
-      </div>
-      <h2 class="pdp-title">${item.title}</h2>
-      <div class="pdp-price-condition-row">
-        <span class="pdp-price ${isBidding ? 'bidding-price' : ''}">
-          ${isBidding ? `High Bid: ₹${item.currentHighestBid.toLocaleString()}` : `₹${item.price.toLocaleString()}`}
-        </span>
-        <span class="card-condition-pill ${getConditionBadgeClass(item.condition)}">${item.condition}</span>
-      </div>
+    <!-- DETAILS COLUMN (RIGHT SIDE ON DESKTOP) -->
+    <div class="pdp-details-col">
+      
+      <!-- 2. ITEM IDENTITY & CONDITION BADGE -->
+      <div>
+        <div class="pdp-brand-row">
+          <span class="pdp-brand-name">${item.brand} • ${item.seller.dept}</span>
+          ${isBidding ? '<span class="sticker-pill bidding-tag">🔥 Live Bids Active</span>' : '<span class="sticker-pill fixed-tag">🔒 Fixed Direct Price</span>'}
+        </div>
+        <h2 class="pdp-title">${item.title}</h2>
+        <div class="pdp-price-condition-row">
+          <span class="pdp-price ${isBidding ? 'bidding-price' : ''}">
+            ${isBidding ? `High Bid: ₹${item.currentHighestBid.toLocaleString()}` : `₹${item.price.toLocaleString()}`}
+          </span>
+          <span class="card-condition-pill ${getConditionBadgeClass(item.condition)}">✳ ${item.condition}</span>
+        </div>
 
-      ${isBidding ? `
-        <div class="pdp-bidding-card">
-          <div class="bidding-card-top">
-            <span class="bidding-status-tag">🔥 CAMPUS BIDDING ACTIVE</span>
-            <span class="bidding-countdown">Closes Friday 1:30 PM</span>
-          </div>
-          <div class="bidding-amounts-row">
-            <div>
-              <span class="sub-label">CURRENT HIGH BID</span>
-              <div class="bid-current-high">₹${item.currentHighestBid.toLocaleString()}</div>
+        ${isBidding ? `
+          <div class="pdp-bidding-card">
+            <div class="bidding-card-top">
+              <span class="bidding-status-tag">🔥 CAMPUS BIDDING ACTIVE</span>
+              <span class="bidding-countdown">Closes Friday 1:30 PM</span>
             </div>
-            <span class="bid-count-badge">${item.bidsCount} bids placed</span>
+            <div class="bidding-amounts-row">
+              <div>
+                <span class="price-sub-caption" style="color:#FFE0D0;">CURRENT HIGH BID</span>
+                <div class="bid-current-high">₹${item.currentHighestBid.toLocaleString()}</div>
+              </div>
+              <span class="bid-count-badge">${item.bidsCount} bids placed</span>
+            </div>
+          </div>
+        ` : ''}
+      </div>
+
+      <!-- 3. FIT & MEASUREMENT SPEC SHEET -->
+      <div>
+        <div class="measurement-table-card">
+          <div class="meas-table-header">
+            <span class="meas-title">True Flat-Lay Fit Specs</span>
+            <span class="meas-tag-label">${item.size}</span>
+          </div>
+          <div class="meas-grid-spec">
+            ${renderMeasurementsGrid(item.measurements)}
           </div>
         </div>
-      ` : ''}
-    </div>
-
-    <!-- 3. FIT & MEASUREMENT SPEC SHEET -->
-    <div class="pdp-section-padding">
-      <div class="measurement-table-card">
-        <div class="meas-table-header">
-          <span class="meas-title">True Flat-Lay Fit Specs</span>
-          <span class="meas-tag-label">${item.size}</span>
-        </div>
-        <div class="meas-grid-spec">
-          ${renderMeasurementsGrid(item.measurements)}
+        <div style="font-size: 11px; color: var(--text-muted); margin-top: 6px; font-family: var(--font-mono);">
+          *Measured flat lay seam-to-seam. Compare against your studio garments.
         </div>
       </div>
-      <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 6px;">
-        *Measured seam-to-seam flat lay. Compare with your favorite garment.
-      </div>
-    </div>
 
-    <!-- 4. CONDITION & FLAW TRANSPARENCY -->
-    <div class="pdp-section-padding">
-      <h4 style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 6px;">Condition & Flaw Integrity</h4>
-      <div class="${item.conditionTier >= 4 ? 'flaw-disclosure-card' : ''}" style="${item.conditionTier < 4 ? 'background-color: var(--bg-secondary); padding: 10px; border-radius: var(--radius-sm); font-size: 12px;' : ''}">
-        ${item.conditionTier >= 4 ? '<div class="flaw-header">⚠️ Mandatory Flaw Disclosure (Auction Grade)</div>' : ''}
-        <p class="${item.conditionTier >= 4 ? 'flaw-text' : ''}">${item.flaws || "Laundered studio garment, no defects or odors."}</p>
-      </div>
-    </div>
-
-    <!-- 5. CURATORIAL ATTRIBUTES -->
-    <div class="pdp-section-padding">
-      <h4 style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 6px;">Curated Tags & Swap Wishlist</h4>
-      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
-        ${item.tags ? item.tags.map(t => `<span style="font-size: 11px; font-weight: 600; padding: 3px 8px; background-color: var(--bg-secondary); border-radius: var(--radius-pill);">${t}</span>`).join('') : ''}
-      </div>
-      ${item.tradeWishlist ? `<p style="font-size: 12px; color: var(--text-secondary);"><strong>Curator's Swap Wishlist:</strong> ${item.tradeWishlist}</p>` : ''}
-    </div>
-
-    <!-- 6. SELLER CREDIBILITY & WARDROBE -->
-    <div class="pdp-section-padding">
-      <div class="pdp-seller-card">
-        <div class="seller-avatar">
-          <img src="${item.seller.avatar}" alt="${item.seller.name}">
-        </div>
-        <div class="seller-meta">
-          <h4>${item.seller.name} <span style="font-size: 11px; font-weight: normal; color: var(--text-secondary);">${item.seller.handle}</span></h4>
-          <p>★ <strong>${item.seller.rating}</strong> (${item.seller.circulations} campus drops) • ${item.seller.dept}</p>
+      <!-- 4. CONDITION & FLAW TRANSPARENCY -->
+      <div>
+        <h4 style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dark); margin-bottom: 6px;">Condition & Flaw Integrity</h4>
+        <div style="background-color: var(--bg-beige-card); border: 1.5px solid var(--border-dark); padding: 12px; border-radius: 4px; font-size: 13px;">
+          ${item.conditionTier >= 4 ? '<div style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--red-carmine); margin-bottom:4px;">⚠️ Mandatory Flaw Disclosure (Auction Grade)</div>' : ''}
+          <p style="color:var(--text-dark);">${item.flaws || "Laundered studio garment, no defects or odors."}</p>
         </div>
       </div>
-    </div>
 
-    <!-- 7. CAMPUS DROP HANDOFF PROTOCOL -->
-    <div class="pdp-section-padding">
-      <h4 style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 6px;">Campus Drop Locations (Zero Courier)</h4>
-      <ul style="list-style: none; font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px;">
-        ${item.dropZones ? item.dropZones.map(z => `<li>📍 ${z} (Lunch Break Drop)</li>`).join('') : '<li>📍 NIFT Canteen Amphitheatre</li>'}
-      </ul>
+      <!-- 5. CURATORIAL ATTRIBUTES & SWAP WISHLIST -->
+      <div>
+        <h4 style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dark); margin-bottom: 6px;">Curated Tags & Swap Wishlist</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+          ${item.tags ? item.tags.map(t => `<span style="font-family:var(--font-mono); font-size: 11px; font-weight: 700; padding: 4px 8px; background-color: var(--bg-beige-card); border: 1px solid var(--border-dark); border-radius: 3px;">${t}</span>`).join('') : ''}
+        </div>
+        ${item.tradeWishlist ? `<p style="font-size: 12px; color: var(--text-muted); line-height:1.4;"><strong>Curator's Swap Wishlist:</strong> ${item.tradeWishlist}</p>` : ''}
+      </div>
+
+      <!-- 6. SELLER CREDIBILITY & WARDROBE -->
+      <div style="background-color: var(--bg-beige-card); border: 1.5px solid var(--border-dark); padding: 14px; border-radius: 4px; display:flex; gap:12px; align-items:center;">
+        <img src="${item.seller.avatar}" alt="${item.seller.name}" style="width:44px; height:44px; border-radius:50%; border:1.5px solid var(--border-dark); object-fit:cover;">
+        <div>
+          <h4 style="font-family:var(--font-display); font-size:17px; line-height:1;">${item.seller.name} <span style="font-family:var(--font-mono); font-size: 11px; font-weight: normal; color: var(--text-muted);">${item.seller.handle}</span></h4>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top:3px;">★ <strong>${item.seller.rating}</strong> (${item.seller.circulations} campus drops) • ${item.seller.dept}</p>
+        </div>
+      </div>
+
+      <!-- 7. CAMPUS DROP HANDOFF PROTOCOL -->
+      <div>
+        <h4 style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dark); margin-bottom: 6px;">Campus Drop Locations (Zero Courier)</h4>
+        <ul style="list-style: none; font-size: 12px; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px;">
+          ${item.dropZones ? item.dropZones.map(z => `<li>📍 <strong>${z}</strong> (Friday Lunch Break Drop)</li>`).join('') : '<li>📍 NIFT Canteen Amphitheatre Steps</li>'}
+        </ul>
+      </div>
+
     </div>
   `;
 
@@ -1804,3 +1886,17 @@ function updateBadgeCounts() {
     badge.style.display = count > 0 ? 'flex' : 'none';
   }
 }
+
+// Global window helpers for desktop jump navigation
+window.quickFilterParadigm = function(type) {
+  AppState.curatedFilter = type;
+  document.querySelectorAll('.curated-pill').forEach(pill => {
+    if (pill.dataset.curated === type) pill.classList.add('active');
+    else pill.classList.remove('active');
+  });
+  renderDiscoverFeed();
+  switchTab('view-discover');
+};
+
+window.switchTab = switchTab;
+
