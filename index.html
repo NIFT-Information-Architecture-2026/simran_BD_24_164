@@ -3,491 +3,674 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THRIFT CLOSET • NIFT Hyderabad Campus Archive</title>
+  <title>THRIFT Atelier CLOSET • NIFT Hyderabad Resale Archive</title>
+  
+  <!-- Editorial Typography: Bodoni Moda, Cormorant Garamond, DM Sans, Manrope, Allura, Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Italianno&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400;1,6..96,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Italianno&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="desktop-mode">
 
-  <!-- Physical Risograph / Unbleached Paper Grain Tooth Filter Overlay -->
-  <div class="risograph-grain-overlay" aria-hidden="true"></div>
-
-  <!-- Full-Width Desktop Editorial Zine Wrapper -->
-  <div class="editorial-site-wrapper">
-
-    <!-- ============================================================== -->
-    <!-- 1. TOP CAMPUS BROADCAST ANNOUNCEMENT MARQUEE                   -->
-    <!-- ============================================================== -->
-    <div class="top-announcement-ticker">
-      <div class="ticker-content">
-        <span>⚡ CAMPUS BROADCAST: NEXT LUNCH DROP — FRIDAY 1:30 PM @ CANTEEN AMPHITHEATRE STEPS (HYDERABAD)</span>
-        <span class="ticker-separator">✦</span>
-        <span>ZERO COURIER • IN-PERSON INSPECTION ONLY • NIFT HYDERABAD ATELIER ARCHIVE</span>
-        <span class="ticker-separator">✦</span>
-        <span>TIERS 1–3 DIRECT FIXED PRICE • TIERS 4–5 LIVE CAMPUS BIDDING • BILATERAL TRADE (⇄)</span>
-        <span class="ticker-separator">✦</span>
-        <span>FC • FD • TD • AD • KD DEPARTMENTS</span>
-        <span class="ticker-separator">✦</span>
-        <span>⚡ CAMPUS BROADCAST: NEXT LUNCH DROP — FRIDAY 1:30 PM @ CANTEEN AMPHITHEATRE STEPS (HYDERABAD)</span>
-        <span class="ticker-separator">✦</span>
-        <span>ZERO COURIER • IN-PERSON INSPECTION ONLY • NIFT HYDERABAD ATELIER ARCHIVE</span>
+  <!-- ============================================================== -->
+  <!-- EXPERIENCE SWITCHER BAR (DESKTOP WEBSITE VS MOBILE APP)       -->
+  <!-- ============================================================== -->
+  <aside class="experience-switcher-bar" aria-label="Experience Preview Switcher">
+    <div class="switcher-inner">
+      <div class="switcher-meta">
+        <span class="switcher-brand">THRIFT Atelier CLOSET</span>
+        <span class="switcher-sep">•</span>
+        <span class="switcher-sub">NIFT Hyderabad Campus Architecture</span>
+      </div>
+      <div class="switcher-toggles">
+        <span class="switcher-label">VIEW EXPERIENCE:</span>
+        <button type="button" class="btn-toggle-view active" id="btn-view-desktop" onclick="setExperienceMode('desktop')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <span>Desktop Website (1440px)</span>
+        </button>
+        <button type="button" class="btn-toggle-view" id="btn-view-mobile" onclick="setExperienceMode('mobile')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          <span>Dedicated Mobile App</span>
+        </button>
       </div>
     </div>
+  </aside>
 
-    <!-- ============================================================== -->
-    <!-- 2. DESKTOP EDITORIAL HERO MASTHEAD (DAZED & KRONGAUZ STYLE)    -->
-    <!-- ============================================================== -->
-    <header class="desktop-editorial-header">
-      <div class="masthead-main-row">
+  <!-- ============================================================== -->
+  <!-- 1. DESKTOP WEBSITE EXPERIENCE (PRIMARY DESIGN REFERENCE)       -->
+  <!-- ============================================================== -->
+  <div id="desktop-experience" class="experience-container active">
+
+    <!-- SECTION 01 — COMPACT HEADER / NAVIGATION -->
+    <header class="desktop-nav-header">
+      <div class="nav-container">
         
-        <!-- Left Archival Identity -->
-        <div class="masthead-left">
-          <div class="nift-badge-tag">
-            <span class="dept-dot"></span> NIFT HYDERABAD
-          </div>
-          <div class="student-id-tag">ARCHIVE BD/24/164</div>
-          <div class="editorial-meta-caption">Simran Singh Atelier Archive</div>
-        </div>
+        <!-- LEFT: Brand Logotype -->
+        <a href="#hero" class="brand-logotype" onclick="showDesktopView('home'); return false;">
+          <span class="logo-thrift">THRIFT</span>
+          <span class="logo-atelier">Atelier</span>
+          <span class="logo-closet">CLOSET</span>
+        </a>
 
-        <!-- Center Oversized Spliced Title with Dazed Airbrush Red Blur Aura -->
-        <div class="masthead-center-block" onclick="switchTab('view-discover')" title="Return to Discover Feed">
-          <div class="masthead-airbrush-blur" aria-hidden="true"></div>
-          <div class="masthead-spliced-title">
-            <span class="title-word">THRIFT</span>
-            <span class="script-accent-title">Atelier</span>
-            <span class="title-word">CLOSET</span>
-          </div>
-          <div class="masthead-sub-tagline">
-            <span>FASHION EDITORIAL</span>
-            <span class="dot-sep">•</span>
-            <span>CAMPUS RESALE ARCHIVE</span>
-            <span class="dot-sep">•</span>
-            <span>YOUTH CULTURE</span>
-          </div>
-        </div>
+        <!-- CENTRE: Navigation Links -->
+        <nav class="desktop-main-menu" aria-label="Main Navigation">
+          <button type="button" class="nav-item active" data-deskview="home" onclick="showDesktopView('home')">Home</button>
+          <button type="button" class="nav-item" data-deskview="discover" onclick="showDesktopView('discover')">Discover</button>
+          <button type="button" class="nav-item" data-deskview="sell" onclick="showDesktopView('sell')">Sell a Piece</button>
+          <button type="button" class="nav-item" data-deskview="activity" onclick="showDesktopView('activity')">Activity &amp; Drops</button>
+          <button type="button" class="nav-item" data-deskview="closet" onclick="showDesktopView('closet')">My Closet</button>
+        </nav>
 
-        <!-- Right Quick Actions & Curator Profile -->
-        <div class="masthead-right">
-          <button class="header-action-pill" id="desktop-beacon-btn" title="Campus Drop Event Beacon">
-            <span class="live-dot-red"></span>
-            <span class="action-text">NEXT DROP: FRI 1:30 PM</span>
+        <!-- RIGHT: Utility Controls -->
+        <div class="nav-utilities">
+          <button type="button" class="util-icon-btn" id="btn-header-search" title="Search Archive" onclick="toggleSearchTray()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
-          <div class="user-profile-badge" onclick="switchTab('view-closet')" style="cursor:pointer;" title="View Simran's Archive">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Simran" class="badge-avatar">
-            <div class="badge-text">
-              <span class="badge-name">SIMRAN SINGH</span>
-              <span class="badge-dept">FC DEPT '26</span>
-            </div>
-          </div>
+          <button type="button" class="util-icon-btn" id="btn-header-wishlist" title="Saved Wishlist" onclick="showDesktopView('closet', 'saved')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#76252D" stroke="#76252D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span class="util-badge" id="desk-wishlist-count">2</span>
+          </button>
+          <button type="button" class="util-avatar-btn" title="Simran Singh Profile" onclick="showDesktopView('closet')">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Simran Singh (FC '26)" class="avatar-img">
+          </button>
         </div>
 
       </div>
 
-      <!-- Primary Desktop Horizontal Navigation Tabs -->
-      <nav class="desktop-nav-bar">
-        <div class="nav-links-cluster">
-          <button class="nav-tab active" data-target="view-discover">
-            <span class="nav-num">01</span>
-            <span class="nav-label">DISCOVER FEED</span>
-          </button>
-          <button class="nav-tab sell-nav-tab" data-target="view-sell">
-            <span class="nav-num">+</span>
-            <span class="nav-label">SELL STUDIO (LIST PIECE)</span>
-          </button>
-          <button class="nav-tab" data-target="view-activity">
-            <span class="nav-num">02</span>
-            <span class="nav-label">ACTIVITY & DROPS</span>
-            <span class="nav-counter-chip" id="activity-badge-count">2</span>
-          </button>
-          <button class="nav-tab" data-target="view-closet">
-            <span class="nav-num">03</span>
-            <span class="nav-label">MY CLOSET & SAVED</span>
-          </button>
+      <!-- Expandable Search Bar Drawer -->
+      <div class="search-drawer" id="search-drawer">
+        <div class="search-drawer-inner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="global-search-input" placeholder="Search by garment title, brand, department (FC, FD, TD, LD, AD, KD)..." oninput="handleSearchInput(this.value)">
+          <button type="button" class="search-close-btn" onclick="toggleSearchTray(false)">&times;</button>
         </div>
-        
-        <div class="nav-quick-filters">
-          <span class="filter-quick-label">COMMERCIAL JUMP:</span>
-          <button class="nav-chip-filter" onclick="quickFilterParadigm('fixed-price')">🔒 FIXED PRICE (TIERS 1-3)</button>
-          <button class="nav-chip-filter chip-bids" onclick="quickFilterParadigm('live-bids')">🔥 LIVE BIDS (TIERS 4-5)</button>
-        </div>
-      </nav>
+      </div>
     </header>
 
-
-    <!-- ============================================================== -->
-    <!-- MAIN TAB CONTENT VIEWS                                         -->
-    <!-- ============================================================== -->
-    <main class="app-main">
+    <!-- MAIN DESKTOP CONTENT -->
+    <main class="desktop-main-wrapper">
 
       <!-- ============================================================ -->
-      <!-- TAB 1: DISCOVER VIEW (DESKTOP EDITORIAL ASYMMETRIC ZINE)      -->
+      <!-- VIEW 1: HOMEPAGE (MATCHING EXACT REFERENCE COMPOSITION)       -->
       <!-- ============================================================ -->
-      <section id="view-discover" class="tab-view active">
-        
-        <!-- CAMPUS DROP EVENT BROADCAST BEACON (EDITORIAL GRADIENT AURA) -->
-        <div class="campus-broadcast-beacon" id="campus-drop-banner">
-          <div class="beacon-top-row">
-            <span class="beacon-live-badge"><span class="live-dot"></span> ✳ CAMPUS DROP BEACON • NIFT HYDERABAD</span>
-            <span class="beacon-timer-box" id="drop-timer-countdown">FRIDAY • 1:30 PM</span>
-          </div>
-          <div class="beacon-headline-wrap">
-            <h2 class="beacon-headline">
-              COURTYARD THRIFT MEET <span class="script-accent-beige">Lunch Drop</span>
-            </h2>
-          </div>
-          <p class="beacon-details">
-            📍 <strong>Canteen Amphitheatre Steps & Textile Lawns</strong>. All NIFT buyers, sellers & barterers gather face-to-face during Friday lunch break. 100% Daylight inspection before payment. Zero packaging waste. Zero courier delays.
-          </p>
-          <div class="beacon-action-row">
-            <span class="beacon-rsvp-box">👥 <strong>42 students</strong> RSVP'd from FC, FD, TD, AD, KD</span>
-            <button class="btn-beacon-rsvp" id="btn-rsvp-drop">RSVP & VIEW DROP ZONE</button>
-          </div>
-        </div>
+      <section id="desktop-home-view" class="desktop-subview active">
 
-        <!-- Curated Pills Scroll -->
-        <div class="curated-pills-scroll">
-          <button class="curated-pill active" data-curated="all">✳ ALL CAMPUS DROPS</button>
-          <button class="curated-pill" data-curated="fixed-price">🔒 FIXED PRICE (TIERS 1-3)</button>
-          <button class="curated-pill red-pill" data-curated="live-bids">🔥 LIVE BIDS (TIERS 4-5)</button>
-          <button class="curated-pill" data-curated="swaps-only">⇄ OPEN FOR SWAP</button>
-          <button class="curated-pill" data-curated="under-800">⚡ UNDER ₹800</button>
-          <button class="curated-pill" data-curated="y2k">#Y2K ARCHIVE</button>
-          <button class="curated-pill" data-curated="fc-dept">FASHION COMM (FC)</button>
-          <button class="curated-pill" data-curated="fd-dept">FASHION DESIGN (FD)</button>
-        </div>
+        <!-- SECTION 02 — FULL-WIDTH HERO (AUTHENTIC CAMPUS LEDGE PHOTOGRAPH) -->
+        <section class="desktop-hero-section" id="hero">
+          <div class="hero-image-wrap">
+            <img src="images/reference/hero-students-ledge.jpg" alt="NIFT Hyderabad Students on Campus Ledge" class="hero-campus-photo">
+            
+            <!-- Exact Reference Typography Overlays -->
+            <div class="hero-overlay-container">
+              
+              <!-- Left Handwritten Script -->
+              <div class="hero-left-script">
+                <span class="script-word word-students">Students</span>
+                <span class="script-word word-pieces">Pieces</span>
+                <span class="script-word word-people">People</span>
+                <span class="script-word word-possibilities">Possibilities</span>
+              </div>
 
-        <!-- Category Horizontal Chips Bar -->
-        <div class="category-chips-bar">
-          <button class="cat-chip active" data-category="all">ALL</button>
-          <button class="cat-chip" data-category="Tops">TOPS</button>
-          <button class="cat-chip" data-category="Bottoms">BOTTOMS</button>
-          <button class="cat-chip" data-category="Outerwear">OUTERWEAR</button>
-          <button class="cat-chip" data-category="Dresses">DRESSES</button>
-          <button class="cat-chip" data-category="Indian / Ethnic Wear">ETHNIC WEAR</button>
-          <button class="cat-chip" data-category="Footwear">FOOTWEAR</button>
-          <button class="cat-chip" data-category="Bags">BAGS</button>
-          <button class="cat-chip" data-category="Accessories">ACCESSORIES</button>
-        </div>
+              <!-- Right Resale Archive Callout -->
+              <div class="hero-right-callout">
+                <h1 class="hero-archive-headline">
+                  A RESALE ARCHIVE<br>
+                  BY NIFT HYDERABAD<br>
+                  STUDENTS.
+                </h1>
+                <a href="#featured-section" class="hero-arrow-anchor" aria-label="Scroll to Featured Pieces">
+                  <svg width="28" height="20" viewBox="0 0 28 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="2" y1="10" x2="24" y2="10"></line>
+                    <polyline points="16 2 24 10 16 18"></polyline>
+                  </svg>
+                </a>
+              </div>
 
-        <!-- Feed Section Header with Spliced Cursive Type -->
-        <div class="feed-section-header">
-          <div class="feed-title-spliced">
-            <span class="title-lead">CAMPUS ARCHIVE</span>
-            <span class="title-script">Feed</span>
+            </div>
           </div>
-          <span class="feed-counter" id="feed-item-count">8 PIECES CIRCULATING</span>
-        </div>
+        </section>
 
-        <!-- Asymmetric Editorial Product Grid (Populated via app.js) -->
-        <div class="product-grid" id="discover-product-grid">
-          <!-- Dynamically populated via app.js with lookbook breaks and tape crosses -->
-        </div>
+        <!-- SECTION 03 — BLACK FOUR-COLUMN FUNCTIONAL BAND -->
+        <section class="four-column-band" aria-label="Platform Pillars">
+          <div class="band-grid">
+            
+            <!-- Column 01: SHOP -->
+            <div class="band-col" onclick="filterCatalogByPillar('shop')">
+              <span class="band-num">01</span>
+              <h3 class="band-title">SHOP</h3>
+              <p class="band-desc">Preloved pieces<br>from across departments.</p>
+            </div>
+
+            <!-- Column 02: SELL -->
+            <div class="band-col" onclick="showDesktopView('sell')">
+              <span class="band-num">02</span>
+              <h3 class="band-title">SELL</h3>
+              <p class="band-desc">Give your wardrobe<br>a second life.</p>
+            </div>
+
+            <!-- Column 03: SWAP -->
+            <div class="band-col" onclick="filterCatalogByPillar('swap')">
+              <span class="band-num">03</span>
+              <h3 class="band-title">SWAP</h3>
+              <p class="band-desc">Trade within<br>the community.</p>
+            </div>
+
+            <!-- Column 04: JOIN -->
+            <div class="band-col" onclick="scrollToSection('campus-drops-section')">
+              <span class="band-num">04</span>
+              <h3 class="band-title">JOIN</h3>
+              <p class="band-desc">Be part of drops,<br>events and stories.</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 04 — FEATURED THIS WEEK (WARM IVORY BACKGROUND) -->
+        <section class="editorial-section featured-week-section" id="featured-section">
+          <div class="section-header-row">
+            <h2 class="editorial-heading">Featured This Week</h2>
+            <button type="button" class="view-all-link" onclick="showDesktopView('discover')">View all &rarr;</button>
+          </div>
+
+          <div class="featured-products-grid" id="featured-products-row">
+            <!-- 4 Featured Cards Rendered via app.js matching Reference -->
+          </div>
+        </section>
+
+        <!-- SECTION 05 — CAMPUS DROPS + COMMUNITY STORIES (2-COLUMN EDITORIAL) -->
+        <section class="editorial-section drops-stories-section" id="campus-drops-section">
+          <div class="two-column-split">
+            
+            <!-- LEFT: CAMPUS DROPS -->
+            <div class="editorial-split-col drops-col">
+              <div class="section-header-row">
+                <h2 class="editorial-heading">Campus Drops</h2>
+                <button type="button" class="view-all-link" onclick="showDesktopView('activity', 'drops')">View all &rarr;</button>
+              </div>
+
+              <div class="campus-drop-banner-card">
+                <div class="drop-banner-visual">
+                  <img src="images/reference/event-campus-drop.jpg" alt="Art &amp; Design Dept Campus Drop" class="drop-banner-img">
+                  <div class="drop-banner-overlay">
+                    <span class="drop-dept-tag">ART &amp; DESIGN DEPT</span>
+                    <h3 class="drop-event-title">CAMPUS DROP</h3>
+                    <div class="drop-meta-schedule">
+                      <span class="drop-date">18 OCT 2026</span>
+                      <span class="drop-time">4:00 PM - 7:00 PM</span>
+                      <span class="drop-location">STUDIO BLOCK</span>
+                    </div>
+                    <button type="button" class="btn-rsvp-pill" id="btn-hero-rsvp" onclick="handleEventRsvp(this)">
+                      <span>RSVP NOW &rarr;</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: COMMUNITY STORIES -->
+            <div class="editorial-split-col stories-col">
+              <div class="section-header-row">
+                <h2 class="editorial-heading">Community Stories</h2>
+              </div>
+
+              <article class="community-story-card">
+                <div class="story-portrait-wrap">
+                  <img src="images/reference/story-student-portrait.jpg" alt="NIFT Student Story" class="story-portrait-img">
+                </div>
+                <div class="story-text-col">
+                  <h3 class="story-headline">How I Built My Wardrobe at NIFT Through Swaps</h3>
+                  <div class="story-lead-copy">
+                    <p>Real students. Real pieces.</p>
+                    <p>Real stories.</p>
+                  </div>
+                  <div class="story-divider-dash"></div>
+                  <button type="button" class="story-read-link" onclick="openStoryModal()">Read more &rarr;</button>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 06 — BROWSE BY DEPARTMENT (6 MONOCHROME/EDITORIAL TILES) -->
+        <section class="editorial-section browse-dept-section" id="dept-section">
+          <div class="section-header-row">
+            <h2 class="editorial-heading">Browse by Department</h2>
+            <button type="button" class="view-all-link" onclick="showDesktopView('discover')">View all &rarr;</button>
+          </div>
+
+          <div class="department-grid-row">
+            
+            <div class="dept-card" onclick="filterCatalogByDepartment('FC')">
+              <div class="dept-image-frame">
+                <img src="images/reference/dept-fc.jpg" alt="Fashion Communication">
+              </div>
+              <span class="dept-card-label">Fashion Communication</span>
+            </div>
+
+            <div class="dept-card" onclick="filterCatalogByDepartment('FD')">
+              <div class="dept-image-frame">
+                <img src="images/reference/dept-fd.jpg" alt="Fashion Design">
+              </div>
+              <span class="dept-card-label">Fashion Design</span>
+            </div>
+
+            <div class="dept-card" onclick="filterCatalogByDepartment('TD')">
+              <div class="dept-image-frame">
+                <img src="images/reference/dept-td.jpg" alt="Textile Design">
+              </div>
+              <span class="dept-card-label">Textile Design</span>
+            </div>
+
+            <div class="dept-card" onclick="filterCatalogByDepartment('LD')">
+              <div class="dept-image-frame">
+                <img src="images/reference/dept-ld.jpg" alt="Leather Design">
+              </div>
+              <span class="dept-card-label">Leather Design</span>
+            </div>
+
+            <div class="dept-card" onclick="filterCatalogByDepartment('AD')">
+              <div class="dept-image-frame">
+                <img src="images/reference/dept-ad.jpg" alt="Accessory Design">
+              </div>
+              <span class="dept-card-label">Accessory Design</span>
+            </div>
+
+            <div class="dept-card" onclick="filterCatalogByDepartment('KD')">
+              <div class="dept-image-frame">
+                <img src="images/reference/dept-kd.jpg" alt="Knitwear Design">
+              </div>
+              <span class="dept-card-label">Knitwear Design</span>
+            </div>
+
+          </div>
+        </section>
 
       </section>
 
-
       <!-- ============================================================ -->
-      <!-- TAB 2: SELL STUDIO (6-STEP GUIDED ATELIER WIZARD)            -->
+      <!-- VIEW 2: DISCOVER MARKETPLACE ARCHIVE (CATALOG + FILTERS)      -->
       <!-- ============================================================ -->
-      <section id="view-sell" class="tab-view">
-        <div class="wizard-container">
+      <section id="desktop-discover-view" class="desktop-subview">
+        <div class="discover-page-wrap">
           
-          <!-- Wizard Progress Header -->
-          <div class="wizard-header">
-            <div class="wizard-progress-bar">
-              <div class="wizard-progress-fill" id="wizard-progress-fill"></div>
+          <!-- Editorial Discover Header -->
+          <div class="discover-header-bar">
+            <div>
+              <h2 class="editorial-heading">Campus Archive Catalog</h2>
+              <p class="discover-subtext">Curated garments, student studio samples, and accessories across NIFT Hyderabad.</p>
             </div>
-            <div class="wizard-step-indicator">
-              <span id="wizard-step-title">STEP 1: CURATE PHOTOS</span>
-              <span id="wizard-step-counter">1 of 6</span>
+            <div class="catalog-sort-box">
+              <label for="catalog-sort-select">SORT BY:</label>
+              <select id="catalog-sort-select" onchange="handleSortChange(this.value)">
+                <option value="newest" selected>Newest First</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+              </select>
             </div>
           </div>
 
-          <form id="sell-wizard-form" onsubmit="return false;">
+          <!-- Transaction Type Filters -->
+          <div class="filter-pills-cluster">
+            <button type="button" class="filter-pill active" data-tx="all" onclick="filterByTransaction('all')">All Listings</button>
+            <button type="button" class="filter-pill" data-tx="fixed" onclick="filterByTransaction('fixed')">Fixed Price (Tiers 1–3)</button>
+            <button type="button" class="filter-pill pill-bidding" data-tx="bidding" onclick="filterByTransaction('bidding')">🔥 Live Bids (Tiers 4–5)</button>
+            <button type="button" class="filter-pill" data-tx="swap" onclick="filterByTransaction('swap')">⇄ Open for Swap</button>
+          </div>
 
-            <!-- STEP 1: Photos & Flaw Disclosure -->
-            <div class="wizard-step-pane active" data-step="1">
-              <h3 class="step-pane-heading">UPLOAD GARMENT PHOTOS</h3>
-              <p class="step-pane-sub">Studio lighting or campus sunlight. Front, back, label, and flaws.</p>
+          <!-- Department & Category Filter Bar -->
+          <div class="secondary-filter-bar">
+            <div class="dept-filter-pills" id="dept-filter-pills">
+              <button type="button" class="dept-pill active" data-dept="all" onclick="filterByDeptPill('all')">All Depts</button>
+              <button type="button" class="dept-pill" data-dept="FC" onclick="filterByDeptPill('FC')">FC</button>
+              <button type="button" class="dept-pill" data-dept="FD" onclick="filterByDeptPill('FD')">FD</button>
+              <button type="button" class="dept-pill" data-dept="TD" onclick="filterByDeptPill('TD')">TD</button>
+              <button type="button" class="dept-pill" data-dept="LD" onclick="filterByDeptPill('LD')">LD</button>
+              <button type="button" class="dept-pill" data-dept="AD" onclick="filterByDeptPill('AD')">AD</button>
+              <button type="button" class="dept-pill" data-dept="KD" onclick="filterByDeptPill('KD')">KD</button>
+            </div>
 
-              <div class="photo-uploader-grid">
-                <div class="photo-slot">
-                  <img src="images/product-2.jpg" alt="Front">
-                  <span class="slot-badge">FRONT (HERO)</span>
-                </div>
-                <div class="photo-slot">
-                  <img src="images/product-11.jpg" alt="Detail">
-                  <span class="slot-badge">DETAIL</span>
-                </div>
-                <div class="photo-slot">
-                  <img src="images/product-15.jpg" alt="Structure">
-                  <span class="slot-badge">STRUCTURE</span>
-                </div>
-                <div class="photo-slot">
-                  <div class="slot-placeholder">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <div class="category-select-wrap">
+              <select id="category-filter-select" onchange="filterByCategorySelect(this.value)">
+                <option value="all" selected>All Garment Categories</option>
+                <option value="Tops">Tops</option>
+                <option value="Bottoms">Bottoms</option>
+                <option value="Outerwear">Outerwear</option>
+                <option value="Dresses">Dresses</option>
+                <option value="Indian / Ethnic Wear">Indian / Ethnic Wear</option>
+                <option value="Bags">Bags</option>
+                <option value="Footwear">Footwear</option>
+                <option value="Accessories">Accessories</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Active Filter Results Counter -->
+          <div class="filter-results-summary">
+            <span id="catalog-count-label">Showing 20 pieces circulating</span>
+          </div>
+
+          <!-- 4-Column Responsive Marketplace Product Grid -->
+          <div class="marketplace-grid" id="desktop-catalog-grid">
+            <!-- Dynamically populated via app.js -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- VIEW 3: SELL STUDIO WIZARD (6-STEP GUIDED ATELIER FLOW)       -->
+      <!-- ============================================================ -->
+      <section id="desktop-sell-view" class="desktop-subview">
+        <div class="sell-studio-wrap">
+          
+          <div class="sell-header-box">
+            <h2 class="editorial-heading">Sell a Piece</h2>
+            <p class="sell-subtext">Circulate your preloved wardrobe to fellow NIFT students. Direct fixed price or campus bidding.</p>
+          </div>
+
+          <div class="sell-wizard-card">
+            
+            <!-- Progress Bar -->
+            <div class="wizard-stepper-header">
+              <div class="wizard-step-info">
+                <span id="wizard-title-indicator">STEP 1: CURATE PHOTOS</span>
+                <span id="wizard-num-indicator">1 of 6</span>
+              </div>
+              <div class="wizard-track">
+                <div class="wizard-fill" id="wizard-fill-bar"></div>
+              </div>
+            </div>
+
+            <!-- Form Container -->
+            <form id="desktop-sell-form" onsubmit="return false;">
+              
+              <!-- STEP 1: Photos -->
+              <div class="sell-pane active" data-step="1">
+                <h3 class="pane-title">Upload Garment Photographs</h3>
+                <p class="pane-instruction">Clean studio or daylight photography. Include front, back, label, and flaws.</p>
+                <div class="upload-slots-grid">
+                  <div class="upload-slot">
+                    <img src="images/reference/feat-plaid-blouse.jpg" alt="Hero">
+                    <span class="slot-tag">FRONT (HERO)</span>
+                  </div>
+                  <div class="upload-slot">
+                    <img src="images/product-11.jpg" alt="Back">
+                    <span class="slot-tag">BACK</span>
+                  </div>
+                  <div class="upload-slot">
+                    <img src="images/product-15.jpg" alt="Detail">
+                    <span class="slot-tag">STRUCTURE</span>
+                  </div>
+                  <div class="upload-slot placeholder">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                     <span>FLAW DETAIL (TIER 5)</span>
                   </div>
                 </div>
               </div>
-              <div class="helper-note-zine">
-                <span>✳ RULE: Pieces in Tiers 1–3 are sold at Direct Fixed Price. Tiers 4 & 5 enter Campus Live Bidding!</span>
-              </div>
-            </div>
 
-            <!-- STEP 2: Basic Identity -->
-            <div class="wizard-step-pane" data-step="2">
-              <h3 class="step-pane-heading">GARMENT IDENTITY</h3>
-              <p class="step-pane-sub">Tell fellow NIFT students what piece you are circulating.</p>
+              <!-- STEP 2: Identity -->
+              <div class="sell-pane" data-step="2">
+                <h3 class="pane-title">Garment Identity</h3>
+                <p class="pane-instruction">Provide details about the silhouette and origin.</p>
+                
+                <div class="form-group">
+                  <label class="form-lbl">GARMENT TITLE / HEADLINE *</label>
+                  <input type="text" id="input-sell-title" class="form-ctrl" value="Vintage Suede Workwear Overshirt" placeholder="e.g. Suede Collar Jacket">
+                </div>
 
-              <div class="form-field">
-                <label class="form-label">TITLE / HEADLINE *</label>
-                <input type="text" id="sell-title" class="form-input" placeholder="e.g. Cropped Workwear Canvas Jacket" value="Vintage Boxy Workwear Canvas Jacket">
-              </div>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-lbl">GARMENT CATEGORY *</label>
+                    <select id="input-sell-cat" class="form-ctrl" onchange="updateDynamicFitFields(this.value)">
+                      <option value="Outerwear" selected>Outerwear</option>
+                      <option value="Tops">Tops</option>
+                      <option value="Bottoms">Bottoms</option>
+                      <option value="Dresses">Dresses</option>
+                      <option value="Indian / Ethnic Wear">Indian / Ethnic Wear</option>
+                      <option value="Bags">Bags</option>
+                      <option value="Footwear">Footwear</option>
+                      <option value="Accessories">Accessories</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-lbl">BRAND / ATELIER ORIGIN *</label>
+                    <input type="text" id="input-sell-brand" class="form-ctrl" value="Rajasthan Guild Archive" placeholder="e.g. Zara / Vintage / Studio">
+                  </div>
+                </div>
 
-              <div class="form-field-row">
-                <div class="form-field">
-                  <label class="form-label">CATEGORY *</label>
-                  <select id="sell-category" class="form-select">
-                    <option value="Outerwear" selected>OUTERWEAR</option>
-                    <option value="Tops">TOPS</option>
-                    <option value="Bottoms">BOTTOMS</option>
-                    <option value="Dresses">DRESSES</option>
-                    <option value="Indian / Ethnic Wear">INDIAN / ETHNIC WEAR</option>
-                    <option value="Footwear">FOOTWEAR</option>
-                    <option value="Bags">BAGS</option>
-                    <option value="Accessories">ACCESSORIES</option>
+                <div class="form-group">
+                  <label class="form-lbl">NIFT SELLER DEPARTMENT</label>
+                  <select id="input-sell-dept" class="form-ctrl">
+                    <option value="FC" selected>Fashion Communication (FC)</option>
+                    <option value="FD">Fashion Design (FD)</option>
+                    <option value="TD">Textile Design (TD)</option>
+                    <option value="LD">Leather Design (LD)</option>
+                    <option value="AD">Accessory Design (AD)</option>
+                    <option value="KD">Knitwear Design (KD)</option>
                   </select>
                 </div>
-                <div class="form-field">
-                  <label class="form-label">BRAND / ARCHIVE *</label>
-                  <input type="text" id="sell-brand" class="form-input" placeholder="e.g. Carhartt / Vintage / Studio" value="Carhartt">
-                </div>
               </div>
 
-              <div class="form-field">
-                <label class="form-label">YOUR NIFT DEPARTMENT</label>
-                <select id="sell-dept" class="form-select">
-                  <option value="Fashion Communication (FC)" selected>FASHION COMMUNICATION (FC)</option>
-                  <option value="Fashion Design (FD)">FASHION DESIGN (FD)</option>
-                  <option value="Textile Design (TD)">TEXTILE DESIGN (TD)</option>
-                  <option value="Accessory Design (AD)">ACCESSORY DESIGN (AD)</option>
-                  <option value="Knitwear Design (KD)">KNITWEAR DESIGN (KD)</option>
-                </select>
-              </div>
-            </div>
+              <!-- STEP 3: Condition & Fit -->
+              <div class="sell-pane" data-step="3">
+                <h3 class="pane-title">Condition Tier &amp; Flat-Lay Measurements</h3>
+                <p class="pane-instruction">Condition determines whether your item sells at a Fixed Price or enters Live Bidding.</p>
 
-            <!-- STEP 3: Condition & Dynamic Fit Measurements -->
-            <div class="wizard-step-pane" data-step="3">
-              <h3 class="step-pane-heading">CONDITION & PRICING TRACK</h3>
-              <p class="step-pane-sub">Condition determines whether your item has a Fixed Price or enters Live Bidding.</p>
-
-              <div class="form-field">
-                <label class="form-label">5-TIER CONDITION RUBRIC *</label>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
-                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
-                    <input type="radio" name="sell-condition" value="New / Unworn" data-paradigm="fixed">
-                    <span style="font-weight:700; font-size:12px; display:block;">1. NEW / UNWORN</span>
-                    <span style="font-size:10px; color:var(--text-muted);">🔒 Fixed Price</span>
+                <div class="condition-rubric-selector">
+                  <label class="rubric-opt">
+                    <input type="radio" name="sell-condition-choice" value="New / Unworn" data-model="fixed">
+                    <div class="rubric-body">
+                      <strong>1. NEW / UNWORN</strong>
+                      <span>Direct Fixed Price</span>
+                    </div>
                   </label>
-                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
-                    <input type="radio" name="sell-condition" value="Like New" data-paradigm="fixed">
-                    <span style="font-weight:700; font-size:12px; display:block;">2. LIKE NEW</span>
-                    <span style="font-size:10px; color:var(--text-muted);">🔒 Fixed Price</span>
+                  <label class="rubric-opt">
+                    <input type="radio" name="sell-condition-choice" value="Like New" data-model="fixed">
+                    <div class="rubric-body">
+                      <strong>2. LIKE NEW</strong>
+                      <span>Direct Fixed Price</span>
+                    </div>
                   </label>
-                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
-                    <input type="radio" name="sell-condition" value="Gently Used" data-paradigm="fixed" checked>
-                    <span style="font-weight:700; font-size:12px; display:block;">3. GENTLY USED</span>
-                    <span style="font-size:10px; color:var(--text-muted);">🔒 Fixed Price</span>
+                  <label class="rubric-opt">
+                    <input type="radio" name="sell-condition-choice" value="Gently Used" data-model="fixed" checked>
+                    <div class="rubric-body">
+                      <strong>3. GENTLY USED</strong>
+                      <span>Direct Fixed Price</span>
+                    </div>
                   </label>
-                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
-                    <input type="radio" name="sell-condition" value="Well Used" data-paradigm="bidding">
-                    <span style="font-weight:700; font-size:12px; display:block; color:var(--red-carmine);">4. WELL USED</span>
-                    <span style="font-size:10px; color:var(--red-carmine);">🔥 Live Bidding</span>
+                  <label class="rubric-opt rubric-bidding">
+                    <input type="radio" name="sell-condition-choice" value="Well Used" data-model="bidding">
+                    <div class="rubric-body">
+                      <strong style="color:var(--color-deep-burgundy);">4. WELL USED</strong>
+                      <span style="color:var(--color-deep-burgundy);">🔥 Campus Live Bids</span>
+                    </div>
                   </label>
-                  <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:10px; cursor:pointer; border-radius:4px;">
-                    <input type="radio" name="sell-condition" value="Visible Wear / Flaws" data-paradigm="bidding">
-                    <span style="font-weight:700; font-size:12px; display:block; color:var(--red-carmine);">5. VISIBLE FLAWS</span>
-                    <span style="font-size:10px; color:var(--red-carmine);">🔥 Live Bidding</span>
+                  <label class="rubric-opt rubric-bidding">
+                    <input type="radio" name="sell-condition-choice" value="Visible Wear / Flaws" data-model="bidding">
+                    <div class="rubric-body">
+                      <strong style="color:var(--color-deep-burgundy);">5. VISIBLE FLAWS</strong>
+                      <span style="color:var(--color-deep-burgundy);">🔥 Campus Live Bids</span>
+                    </div>
                   </label>
                 </div>
-              </div>
 
-              <div class="form-field">
-                <label class="form-label">FLAW DISCLOSURE</label>
-                <input type="text" id="sell-flaws" class="form-input" placeholder="e.g. Minor 2mm cuff distress; clean studio piece" value="Slight distress on left cuff seam; clean pre-washed">
-              </div>
-
-              <div class="form-field">
-                <label class="form-label">LABEL SIZE *</label>
-                <input type="text" id="sell-label-size" class="form-input" placeholder="e.g. M / L / 32" value="Size L (Fits Boxy M)">
-              </div>
-
-              <div class="form-field">
-                <label class="form-label">FLAT-LAY FIT MEASUREMENTS (<span id="meas-cat-label">OUTERWEAR</span>)</label>
-                <div class="form-field-row" id="dynamic-meas-inputs">
-                  <!-- Populated via JS -->
+                <div class="form-group" style="margin-top:16px;">
+                  <label class="form-lbl">FLAW DISCLOSURE</label>
+                  <input type="text" id="input-sell-flaws" class="form-ctrl" value="Minor suede patina on elbow seams; clean studio garment.">
                 </div>
-              </div>
-            </div>
 
-            <!-- STEP 4: Pricing / Bidding Setup & Swap -->
-            <div class="wizard-step-pane" data-step="4">
-              <h3 class="step-pane-heading" id="pricing-step-title">COMMERCIAL TERMS</h3>
-              <p class="step-pane-sub">Set your pricing parameters for the NIFT community.</p>
-
-              <div class="form-field">
-                <label class="form-label" id="price-input-label">DIRECT FIXED PRICE (₹ INR) *</label>
-                <div style="position:relative;">
-                  <span style="position:absolute; left:12px; top:12px; font-weight:700;">₹</span>
-                  <input type="number" id="sell-price" class="form-input" style="padding-left:28px;" value="1800">
+                <div class="form-group">
+                  <label class="form-lbl">LABEL SIZE</label>
+                  <input type="text" id="input-sell-size" class="form-ctrl" value="Size M (Fits Boxy M/L)">
                 </div>
-                <p style="font-size:12px; color:var(--text-muted); margin-top:6px;" id="price-mode-explainer">
-                  🔒 Tiers 1–3 use Direct Fixed Pricing: Buyers cannot bargain or lowball. They purchase immediately at your stated price.
-                </p>
-              </div>
 
-              <div class="form-field" style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:16px; border-radius:4px;">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <div>
-                    <h4 style="font-family:var(--font-display); font-size:16px;">⇄ AVAILABLE FOR WARDROBE SWAP</h4>
-                    <p style="font-size:12px; color:var(--text-muted);">Allow fellow students to propose an item from their closet (+ cash adjustment).</p>
+                <div class="form-group">
+                  <label class="form-lbl">FLAT-LAY MEASUREMENTS (<span id="sell-meas-cat">OUTERWEAR</span>)</label>
+                  <div class="dynamic-meas-grid" id="sell-dynamic-meas">
+                    <!-- Populated via app.js -->
                   </div>
-                  <input type="checkbox" id="sell-exchange-toggle" checked style="width:20px; height:20px; accent-color:var(--red-carmine);">
                 </div>
               </div>
-            </div>
 
-            <!-- STEP 5: Campus Event Drop Zones (Zero Courier) -->
-            <div class="wizard-step-pane" data-step="5">
-              <h3 class="step-pane-heading">CAMPUS DROP ZONES</h3>
-              <p class="step-pane-sub">No courier parcel shipping. Select where on campus you will meet during break drops:</p>
+              <!-- STEP 4: Pricing / Bidding -->
+              <div class="sell-pane" data-step="4">
+                <h3 class="pane-title" id="sell-step4-title">Direct Fixed Price Setup</h3>
+                <p class="pane-instruction" id="sell-step4-sub">Tiers 1–3 protect garment value: no haggling or lowballs.</p>
 
-              <div style="display:flex; flex-direction:column; gap:12px;">
-                <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:14px; display:flex; gap:12px; align-items:center; border-radius:4px;">
-                  <input type="checkbox" checked style="accent-color:var(--red-carmine); width:18px; height:18px;">
-                  <div>
-                    <strong style="font-size:13px; font-family:var(--font-mono);">📍 CANTEEN AMPHITHEATRE & STEPS (CAMPUS MAIN HUB)</strong>
-                    <div style="font-size:12px; color:var(--text-muted);">Active during 1:15 PM – 2:00 PM Friday lunch break thrift drops.</div>
+                <div class="form-group">
+                  <label class="form-lbl" id="sell-price-label">DIRECT FIXED PRICE (₹ INR) *</label>
+                  <div class="price-input-wrapper">
+                    <span class="currency-prefix">₹</span>
+                    <input type="number" id="input-sell-amount" class="form-ctrl price-input" value="1800">
                   </div>
-                </label>
-                <label style="background:var(--bg-beige); border:1.5px solid var(--border-dark); padding:14px; display:flex; gap:12px; align-items:center; border-radius:4px;">
-                  <input type="checkbox" checked style="accent-color:var(--red-carmine); width:18px; height:18px;">
-                  <div>
-                    <strong style="font-size:13px; font-family:var(--font-mono);">📍 TEXTILE DEPARTMENT LAWN & CORRIDORS</strong>
-                    <div style="font-size:12px; color:var(--text-muted);">Ideal for quick studio break handoffs.</div>
+                </div>
+
+                <div class="swap-toggle-card">
+                  <div class="swap-toggle-info">
+                    <strong>AVAILABLE FOR WARDROBE SWAP (⇄)</strong>
+                    <span>Allow fellow students to offer pieces from their closet (+ optional cash adjustment).</span>
                   </div>
-                </label>
-              </div>
-            </div>
-
-            <!-- STEP 6: Editorial Preview & Publish -->
-            <div class="wizard-step-pane" data-step="6">
-              <h3 class="step-pane-heading">EDITORIAL PREVIEW</h3>
-              <p class="step-pane-sub">Review how your garment card appears in the NIFT Hyderabad feed.</p>
-
-              <div id="wizard-preview-container">
-                <!-- Live preview injected by app.js -->
+                  <label class="switch-ui">
+                    <input type="checkbox" id="input-sell-swap-allowed" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
               </div>
 
-              <div id="wizard-success-msg" style="display:none; background:var(--sticker-green-bg); color:#fff; padding:12px; text-align:center; font-family:var(--font-display); font-size:16px; margin-top:16px; border:2px solid var(--border-dark);">
-                ✓ Piece curated & broadcasted to NIFT Campus!
+              <!-- STEP 5: Campus Drop Zones -->
+              <div class="sell-pane" data-step="5">
+                <h3 class="pane-title">Campus Drop Zones (Zero Courier)</h3>
+                <p class="pane-instruction">Select where on the NIFT Hyderabad campus you will meet buyers during break drops:</p>
+
+                <div class="dropzone-options-list">
+                  <label class="dropzone-check-card">
+                    <input type="checkbox" checked>
+                    <div>
+                      <strong>📍 CANTEEN AMPHITHEATRE STEPS (MAIN CAMPUS HUB)</strong>
+                      <span>Active during Friday lunch break drops (1:15 PM – 2:00 PM).</span>
+                    </div>
+                  </label>
+                  <label class="dropzone-check-card">
+                    <input type="checkbox" checked>
+                    <div>
+                      <strong>📍 TEXTILE DEPARTMENT LAWN &amp; CORRIDORS</strong>
+                      <span>Outdoor lawn spot for relaxed studio break trades.</span>
+                    </div>
+                  </label>
+                  <label class="dropzone-check-card">
+                    <input type="checkbox">
+                    <div>
+                      <strong>📍 RESOURCE CENTRE / LIBRARY FOYER</strong>
+                      <span>Indoor well-lit spot for detailed fit validation.</span>
+                    </div>
+                  </label>
+                </div>
               </div>
-            </div>
 
-            <!-- Wizard Controls -->
-            <div class="wizard-footer-nav">
-              <button type="button" class="btn-wizard-prev" id="wizard-prev-btn" style="visibility:hidden;">← BACK</button>
-              <button type="button" class="btn-wizard-next" id="wizard-next-btn">NEXT STEP →</button>
-            </div>
+              <!-- STEP 6: Editorial Preview & Broadcast -->
+              <div class="sell-pane" data-step="6">
+                <h3 class="pane-title">Editorial Preview &amp; Publish</h3>
+                <p class="pane-instruction">Review how your garment card appears in the NIFT Hyderabad archive.</p>
 
-          </form>
+                <div class="preview-card-frame" id="sell-preview-slot">
+                  <!-- Injected via app.js -->
+                </div>
+
+                <div class="publish-success-banner" id="sell-success-banner" style="display:none;">
+                  ✓ Piece published &amp; broadcasted to NIFT Campus!
+                </div>
+              </div>
+
+              <!-- Wizard Footer Controls -->
+              <div class="wizard-control-btns">
+                <button type="button" class="btn-wizard-prev" id="btn-wizard-back" onclick="wizardGoPrev()" style="visibility:hidden;">&larr; BACK</button>
+                <button type="button" class="btn-wizard-next" id="btn-wizard-forward" onclick="wizardGoNext()">NEXT STEP &rarr;</button>
+              </div>
+
+            </form>
+          </div>
+
         </div>
       </section>
 
-
       <!-- ============================================================ -->
-      <!-- TAB 4: CAMPUS ACTIVITY & DROP CENTER                           -->
+      <!-- VIEW 4: ACTIVITY & CAMPUS DROPS                               -->
       <!-- ============================================================ -->
-      <section id="view-activity" class="tab-view">
-        <div class="activity-container">
-          <div class="activity-header">
-            <h2 class="view-heading">CAMPUS ACTIVITY</h2>
-            <span style="font-size: 13px; color: var(--text-muted);">Live bids, wardrobe swaps, and scheduled courtyard drops.</span>
+      <section id="desktop-activity-view" class="desktop-subview">
+        <div class="activity-page-wrap">
+          
+          <div class="section-header-row" style="margin-bottom:24px;">
+            <div>
+              <h2 class="editorial-heading">Activity &amp; Drops</h2>
+              <p class="discover-subtext">Live campus bidding, bilateral swaps, and upcoming courtyard break meets.</p>
+            </div>
           </div>
 
-          <div class="activity-segments">
-            <button class="activity-segment-btn active" data-segment="all">ALL</button>
-            <button class="activity-segment-btn" data-segment="bids">🔥 LIVE BIDS</button>
-            <button class="activity-segment-btn" data-segment="trades">⇄ SWAPS</button>
-            <button class="activity-segment-btn" data-segment="drops">📍 DROP MEETS</button>
+          <div class="activity-tabs-cluster">
+            <button type="button" class="activity-tab active" data-actfilter="all" onclick="filterActivity('all')">All Activity</button>
+            <button type="button" class="activity-tab" data-actfilter="bids" onclick="filterActivity('bids')">🔥 Live Bids</button>
+            <button type="button" class="activity-tab" data-actfilter="trades" onclick="filterActivity('trades')">⇄ Swaps</button>
+            <button type="button" class="activity-tab" data-actfilter="drops" onclick="filterActivity('drops')">📍 Campus Drops</button>
           </div>
 
-          <div class="activity-list" id="activity-stream">
+          <div class="activity-cards-stream" id="desktop-activity-stream">
             <!-- Populated via app.js -->
           </div>
+
         </div>
       </section>
 
-
       <!-- ============================================================ -->
-      <!-- TAB 5: DUAL-MODE "MY CLOSET" & SAVED ARCHIVE                  -->
+      <!-- VIEW 5: MY CLOSET & SAVED ARCHIVE                             -->
       <!-- ============================================================ -->
-      <section id="view-closet" class="tab-view">
-        <div class="closet-container">
+      <section id="desktop-closet-view" class="desktop-subview">
+        <div class="closet-page-wrap">
           
           <!-- Curator Profile Card -->
-          <div class="closet-profile-card">
-            <div class="profile-avatar-row">
-              <div class="avatar-frame">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Simran">
-              </div>
-              <div class="profile-info">
-                <h3 class="profile-name">SIMRAN SINGH</h3>
-                <div class="profile-handle">@simran_archives • Fashion Comm (FC '26)</div>
-                <div style="font-size:12px; margin-top:4px;">★ <strong>4.95</strong> (16 drops) • ⇄ <strong>7</strong> swaps</div>
+          <div class="curator-profile-box">
+            <div class="profile-info-side">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=180&q=80" alt="Simran" class="curator-avatar-large">
+              <div>
+                <h2 class="curator-name">Simran Singh</h2>
+                <div class="curator-handle">@simran_archives • Fashion Comm (FC '26)</div>
+                <div class="curator-stats">★ <strong>4.95</strong> (16 drops completed) • ⇄ <strong>7</strong> swaps verified</div>
               </div>
             </div>
-
-            <div class="closet-ledger-grid">
-              <div class="ledger-metric">
-                <span class="metric-num red-accent">₹6,850</span>
-                <span class="metric-label">CIRCULATED</span>
+            <div class="profile-ledger-metrics">
+              <div class="ledger-stat">
+                <span class="ledger-num">₹6,850</span>
+                <span class="ledger-lbl">CIRCULATED</span>
               </div>
-              <div class="ledger-metric">
-                <span class="metric-num" id="closet-active-count">3</span>
-                <span class="metric-label">IN CLOSET</span>
+              <div class="ledger-stat">
+                <span class="ledger-num" id="user-closet-count">4</span>
+                <span class="ledger-lbl">IN CLOSET</span>
               </div>
-              <div class="ledger-metric">
-                <span class="metric-num">12</span>
-                <span class="metric-label">RE-HOMED</span>
+              <div class="ledger-stat">
+                <span class="ledger-num">12</span>
+                <span class="ledger-lbl">RE-HOMED</span>
               </div>
             </div>
           </div>
 
-          <!-- Dual Mode Switcher -->
-          <div class="closet-tabs-row">
-            <div class="closet-mode-toggles">
-              <button class="btn-closet-mode active" id="btn-mode-closet" data-mode="closet">
-                MY CLOSET <span id="count-mode-closet">(3)</span>
+          <!-- Mode Toggle: My Closet vs Saved Archive -->
+          <div class="closet-nav-header">
+            <div class="closet-subtabs">
+              <button type="button" class="closet-subtab active" id="btn-closet-listings" onclick="switchClosetSubmode('listings')">
+                My Closet <span id="lbl-closet-qty">(4)</span>
               </button>
-              <button class="btn-closet-mode" id="btn-mode-saved" data-mode="saved">
-                SAVED ARCHIVE <span id="count-mode-saved">(0)</span>
+              <button type="button" class="closet-subtab" id="btn-closet-saved" onclick="switchClosetSubmode('saved')">
+                Saved Archive <span id="lbl-saved-qty">(2)</span>
               </button>
             </div>
-            <button class="btn-list-new" id="closet-list-new-btn">+ LIST NEW PIECE</button>
+            <button type="button" class="btn-add-piece" onclick="showDesktopView('sell')">+ List a Piece</button>
           </div>
 
-          <!-- Panel A: Closet -->
-          <div id="panel-my-closet">
-            <div class="product-grid" id="closet-product-grid"></div>
-          </div>
-
-          <!-- Panel B: Saved -->
-          <div id="panel-my-saved" style="display:none;">
-            <div class="product-grid" id="saved-product-grid"></div>
+          <!-- Product Grid for Closet / Saved -->
+          <div class="marketplace-grid" id="desktop-closet-grid">
+            <!-- Populated via app.js -->
           </div>
 
         </div>
@@ -495,115 +678,428 @@
 
     </main>
 
+    <!-- SECTION 07 — FOOTER (WARM IVORY MINIMALIST ARCHIVE) -->
+    <footer class="desktop-footer">
+      <div class="footer-container">
+        
+        <div class="footer-brand-col">
+          <div class="brand-logotype">
+            <span class="logo-thrift">THRIFT</span>
+            <span class="logo-atelier">Atelier</span>
+            <span class="logo-closet">CLOSET</span>
+          </div>
+          <p class="footer-desc">
+            A student-run resale archive exclusively for the National Institute of Fashion Technology (NIFT), Hyderabad community.
+          </p>
+          <div class="footer-campus-tag">
+            <span>📍 Madhapur Campus • FC • FD • TD • LD • AD • KD</span>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#" onclick="showDesktopView('discover'); return false;">Discover Catalog</a></li>
+            <li><a href="#" onclick="filterCatalogByPillar('shop'); return false;">Featured Pieces</a></li>
+            <li><a href="#" onclick="showDesktopView('sell'); return false;">Sell / Curate a Piece</a></li>
+            <li><a href="#" onclick="filterCatalogByPillar('swap'); return false;">Bilateral Swaps</a></li>
+            <li><a href="#" onclick="showDesktopView('activity', 'drops'); return false;">Campus Break Drops</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Guidelines</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#" onclick="openGuidelinesModal('condition'); return false;">5-Tier Condition Rubric</a></li>
+            <li><a href="#" onclick="openGuidelinesModal('bidding'); return false;">Campus Live Bidding Rules</a></li>
+            <li><a href="#" onclick="openGuidelinesModal('drops'); return false;">Courtyard Daylight Inspection</a></li>
+            <li><a href="#" onclick="openGuidelinesModal('student-id'); return false;">Student ID Verification</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Connect</h4>
+          <ul class="footer-nav-list">
+            <li><span class="footer-contact-txt">Department of Fashion Communication</span></li>
+            <li><span class="footer-contact-txt">Creative Director: Simran Singh (BD/24/164)</span></li>
+            <li><span class="footer-contact-txt">Technical Mentor: Antigravity AI</span></li>
+            <li><a href="https://github.com/NIFT-Information-Architecture-2026/simran_BD_24_164" target="_blank" rel="noopener">GitHub Repository &rarr;</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 NIFT Hyderabad • All rights reserved. Zero courier shipping • In-person break drops only.</span>
+      </div>
+    </footer>
+
   </div>
 
 
-  <!-- ================================================================ -->
-  <!-- MODALS (DESKTOP EDITORIAL SHEETS)                                -->
-  <!-- ================================================================ -->
+  <!-- ============================================================== -->
+  <!-- 2. DEDICATED MOBILE APPLICATION EXPERIENCE                    -->
+  <!-- ============================================================== -->
+  <div id="mobile-experience" class="experience-container">
+    <div class="mobile-device-shell">
+      <div class="mobile-screen-viewport">
+        
+        <!-- Mobile App Header -->
+        <header class="mobile-app-header">
+          <div class="mobile-header-row">
+            <div class="brand-logotype mobile-logo" onclick="switchMobileTab('m-home')">
+              <span class="logo-thrift">THRIFT</span>
+              <span class="logo-atelier">Atelier</span>
+              <span class="logo-closet">CLOSET</span>
+            </div>
+            <div class="mobile-header-actions">
+              <button type="button" class="mob-icon-btn" onclick="toggleSearchTray()" title="Search">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </button>
+              <button type="button" class="mob-icon-btn" onclick="switchMobileTab('m-closet', 'saved')" title="Wishlist">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="#76252D" stroke="#76252D" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span class="util-badge" id="mob-wishlist-count">2</span>
+              </button>
+              <button type="button" class="mob-avatar-btn" onclick="switchMobileTab('m-closet')">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Simran">
+              </button>
+            </div>
+          </div>
+        </header>
 
-  <!-- MODAL 1: PRODUCT DETAIL PAGE (PDP) -->
-  <div class="pdp-modal-overlay" id="pdp-modal">
-    <div class="pdp-modal-sheet">
-      <div class="pdp-sheet-header">
-        <button class="sheet-close-btn" id="pdp-close-btn">&larr; BACK TO ARCHIVE</button>
-        <div style="display:flex; gap:10px;">
-          <button class="icon-btn-zine" id="pdp-share-btn" title="Share with NIFTian">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-            <span>SHARE</span>
-          </button>
-          <button class="icon-btn-zine" id="pdp-favorite-btn" title="Save to Archives">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            <span>ARCHIVE</span>
-          </button>
+        <!-- Mobile Scroll Content -->
+        <div class="mobile-scroll-body" id="mobile-scroll-content">
+
+          <!-- TAB 1: MOBILE HOME / DISCOVER -->
+          <div id="mob-view-home" class="mobile-tab-view active">
+            
+            <!-- Mobile Hero -->
+            <div class="mobile-hero-card">
+              <img src="images/reference/hero-students-ledge.jpg" alt="Students on Ledge" class="mobile-hero-photo">
+              <div class="mobile-hero-overlay">
+                <div class="mob-script-stack">
+                  <span>Students Pieces People Possibilities</span>
+                </div>
+                <div class="mob-hero-copy">
+                  <h2 class="mob-hero-headline">A RESALE ARCHIVE BY NIFT HYDERABAD STUDENTS.</h2>
+                  <button type="button" class="mob-btn-explore" onclick="switchMobileTab('m-discover')">Explore Listings &rarr;</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2x2 Black Functional Grid -->
+            <div class="mobile-action-grid-2x2">
+              <div class="mob-band-box" onclick="switchMobileTab('m-discover', 'shop')">
+                <span class="mob-band-num">01</span>
+                <strong>SHOP</strong>
+                <span>Preloved pieces</span>
+              </div>
+              <div class="mob-band-box" onclick="switchMobileTab('m-sell')">
+                <span class="mob-band-num">02</span>
+                <strong>SELL</strong>
+                <span>Give second life</span>
+              </div>
+              <div class="mob-band-box" onclick="switchMobileTab('m-discover', 'swap')">
+                <span class="mob-band-num">03</span>
+                <strong>SWAP</strong>
+                <span>Trade in campus</span>
+              </div>
+              <div class="mob-band-box" onclick="switchMobileTab('m-drops')">
+                <span class="mob-band-num">04</span>
+                <strong>JOIN</strong>
+                <span>Campus drops</span>
+              </div>
+            </div>
+
+            <!-- Featured This Week Carousel/Grid -->
+            <div class="mobile-section-header">
+              <h3 class="mob-section-title">Featured This Week</h3>
+              <button type="button" class="mob-link-more" onclick="switchMobileTab('m-discover')">View all &rarr;</button>
+            </div>
+            <div class="mobile-featured-carousel" id="mob-featured-container">
+              <!-- Rendered via app.js -->
+            </div>
+
+            <!-- Next Campus Drop Card -->
+            <div class="mobile-drop-card">
+              <img src="images/reference/event-campus-drop.jpg" alt="Campus Drop" class="mob-drop-bg">
+              <div class="mob-drop-content">
+                <span class="mob-tag-white">ART &amp; DESIGN DEPT</span>
+                <h4 class="mob-drop-heading">CAMPUS DROP</h4>
+                <p class="mob-drop-time">18 OCT 2026 • 4:00 PM • STUDIO BLOCK</p>
+                <button type="button" class="btn-rsvp-pill mob-rsvp" onclick="handleEventRsvp(this)">RSVP NOW &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Community Story -->
+            <div class="mobile-section-header" style="margin-top:20px;">
+              <h3 class="mob-section-title">Community Stories</h3>
+            </div>
+            <div class="mobile-story-card" onclick="openStoryModal()">
+              <img src="images/reference/story-student-portrait.jpg" alt="Student" class="mob-story-thumb">
+              <div class="mob-story-details">
+                <h4 class="mob-story-title">How I Built My Wardrobe at NIFT Through Swaps</h4>
+                <span class="mob-story-meta">Real students. Real stories. &rarr;</span>
+              </div>
+            </div>
+
+            <!-- Browse by Department Scroll -->
+            <div class="mobile-section-header" style="margin-top:20px;">
+              <h3 class="mob-section-title">Browse by Department</h3>
+            </div>
+            <div class="mobile-dept-scroll">
+              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('FC')">Fashion Comm</div>
+              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('FD')">Fashion Design</div>
+              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('TD')">Textile Design</div>
+              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('LD')">Leather Design</div>
+              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('AD')">Accessory Design</div>
+              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('KD')">Knitwear Design</div>
+            </div>
+
+            <!-- Two-Column Product Feed Preview -->
+            <div class="mobile-section-header" style="margin-top:24px;">
+              <h3 class="mob-section-title">Recent Campus Drops</h3>
+            </div>
+            <div class="mobile-2col-grid" id="mob-home-2col-feed">
+              <!-- Rendered via app.js -->
+            </div>
+
+          </div>
+
+          <!-- TAB 2: MOBILE DISCOVER / CATALOG -->
+          <div id="mob-view-discover" class="mobile-tab-view">
+            <div class="mob-discover-header">
+              <h3 class="mob-section-title">Discover Archive</h3>
+              <div class="mob-filter-chips-row">
+                <button type="button" class="mob-filter-chip active" data-tx="all" onclick="filterByTransaction('all')">All</button>
+                <button type="button" class="mob-filter-chip" data-tx="fixed" onclick="filterByTransaction('fixed')">Fixed Price</button>
+                <button type="button" class="mob-filter-chip" data-tx="bidding" onclick="filterByTransaction('bidding')">🔥 Bids</button>
+                <button type="button" class="mob-filter-chip" data-tx="swap" onclick="filterByTransaction('swap')">⇄ Swaps</button>
+              </div>
+            </div>
+            <div class="mobile-2col-grid" id="mob-discover-grid">
+              <!-- Rendered via app.js -->
+            </div>
+          </div>
+
+          <!-- TAB 3: MOBILE SELL STUDIO -->
+          <div id="mob-view-sell" class="mobile-tab-view">
+            <div class="mob-sell-container">
+              <h3 class="mob-section-title">Sell / Curate Piece</h3>
+              <p style="font-size:12px; color:var(--color-supporting-text-grey); margin-bottom:16px;">
+                Complete the 6-step guided wizard to list for NIFT break drops.
+              </p>
+              <div id="mob-sell-wizard-slot">
+                <!-- Reuses sell wizard engine seamlessly -->
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: MOBILE DROPS & ACTIVITY -->
+          <div id="mob-view-drops" class="mobile-tab-view">
+            <div class="mob-drops-container">
+              <h3 class="mob-section-title">Campus Drops &amp; Activity</h3>
+              <div class="activity-cards-stream" id="mob-activity-stream">
+                <!-- Rendered via app.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: MOBILE MY CLOSET -->
+          <div id="mob-view-closet" class="mobile-tab-view">
+            <div class="mob-closet-container">
+              <div class="curator-profile-box mob-profile-box">
+                <div class="profile-info-side">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Simran" class="curator-avatar-large">
+                  <div>
+                    <h3 class="curator-name" style="font-size:20px;">Simran Singh</h3>
+                    <div class="curator-handle">@simran_archives • FC '26</div>
+                  </div>
+                </div>
+              </div>
+              <div class="closet-subtabs" style="margin: 16px 0;">
+                <button type="button" class="closet-subtab active" id="mob-btn-closet-listings" onclick="switchClosetSubmode('listings')">
+                  My Closet
+                </button>
+                <button type="button" class="closet-subtab" id="mob-btn-closet-saved" onclick="switchClosetSubmode('saved')">
+                  Saved Archive
+                </button>
+              </div>
+              <div class="mobile-2col-grid" id="mob-closet-grid">
+                <!-- Rendered via app.js -->
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <!-- FIXED MOBILE BOTTOM NAVIGATION BAR -->
+        <nav class="mobile-bottom-nav-bar" aria-label="Mobile Navigation">
+          <button type="button" class="mob-nav-btn active" data-tab="m-home" onclick="switchMobileTab('m-home')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Home</span>
+          </button>
+          <button type="button" class="mob-nav-btn" data-tab="m-discover" onclick="switchMobileTab('m-discover')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            <span>Discover</span>
+          </button>
+          <button type="button" class="mob-nav-btn btn-mob-sell" data-tab="m-sell" onclick="switchMobileTab('m-sell')">
+            <div class="mob-sell-plus">+</div>
+            <span>Sell</span>
+          </button>
+          <button type="button" class="mob-nav-btn" data-tab="m-drops" onclick="switchMobileTab('m-drops')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Drops</span>
+            <span class="mob-dot-indicator"></span>
+          </button>
+          <button type="button" class="mob-nav-btn" data-tab="m-closet" onclick="switchMobileTab('m-closet')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Closet</span>
+          </button>
+        </nav>
+
       </div>
-      <div class="pdp-scroll-body" id="pdp-body-content"></div>
-      <div class="pdp-sticky-bar" id="pdp-action-bar"></div>
     </div>
   </div>
 
-  <!-- MODAL 2: LIVE BIDDING MODAL (TIERS 4 & 5 - CARMINE RED INVERSION) -->
-  <div class="bidding-modal-overlay" id="bidding-modal">
-    <div class="bidding-modal-sheet">
-      <div class="modal-sheet-header">
-        <h3 class="sheet-title">🔥 PLACE A CAMPUS BID</h3>
-        <button class="modal-close-x" id="bidding-modal-close">&times;</button>
+
+  <!-- ============================================================== -->
+  <!-- MODALS (DESKTOP & MOBILE SHARED INTERACTIVE SHEETS)           -->
+  <!-- ============================================================== -->
+
+  <!-- MODAL 1: PRODUCT DETAIL PAGE (PDP) - 7-LAYER SYSTEM -->
+  <div class="app-modal-overlay" id="pdp-modal">
+    <div class="modal-sheet-dialog pdp-sheet">
+      <div class="modal-top-bar">
+        <button type="button" class="btn-modal-back" onclick="closePdpModal()">&larr; Back to Archive</button>
+        <div class="modal-top-actions">
+          <button type="button" class="btn-top-action" onclick="shareCurrentPiece()" title="Share Piece">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            <span>Share</span>
+          </button>
+          <button type="button" class="btn-top-action" id="pdp-wishlist-toggle" onclick="toggleCurrentPieceWishlist()" title="Save to Archive">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Wishlist</span>
+          </button>
+          <button type="button" class="btn-modal-close" onclick="closePdpModal()">&times;</button>
+        </div>
       </div>
-      <div class="bid-item-summary" id="bidding-item-summary"></div>
+
+      <div class="pdp-layout-body" id="pdp-content-slot">
+        <!-- Dynamically rendered via app.js -->
+      </div>
+
+      <div class="pdp-sticky-action-dock" id="pdp-dock-slot">
+        <!-- Dynamically rendered via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: LIVE BIDDING MODAL (TIERS 4 & 5) -->
+  <div class="app-modal-overlay" id="bidding-modal">
+    <div class="modal-sheet-dialog small-sheet">
+      <div class="modal-top-bar">
+        <h3 class="modal-title-serif">🔥 Place a Campus Bid</h3>
+        <button type="button" class="btn-modal-close" onclick="closeBiddingModal()">&times;</button>
+      </div>
       
-      <div class="current-bid-indicator">
-        <div>
-          <span style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; color:#FFE4D6;">CURRENT HIGHEST BID</span>
-          <div class="highest-bid-val" id="highest-bid-display">₹1,100</div>
+      <div class="bidding-modal-content">
+        <div class="bid-summary-item" id="bid-modal-summary"></div>
+        
+        <div class="current-bid-box">
+          <div>
+            <span class="bid-box-label">CURRENT HIGH BID</span>
+            <div class="bid-box-val" id="bid-modal-high">₹0</div>
+          </div>
+          <div style="text-align:right;">
+            <span class="bid-box-label">TOTAL BIDS</span>
+            <div class="bid-box-val" id="bid-modal-count">0 bids</div>
+          </div>
         </div>
-        <div style="text-align:right;">
-          <span style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; color:#FFE4D6;">TOTAL BIDS</span>
-          <div class="bids-count-val" id="bids-count-display">4 bids</div>
+
+        <div class="form-group" style="margin-top:16px;">
+          <label class="form-lbl">YOUR BID (₹ INR) — MINIMUM: <strong id="bid-modal-min" style="color:var(--color-deep-burgundy);">₹0</strong></label>
+          <input type="number" id="bid-modal-input" class="form-ctrl price-input" style="font-size:20px; font-weight:700;">
         </div>
-      </div>
 
-      <div class="form-field">
-        <label class="form-label" style="color: var(--text-beige);">YOUR BID (₹ INR) — MINIMUM: <span id="min-bid-display" style="color: #FFD480;">₹1,150</span></label>
-        <input type="number" id="bid-input-amount" class="form-input" style="font-size:18px; font-weight:700;">
-      </div>
+        <div class="quick-bid-chips">
+          <button type="button" class="btn-quick-chip" onclick="incrementBid(50)">+ ₹50</button>
+          <button type="button" class="btn-quick-chip" onclick="incrementBid(100)">+ ₹100</button>
+          <button type="button" class="btn-quick-chip" onclick="incrementBid(200)">+ ₹200</button>
+        </div>
 
-      <div class="quick-counter-chips">
-        <button class="counter-chip-beige" id="bid-plus-50">+ ₹50</button>
-        <button class="counter-chip-beige" id="bid-plus-100">+ ₹100</button>
-        <button class="counter-chip-beige" id="bid-plus-200">+ ₹200</button>
-      </div>
+        <p class="bidding-disclaimer">
+          ⚡ Bidding closes prior to Friday Lunch Break Drop. Highest bidder collects directly at the Canteen Amphitheatre!
+        </p>
 
-      <p class="bidding-policy-note">
-        ⚡ Bidding closes prior to Friday Lunch Break Drop. Highest bidder collects directly at the Canteen Amphitheatre!
-      </p>
-
-      <button class="btn-beige-invert" style="width:100%; text-align:center; padding:12px;" id="submit-bid-btn">CONFIRM & SUBMIT BID</button>
-    </div>
-  </div>
-
-  <!-- MODAL 3: BILATERAL PROPOSE TRADE DRAWER -->
-  <div class="trade-modal-overlay" id="trade-modal">
-    <div class="trade-modal-sheet">
-      <div class="modal-sheet-header">
-        <h3 class="sheet-title">PROPOSE A WARDROBE SWAP (⇄)</h3>
-        <button class="modal-close-x" id="trade-modal-close">&times;</button>
-      </div>
-
-      <div class="trade-target-card" id="trade-target-display" style="margin-bottom:16px;"></div>
-
-      <div class="trade-section-label">1. CHOOSE A PIECE FROM YOUR CLOSET TO OFFER:</div>
-      <div class="trade-closet-picker" id="trade-closet-options"></div>
-
-      <div class="trade-section-label">2. OPTIONAL CASH TOP-UP (BALANCING VALUE):</div>
-      <div class="cash-stepper-row">
-        <button class="btn-stepper" id="cash-minus-btn">- ₹100</button>
-        <span class="stepper-amount" id="cash-topup-display">₹0</span>
-        <button class="btn-stepper" id="cash-plus-btn">+ ₹100</button>
-      </div>
-
-      <div class="trade-section-label">3. MESSAGE FOR CAMPUS MEETUP:</div>
-      <input type="text" id="trade-note-input" class="form-input" placeholder="e.g. Can meet at Canteen Steps during Friday lunch drop!">
-
-      <div style="margin-top:24px;">
-        <button class="btn-pdp-buy" style="width:100%;" id="trade-submit-btn">SEND SWAP PROPOSAL</button>
+        <button type="button" class="btn-primary-action" style="width:100%; margin-top:14px;" onclick="submitBidFromModal()">Confirm &amp; Place Bid</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 4: CAMPUS DROP HANDOFF & INSPECTION -->
-  <div class="handoff-modal-overlay" id="handoff-modal">
-    <div class="trade-modal-sheet" style="max-width:540px;">
-      <div class="modal-sheet-header">
-        <h3 class="sheet-title">CAMPUS DROP DAYLIGHT INSPECTION</h3>
-        <button class="modal-close-x" id="handoff-modal-close">&times;</button>
+  <!-- MODAL 3: BILATERAL WARDROBE SWAP DRAWER -->
+  <div class="app-modal-overlay" id="swap-modal">
+    <div class="modal-sheet-dialog small-sheet">
+      <div class="modal-top-bar">
+        <h3 class="modal-title-serif">Propose a Wardrobe Swap (⇄)</h3>
+        <button type="button" class="btn-modal-close" onclick="closeSwapModal()">&times;</button>
       </div>
-      <div id="handoff-modal-content"></div>
+
+      <div class="swap-modal-content">
+        <div class="swap-target-summary" id="swap-target-box"></div>
+
+        <label class="form-lbl" style="margin-top:16px;">1. CHOOSE A PIECE FROM YOUR CLOSET TO OFFER:</label>
+        <div class="closet-picker-scroll" id="swap-closet-picker"></div>
+
+        <label class="form-lbl" style="margin-top:16px;">2. OPTIONAL CASH BALANCER (+/-):</label>
+        <div class="cash-balancer-stepper">
+          <button type="button" class="btn-step" onclick="adjustCashBalancer(-100)">- ₹100</button>
+          <span class="balancer-amount" id="swap-cash-val">₹0</span>
+          <button type="button" class="btn-step" onclick="adjustCashBalancer(100)">+ ₹100</button>
+        </div>
+
+        <div class="form-group" style="margin-top:16px;">
+          <label class="form-lbl">3. MESSAGE FOR CAMPUS MEETUP:</label>
+          <input type="text" id="swap-msg-input" class="form-ctrl" value="Can meet at Canteen Steps during Friday lunch drop!">
+        </div>
+
+        <button type="button" class="btn-primary-action" style="width:100%; margin-top:20px;" onclick="submitSwapProposal()">Send Swap Proposal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: CAMPUS DROP DAYLIGHT INSPECTION TICKET -->
+  <div class="app-modal-overlay" id="handoff-modal">
+    <div class="modal-sheet-dialog small-sheet">
+      <div class="modal-top-bar">
+        <h3 class="modal-title-serif">Campus Drop Inspection</h3>
+        <button type="button" class="btn-modal-close" onclick="closeHandoffModal()">&times;</button>
+      </div>
+      <div class="handoff-modal-body" id="handoff-body-slot"></div>
+    </div>
+  </div>
+
+  <!-- MODAL 5: COMMUNITY STORY MODAL -->
+  <div class="app-modal-overlay" id="story-modal">
+    <div class="modal-sheet-dialog small-sheet">
+      <div class="modal-top-bar">
+        <h3 class="modal-title-serif">Community Story</h3>
+        <button type="button" class="btn-modal-close" onclick="closeStoryModal()">&times;</button>
+      </div>
+      <div class="story-modal-body" style="padding:20px 24px;">
+        <img src="images/reference/story-student-portrait.jpg" alt="Student" style="width:100%; height:220px; object-fit:cover; border-radius:4px; margin-bottom:14px;">
+        <h4 style="font-family:var(--font-editorial); font-size:20px; color:var(--color-charcoal-black); margin-bottom:6px;">How I Built My Wardrobe at NIFT Through Swaps</h4>
+        <p style="font-size:12px; color:var(--color-supporting-text-grey); margin-bottom:12px;">By Ananya Sen • Textile Design (TD '26)</p>
+        <p style="font-size:13.5px; line-height:1.6; color:var(--color-charcoal-black); margin-bottom:12px;">
+          "Coming to NIFT Hyderabad, you quickly realise how much money students spend on styling assignments and runway looks that only get worn once. Instead of letting beautiful garments gather dust in hostel lockers, we started trading in the Canteen courtyard during lunch breaks. Last semester, I traded my handloom Chanderi blouse for a vintage biker jacket and denim trousers. It’s not just circular fashion—it’s how our community connects across departments."
+        </p>
+        <button type="button" class="btn-primary-action" style="width:100%;" onclick="closeStoryModal()">Close Story</button>
+      </div>
     </div>
   </div>
 
   <!-- TOAST FEEDBACK NOTIFICATION CONTAINER -->
-  <div class="toast-notification" id="toast-notify"></div>
+  <div class="toast-notification" id="toast-notify" role="alert"></div>
 
   <script src="app.js"></script>
 </body>

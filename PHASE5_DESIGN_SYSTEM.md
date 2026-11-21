@@ -1,170 +1,139 @@
-# Phase 5: Visual Design System & Tokens — Desktop Editorial Indie Zine Edition
+# Phase 5: Visual Design System & Tokens — Editorial Fashion Archive & Campus Marketplace
 
-**Platform Identity:** NIFT Hyderabad Thrift Closet (Campus Atelier Archive)  
-**Curatorial Direction:** Avant-Garde Fashion Editorial × Dazed Digital Zine × Anastasia Krongauz Scrapbook Collage  
-**Architecture:** **Desktop-First, Fully Responsive Website** (Engineered primarily for laptop and desktop screens)  
+**Platform Identity:** THRIFT Atelier CLOSET (NIFT Hyderabad Resale Archive)  
+**Primary Design Reference:** NIFT Hyderabad Primary Visual Identity & Reference Artifact  
+**Architecture:** Dual Connected Experiences — **Complete Desktop Website (1440px)** + **Dedicated Mobile Application**  
 **Campus Scope:** Exclusively National Institute of Fashion Technology (NIFT), Hyderabad (Madhapur Campus)  
-**Creative Director & Product Lead:** Simran Singh (`BD/24/164`, Fashion Communication, NIFT Hyderabad)  
+**Student / Creative Director & Product Lead:** Simran Singh (`BD/24/164`, Fashion Communication, NIFT Hyderabad)  
 **Technical Architect & UX Mentor:** Antigravity AI  
 
 ---
 
-## 1. Visual Pivot & UX Architecture
+## 1. Visual Direction & Curatorial Ethos
 
-In response to the Creative Director's critique:
-> *"I like the way the app is right now but it looks bad visually and is confusing at the same time... build a desktop first, fully responsive website, not a mobile application for now. Design primarily for laptop and desktop screens. The site display should be more playful and easy to move, rather than a rigid structured app."*
-
-The architecture has completely broken free of the 440px mobile device simulator. It now delivers a **spacious, expansive desktop-first editorial zine experience** directly modeled after *Dazed Magazine* and *Anastasia Krongauz*'s experimental visual design.
+The visual identity embodies an independent fashion publication, a student design archive, and an authentic circular fashion ritual. It purposefully avoids generic e-commerce templates, SaaS dashboard tropes, and bright artificial gradients.
 
 ```
-DESKTOP EDITORIAL ZINE ARCHITECTURE
- ├── 1. RISOGRAPH / GRAIN PAPER TEXTURE OVERLAY
- │    ├── Ultra-subtle SVG fractal noise filter covering the viewport
- │    ├── Gives the screen the physical tooth of unbleached cardstock
- │    └── Non-intrusive (opacity: 0.045, mix-blend-mode: multiply, pointer-events: none)
- ├── 2. TYPOGRAPHIC DUO: CONDENSED DISPLAY × FLOWING CURSIVE SCRIPT
- │    ├── Massive Condensed Grotesque (Anton / Bebas Neue): Saturated, tight, uppercase punch
- │    ├── Expressive Cursive Script (Italianno / Playfair Display): Flowing, human, atelier touch
- │    ├── Crisp Short Gray Secondary Text (#736E65): Short, concise editorial sentences
- │    └── Monospaced Technical Specs (Space Mono): Flat-lay measurements, timestamps, lots
- ├── 3. STRICT ALTERNATING BEIGE & CARMINE RED INVERSION
- │    ├── Beige Ground: Deep Ink Black / Carmine Red text, olive green & red sticker pills
- │    └── Red Ground: Warm Beige text, Warm Beige input boxes & action buttons with red ink
- ├── 4. EDITORIAL GRAPHIC DETAILS: SCRIBBLER DOODLES & TAPED CROSSES ❌
- │    ├── Red Taped Crosses (❌): Hand-drawn brush cross marks slapped over photo corners
- │    ├── Washi Tape Strips: Semi-translucent paper tape holding banners and cards
- │    └── Krongauz Sticker Badges: Angled pills with asterisk (✳) and department tags
- └── 5. ASYMMETRIC LOOKBOOK GRID BREAKS (1200px EDITORIAL CONTAINER)
-      ├── Refined 1200px maximum container width with comfortable outer margins
-      ├── Balanced 3-column desktop layout (~360px per card)
-      ├── Featured Wide Editorial Cards spanning 2 columns
-      ├── Full-Width Student Lookbook Spread (FC & FD monsoon layering study)
-      └── Solid Carmine Red Quote Break (Anastasia Krongauz split composition)
+                      EDITORIAL / ARCHIVAL
+                               │
+                               │   ★ THRIFT Atelier CLOSET
+             Dazed / AnOther   │   (Warm ivory, B&W archival photography,
+            (High aesthetics,  │    burgundy accents, student ledge hero,
+             non-transactional)│    4-column black band, in-person drops)
+                               │
+────────── ARTISTIC ───────────┼─────────── FUNCTIONAL ──────────
+                               │
+               Depop           │   Standard E-Commerce
+         (Chaotic youth feed,  │   (Generic grid, utility-first,
+          haggling, low trust) │    lacks curatorial dignity)
+                               │
+                      COMMERCIAL / UTILITY
 ```
+
+### Essential Characteristics:
+- **Warm Ivory Grounds:** 65–70% of canvas is unbleached warm ivory (`#F3EFE6`) and soft cream (`#EAE5DA`).
+- **Archival Photography:** High-contrast, desaturated black & white and natural daylight student atelier photography (20–25%).
+- **Deep Burgundy Accents:** Reserved for handwritten script annotations, active states, and event highlights (`#76252D`, `#9C4045`).
+- **Oversized Editorial Typography:** Bodoni Moda and Cormorant Garamond paired with handwritten script (`Allura`) and functional grotesk (`DM Sans` / `Manrope`).
+- **Minimal Interface Elements:** Hairline dividers, subtle neutral cards, zero artificial drop shadows.
 
 ---
 
-## 2. Codified Color Tokens: The Alternating Inversion System
+## 2. Codified Color Tokens
 
 ```css
 :root {
-  /* Primary Canvas Grounds */
-  --bg-beige: #F5EFEB;            /* Warm vintage oatmeal / unbleached sketchbook cardstock */
-  --bg-beige-card: #ECE4D8;       /* Deeper kraft cream for cards & layers */
-  --bg-beige-light: #FAF6EF;      /* Clean unbleached paper tint */
-  --bg-beige-hover: #E4DACB;
+  /* Exact Reference Color Palette */
+  --color-warm-ivory: #F3EFE6;         /* Primary canvas background (65-70%) */
+  --color-soft-cream: #EAE5DA;         /* Neutral card ground & secondary surfaces */
+  --color-charcoal-black: #171715;     /* Deep ink black for text & 4-column band */
+  --color-deep-burgundy: #76252D;      /* Signature editorial accent & script */
+  --color-muted-wine-red: #9C4045;     /* Supporting wine red for interactive states */
+  --color-warm-grey: #BDB8AE;          /* Divider lines & muted numerals */
+  --color-supporting-text-grey: #77736C;/* Secondary metadata & editorial captions */
+  --color-white: #FFFFFF;              /* Clean white pill buttons & tags */
+  --color-sky-tint: #ACC6DD;           /* Photographic sky tint from campus hero */
 
-  /* Editorial Saturated Red */
-  --red-carmine: #D02323;         /* Saturated Dazed/Krongauz editorial red */
-  --red-deep: #B31818;            /* Deep blood red for active pressed states */
-  --red-glow: rgba(208, 35, 35, 0.45); /* Dazed spray paint / airbrush blur aura */
-  --red-tint: rgba(208, 35, 35, 0.08); /* Soft highlight wash */
-
-  /* Alternating Typography Inks */
-  --text-dark: #111111;           /* Deep ink black on beige ground */
-  --text-beige: #F5EFEB;          /* Warm beige typography when ground is Red */
-  --text-red: #D02323;            /* Carmine red display typography */
-  --text-muted: #736E65;          /* Crisp short gray secondary captions (Dazed style) */
-  --text-muted-light: #9B9488;    /* Lighter editorial gray */
-
-  /* Krongauz Scrapbook Sticker Accents */
-  --sticker-green-bg: #8FA85B;    /* Olive moss green sticker pill */
-  --sticker-green-text: #FFFFFF;
-  --sticker-beige-bg: #F5EFEB;    /* Beige sticker box for red sections */
-  --sticker-beige-text: #D02323;
-  --sticker-red-bg: #D02323;      /* Red sticker box for beige sections */
-  --sticker-red-text: #F5EFEB;
-
-  /* Graphic Accents, Fluid Gradients & Organic Elevation */
-  --border-dark: #111111;         /* Structural accents */
-  --border-red: #D02323;          /* Graphic red accents */
-  --border-subtle: rgba(17, 17, 17, 0.08); /* Soft organic boundary */
-  --gradient-broadcast: radial-gradient(circle at 85% 20%, rgba(208, 35, 35, 0.85) 0%, rgba(179, 24, 24, 0.95) 50%, #8A0E0E 100%);
-  --shadow-organic: 0 16px 36px -8px rgba(17, 17, 17, 0.12), 0 6px 12px -4px rgba(17, 17, 17, 0.06);
-  --shadow-sheet: 0 24px 64px rgba(17, 17, 17, 0.28);
-  --radius-pill: 30px;
-  --radius-lg: 20px;
-  --radius-md: 14px;
+  /* Structural Dividers */
+  --color-border-hairline: rgba(23, 23, 21, 0.09);
+  --color-border-card: rgba(23, 23, 21, 0.08);
 }
 ```
 
 ---
 
-## 2.1 Authentic 20-Piece Student Lookbook Catalog
-Extracted directly from the NIFT student portfolio lookbook (`images/product-1.jpg` – `images/product-20.jpg`):
+## 3. Typographic Hierarchy
 
-| Product ID | Garment / Object Title | Department / Subculture | Condition Tier | Pricing Paradigm | Visual Asset |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **01** | Y2K Tartan Checked Ruched Hobo Bag | Subversive Studio | Tier 3 (Gently Used) | Fixed: ₹1,250 | `images/product-1.jpg` |
-| **02** | Asymmetric Plaid Peplum Tie Blouse | FC Atelier Drape Lab | Tier 2 (Like New) | Fixed: ₹1,400 | `images/product-2.jpg` |
-| **03** | Glossy Cherry Crimson Ring Hobo | Vintage Milan Archive | Tier 3 (Gently Used) | Fixed: ₹1,850 | `images/product-3.jpg` |
-| **04** | Distressed Grommet Buckle Shoulder Bag | Diesel Archive | Tier 4 (Well Used) | **Live Bidding (Min ₹550)** | `images/product-4.jpg` |
-| **05** | Ornate Silver Concho Leather Belt | Rajasthan Guild / AD | Tier 3 (Gently Used) | Fixed: ₹1,100 | `images/product-5.jpg` |
-| **06** | Molten Gold & Amber Resin Bangle Stack | AD Studio Handcast | Tier 1 (New / Unworn) | Fixed: ₹950 | `images/product-6.jpg` |
-| **07** | Tribal Flame Embroidered Baggy Jeans | Jaded London Archive | Tier 2 (Like New) | Fixed: ₹3,200 | `images/product-7.jpg` |
-| **08** | Noir Moto Leather Ruched Baguette | Mango Premium | Tier 3 (Gently Used) | Fixed: ₹1,650 | `images/product-8.jpg` |
-| **09** | Sand-Wash Extreme Wide Leg Denims | Weekday Archive | Tier 4 (Well Used) | **Live Bidding (Min ₹700)** | `images/product-9.jpg` |
-| **10** | Chanderi Multi-Stripe Lantern Sleeve Blouse | Textile Dept Handloom | Tier 1 (New / Unworn) | Fixed: ₹2,600 | `images/product-10.jpg` |
-| **11** | 'From Venice With Love' Embroidered Shirt | Bode Archive Study | Tier 3 (Gently Used) | Fixed: ₹1,500 | `images/product-11.jpg` |
-| **12** | Statue Print Striped Oxford Shirt | FC Screenprint Atelier | Tier 2 (Like New) | Fixed: ₹1,950 | `images/product-12.jpg` |
-| **13** | Tailored Brown Stripe Utility Blouse | Zara Woman Vintage | Tier 3 (Gently Used) | Fixed: ₹850 | `images/product-13.jpg` |
-| **14** | 1997 Archive 'Fragment Low Stance' Tee | Vintage Japanese Import | Tier 5 (Visible Wear) | **Live Bidding (Min ₹450)** | `images/product-14.jpg` |
-| **15** | Hourglass Flared Peplum Striped Blouse | FD Patternmaking Lab | Tier 2 (Like New) | Fixed: ₹1,800 | `images/product-15.jpg` |
-| **16** | Adidas Samba OG 'Cow Print Pony Hair' | Adidas Originals | Tier 2 (Like New) | Fixed: ₹4,200 | `images/product-16.jpg` |
-| **101 (Closet)** | House 40 Patent Crimson Mary Janes | Simran's Archive | Tier 2 (Like New) | Fixed: ₹2,100 | `images/product-17.jpg` |
-| **102 (Closet)** | Minka Espresso Patent Pointed Slingbacks | Simran's Archive | Tier 3 (Gently Used) | Fixed: ₹1,750 | `images/product-18.jpg` |
-| **103 (Closet)** | Plum Square-Toe Leather Glove Flats | Simran's Archive | Tier 2 (Like New) | Fixed: ₹1,600 | `images/product-19.jpg` |
-| **104 (Closet)** | Subversive Moto Jacket with Pony Hair Belt | Simran's Archive | Tier 3 (Gently Used) | Fixed: ₹3,800 | `images/product-20.jpg` |
+| Role | Font Family | Typical Size | Weight / Style | Purpose |
+| :--- | :--- | :--- | :--- | :--- |
+| **Logotype (THRIFT)** | `Bodoni Moda` | `32px` | 800 Bold Condensed | Tall, condensed high-contrast editorial serif |
+| **Logotype (Atelier)** | `Allura` / `Alex Brush` | `42px` | Flowing Script | Burgundy signature script overlapping wordmark |
+| **Logotype (CLOSET)** | `DM Sans` / `Manrope` | `13px` | 700 Bold Uppercase | Clean letter-spaced sans (`tracking: 0.16em`) |
+| **Handwritten Accent** | `Allura` | `58px` | Flowing Cursive (`#76252D`) | *"Students Pieces People Possibilities"* |
+| **Display Headings** | `Bodoni Moda` | `28px – 34px` | 600 Semi-Bold | Section titles, story headlines, drop title |
+| **Band Numerals** | `Bodoni Moda` | `42px` | 400 Regular | `01`, `02`, `03`, `04` in the functional band |
+| **Functional UI** | `DM Sans` / `Manrope` | `13px – 15px` | 500 / 600 Medium | Navigation, product names, buttons, filters |
+| **Flat-Lay Specs** | `Space Mono` | `11px – 12px` | 700 Bold Monospace | Measurements, dates, timestamps, lot prices |
 
 ---
 
-## 3. Typographic Hierarchy & Magazine Layout Rules
+## 4. Desktop Homepage Architecture (Sections 01 to 07)
 
-| Role | Font Family | Size | Style / Weight | Letter Spacing | Purpose |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Dazed Masthead** | `Anton` / `Bebas Neue` | `58px` | Bold Condensed Grotesque | `-0.02em` | Main App Title with airbrushed red spray aura |
-| **Spliced Cursive Accent** | `Italianno` / `Playfair Display` | `54px` | Expressive Cursive / Script | Normal | Spliced right inside titles (*"THRIFT <span class='script'>Atelier</span> CLOSET"*) |
-| **Section Headings** | `Anton` / `Bebas Neue` | `34px – 40px` | Heavy Condensed | `+0.02em` | Lookbook Headlines, Drop Beacon Title |
-| **Garment Titles** | `Anton` | `20px` | Uppercase Condensed | `+0.02em` | Card titles in product grid |
-| **Crisp Secondary Gray**| `Plus Jakarta Sans` | `12px – 13px`| 500 Medium (Color: `#736E65`) | `0.00em` | Short, punchy editorial descriptions (Dazed caption style) |
-| **Tracked Editorial Links**| `Anton` / `Bebas Neue` | `13px – 17px`| Uppercase Spaced | `+0.18em to +0.22em`| **`R E A D   M O R E`**, **`V I E W   P I E C E`** |
-| **Flat-Lay Specs & Prices**| `Space Mono` | `11px – 24px`| 700 Bold Monospace | `+0.04em` | Measurements, lot numbers, INR prices, drop times |
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│ SECTION 01: COMPACT HEADER (68px, Warm Ivory, Minimal Outline Icons)   │
+│ [THRIFT Atelier CLOSET]      [Discover  Sell  Activity  Closet] [🔍 ♡ 👤]│
+├────────────────────────────────────────────────────────────────────────┤
+│ SECTION 02: FULL-WIDTH HERO (Authentic Campus Ledge Photograph)        │
+│  "Students Pieces People Possibilities"     A RESALE ARCHIVE           │
+│  (Deep Burgundy Cursive Script)              BY NIFT HYDERABAD          │
+│                                              STUDENTS. (→)             │
+│  [5 NIFT Students Sitting on Concrete Ledge with Blue Sky]            │
+├────────────────────────────────────────────────────────────────────────┤
+│ SECTION 03: BLACK FOUR-COLUMN FUNCTIONAL BAND (#171715)                │
+│  01 SHOP              02 SELL           03 SWAP          04 JOIN       │
+│  Preloved pieces      Give wardrobe     Trade within     Campus drops, │
+│  across depts.        a second life.    community.       events/stories│
+├────────────────────────────────────────────────────────────────────────┤
+│ SECTION 04: FEATURED THIS WEEK (Warm Ivory Ground, 4-Column Cards)     │
+│  [Vintage Shoulder Bag] [Plaid Ruffle Blouse] [Suede Jacket] [Wide Leg]│
+│  ₹1,200 • FC            ₹950 • FD             ₹2,800 • LD    ₹1,450•TD │
+├────────────────────────────────────────────────────────────────────────┤
+│ SECTION 05: CAMPUS DROPS & COMMUNITY STORIES (2-Column Editorial Split)│
+│  ┌──────────────────────────────┐   ┌────────────────────────────────┐ │
+│  │ ART & DESIGN DEPT            │   │ [Student Photo]  How I Built   │ │
+│  │ CAMPUS DROP (18 OCT)         │   │                  My Wardrobe   │ │
+│  │ Studio Block • [RSVP NOW →]  │   │                  Through Swaps │ │
+│  └──────────────────────────────┘   └────────────────────────────────┘ │
+├────────────────────────────────────────────────────────────────────────┤
+│ SECTION 06: BROWSE BY DEPARTMENT (6 Monochromatic Photographic Tiles)  │
+│  [Fashion Comm] [Fashion Design] [Textile Design]                      │
+│  [Leather Design] [Accessory Design] [Knitwear Design]                 │
+├────────────────────────────────────────────────────────────────────────┤
+│ SECTION 07: MINIMAL FOOTER                                             │
+│  [Brand Logo] • A student-run resale archive by NIFT Hyderabad         │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 4. Strict Color Inversion Rules
+## 5. Dedicated Mobile Application Experience
 
-As mandated by the Creative Director:
-> *"If there is a red effect going on in background the font and font boxes should be beige."*
+Rather than simply squeezing the desktop website into a narrow viewport, the project features a **dedicated mobile application interface**:
 
-### On Warm Beige Canvas (`--bg-beige` / `#F5EFEB`):
-- Background: Unbleached Paper Beige (`#F5EFEB` or `#ECE4D8`).
-- Headings: Deep Ink Black (`#111111`) or Carmine Red (`#D02323`).
-- Secondary Text: Crisp Editorial Gray (`#736E65`).
-- Sticker Badges: Olive Green (`#8FA85B`), Beige cardstock, or Carmine Red pills.
-- Action Buttons: Carmine Red background with Beige text, or Beige background with brutalist border and drop shadow.
-
-### On Carmine Red Canvas (`--red-carmine` / `#D02323`):
-- Background: Solid Saturated Red (`#D02323`).
-- All Typography: Light Unbleached Warm Beige (`#F5EFEB` / `#FFEFE0`).
-- Input Boxes & Text Enclosures: Warm Beige background (`#F5EFEB`) with Carmine Red or Dark Ink text.
-- Action Buttons: Solid Warm Beige (`#F5EFEB`) with Carmine Red text (`#D02323`) and 2px solid black borders.
-- Badges: Warm Beige boxes with Carmine Red typography.
-
----
-
-## 5. Desktop-First Components & Modals
-
-1. **Top Campus Broadcast Ticker Ribbon:**
-   Carmine Red full-width marquee with live campus announcements, meetup times, and department highlights.
-2. **Dazed Spray Paint Masthead:**
-   Oversized condensed title backed by an airbrushed red spray aura, paired with NIFT student metadata and department tags.
-3. **Desktop Horizontal Navigation Bar:**
-   Clean top nav tabs with numbered indices (`01 DISCOVER FEED`, `+ SELL STUDIO`, `02 ACTIVITY & DROPS`, `03 MY CLOSET`) and quick commercial jump chips. All filtering is unified on the Discover feed deck.
-4. **Asymmetric Grid with Lookbook Breaks:**
-   Balanced 3-column cards with red taped crosses (`❌`), wide featured cards, student lookbook spreads, and solid red quote blocks framed inside 1200px.
-5. **Desktop Split-Screen Modals:**
-   - **PDP:** High-resolution multi-angle photo gallery on the left; structured garment dossier with flat-lay measurements, flaw disclosure, and bifurcated action bar on the right.
-   - **Live Bidding Floor:** Carmine Red inverted sheet with real-time student bids log and quick increment chips (`+₹50`, `+₹100`, `+₹200`).
-   - **Bilateral Trade Builder:** Side-by-side closet selection and cash balancing stepper.
-   - **Campus Drop Daylight Inspection Ticket:** Courtyard handoff verification with QR code.
+1. **Fixed Mobile Bottom Navigation:**
+   - `Discover` (explore marketplace catalog)
+   - `Sell` (tactile floating `+` button triggering the 6-step guided listing wizard)
+   - `Drops` (campus break meetup calendar with RSVP)
+   - `My Closet` (personal wardrobe, swap inbox, and wishlist archive)
+2. **Mobile Home Sequence:**
+   - Compact brand header with search and profile badges.
+   - 4:3.4 community hero card featuring the students on the campus ledge.
+   - 2 × 2 Black Functional Action Grid (`01 SHOP`, `02 SELL`, `03 SWAP`, `04 JOIN`).
+   - Horizontal swipe carousel for *Featured This Week*.
+   - Next Campus Drop promotional card with one-tap RSVP.
+   - Community Story preview card.
+   - Horizontal scrolling department pills (`FC`, `FD`, `TD`, `LD`, `AD`, `KD`).
+   - 2-column mobile marketplace feed with generous touch targets.
+3. **Experience Switcher:**
+   - Seamless top toggle allowing reviewers to effortlessly toggle between the **1440px Desktop Website** and the **Dedicated Mobile Application frame**.
