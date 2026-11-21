@@ -401,101 +401,58 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   7. FULL-WIDTH HERO (SECTION 02 — AUTHENTIC CAMPUS LEDGE PHOTO)
+   7. FULL-WIDTH HERO (SECTION 02 — 2X RETINA CAMPUS PHOTOGRAPH)
    -------------------------------------------------------------------------- */
 .desktop-hero-section {
   width: 100%;
-  background-color: #B2C7DC; /* Matches soft sky tone of photography */
+  background-color: #ACC6DD; /* Seamless match with sky photography */
   position: relative;
   overflow: hidden;
 }
 
 .hero-image-wrap {
   width: 100%;
-  position: relative;
   max-width: var(--site-max-width);
   margin: 0 auto;
+  position: relative;
 }
 
 .hero-campus-photo {
   width: 100%;
   height: auto;
-  min-height: 440px;
-  max-height: 620px;
-  object-fit: cover;
-  object-position: center bottom;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
-/* Exact Reference Typography Overlays */
-.hero-overlay-container {
+/* Clickable Interactive Zone over the Reference Arrow */
+.hero-arrow-clickable-zone {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 32px var(--content-gutter);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  pointer-events: none;
-}
-
-/* Left Handwritten Script */
-.hero-left-script {
-  display: flex;
-  flex-direction: column;
-  pointer-events: auto;
-  margin-top: 10px;
-  transform: rotate(-11deg);
-  transform-origin: top left;
-}
-
-.hero-left-script .script-word {
-  font-family: var(--font-script);
-  font-size: 58px;
-  line-height: 0.85;
-  color: var(--color-deep-burgundy);
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
-  letter-spacing: 0.02em;
-}
-
-.hero-left-script .word-students { margin-left: 0; }
-.hero-left-script .word-pieces { margin-left: 38px; }
-.hero-left-script .word-people { margin-left: 76px; }
-.hero-left-script .word-possibilities { margin-left: 114px; }
-
-/* Right Resale Archive Callout */
-.hero-right-callout {
-  pointer-events: auto;
-  text-align: left;
-  margin-top: 28px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.hero-archive-headline {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1.45;
-  color: var(--color-charcoal-black);
-  text-transform: uppercase;
-  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.5);
-}
-
-.hero-arrow-anchor {
-  color: var(--color-charcoal-black);
+  top: 28%;
+  right: 14%;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
   transition: transform 0.2s ease;
-  display: inline-block;
 }
 
-.hero-arrow-anchor:hover {
-  transform: translateX(4px);
-  color: var(--color-deep-burgundy);
+.hero-arrow-clickable-zone:hover {
+  transform: translateX(5px);
+}
+
+/* Screen Reader / Accessible Text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* --------------------------------------------------------------------------

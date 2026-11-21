@@ -97,38 +97,18 @@
       <!-- ============================================================ -->
       <section id="desktop-home-view" class="desktop-subview active">
 
-        <!-- SECTION 02 — FULL-WIDTH HERO (AUTHENTIC CAMPUS LEDGE PHOTOGRAPH) -->
+        <!-- SECTION 02 — FULL-WIDTH HERO (AUTHENTIC 2X RETINA CAMPUS PHOTOGRAPH) -->
         <section class="desktop-hero-section" id="hero">
           <div class="hero-image-wrap">
-            <img src="images/reference/hero-students-ledge.jpg" alt="NIFT Hyderabad Students on Campus Ledge" class="hero-campus-photo">
+            <img src="images/reference/hero-campus-highres.png" alt="NIFT Hyderabad Students on Campus Ledge — A Resale Archive" class="hero-campus-photo">
             
-            <!-- Exact Reference Typography Overlays -->
-            <div class="hero-overlay-container">
-              
-              <!-- Left Handwritten Script -->
-              <div class="hero-left-script">
-                <span class="script-word word-students">Students</span>
-                <span class="script-word word-pieces">Pieces</span>
-                <span class="script-word word-people">People</span>
-                <span class="script-word word-possibilities">Possibilities</span>
-              </div>
+            <!-- Accessible Semantic Heading (Screen Reader / SEO) -->
+            <h1 class="sr-only">A Resale Archive by NIFT Hyderabad Students • Students Pieces People Possibilities</h1>
 
-              <!-- Right Resale Archive Callout -->
-              <div class="hero-right-callout">
-                <h1 class="hero-archive-headline">
-                  A RESALE ARCHIVE<br>
-                  BY NIFT HYDERABAD<br>
-                  STUDENTS.
-                </h1>
-                <a href="#featured-section" class="hero-arrow-anchor" aria-label="Scroll to Featured Pieces">
-                  <svg width="28" height="20" viewBox="0 0 28 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="2" y1="10" x2="24" y2="10"></line>
-                    <polyline points="16 2 24 10 16 18"></polyline>
-                  </svg>
-                </a>
-              </div>
-
-            </div>
+            <!-- Interactive Clickable Jump Anchor positioned over the reference arrow -->
+            <a href="#featured-section" class="hero-arrow-clickable-zone" aria-label="Scroll to Featured Pieces" title="Explore Featured Archive">
+              <span class="sr-only">Scroll down</span>
+            </a>
           </div>
         </section>
 
@@ -192,7 +172,7 @@
 
               <div class="campus-drop-banner-card">
                 <div class="drop-banner-visual">
-                  <img src="images/reference/event-campus-drop.jpg" alt="Art &amp; Design Dept Campus Drop" class="drop-banner-img">
+                  <img src="images/reference/event-campus-drop-highres.png" alt="Art &amp; Design Dept Campus Drop" class="drop-banner-img">
                   <div class="drop-banner-overlay">
                     <span class="drop-dept-tag">ART &amp; DESIGN DEPT</span>
                     <h3 class="drop-event-title">CAMPUS DROP</h3>
@@ -217,7 +197,7 @@
 
               <article class="community-story-card">
                 <div class="story-portrait-wrap">
-                  <img src="images/reference/story-student-portrait.jpg" alt="NIFT Student Story" class="story-portrait-img">
+                  <img src="images/reference/story-student-portrait-highres.png" alt="NIFT Student Story" class="story-portrait-img">
                 </div>
                 <div class="story-text-col">
                   <h3 class="story-headline">How I Built My Wardrobe at NIFT Through Swaps</h3>
@@ -245,42 +225,42 @@
             
             <div class="dept-card" onclick="filterCatalogByDepartment('FC')">
               <div class="dept-image-frame">
-                <img src="images/reference/dept-fc.jpg" alt="Fashion Communication">
+                <img src="images/reference/dept-fc-highres.png" alt="Fashion Communication">
               </div>
               <span class="dept-card-label">Fashion Communication</span>
             </div>
 
             <div class="dept-card" onclick="filterCatalogByDepartment('FD')">
               <div class="dept-image-frame">
-                <img src="images/reference/dept-fd.jpg" alt="Fashion Design">
+                <img src="images/reference/dept-fd-highres.png" alt="Fashion Design">
               </div>
               <span class="dept-card-label">Fashion Design</span>
             </div>
 
             <div class="dept-card" onclick="filterCatalogByDepartment('TD')">
               <div class="dept-image-frame">
-                <img src="images/reference/dept-td.jpg" alt="Textile Design">
+                <img src="images/reference/dept-td-highres.png" alt="Textile Design">
               </div>
               <span class="dept-card-label">Textile Design</span>
             </div>
 
             <div class="dept-card" onclick="filterCatalogByDepartment('LD')">
               <div class="dept-image-frame">
-                <img src="images/reference/dept-ld.jpg" alt="Leather Design">
+                <img src="images/reference/dept-ld-highres.png" alt="Leather Design">
               </div>
               <span class="dept-card-label">Leather Design</span>
             </div>
 
             <div class="dept-card" onclick="filterCatalogByDepartment('AD')">
               <div class="dept-image-frame">
-                <img src="images/reference/dept-ad.jpg" alt="Accessory Design">
+                <img src="images/reference/dept-ad-highres.png" alt="Accessory Design">
               </div>
               <span class="dept-card-label">Accessory Design</span>
             </div>
 
             <div class="dept-card" onclick="filterCatalogByDepartment('KD')">
               <div class="dept-image-frame">
-                <img src="images/reference/dept-kd.jpg" alt="Knitwear Design">
+                <img src="images/reference/dept-kd-highres.png" alt="Knitwear Design">
               </div>
               <span class="dept-card-label">Knitwear Design</span>
             </div>
@@ -775,13 +755,9 @@
             
             <!-- Mobile Hero -->
             <div class="mobile-hero-card">
-              <img src="images/reference/hero-students-ledge.jpg" alt="Students on Ledge" class="mobile-hero-photo">
+              <img src="images/reference/hero-campus-highres.png" alt="Students on Ledge" class="mobile-hero-photo">
               <div class="mobile-hero-overlay">
-                <div class="mob-script-stack">
-                  <span>Students Pieces People Possibilities</span>
-                </div>
-                <div class="mob-hero-copy">
-                  <h2 class="mob-hero-headline">A RESALE ARCHIVE BY NIFT HYDERABAD STUDENTS.</h2>
+                <div class="mob-hero-copy" style="margin-top:auto;">
                   <button type="button" class="mob-btn-explore" onclick="switchMobileTab('m-discover')">Explore Listings &rarr;</button>
                 </div>
               </div>
