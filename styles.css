@@ -419,11 +419,11 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   7. FULL-WIDTH HERO CAROUSEL (SECTION 02 — 60-SEC CYCLE, SLOTS HERO-01 TO 05)
+   7. FULL-WIDTH HERO (SECTION 02 — GOLDEN-HOUR ROOFTOP PORTRAIT)
    -------------------------------------------------------------------------- */
 .desktop-hero-section {
   width: 100%;
-  background-color: #ACC6DD; /* Seamless blend with sky photographic backdrop */
+  background-color: var(--color-warm-ivory);
   position: relative;
   overflow: hidden;
 }
@@ -439,8 +439,8 @@ img {
 .hero-slides-track {
   position: relative;
   width: 100%;
-  aspect-ratio: 2048 / 688;
-  min-height: 400px;
+  aspect-ratio: 16 / 9;
+  min-height: auto;
 }
 
 .hero-slide {
@@ -466,12 +466,77 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  filter: none;
 }
 
-/* Subtle, restrained editorial carousel controls */
+/* Upper Left: Handwritten Script in Muted Burgundy (#792C35) over open sky */
+.hero-editorial-overlay-left {
+  position: absolute;
+  top: 8%;
+  left: 5%;
+  z-index: 10;
+  pointer-events: none;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-script-word {
+  font-family: var(--font-script);
+  font-size: clamp(34px, 4.4vw, 58px);
+  color: var(--color-muted-burgundy);
+  line-height: 0.94;
+  font-weight: 400;
+  transform: rotate(-4deg);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Upper Right: Clean Uppercase Archival Resale Note clear of diagonal cable */
+.hero-editorial-overlay-right {
+  position: absolute;
+  top: 9%;
+  right: 5%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: right;
+}
+
+.hero-archive-kicker-text {
+  font-family: var(--font-sans);
+  font-size: clamp(10px, 1.05vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-deep-charcoal);
+  line-height: 1.45;
+}
+
+.hero-editorial-arrow-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-deep-charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-deep-charcoal);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.hero-editorial-arrow-btn:hover {
+  transform: translateX(4px);
+  background-color: #FFFFFF;
+}
+
+/* Subtle, restrained editorial carousel controls (Bottom Right) */
 .hero-carousel-controls {
   position: absolute;
   bottom: 24px;
@@ -544,23 +609,6 @@ img {
   width: 0%;
   background-color: var(--color-muted-burgundy);
   transition: width 0.1s linear;
-}
-
-/* Clickable Interactive Zone over the Reference Arrow */
-.hero-arrow-clickable-zone {
-  position: absolute;
-  top: 28%;
-  right: 14%;
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-  transition: transform 0.2s ease;
-}
-
-.hero-arrow-clickable-zone:hover {
-  transform: translateX(5px);
 }
 
 /* Screen Reader / Accessible Text */
@@ -2440,16 +2488,93 @@ img {
   display: block;
 }
 
-/* Mobile Hero Carousel */
+/* Mobile Hero Section (Separate Editorial Intro + Full 16:9 Landscape Frame) */
+.mobile-hero-editorial-intro {
+  padding: 4px 2px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mob-hero-kicker {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-supporting-grey);
+}
+
+.mob-hero-script-headline {
+  font-family: var(--font-script);
+  font-size: clamp(30px, 8.5vw, 40px);
+  line-height: 1.05;
+  color: var(--color-muted-burgundy);
+  font-weight: 400;
+  margin: 0;
+}
+
+.mobile-hero-stage {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.mob-hero-photo-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--color-soft-stone);
+  position: relative;
+}
+
+.mobile-hero-full-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: none;
+}
+
+.mobile-hero-action-dock {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mob-btn-explore-archive {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-deep-charcoal);
+  color: var(--color-warm-ivory);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mob-btn-explore-archive:hover {
+  background-color: var(--color-graphite);
+}
+
+/* Fallback legacy mobile hero classes */
 .mobile-hero-carousel-card,
 .mobile-hero-card {
   width: 100%;
   border-radius: 4px;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 4 / 3.4;
+  aspect-ratio: 16 / 9;
   margin-bottom: 14px;
-  background-color: #ACC6DD;
+  background-color: var(--color-soft-stone);
 }
 
 .mob-hero-slides-track {
@@ -2481,67 +2606,9 @@ img {
   display: block;
 }
 
-.mobile-hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: linear-gradient(180deg, transparent 40%, rgba(28, 27, 25, 0.72) 100%);
-  z-index: 5;
-}
-
-.mob-hero-dots {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-
-.mob-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(243, 239, 231, 0.45);
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.mob-dot.active {
-  width: 18px;
-  border-radius: 6px;
-  background: var(--color-warm-ivory);
-}
-
-.mob-script-stack {
-  font-family: var(--font-script);
-  font-size: 32px;
-  color: var(--color-deep-burgundy);
-  line-height: 0.95;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-}
-
-.mob-hero-copy {
-  color: var(--color-white);
-}
-
-.mob-hero-headline {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  line-height: 1.35;
-}
-
 .mob-btn-explore {
-  background-color: var(--color-white);
-  color: var(--color-charcoal-black);
+  background-color: var(--color-deep-charcoal);
+  color: var(--color-warm-ivory);
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 700;

@@ -97,42 +97,54 @@
       <!-- ============================================================ -->
       <section id="desktop-home-view" class="desktop-subview active">
 
-        <!-- SECTION 02 — FULL-WIDTH HERO CAROUSEL (60-SECOND CYCLE, SLOTS HERO-01 TO HERO-05) -->
-        <section class="desktop-hero-section" id="hero" aria-label="Campus Hero Archive Carousel">
+        <!-- SECTION 02 — FULL-WIDTH HERO (GOLDEN-HOUR ROOFTOP PORTRAIT) -->
+        <section class="desktop-hero-section" id="hero" aria-label="Campus Hero Archive">
           <div class="hero-carousel-container" id="desktop-hero-carousel">
             
             <div class="hero-slides-track" id="hero-slides-track">
-              <!-- Slot 01 (Initial Active Slide - Master High-Res Archive) -->
+              <!-- Slot 01: Primary Golden-Hour Rooftop Portrait (Edge-to-Edge 16:9 Landscape) -->
               <div class="hero-slide active" data-slide-index="0" data-slot="hero-01">
-                <img src="images/hero/hero-01.png" alt="Students Pieces People Possibilities — NIFT Hyderabad Archive" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+                <img src="images/hero/Golden-Hour-Rooftop-Portrait.png" alt="Four NIFT Hyderabad students on rooftop ledge during golden hour" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
               </div>
               <!-- Slot 02 (Replaceable slot) -->
               <div class="hero-slide" data-slide-index="1" data-slot="hero-02">
-                <img src="images/hero/hero-02.jpg" alt="Campus Life and Student Archival Pieces" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+                <img src="images/hero/hero-02.jpg" alt="Campus Life and Student Archival Pieces" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
               </div>
               <!-- Slot 03 (Replaceable slot) -->
               <div class="hero-slide" data-slide-index="2" data-slot="hero-03">
-                <img src="images/hero/hero-03.jpg" alt="Studio Critique and Campus Garment Exchange" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+                <img src="images/hero/hero-03.jpg" alt="Studio Critique and Campus Garment Exchange" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
               </div>
               <!-- Slot 04 (Replaceable slot) -->
               <div class="hero-slide" data-slide-index="3" data-slot="hero-04">
-                <img src="images/hero/hero-04.jpg" alt="Student Resale and Curatorial Archive" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+                <img src="images/hero/hero-04.jpg" alt="Student Resale and Curatorial Archive" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
               </div>
               <!-- Slot 05 (Replaceable slot) -->
               <div class="hero-slide" data-slide-index="4" data-slot="hero-05">
-                <img src="images/hero/hero-05.jpg" alt="NIFT Hyderabad Fashion Archive Community" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+                <img src="images/hero/hero-05.jpg" alt="NIFT Hyderabad Fashion Archive Community" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
               </div>
+            </div>
+
+            <!-- Desktop Text Overlay: Positioned strictly in open sky negative space -->
+            <!-- Upper Left: Handwritten script in muted burgundy (#792C35) clear of students -->
+            <div class="hero-editorial-overlay-left" aria-hidden="true">
+              <span class="hero-script-word">Students.</span>
+              <span class="hero-script-word">Pieces.</span>
+              <span class="hero-script-word">People.</span>
+              <span class="hero-script-word">Possibilities.</span>
+            </div>
+
+            <!-- Upper Right: Subtle clean uppercase archival note & scroll action clear of cable -->
+            <div class="hero-editorial-overlay-right">
+              <span class="hero-archive-kicker-text">A RESALE ARCHIVE<br>BY NIFT HYDERABAD<br>STUDENTS.</span>
+              <a href="#featured-section" class="hero-editorial-arrow-btn" aria-label="Explore Featured Pieces" title="Explore Featured Archive">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
             </div>
 
             <!-- Accessible Semantic Heading (Screen Reader / SEO) -->
             <h1 class="sr-only">Students. Pieces. People. Possibilities. • A Resale Archive by NIFT Hyderabad Students</h1>
 
-            <!-- Interactive Clickable Jump Anchor positioned over the reference arrow -->
-            <a href="#featured-section" class="hero-arrow-clickable-zone" aria-label="Scroll to Featured Pieces" title="Explore Featured Archive">
-              <span class="sr-only">Scroll down</span>
-            </a>
-
-            <!-- Restrained Editorial Carousel Controls -->
+            <!-- Restrained Editorial Carousel Controls (Bottom Right) -->
             <div class="hero-carousel-controls" aria-label="Hero Carousel Navigation">
               <button type="button" class="hero-control-btn btn-prev" onclick="prevHeroSlide()" aria-label="Previous photograph">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -797,36 +809,21 @@
           <!-- TAB 1: MOBILE HOME / DISCOVER -->
           <div id="mob-view-home" class="mobile-tab-view active">
             
-            <!-- Mobile Hero Carousel -->
-            <div class="mobile-hero-carousel-card" id="mobile-hero-carousel">
-              <div class="mob-hero-slides-track" id="mob-hero-slides-track">
-                <div class="mob-hero-slide active" data-mob-slide="0">
-                  <img src="images/hero/hero-01.png" alt="Students on Ledge" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
-                </div>
-                <div class="mob-hero-slide" data-mob-slide="1">
-                  <img src="images/hero/hero-02.jpg" alt="Student Archive 2" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
-                </div>
-                <div class="mob-hero-slide" data-mob-slide="2">
-                  <img src="images/hero/hero-03.jpg" alt="Student Archive 3" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
-                </div>
-                <div class="mob-hero-slide" data-mob-slide="3">
-                  <img src="images/hero/hero-04.jpg" alt="Student Archive 4" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
-                </div>
-                <div class="mob-hero-slide" data-mob-slide="4">
-                  <img src="images/hero/hero-05.jpg" alt="Student Archive 5" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
-                </div>
+            <!-- Mobile Hero: Separate Editorial Header Above Photograph -->
+            <div class="mobile-hero-editorial-intro">
+              <span class="mob-hero-kicker">A RESALE ARCHIVE BY NIFT HYDERABAD STUDENTS</span>
+              <h1 class="mob-hero-script-headline">Students. Pieces. People. Possibilities.</h1>
+            </div>
+
+            <!-- Mobile Hero: Full-Width 16:9 Landscape Frame (All 4 Students Visible) -->
+            <div class="mobile-hero-stage" id="mobile-hero-stage">
+              <div class="mob-hero-photo-wrap">
+                <img src="images/hero/Golden-Hour-Rooftop-Portrait.png" alt="Four NIFT Hyderabad students on rooftop ledge at golden hour" class="mobile-hero-full-photo" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
               </div>
-              <div class="mobile-hero-overlay">
-                <div class="mob-hero-dots" id="mob-hero-dots">
-                  <span class="mob-dot active" onclick="goToHeroSlide(0)"></span>
-                  <span class="mob-dot" onclick="goToHeroSlide(1)"></span>
-                  <span class="mob-dot" onclick="goToHeroSlide(2)"></span>
-                  <span class="mob-dot" onclick="goToHeroSlide(3)"></span>
-                  <span class="mob-dot" onclick="goToHeroSlide(4)"></span>
-                </div>
-                <div class="mob-hero-copy">
-                  <button type="button" class="mob-btn-explore" onclick="switchMobileTab('m-discover')">Explore Listings &rarr;</button>
-                </div>
+              <div class="mobile-hero-action-dock">
+                <button type="button" class="mob-btn-explore-archive" onclick="switchMobileTab('m-discover')">
+                  <span>Explore Campus Archive &rarr;</span>
+                </button>
               </div>
             </div>
 
