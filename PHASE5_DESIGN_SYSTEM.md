@@ -1,139 +1,153 @@
-# Phase 5: Visual Design System & Tokens — Editorial Fashion Archive & Campus Marketplace
+# Phase 5: Visual Design System & Tokens — Luxury Minimal Fashion Archive & Campus Marketplace
 
 **Platform Identity:** THRIFT Atelier CLOSET (NIFT Hyderabad Resale Archive)  
-**Primary Design Reference:** NIFT Hyderabad Primary Visual Identity & Reference Artifact  
-**Architecture:** Dual Connected Experiences — **Complete Desktop Website (1440px)** + **Dedicated Mobile Application**  
-**Campus Scope:** Exclusively National Institute of Fashion Technology (NIFT), Hyderabad (Madhapur Campus)  
-**Student / Creative Director & Product Lead:** Simran Singh (`BD/24/164`, Fashion Communication, NIFT Hyderabad)  
+**Curatorial Direction:** Independent Luxury Fashion Label × Student Resale Archive  
+**Art Direction & Product Lead:** Simran Singh (`BD/24/164`, Fashion Communication, NIFT Hyderabad)  
 **Technical Architect & UX Mentor:** Antigravity AI  
+**Architecture:** Dual Connected Experiences — **Complete Desktop Website (1440px / 1366px / 1280px / 1024px)** + **Dedicated Mobile Application**  
+**Campus Scope:** Exclusively National Institute of Fashion Technology (NIFT), Hyderabad (Madhapur Campus)  
 
 ---
 
-## 1. Visual Direction & Curatorial Ethos
+## 1. Curatorial Ethos & Art Direction
 
-The visual identity embodies an independent fashion publication, a student design archive, and an authentic circular fashion ritual. It purposefully avoids generic e-commerce templates, SaaS dashboard tropes, and bright artificial gradients.
+The refined visual identity embodies contemporary luxury minimalism, high-end fashion editorial lookbooks, and an authentic campus archive. It strictly rejects generic e-commerce templates, nested cards, double-border boxes, heavy drop shadows, and gaudy promotional banners.
 
 ```
-                      EDITORIAL / ARCHIVAL
-                               │
-                               │   ★ THRIFT Atelier CLOSET
-             Dazed / AnOther   │   (Warm ivory, B&W archival photography,
-            (High aesthetics,  │    burgundy accents, student ledge hero,
-             non-transactional)│    4-column black band, in-person drops)
-                               │
-────────── ARTISTIC ───────────┼─────────── FUNCTIONAL ──────────
-                               │
-               Depop           │   Standard E-Commerce
-         (Chaotic youth feed,  │   (Generic grid, utility-first,
-          haggling, low trust) │    lacks curatorial dignity)
-                               │
-                      COMMERCIAL / UTILITY
+                      LUXURY EDITORIAL / ARCHIVAL
+                                   │
+                                   │   ★ THRIFT Atelier CLOSET
+                 Lemaire / The Row │   (Warm ivory, graphite & deep charcoal,
+                (Quiet luxury,     │    borderless product portrait photography,
+                 immaculate space, │    4-line left-aligned metadata, 60s hero cycle,
+                 borderless grids) │    hairline dividers, in-person break drops)
+                                   │
+────────── ARTISTIC ───────────────┼─────────── FUNCTIONAL ──────────
+                                   │
+                    Depop          │   Standard Resale SaaS
+             (Chaotic stickers,    │   (Double-nested boxes, bright badges,
+              haggling, low trust) │    heavy shadows, card borders)
+                                   │
+                          COMMERCIAL / UTILITY
 ```
 
-### Essential Characteristics:
-- **Warm Ivory Grounds:** 65–70% of canvas is unbleached warm ivory (`#F3EFE6`) and soft cream (`#EAE5DA`).
-- **Archival Photography:** High-contrast, desaturated black & white and natural daylight student atelier photography (20–25%).
-- **Deep Burgundy Accents:** Reserved for handwritten script annotations, active states, and event highlights (`#76252D`, `#9C4045`).
-- **Oversized Editorial Typography:** Bodoni Moda and Cormorant Garamond paired with handwritten script (`Allura`) and functional grotesk (`DM Sans` / `Manrope`).
-- **Minimal Interface Elements:** Hairline dividers, subtle neutral cards, zero artificial drop shadows.
+### Essential Principles:
+- **Image-Led, Borderless Grid:** Product images sit directly in their grid columns without outer card wrappers, redundant frames, or nested background containers.
+- **Controlled Palette (Charcoal, Ivory, Burgundy):** Deep charcoal (`#1C1B19`) and graphite (`#353430`) for structured navigation and bands; warm ivory (`#F3EFE7`) for content surfaces; soft stone (`#E6E1D8`) for secondary elements; and muted burgundy (`#792C35`) reserved strictly for interactive highlights, saved hearts, and key action buttons.
+- **Editorial Typography Hierarchy:** High-contrast serif (`Bodoni Moda` / `Cormorant Garamond`) for headlines and numbers; clean sans-serif (`DM Sans` / `Manrope` / `Inter`) for functional UI; and handwritten cursive (`Allura`) reserved exclusively for the signature "Atelier" script in the brand wordmark.
+- **Preserved Hero Concept with 60s Carousel:** "Students. Pieces. People. Possibilities." on the campus ledge remains the soul of the platform, powered by an image carousel supporting slots `hero-01` through `hero-05` with a 60-second auto-cycle, hover pause, tab visibility pause, and reduced-motion support.
 
 ---
 
-## 2. Codified Color Tokens
+## 2. Refined Luxury Color Tokens
 
 ```css
 :root {
-  /* Exact Reference Color Palette */
-  --color-warm-ivory: #F3EFE6;         /* Primary canvas background (65-70%) */
-  --color-soft-cream: #EAE5DA;         /* Neutral card ground & secondary surfaces */
-  --color-charcoal-black: #171715;     /* Deep ink black for text & 4-column band */
-  --color-deep-burgundy: #76252D;      /* Signature editorial accent & script */
-  --color-muted-wine-red: #9C4045;     /* Supporting wine red for interactive states */
-  --color-warm-grey: #BDB8AE;          /* Divider lines & muted numerals */
-  --color-supporting-text-grey: #77736C;/* Secondary metadata & editorial captions */
-  --color-white: #FFFFFF;              /* Clean white pill buttons & tags */
-  --color-sky-tint: #ACC6DD;           /* Photographic sky tint from campus hero */
+  /* Refined Luxury Color Palette */
+  --color-warm-charcoal: #292825;       /* Elevated dark components & hover states */
+  --color-graphite: #353430;            /* Major dark bands & secondary dark surfaces */
+  --color-deep-charcoal: #1C1B19;       /* Deep ink charcoal for 4-column band & footer */
+  --color-warm-ivory: #F3EFE7;          /* Primary editorial content canvas (65-70%) */
+  --color-soft-stone: #E6E1D8;          /* Subtle secondary backgrounds & image placeholders */
+  --color-muted-burgundy: #792C35;      /* Signature restrained burgundy accent (5-10%) */
+  --color-supporting-grey: #96918A;     /* Muted metadata, captions, and specifications */
+  --color-white: #FFFFFF;               /* Clean white tags & active contrast elements */
+
+  /* Surface Types */
+  --surface-primary-dark: #1C1B19;
+  --surface-graphite: #353430;
+  --surface-warm-charcoal: #292825;
+  --surface-content-ivory: #F3EFE7;
+  --surface-secondary-stone: #E6E1D8;
 
   /* Structural Dividers */
-  --color-border-hairline: rgba(23, 23, 21, 0.09);
-  --color-border-card: rgba(23, 23, 21, 0.08);
+  --color-border-hairline: rgba(28, 27, 25, 0.1);
+  --color-border-card: transparent;     /* Zero card borders */
+  --color-border-dark: rgba(243, 239, 231, 0.12);
 }
 ```
 
 ---
 
-## 3. Typographic Hierarchy
+## 3. Typographic System
 
 | Role | Font Family | Typical Size | Weight / Style | Purpose |
 | :--- | :--- | :--- | :--- | :--- |
 | **Logotype (THRIFT)** | `Bodoni Moda` | `32px` | 800 Bold Condensed | Tall, condensed high-contrast editorial serif |
-| **Logotype (Atelier)** | `Allura` / `Alex Brush` | `42px` | Flowing Script | Burgundy signature script overlapping wordmark |
+| **Logotype (Atelier)** | `Allura` | `42px` | Signature Script | Flowing burgundy script overlapping wordmark |
 | **Logotype (CLOSET)** | `DM Sans` / `Manrope` | `13px` | 700 Bold Uppercase | Clean letter-spaced sans (`tracking: 0.16em`) |
-| **Handwritten Accent** | `Allura` | `58px` | Flowing Cursive (`#76252D`) | *"Students Pieces People Possibilities"* |
-| **Display Headings** | `Bodoni Moda` | `28px – 34px` | 600 Semi-Bold | Section titles, story headlines, drop title |
-| **Band Numerals** | `Bodoni Moda` | `42px` | 400 Regular | `01`, `02`, `03`, `04` in the functional band |
-| **Functional UI** | `DM Sans` / `Manrope` | `13px – 15px` | 500 / 600 Medium | Navigation, product names, buttons, filters |
-| **Flat-Lay Specs** | `Space Mono` | `11px – 12px` | 700 Bold Monospace | Measurements, dates, timestamps, lot prices |
+| **Display Headings** | `Bodoni Moda` | `24px – 32px` | 600 Semi-Bold | Collection titles, section headings, story titles |
+| **Band Numerals** | `Bodoni Moda` | `44px` | 400 Regular | `01`, `02`, `03`, `04` in the functional band |
+| **Product Titles** | `DM Sans` / `Manrope` | `14.5px` | 500 Medium | Clean, unboxed product names (left-aligned) |
+| **Product Prices** | `DM Sans` | `14px` | 600 Semi-Bold | Listing prices & live bids (`₹ 1,200`) |
+| **Metadata Kickers** | `Space Mono` | `10px` | 700 Monospace | `FIXED PRICE · FC DEPT`, `LIVE BID · TD DEPT` |
+| **Product Specs** | `DM Sans` | `12px` | 400 Regular | Condition, size, and swap notes |
 
 ---
 
-## 4. Desktop Homepage Architecture (Sections 01 to 07)
+## 4. Product Card Specification (Zero Nested Boxes)
+
+Product cards are borderless, flat lookbook elements sitting directly in grid columns:
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│ SECTION 01: COMPACT HEADER (68px, Warm Ivory, Minimal Outline Icons)   │
-│ [THRIFT Atelier CLOSET]      [Discover  Sell  Activity  Closet] [🔍 ♡ 👤]│
-├────────────────────────────────────────────────────────────────────────┤
-│ SECTION 02: FULL-WIDTH HERO (Authentic Campus Ledge Photograph)        │
-│  "Students Pieces People Possibilities"     A RESALE ARCHIVE           │
-│  (Deep Burgundy Cursive Script)              BY NIFT HYDERABAD          │
-│                                              STUDENTS. (→)             │
-│  [5 NIFT Students Sitting on Concrete Ledge with Blue Sky]            │
-├────────────────────────────────────────────────────────────────────────┤
-│ SECTION 03: BLACK FOUR-COLUMN FUNCTIONAL BAND (#171715)                │
-│  01 SHOP              02 SELL           03 SWAP          04 JOIN       │
-│  Preloved pieces      Give wardrobe     Trade within     Campus drops, │
-│  across depts.        a second life.    community.       events/stories│
-├────────────────────────────────────────────────────────────────────────┤
-│ SECTION 04: FEATURED THIS WEEK (Warm Ivory Ground, 4-Column Cards)     │
-│  [Vintage Shoulder Bag] [Plaid Ruffle Blouse] [Suede Jacket] [Wide Leg]│
-│  ₹1,200 • FC            ₹950 • FD             ₹2,800 • LD    ₹1,450•TD │
-├────────────────────────────────────────────────────────────────────────┤
-│ SECTION 05: CAMPUS DROPS & COMMUNITY STORIES (2-Column Editorial Split)│
-│  ┌──────────────────────────────┐   ┌────────────────────────────────┐ │
-│  │ ART & DESIGN DEPT            │   │ [Student Photo]  How I Built   │ │
-│  │ CAMPUS DROP (18 OCT)         │   │                  My Wardrobe   │ │
-│  │ Studio Block • [RSVP NOW →]  │   │                  Through Swaps │ │
-│  └──────────────────────────────┘   └────────────────────────────────┘ │
-├────────────────────────────────────────────────────────────────────────┤
-│ SECTION 06: BROWSE BY DEPARTMENT (6 Monochromatic Photographic Tiles)  │
-│  [Fashion Comm] [Fashion Design] [Textile Design]                      │
-│  [Leather Design] [Accessory Design] [Knitwear Design]                 │
-├────────────────────────────────────────────────────────────────────────┤
-│ SECTION 07: MINIMAL FOOTER                                             │
-│  [Brand Logo] • A student-run resale archive by NIFT Hyderabad         │
-└────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────┐
+│ [Product Photograph: 3:4 or 4:5 Aspect Ratio] │
+│                                         [ ♡ ] │ ← Subtle wishlist heart in top-right
+│                                               │
+│                                               │
+└───────────────────────────────────────────────┘
+  FIXED PRICE · FC DEPT                          ← Small uppercase tracked sans kicker
+  Vintage Shoulder Bag                          ← Medium sans product title
+  ₹ 1,200                                       ← Semi-bold price or current bid
+  Good condition · One size                     ← Supporting condition & size
 ```
+
+### Hover & Interaction:
+- **Image:** Slight, restrained zoom (`scale(1.03)`, `transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)`).
+- **Typography:** Completely stable; zero vertical card movement (`translateY(0)`).
+- **Wishlist Button:** Circular glass pill (`rgba(243, 239, 231, 0.82)`), fills with muted burgundy (`#792C35`) on save.
+- **Card Click:** Opens complete peer-to-peer Product Detail Modal (PDP) with verified seller profile, condition rubric tier, fit dimensions, and action dock.
 
 ---
 
-## 5. Dedicated Mobile Application Experience
+## 5. Homepage Sections Architecture
 
-Rather than simply squeezing the desktop website into a narrow viewport, the project features a **dedicated mobile application interface**:
+1. **Header / Navigation (68px, Warm Ivory):**
+   - Left: `THRIFT Atelier CLOSET` logotype wordmark.
+   - Centre: `Home`, `Discover`, `Sell a Piece`, `Activity & Drops`, `My Closet`.
+   - Right: Minimal outline search, wishlist counter pill, user profile avatar.
 
-1. **Fixed Mobile Bottom Navigation:**
-   - `Discover` (explore marketplace catalog)
-   - `Sell` (tactile floating `+` button triggering the 6-step guided listing wizard)
-   - `Drops` (campus break meetup calendar with RSVP)
-   - `My Closet` (personal wardrobe, swap inbox, and wishlist archive)
-2. **Mobile Home Sequence:**
-   - Compact brand header with search and profile badges.
-   - 4:3.4 community hero card featuring the students on the campus ledge.
-   - 2 × 2 Black Functional Action Grid (`01 SHOP`, `02 SELL`, `03 SWAP`, `04 JOIN`).
-   - Horizontal swipe carousel for *Featured This Week*.
-   - Next Campus Drop promotional card with one-tap RSVP.
-   - Community Story preview card.
-   - Horizontal scrolling department pills (`FC`, `FD`, `TD`, `LD`, `AD`, `KD`).
-   - 2-column mobile marketplace feed with generous touch targets.
-3. **Experience Switcher:**
-   - Seamless top toggle allowing reviewers to effortlessly toggle between the **1440px Desktop Website** and the **Dedicated Mobile Application frame**.
+2. **Full-Width Hero Section (60s Autoplay Carousel):**
+   - Composition: Authentic campus photograph of students on the concrete ledge ("Students. Pieces. People. Possibilities.").
+   - Slots: Dedicated image paths `hero-01.png`, `hero-02.jpg`, `hero-03.jpg`, `hero-04.jpg`, `hero-05.jpg`.
+   - Timing: 60,000ms auto-advance with smooth fade transition.
+   - Interactivity: Pauses immediately on mouse hover, focus, or mobile touch; pauses when browser tab is hidden; respects reduced-motion preferences.
+   - Controls: Restrained editorial navigation pill with dot indicators and previous/next arrows.
+
+3. **Four-Column Functional Band (Deep Charcoal `#1C1B19`):**
+   - Columns: `01 SHOP` (Preloved pieces), `02 SELL` (Give wardrobe second life), `03 SWAP` (Trade within community), `04 JOIN` (Drops, events & stories).
+   - Hairline vertical dividers (`rgba(243, 239, 231, 0.1)`).
+
+4. **Featured This Week (Warm Ivory Ground):**
+   - High-contrast editorial serif heading (`Bodoni Moda`) with right-aligned `View all →`.
+   - Direct 4-column borderless product row showcasing the 4 reference pieces.
+
+5. **Campus Drops & Community Stories (2-Column Editorial Split):**
+   - *Left (Campus Drops):* Clean event photograph, structured schedule (`18 OCT 2026 • 4:00 PM – 7:00 PM • STUDIO BLOCK`), and a restrained burgundy RSVP button (`#792C35`).
+   - *Right (Community Stories):* Archival student portrait + Bodoni serif headline ("How I Built My Wardrobe at NIFT Through Swaps") + short excerpt + `Read story →`.
+
+6. **Browse by Department (6 Circular Editorial Tiles):**
+   - Circular archival frames (`FC`, `FD`, `TD`, `LD`, `AD`, `KD`) with department names directly beneath, matching luxury reference layouts.
+
+7. **Structured Minimal Footer (Deep Charcoal `#1C1B19`):**
+   - 4 editorial columns (Brand & Campus Scope, Platform Navigation, Verification Guidelines, Connect & GitHub).
+
+---
+
+## 6. Dedicated Mobile Application Experience
+
+- **Device Shell & Viewport:** Standalone mobile app interface with status bar, compact header, and fixed bottom navigation bar (`Home`, `Discover`, `Sell`, `Drops`, `My Closet`).
+- **Mobile Hero Carousel:** Adapted for vertical viewing with touch-pause and dot indicators.
+- **2x2 Functional Action Grid:** Compact mobile adaptation of the 4 platform pillars.
+- **2-Column Lookbook Grid:** Borderless product cards with readable left-aligned metadata and generous touch targets.
+- **Circular Department Scroll:** Horizontal touch carousel with circular department icons.

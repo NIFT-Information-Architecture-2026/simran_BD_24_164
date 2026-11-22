@@ -97,18 +97,63 @@
       <!-- ============================================================ -->
       <section id="desktop-home-view" class="desktop-subview active">
 
-        <!-- SECTION 02 — FULL-WIDTH HERO (AUTHENTIC 2X RETINA CAMPUS PHOTOGRAPH) -->
-        <section class="desktop-hero-section" id="hero">
-          <div class="hero-image-wrap">
-            <img src="images/reference/hero-campus-highres.png" alt="NIFT Hyderabad Students on Campus Ledge — A Resale Archive" class="hero-campus-photo">
+        <!-- SECTION 02 — FULL-WIDTH HERO CAROUSEL (60-SECOND CYCLE, SLOTS HERO-01 TO HERO-05) -->
+        <section class="desktop-hero-section" id="hero" aria-label="Campus Hero Archive Carousel">
+          <div class="hero-carousel-container" id="desktop-hero-carousel">
             
+            <div class="hero-slides-track" id="hero-slides-track">
+              <!-- Slot 01 (Initial Active Slide - Master High-Res Archive) -->
+              <div class="hero-slide active" data-slide-index="0" data-slot="hero-01">
+                <img src="images/hero/hero-01.png" alt="Students Pieces People Possibilities — NIFT Hyderabad Archive" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+              </div>
+              <!-- Slot 02 (Replaceable slot) -->
+              <div class="hero-slide" data-slide-index="1" data-slot="hero-02">
+                <img src="images/hero/hero-02.jpg" alt="Campus Life and Student Archival Pieces" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+              </div>
+              <!-- Slot 03 (Replaceable slot) -->
+              <div class="hero-slide" data-slide-index="2" data-slot="hero-03">
+                <img src="images/hero/hero-03.jpg" alt="Studio Critique and Campus Garment Exchange" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+              </div>
+              <!-- Slot 04 (Replaceable slot) -->
+              <div class="hero-slide" data-slide-index="3" data-slot="hero-04">
+                <img src="images/hero/hero-04.jpg" alt="Student Resale and Curatorial Archive" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+              </div>
+              <!-- Slot 05 (Replaceable slot) -->
+              <div class="hero-slide" data-slide-index="4" data-slot="hero-05">
+                <img src="images/hero/hero-05.jpg" alt="NIFT Hyderabad Fashion Archive Community" class="hero-slide-img" onerror="this.src='images/reference/hero-campus-highres.png'">
+              </div>
+            </div>
+
             <!-- Accessible Semantic Heading (Screen Reader / SEO) -->
-            <h1 class="sr-only">A Resale Archive by NIFT Hyderabad Students • Students Pieces People Possibilities</h1>
+            <h1 class="sr-only">Students. Pieces. People. Possibilities. • A Resale Archive by NIFT Hyderabad Students</h1>
 
             <!-- Interactive Clickable Jump Anchor positioned over the reference arrow -->
             <a href="#featured-section" class="hero-arrow-clickable-zone" aria-label="Scroll to Featured Pieces" title="Explore Featured Archive">
               <span class="sr-only">Scroll down</span>
             </a>
+
+            <!-- Restrained Editorial Carousel Controls -->
+            <div class="hero-carousel-controls" aria-label="Hero Carousel Navigation">
+              <button type="button" class="hero-control-btn btn-prev" onclick="prevHeroSlide()" aria-label="Previous photograph">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              
+              <div class="hero-carousel-dots" id="hero-carousel-dots" role="tablist">
+                <button type="button" class="hero-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Hero Slide 1 (hero-01)" onclick="goToHeroSlide(0)"></button>
+                <button type="button" class="hero-dot" data-index="1" role="tab" aria-selected="false" aria-label="Hero Slide 2 (hero-02)" onclick="goToHeroSlide(1)"></button>
+                <button type="button" class="hero-dot" data-index="2" role="tab" aria-selected="false" aria-label="Hero Slide 3 (hero-03)" onclick="goToHeroSlide(2)"></button>
+                <button type="button" class="hero-dot" data-index="3" role="tab" aria-selected="false" aria-label="Hero Slide 4 (hero-04)" onclick="goToHeroSlide(3)"></button>
+                <button type="button" class="hero-dot" data-index="4" role="tab" aria-selected="false" aria-label="Hero Slide 5 (hero-05)" onclick="goToHeroSlide(4)"></button>
+              </div>
+
+              <button type="button" class="hero-control-btn btn-next" onclick="nextHeroSlide()" aria-label="Next photograph">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+
+            <!-- Subtle 60s Progress Bar Indicator -->
+            <div class="hero-progress-line"><div class="hero-progress-fill" id="hero-progress-fill"></div></div>
+
           </div>
         </section>
 
@@ -170,21 +215,23 @@
                 <button type="button" class="view-all-link" onclick="showDesktopView('activity', 'drops')">View all &rarr;</button>
               </div>
 
-              <div class="campus-drop-banner-card">
-                <div class="drop-banner-visual">
-                  <img src="images/reference/event-campus-drop-highres.png" alt="Art &amp; Design Dept Campus Drop" class="drop-banner-img">
-                  <div class="drop-banner-overlay">
-                    <span class="drop-dept-tag">ART &amp; DESIGN DEPT</span>
-                    <h3 class="drop-event-title">CAMPUS DROP</h3>
-                    <div class="drop-meta-schedule">
-                      <span class="drop-date">18 OCT 2026</span>
-                      <span class="drop-time">4:00 PM - 7:00 PM</span>
-                      <span class="drop-location">STUDIO BLOCK</span>
-                    </div>
-                    <button type="button" class="btn-rsvp-pill" id="btn-hero-rsvp" onclick="handleEventRsvp(this)">
-                      <span>RSVP NOW &rarr;</span>
-                    </button>
+              <div class="luxury-drop-card">
+                <div class="luxury-drop-visual">
+                  <img src="images/reference/event-campus-drop-highres.png" alt="Art &amp; Design Dept Campus Drop" class="luxury-drop-img">
+                </div>
+                <div class="luxury-drop-info">
+                  <span class="luxury-drop-kicker">ART &amp; DESIGN DEPT · CAMPUS DROP</span>
+                  <h3 class="luxury-drop-title">Studio Block Daylight Drop</h3>
+                  <div class="luxury-drop-schedule">
+                    <span class="drop-schedule-item">18 OCT 2026</span>
+                    <span class="drop-schedule-sep">•</span>
+                    <span class="drop-schedule-item">4:00 PM – 7:00 PM</span>
+                    <span class="drop-schedule-sep">•</span>
+                    <span class="drop-schedule-item">STUDIO BLOCK</span>
                   </div>
+                  <button type="button" class="btn-rsvp-burgundy" id="btn-hero-rsvp" onclick="handleEventRsvp(this)">
+                    <span>RSVP NOW &rarr;</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -195,18 +242,15 @@
                 <h2 class="editorial-heading">Community Stories</h2>
               </div>
 
-              <article class="community-story-card">
-                <div class="story-portrait-wrap">
-                  <img src="images/reference/story-student-portrait-highres.png" alt="NIFT Student Story" class="story-portrait-img">
+              <article class="luxury-story-card" onclick="openStoryModal()">
+                <div class="luxury-story-visual">
+                  <img src="images/reference/story-student-portrait-highres.png" alt="NIFT Student Story" class="luxury-story-img">
                 </div>
-                <div class="story-text-col">
-                  <h3 class="story-headline">How I Built My Wardrobe at NIFT Through Swaps</h3>
-                  <div class="story-lead-copy">
-                    <p>Real students. Real pieces.</p>
-                    <p>Real stories.</p>
-                  </div>
-                  <div class="story-divider-dash"></div>
-                  <button type="button" class="story-read-link" onclick="openStoryModal()">Read more &rarr;</button>
+                <div class="luxury-story-text">
+                  <span class="luxury-story-kicker">ARCHIVE VOICES · NIFT HYDERABAD</span>
+                  <h3 class="luxury-story-title">How I Built My Wardrobe at NIFT Through Swaps</h3>
+                  <p class="luxury-story-lead">Real students. Real pieces. Real stories.</p>
+                  <button type="button" class="luxury-story-action" onclick="openStoryModal(); event.stopPropagation();">Read story &rarr;</button>
                 </div>
               </article>
             </div>
@@ -753,11 +797,34 @@
           <!-- TAB 1: MOBILE HOME / DISCOVER -->
           <div id="mob-view-home" class="mobile-tab-view active">
             
-            <!-- Mobile Hero -->
-            <div class="mobile-hero-card">
-              <img src="images/reference/hero-campus-highres.png" alt="Students on Ledge" class="mobile-hero-photo">
+            <!-- Mobile Hero Carousel -->
+            <div class="mobile-hero-carousel-card" id="mobile-hero-carousel">
+              <div class="mob-hero-slides-track" id="mob-hero-slides-track">
+                <div class="mob-hero-slide active" data-mob-slide="0">
+                  <img src="images/hero/hero-01.png" alt="Students on Ledge" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
+                </div>
+                <div class="mob-hero-slide" data-mob-slide="1">
+                  <img src="images/hero/hero-02.jpg" alt="Student Archive 2" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
+                </div>
+                <div class="mob-hero-slide" data-mob-slide="2">
+                  <img src="images/hero/hero-03.jpg" alt="Student Archive 3" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
+                </div>
+                <div class="mob-hero-slide" data-mob-slide="3">
+                  <img src="images/hero/hero-04.jpg" alt="Student Archive 4" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
+                </div>
+                <div class="mob-hero-slide" data-mob-slide="4">
+                  <img src="images/hero/hero-05.jpg" alt="Student Archive 5" class="mobile-hero-photo" onerror="this.src='images/reference/hero-campus-highres.png'">
+                </div>
+              </div>
               <div class="mobile-hero-overlay">
-                <div class="mob-hero-copy" style="margin-top:auto;">
+                <div class="mob-hero-dots" id="mob-hero-dots">
+                  <span class="mob-dot active" onclick="goToHeroSlide(0)"></span>
+                  <span class="mob-dot" onclick="goToHeroSlide(1)"></span>
+                  <span class="mob-dot" onclick="goToHeroSlide(2)"></span>
+                  <span class="mob-dot" onclick="goToHeroSlide(3)"></span>
+                  <span class="mob-dot" onclick="goToHeroSlide(4)"></span>
+                </div>
+                <div class="mob-hero-copy">
                   <button type="button" class="mob-btn-explore" onclick="switchMobileTab('m-discover')">Explore Listings &rarr;</button>
                 </div>
               </div>
@@ -798,12 +865,12 @@
 
             <!-- Next Campus Drop Card -->
             <div class="mobile-drop-card">
-              <img src="images/reference/event-campus-drop.jpg" alt="Campus Drop" class="mob-drop-bg">
+              <img src="images/reference/event-campus-drop-highres.png" alt="Campus Drop" class="mob-drop-bg">
               <div class="mob-drop-content">
                 <span class="mob-tag-white">ART &amp; DESIGN DEPT</span>
                 <h4 class="mob-drop-heading">CAMPUS DROP</h4>
                 <p class="mob-drop-time">18 OCT 2026 • 4:00 PM • STUDIO BLOCK</p>
-                <button type="button" class="btn-rsvp-pill mob-rsvp" onclick="handleEventRsvp(this)">RSVP NOW &rarr;</button>
+                <button type="button" class="btn-rsvp-burgundy mob-rsvp" onclick="handleEventRsvp(this)">RSVP NOW &rarr;</button>
               </div>
             </div>
 
@@ -812,24 +879,42 @@
               <h3 class="mob-section-title">Community Stories</h3>
             </div>
             <div class="mobile-story-card" onclick="openStoryModal()">
-              <img src="images/reference/story-student-portrait.jpg" alt="Student" class="mob-story-thumb">
+              <img src="images/reference/story-student-portrait-highres.png" alt="Student" class="mob-story-thumb">
               <div class="mob-story-details">
                 <h4 class="mob-story-title">How I Built My Wardrobe at NIFT Through Swaps</h4>
                 <span class="mob-story-meta">Real students. Real stories. &rarr;</span>
               </div>
             </div>
 
-            <!-- Browse by Department Scroll -->
-            <div class="mobile-section-header" style="margin-top:20px;">
+            <!-- Browse by Department Circular Scroll -->
+            <div class="mobile-section-header" style="margin-top:24px;">
               <h3 class="mob-section-title">Browse by Department</h3>
             </div>
             <div class="mobile-dept-scroll">
-              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('FC')">Fashion Comm</div>
-              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('FD')">Fashion Design</div>
-              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('TD')">Textile Design</div>
-              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('LD')">Leather Design</div>
-              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('AD')">Accessory Design</div>
-              <div class="mob-dept-pill" onclick="filterCatalogByDepartment('KD')">Knitwear Design</div>
+              <div class="mob-dept-item" onclick="filterCatalogByDepartment('FC')">
+                <div class="mob-dept-circle"><img src="images/reference/dept-fc-highres.png" alt="FC"></div>
+                <span>FC</span>
+              </div>
+              <div class="mob-dept-item" onclick="filterCatalogByDepartment('FD')">
+                <div class="mob-dept-circle"><img src="images/reference/dept-fd-highres.png" alt="FD"></div>
+                <span>FD</span>
+              </div>
+              <div class="mob-dept-item" onclick="filterCatalogByDepartment('TD')">
+                <div class="mob-dept-circle"><img src="images/reference/dept-td-highres.png" alt="TD"></div>
+                <span>TD</span>
+              </div>
+              <div class="mob-dept-item" onclick="filterCatalogByDepartment('LD')">
+                <div class="mob-dept-circle"><img src="images/reference/dept-ld-highres.png" alt="LD"></div>
+                <span>LD</span>
+              </div>
+              <div class="mob-dept-item" onclick="filterCatalogByDepartment('AD')">
+                <div class="mob-dept-circle"><img src="images/reference/dept-ad-highres.png" alt="AD"></div>
+                <span>AD</span>
+              </div>
+              <div class="mob-dept-item" onclick="filterCatalogByDepartment('KD')">
+                <div class="mob-dept-circle"><img src="images/reference/dept-kd-highres.png" alt="KD"></div>
+                <span>KD</span>
+              </div>
             </div>
 
             <!-- Two-Column Product Feed Preview -->

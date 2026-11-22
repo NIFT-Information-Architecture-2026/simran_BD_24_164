@@ -1,49 +1,67 @@
 /* ==========================================================================
    THRIFT Atelier CLOSET — DESIGN SYSTEM STYLESHEET
-   Curatorial Direction: Independent Fashion Publication × Campus Resale Archive
-   Reference Source of Truth: NIFT Hyderabad Primary Visual Identity
-   Palette: Warm Ivory (#F3EFE6), Soft Cream (#EAE5DA), Charcoal Black (#171715),
-            Deep Burgundy (#76252D), Muted Wine (#9C4045), Grey (#77736C / #BDB8AE)
-   Typography: Bodoni Moda (Editorial Serif) × Allura (Handwritten Script) × DM Sans / Manrope (Clean UI)
+   Curatorial Direction: Luxury Minimal Fashion Archive × Editorial Resale Platform
+   Art Direction: Simran Singh (BD/24/164, Fashion Communication, NIFT Hyderabad)
+   Palette: Warm Charcoal (#292825), Graphite (#353430), Deep Charcoal (#1C1B19),
+            Warm Ivory (#F3EFE7), Soft Stone (#E6E1D8), Muted Burgundy (#792C35),
+            Supporting Grey (#96918A), White (#FFFFFF)
+   Typography: Bodoni Moda / Cormorant Garamond (Editorial Serif)
+               × Allura (Brand Wordmark Script only)
+               × DM Sans / Manrope / Inter (Clean UI Sans)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. DESIGN TOKENS & SYSTEM VARIABLES
+   1. DESIGN TOKENS & SYSTEM VARIABLES (LUXURY MINIMAL PALETTE)
    -------------------------------------------------------------------------- */
 :root {
-  /* Exact Reference Color System */
-  --color-warm-ivory: #F3EFE6;
-  --color-soft-cream: #EAE5DA;
-  --color-charcoal-black: #171715;
-  --color-deep-burgundy: #76252D;
-  --color-muted-wine-red: #9C4045;
-  --color-warm-grey: #BDB8AE;
-  --color-supporting-text-grey: #77736C;
+  /* Refined Luxury Color Tokens */
+  --color-warm-charcoal: #292825;
+  --color-graphite: #353430;
+  --color-deep-charcoal: #1C1B19;
+  --color-warm-ivory: #F3EFE7;
+  --color-soft-stone: #E6E1D8;
+  --color-muted-burgundy: #792C35;
+  --color-supporting-grey: #96918A;
   --color-white: #FFFFFF;
+
+  /* Backward-Compatible & Structural Aliases */
+  --color-charcoal-black: #1C1B19;
+  --color-soft-cream: #E6E1D8;
+  --color-deep-burgundy: #792C35;
+  --color-muted-wine-red: #792C35;
+  --color-warm-grey: #96918A;
+  --color-supporting-text-grey: #96918A;
   --color-sky-tint: #ACC6DD;
 
-  /* Functional Card & Border Variables */
-  --color-bg-base: #F3EFE6;
-  --color-card-bg: #EAE5DA;
+  /* Surface Types */
+  --surface-primary-dark: #1C1B19;
+  --surface-graphite: #353430;
+  --surface-warm-charcoal: #292825;
+  --surface-content-ivory: #F3EFE7;
+  --surface-secondary-stone: #E6E1D8;
+
+  /* Card & Border Variables (Eliminating Card Boxes) */
+  --color-bg-base: #F3EFE7;
+  --color-card-bg: transparent;
   --color-card-white: #FFFFFF;
-  --color-border-hairline: rgba(23, 23, 21, 0.09);
-  --color-border-card: rgba(23, 23, 21, 0.08);
-  --color-border-dark: #171715;
-  --color-border-light: rgba(243, 239, 230, 0.15);
+  --color-border-hairline: rgba(28, 27, 25, 0.1);
+  --color-border-card: transparent;
+  --color-border-dark: #1C1B19;
+  --color-border-light: rgba(243, 239, 231, 0.15);
 
   /* Typography Families */
-  --font-editorial: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Bodoni Moda', 'Didot', 'Cormorant Garamond', Georgia, serif;
   --font-serif-body: 'Cormorant Garamond', 'Bodoni Moda', Georgia, serif;
-  --font-sans: 'DM Sans', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'DM Sans', 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-script: 'Allura', 'Italianno', 'Alex Brush', cursive;
   --font-mono: 'Space Mono', monospace;
 
-  /* Shadows & Radius (Strictly minimal, calm, non-skeuomorphic) */
-  --shadow-subtle: 0 2px 10px rgba(23, 23, 21, 0.04);
-  --shadow-elevated: 0 12px 32px rgba(23, 23, 21, 0.08);
-  --shadow-modal: 0 24px 60px rgba(23, 23, 21, 0.22);
-  --radius-sm: 4px;
-  --radius-card: 6px;
+  /* Shadows & Radius (Strictly flat luxury minimalism, zero heavy drop shadows) */
+  --shadow-subtle: none;
+  --shadow-elevated: 0 4px 20px rgba(28, 27, 25, 0.05);
+  --shadow-modal: 0 20px 50px rgba(28, 27, 25, 0.25);
+  --radius-sm: 2px;
+  --radius-card: 0px;
   --radius-pill: 30px;
 
   /* Layout Widths */
@@ -401,28 +419,131 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   7. FULL-WIDTH HERO (SECTION 02 — 2X RETINA CAMPUS PHOTOGRAPH)
+   7. FULL-WIDTH HERO CAROUSEL (SECTION 02 — 60-SEC CYCLE, SLOTS HERO-01 TO 05)
    -------------------------------------------------------------------------- */
 .desktop-hero-section {
   width: 100%;
-  background-color: #ACC6DD; /* Seamless match with sky photography */
+  background-color: #ACC6DD; /* Seamless blend with sky photographic backdrop */
   position: relative;
   overflow: hidden;
 }
 
-.hero-image-wrap {
+.hero-carousel-container {
   width: 100%;
   max-width: var(--site-max-width);
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
 }
 
+.hero-slides-track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2048 / 688;
+  min-height: 400px;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.hero-slide-img,
 .hero-campus-photo {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+
+/* Subtle, restrained editorial carousel controls */
+.hero-carousel-controls {
+  position: absolute;
+  bottom: 24px;
+  right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(28, 27, 25, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(243, 239, 231, 0.18);
+  z-index: 20;
+  transition: opacity 0.25s ease;
+}
+
+.hero-control-btn {
+  color: var(--color-warm-ivory);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.hero-control-btn:hover {
+  background-color: rgba(243, 239, 231, 0.2);
+  transform: scale(1.08);
+}
+
+.hero-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(243, 239, 231, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.hero-dot.active {
+  width: 24px;
+  border-radius: 10px;
+  background: var(--color-warm-ivory);
+}
+
+/* Subtle 60s Progress Bar Line at bottom of hero */
+.hero-progress-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: rgba(28, 27, 25, 0.08);
+  z-index: 15;
+}
+
+.hero-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-muted-burgundy);
+  transition: width 0.1s linear;
 }
 
 /* Clickable Interactive Zone over the Reference Arrow */
@@ -457,10 +578,11 @@ img {
 
 /* --------------------------------------------------------------------------
    8. BLACK FOUR-COLUMN FUNCTIONAL BAND (SECTION 03)
+   PURE DEEP CHARCOAL (#1C1B19) GROUND × WARM IVORY EDITORIAL TYPOGRAPHY
    -------------------------------------------------------------------------- */
 .four-column-band {
   width: 100%;
-  background-color: var(--color-charcoal-black);
+  background-color: var(--color-deep-charcoal);
   color: var(--color-warm-ivory);
 }
 
@@ -469,14 +591,14 @@ img {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(243, 239, 230, 0.08);
+  border-top: 1px solid rgba(243, 239, 231, 0.08);
 }
 
 .band-col {
-  padding: 44px 36px 40px;
-  border-right: 1px solid rgba(243, 239, 230, 0.12);
+  padding: 48px 36px 44px;
+  border-right: 1px solid rgba(243, 239, 231, 0.1);
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.25s ease;
 }
 
 .band-col:last-child {
@@ -484,12 +606,12 @@ img {
 }
 
 .band-col:hover {
-  background-color: #1F1F1C;
+  background-color: var(--color-warm-charcoal);
 }
 
 .band-num {
   font-family: var(--font-editorial);
-  font-size: 42px;
+  font-size: 44px;
   font-weight: 400;
   color: var(--color-warm-ivory);
   line-height: 1;
@@ -499,7 +621,7 @@ img {
 
 .band-title {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -555,348 +677,448 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   10. FEATURED THIS WEEK PRODUCT CARDS (SECTION 04)
+   10. LUXURY MINIMAL PRODUCT CARDS (SECTIONS 04 & MARKETPLACE ARCHIVE)
+   NO NESTED BOXES — BORDERLESS EDITORIAL DIRECT-IMAGE GRID
    -------------------------------------------------------------------------- */
-.featured-products-grid {
+.featured-products-grid,
+.marketplace-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 36px 24px;
 }
 
 .product-card {
   display: flex;
   flex-direction: column;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
-  transition: transform 0.18s ease;
+  position: relative;
+  text-decoration: none;
+  outline: none;
 }
 
-.product-card:hover {
-  transform: translateY(-2px);
-}
-
+/* Image container sits directly within grid column with no outer card border or card frame */
+.product-photo-wrap,
 .card-visual-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1.05;
-  background-color: var(--color-card-bg);
-  border-radius: var(--radius-card);
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-soft-stone);
+  border: none;
+  border-radius: 2px;
   overflow: hidden;
   margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
-  border: 1px solid var(--color-border-card);
+  padding: 0;
+  display: block;
 }
 
+.product-photo,
 .card-visual-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4px;
-  transition: transform 0.25s ease;
+  border-radius: 0;
+  border: none;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Restrained hover interaction: subtle image zoom, typography completely stable */
+.product-card:hover .product-photo,
 .product-card:hover .card-visual-frame img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
+.product-card:hover {
+  transform: none; /* No card jump */
+}
+
+/* Subtle Wishlist Heart Icon in Top-Right Corner of Photograph */
+.product-heart-btn,
 .card-heart-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(4px);
+  background: rgba(243, 239, 231, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(28, 27, 25, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(23, 23, 21, 0.08);
-  color: var(--color-charcoal-black);
-  transition: transform 0.15s ease, color 0.15s ease;
+  color: var(--color-deep-charcoal);
+  cursor: pointer;
   z-index: 5;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
+.product-heart-btn:hover,
 .card-heart-btn:hover {
-  transform: scale(1.1);
-  color: var(--color-deep-burgundy);
+  transform: scale(1.08);
+  background: #FFFFFF;
+  color: var(--color-muted-burgundy);
 }
 
+.product-heart-btn.saved svg,
 .card-heart-btn.saved svg {
-  fill: var(--color-deep-burgundy);
-  stroke: var(--color-deep-burgundy);
+  fill: var(--color-muted-burgundy);
+  stroke: var(--color-muted-burgundy);
 }
 
-.card-tag-pill {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 3px;
-  letter-spacing: 0.05em;
-  background: rgba(23, 23, 21, 0.85);
-  color: var(--color-warm-ivory);
-}
-
-.card-tag-pill.tag-bidding {
-  background: var(--color-deep-burgundy);
-  color: var(--color-white);
-}
-
-.card-tag-pill.tag-swap {
-  background: #3B5F41;
-  color: var(--color-white);
-}
-
-/* Product Info Block */
+/* Editorial Metadata Stack Beneath Photograph (Left-Aligned) */
+.product-meta-block,
 .card-info-block {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: flex-start;
+  text-align: left;
+  gap: 3px;
+  padding: 0;
 }
 
-.card-title-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
+/* Line 1: Transaction Type · Department (e.g. FIXED PRICE · FC DEPT) */
+.product-meta-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-supporting-grey);
+  margin-bottom: 2px;
 }
 
+/* Line 2: Product Name */
+.product-title-text,
 .card-product-name {
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-charcoal-black);
-  white-space: nowrap;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--color-deep-charcoal);
+  line-height: 1.35;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
+/* Line 3: Price or Current Bid */
+.product-price-row,
 .card-price-num {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-charcoal-black);
-  margin-top: 2px;
+  color: var(--color-deep-charcoal);
+  letter-spacing: -0.01em;
 }
 
+.product-bid-count {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-supporting-grey);
+  margin-left: 4px;
+}
+
+/* Line 4: Condition and Size */
+.product-spec-row,
 .card-meta-line {
   font-family: var(--font-sans);
   font-size: 12px;
-  color: var(--color-supporting-text-grey);
+  font-weight: 400;
+  color: var(--color-supporting-grey);
+  line-height: 1.4;
 }
 
 /* --------------------------------------------------------------------------
    11. CAMPUS DROPS & COMMUNITY STORIES (SECTION 05)
    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   11. CAMPUS DROPS & COMMUNITY STORIES (SECTION 05)
+   CLEAN EDITORIAL ARRANGEMENT — ZERO HEAVY OVERLAYS OR NESTED BOXES
+   -------------------------------------------------------------------------- */
 .two-column-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 40px;
 }
 
-/* Left: Campus Drops Banner */
+/* Left: Luxury Minimal Campus Drop Event */
+.luxury-drop-card,
 .campus-drop-banner-card {
-  width: 100%;
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  position: relative;
-  aspect-ratio: 16 / 9.5;
-  background-color: var(--color-charcoal-black);
-  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
 }
 
+.luxury-drop-visual,
 .drop-banner-visual {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9.5;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: var(--color-deep-charcoal);
+  margin-bottom: 16px;
   position: relative;
 }
 
+.luxury-drop-img,
 .drop-banner-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.05) brightness(0.92);
+  display: block;
+  filter: contrast(1.05);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.drop-banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(118, 37, 45, 0.88) 0%, rgba(118, 37, 45, 0.65) 55%, transparent 100%);
-  padding: 28px 32px;
+.luxury-drop-card:hover .luxury-drop-img {
+  transform: scale(1.025);
+}
+
+.luxury-drop-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  color: var(--color-white);
+  text-align: left;
 }
 
-.drop-dept-tag {
+.luxury-drop-kicker {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-supporting-grey);
   margin-bottom: 6px;
 }
 
-.drop-event-title {
+.luxury-drop-title {
   font-family: var(--font-editorial);
-  font-size: 34px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  color: var(--color-white);
-  margin-bottom: 12px;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-deep-charcoal);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 8px;
 }
 
-.drop-meta-schedule {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.9);
+.luxury-drop-schedule {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: var(--color-supporting-grey);
   margin-bottom: 18px;
+  flex-wrap: wrap;
 }
 
+.drop-schedule-sep {
+  color: var(--color-muted-burgundy);
+}
+
+.btn-rsvp-burgundy,
 .btn-rsvp-pill {
-  background-color: var(--color-white);
-  color: var(--color-charcoal-black);
-  padding: 8px 18px;
+  background-color: var(--color-muted-burgundy);
+  color: var(--color-white);
+  padding: 10px 24px;
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.btn-rsvp-burgundy:hover,
 .btn-rsvp-pill:hover {
-  background-color: var(--color-warm-ivory);
+  background-color: #5E2028;
   transform: translateY(-1px);
 }
 
-/* Right: Community Story Card */
+/* Right: Luxury Minimal Community Story */
+.luxury-story-card,
 .community-story-card {
-  width: 100%;
-  aspect-ratio: 16 / 9.5;
-  background-color: var(--color-card-bg);
-  border-radius: var(--radius-card);
-  overflow: hidden;
   display: flex;
-  border: 1px solid var(--color-border-card);
+  align-items: stretch;
+  gap: 24px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  cursor: pointer;
+  overflow: visible;
 }
 
+.luxury-story-visual,
 .story-portrait-wrap {
   width: 44%;
-  height: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
   overflow: hidden;
+  background-color: var(--color-soft-stone);
+  flex-shrink: 0;
 }
 
+.luxury-story-img,
 .story-portrait-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.luxury-story-card:hover .luxury-story-img {
+  transform: scale(1.03);
+}
+
+.luxury-story-text,
 .story-text-col {
   width: 56%;
-  padding: 26px 28px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding: 0;
 }
 
+.luxury-story-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-supporting-grey);
+  margin-bottom: 8px;
+}
+
+.luxury-story-title,
 .story-headline {
   font-family: var(--font-editorial);
-  font-size: 21px;
+  font-size: 24px;
   line-height: 1.25;
   font-weight: 600;
-  color: var(--color-charcoal-black);
+  color: var(--color-deep-charcoal);
+  letter-spacing: -0.01em;
   margin-bottom: 10px;
 }
 
+.luxury-story-lead,
 .story-lead-copy {
   font-family: var(--font-sans);
-  font-size: 12.5px;
-  color: var(--color-supporting-text-grey);
-  line-height: 1.4;
-  margin-bottom: 14px;
+  font-size: 13.5px;
+  color: var(--color-supporting-grey);
+  line-height: 1.5;
+  margin-bottom: 18px;
 }
 
-.story-divider-dash {
-  width: 24px;
-  height: 2px;
-  background-color: var(--color-charcoal-black);
-  margin-bottom: 14px;
-}
-
+.luxury-story-action,
 .story-read-link {
   font-family: var(--font-sans);
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--color-charcoal-black);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-deep-charcoal);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   transition: color 0.15s ease, transform 0.15s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
-.story-read-link:hover {
-  color: var(--color-deep-burgundy);
-  transform: translateX(3px);
+.luxury-story-card:hover .luxury-story-action,
+.luxury-story-action:hover {
+  color: var(--color-muted-burgundy);
+  transform: translateX(4px);
 }
 
 /* --------------------------------------------------------------------------
    12. BROWSE BY DEPARTMENT (SECTION 06)
+   CIRCULAR ARCHIVAL FRAMES WITH REFINED SANS LABELS DIRECTLY BENEATH
    -------------------------------------------------------------------------- */
 .department-grid-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+  gap: 20px;
 }
 
 .dept-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   cursor: pointer;
-  transition: transform 0.18s ease;
-}
-
-.dept-card:hover {
-  transform: translateY(-2px);
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
 }
 
 .dept-image-frame {
   width: 100%;
+  max-width: 130px;
   aspect-ratio: 1 / 1;
-  background-color: var(--color-card-bg);
-  border-radius: var(--radius-card);
+  background-color: var(--color-soft-stone);
+  border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 10px;
-  border: 1px solid var(--color-border-card);
+  margin-bottom: 12px;
+  border: none;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .dept-image-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(85%) contrast(1.05);
-  transition: filter 0.25s ease, transform 0.25s ease;
+  display: block;
+  filter: grayscale(70%) contrast(1.05);
+  transition: filter 0.3s ease, transform 0.35s ease;
+}
+
+.dept-card:hover .dept-image-frame {
+  transform: translateY(-2px);
 }
 
 .dept-card:hover .dept-image-frame img {
   filter: grayscale(0%) contrast(1);
-  transform: scale(1.03);
+  transform: scale(1.06);
+}
+
+.dept-card-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-deep-charcoal);
+  text-align: center;
+  line-height: 1.35;
+  transition: color 0.18s ease;
+}
+
+.dept-card:hover .dept-card-label {
+  color: var(--color-muted-burgundy);
 }
 
 .dept-card-label {
@@ -1044,7 +1266,7 @@ img {
 .marketplace-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 36px 24px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1648,12 +1870,13 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   17. FOOTER (SECTION 07 — WARM IVORY MINIMALIST ARCHIVE)
+   17. FOOTER (SECTION 07 — STRUCTURED DEEP CHARCOAL MINIMALIST ARCHIVE)
    -------------------------------------------------------------------------- */
 .desktop-footer {
-  background-color: var(--color-soft-cream);
-  border-top: 1px solid var(--color-border-hairline);
-  padding: 64px var(--content-gutter) 28px;
+  background-color: var(--color-deep-charcoal);
+  color: var(--color-warm-ivory);
+  border-top: 1px solid rgba(243, 239, 231, 0.1);
+  padding: 72px var(--content-gutter) 36px;
 }
 
 .footer-container {
@@ -1662,17 +1885,22 @@ img {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.2fr;
   gap: 48px;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .footer-brand-col .brand-logotype {
   margin-bottom: 14px;
 }
 
+.footer-brand-col .logo-thrift,
+.footer-brand-col .logo-closet {
+  color: var(--color-warm-ivory);
+}
+
 .footer-desc {
   font-size: 13px;
   line-height: 1.6;
-  color: var(--color-supporting-text-grey);
+  color: var(--color-supporting-grey);
   max-width: 360px;
   margin-bottom: 16px;
 }
@@ -1680,45 +1908,46 @@ img {
 .footer-campus-tag {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--color-charcoal-black);
-  font-weight: 700;
+  color: var(--color-supporting-grey);
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .footer-heading {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-charcoal-black);
-  margin-bottom: 16px;
+  color: var(--color-warm-ivory);
+  margin-bottom: 18px;
 }
 
 .footer-nav-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 11px;
 }
 
 .footer-nav-list li a, .footer-contact-txt {
   font-size: 13px;
-  color: var(--color-supporting-text-grey);
-  transition: color 0.15s ease;
+  color: var(--color-supporting-grey);
+  transition: color 0.18s ease;
 }
 
 .footer-nav-list li a:hover {
-  color: var(--color-deep-burgundy);
+  color: var(--color-warm-ivory);
 }
 
 .footer-bottom-bar {
   max-width: var(--site-max-width);
   margin: 0 auto;
-  padding-top: 24px;
-  border-top: 1px solid var(--color-border-hairline);
+  padding-top: 28px;
+  border-top: 1px solid rgba(243, 239, 231, 0.1);
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--color-supporting-text-grey);
+  color: var(--color-supporting-grey);
   text-align: center;
 }
 
@@ -2211,21 +2440,45 @@ img {
   display: block;
 }
 
-/* Mobile Hero */
+/* Mobile Hero Carousel */
+.mobile-hero-carousel-card,
 .mobile-hero-card {
   width: 100%;
-  border-radius: var(--radius-card);
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
   aspect-ratio: 4 / 3.4;
   margin-bottom: 14px;
-  box-shadow: var(--shadow-subtle);
+  background-color: #ACC6DD;
+}
+
+.mob-hero-slides-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mob-hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.mob-hero-slide.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-hero-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .mobile-hero-overlay {
@@ -2237,8 +2490,31 @@ img {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: linear-gradient(180deg, rgba(178, 199, 220, 0.4) 0%, rgba(23, 23, 21, 0.75) 100%);
+  justify-content: flex-end;
+  background: linear-gradient(180deg, transparent 40%, rgba(28, 27, 25, 0.72) 100%);
+  z-index: 5;
+}
+
+.mob-hero-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.mob-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(243, 239, 231, 0.45);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.mob-dot.active {
+  width: 18px;
+  border-radius: 6px;
+  background: var(--color-warm-ivory);
 }
 
 .mob-script-stack {
@@ -2435,18 +2711,56 @@ img {
   color: var(--color-supporting-text-grey);
 }
 
-/* Mobile Dept Scroll */
+/* Mobile Dept Scroll (Circular Category Icons matching Luxury Reference) */
 .mobile-dept-scroll {
   display: flex;
-  gap: 8px;
+  gap: 14px;
   overflow-x: auto;
-  padding-bottom: 6px;
-  margin-bottom: 18px;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  scrollbar-width: none;
+}
+
+.mobile-dept-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.mob-dept-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mob-dept-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-soft-stone);
+  border: 1px solid rgba(28, 27, 25, 0.08);
+}
+
+.mob-dept-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mob-dept-item span {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-deep-charcoal);
 }
 
 .mob-dept-pill {
   padding: 6px 14px;
-  background: var(--color-soft-cream);
+  background: var(--color-soft-stone);
   border: 1px solid var(--color-border-hairline);
   border-radius: 20px;
   font-size: 11.5px;
@@ -2548,35 +2862,60 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   21. RESPONSIVE MEDIA QUERIES (DESKTOP TO TABLET & MOBILE)
+   21. RESPONSIVE MEDIA QUERIES (1440px, 1366px, 1280px, 1024px, 768px)
    -------------------------------------------------------------------------- */
+@media (max-width: 1440px) {
+  :root {
+    --site-max-width: 1366px;
+    --content-gutter: 40px;
+  }
+}
+
+@media (max-width: 1366px) {
+  :root {
+    --site-max-width: 1280px;
+    --content-gutter: 36px;
+  }
+  .band-col {
+    padding: 40px 24px 36px;
+  }
+  .band-num {
+    font-size: 38px;
+  }
+}
+
 @media (max-width: 1280px) {
   :root {
     --content-gutter: 32px;
   }
   .featured-products-grid, .marketplace-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 32px 20px;
+  }
+  .department-grid-row {
+    gap: 16px;
   }
 }
 
 @media (max-width: 1024px) {
-  .hero-overlay-container {
-    padding: 24px var(--content-gutter);
-  }
-  .hero-left-script .script-word {
-    font-size: 44px;
+  :root {
+    --content-gutter: 24px;
   }
   .featured-products-grid, .marketplace-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 18px;
   }
   .two-column-split {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
   .department-grid-row {
     grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
   .footer-container {
     grid-template-columns: 1fr 1fr;
+    gap: 36px;
   }
   .pdp-layout-body {
     grid-template-columns: 1fr;

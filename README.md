@@ -1,22 +1,26 @@
-# THRIFT Atelier CLOSET — Campus Resale Archive & Live Marketplace
+# THRIFT Atelier CLOSET — Luxury Minimal Fashion Archive & Campus Marketplace
 
 > **Department of Fashion Communication, National Institute of Fashion Technology (NIFT), Hyderabad**  
 > **Course:** Information Architecture & User Experience Design  
 > **Student / Creative Director & Product Lead:** Simran Singh (`BD/24/164`)  
 > **Technical Project Architect & UX Mentor:** Antigravity AI  
-> **Primary Design Reference:** NIFT Hyderabad Primary Visual Identity & Reference Artifact  
+> **Primary Design Reference:** NIFT Hyderabad Primary Visual Identity & Luxury Editorial Collection References  
 
 ---
 
 ## 🏛️ Executive Summary & Curatorial Direction
 
-**THRIFT Atelier CLOSET** is a student-run circular fashion platform and resale archive designed exclusively for the **NIFT Hyderabad community (Madhapur Campus)**. It bridges the gap between design students' wardrobe turnover (styling assignments, studio juries, semester runway projects) and sustainable fashion access.
+**THRIFT Atelier CLOSET** is an independent luxury minimal fashion resale archive designed exclusively for the **NIFT Hyderabad community (Madhapur Campus)**. It bridges the gap between design students' wardrobe turnover (styling assignments, studio juries, semester runway projects) and sustainable circular fashion access.
 
-Rather than resembling a generic commercial store or a chaotic WhatsApp group, the platform is crafted as an **editorial fashion archive**:
-- **Warm Ivory Grounds (`#F3EFE6`, `#EAE5DA`):** Replaces harsh digital white with the tactile warmth of unbleached editorial cardstock.
-- **Archival Photography:** Authentic campus photography showing NIFT students sitting on the campus ledge with open sky, paired with clean neutral studio product shots.
-- **Deep Burgundy Accents (`#76252D`):** Reserved for handwritten script annotations (*"Students Pieces People Possibilities"*), active controls, and drop meet highlights.
-- **Dual Connected Experiences:** A complete **1440px Desktop Website** and a **Dedicated Mobile Application** sharing the same visual identity, backend logic, and catalog data.
+Rather than resembling a generic commercial store or a SaaS marketplace with nested card boxes, the platform is crafted as a **contemporary luxury fashion collection & archive**:
+- **Controlled Charcoal & Ivory Palette:** Deep charcoal (`#1C1B19`), graphite (`#353430`), warm charcoal (`#292825`), warm ivory (`#F3EFE7`), soft stone (`#E6E1D8`), and muted burgundy (`#792C35`).
+- **Borderless Direct-Image Product Presentation:** Product photographs sit directly in their grid columns without double-nested boxes, outer card frames, or heavy shadows. Left-aligned 4-line editorial metadata stack:
+  1. Transaction Type & Department (e.g. `FIXED PRICE · FC DEPT`)
+  2. Product Name (`Vintage Shoulder Bag`)
+  3. Price or Current Bid (`₹ 1,200` or `Current Bid: ₹ 1,150`)
+  4. Condition and Size (`Good condition · One size`)
+- **Homepage Hero with 60-Second Carousel:** Preserves the core creative direction ("Students. Pieces. People. Possibilities.") on the campus ledge with 5 dedicated replaceable slots (`hero-01.png`, `hero-02.jpg`, `hero-03.jpg`, `hero-04.jpg`, `hero-05.jpg`), 60s auto-cycle, hover/touch pause, tab visibility pause, and reduced-motion support.
+- **Dual Connected Experiences:** A complete **Desktop Website (1440px / 1366px / 1280px / 1024px)** and a **Dedicated Mobile Application** sharing the same visual identity, backend logic, and catalog data.
 
 ---
 

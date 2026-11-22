@@ -36,6 +36,14 @@ const AppState = {
     earnings: 6850
   },
 
+  // Hero Carousel State (60s Cycle, 5 Slots)
+  heroCurrentIndex: 0,
+  heroTotalSlides: 5,
+  heroAutoplayDuration: 60000, // 60 seconds
+  heroElapsed: 0,
+  heroIsPaused: false,
+  heroProgressTimer: null,
+
   // Active Modals & Transient States
   currentPdpItem: null,
   biddingTargetItem: null,
@@ -591,6 +599,7 @@ const AppState = {
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  initHeroCarousel();
   renderFeaturedThisWeek();
   renderMarketplaceGrid();
   renderActivityStream();
@@ -607,6 +616,124 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+// ==========================================================================
+// HERO CAROUSEL CONTROLLER (60-SECOND CYCLE, 5 DEDICATED SLOTS)
+// ==========================================================================
+
+function initHeroCarousel() {
+  const desktopCarousel = document.getElementById('desktop-hero-carousel');
+  const mobileCarousel = document.getElementById('mobile-hero-carousel');
+  
+  // Pause on hover / interaction for desktop
+  if (desktopCarousel) {
+    desktopCarousel.addEventListener('mouseenter', () => { AppState.heroIsPaused = true; });
+    desktopCarousel.addEventListener('mouseleave', () => { AppState.heroIsPaused = false; });
+    desktopCarousel.addEventListener('focusin', () => { AppState.heroIsPaused = true; });
+    desktopCarousel.addEventListener('focusout', () => { AppState.heroIsPaused = false; });
+  }
+
+  // Pause on touch interaction for mobile
+  if (mobileCarousel) {
+    mobileCarousel.addEventListener('touchstart', () => { AppState.heroIsPaused = true; }, { passive: true });
+    mobileCarousel.addEventListener('touchend', () => { AppState.heroIsPaused = false; }, { passive: true });
+  }
+
+  // Pause when browser tab is inactive / not visible
+  document.addEventListener('visibilitychange', () => {
+    AppState.heroIsPaused = document.hidden;
+  });
+
+  // Start progress and autoplay loop
+  startHeroAutoplay();
+}
+
+function startHeroAutoplay() {
+  if (AppState.heroProgressTimer) clearInterval(AppState.heroProgressTimer);
+  AppState.heroElapsed = 0;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  AppState.heroProgressTimer = setInterval(() => {
+    if (AppState.heroIsPaused) return;
+
+    AppState.heroElapsed += 100;
+    const pct = Math.min(100, (AppState.heroElapsed / AppState.heroAutoplayDuration) * 100);
+    
+    const fill = document.getElementById('hero-progress-fill');
+    if (fill && !prefersReducedMotion) {
+      fill.style.width = `${pct}%`;
+    }
+
+    if (AppState.heroElapsed >= AppState.heroAutoplayDuration) {
+      AppState.heroElapsed = 0;
+      nextHeroSlide();
+    }
+  }, 100);
+}
+
+window.goToHeroSlide = function(index) {
+  AppState.heroCurrentIndex = (index + AppState.heroTotalSlides) % AppState.heroTotalSlides;
+  updateHeroSlideUI();
+  AppState.heroElapsed = 0;
+  const fill = document.getElementById('hero-progress-fill');
+  if (fill) fill.style.width = '0%';
+};
+
+window.nextHeroSlide = function() {
+  window.goToHeroSlide(AppState.heroCurrentIndex + 1);
+};
+
+window.prevHeroSlide = function() {
+  window.goToHeroSlide(AppState.heroCurrentIndex - 1);
+};
+
+function updateHeroSlideUI() {
+  const cur = AppState.heroCurrentIndex;
+
+  // Desktop Slides
+  const deskSlides = document.querySelectorAll('#hero-slides-track .hero-slide');
+  deskSlides.forEach((slide, idx) => {
+    if (idx === cur) {
+      slide.classList.add('active');
+    } else {
+      slide.classList.remove('active');
+    }
+  });
+
+  // Desktop Dots
+  const deskDots = document.querySelectorAll('#hero-carousel-dots .hero-dot');
+  deskDots.forEach((dot, idx) => {
+    if (idx === cur) {
+      dot.classList.add('active');
+      dot.setAttribute('aria-selected', 'true');
+    } else {
+      dot.classList.remove('active');
+      dot.setAttribute('aria-selected', 'false');
+    }
+  });
+
+  // Mobile Slides
+  const mobSlides = document.querySelectorAll('#mob-hero-slides-track .mob-hero-slide');
+  mobSlides.forEach((slide, idx) => {
+    if (idx === cur) {
+      slide.classList.add('active');
+    } else {
+      slide.classList.remove('active');
+    }
+  });
+
+  // Mobile Dots
+  const mobDots = document.querySelectorAll('#mob-hero-dots .mob-dot');
+  mobDots.forEach((dot, idx) => {
+    if (idx === cur) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
 
 
 // ==========================================================================
@@ -808,37 +935,73 @@ function renderMarketplaceGrid() {
 function createProductCardHTML(item) {
   const isSaved = AppState.savedIds.has(item.id);
   const isBidding = item.pricingModel === 'bidding';
-  const displayPrice = isBidding 
-    ? `₹ ${(item.currentHighestBid || item.price).toLocaleString()}` 
-    : `₹ ${item.price.toLocaleString()}`;
+  
+  // 1. Transaction Type · Department Kicker (e.g., FIXED PRICE · FC DEPT)
+  let txType = 'FIXED PRICE';
+  if (isBidding) {
+    txType = 'LIVE BID';
+  } else if (item.openForSwap && (!item.price || item.pricingModel === 'swap')) {
+    txType = 'SWAP ONLY';
+  }
+  const deptCode = item.dept || 'FC';
+  const kicker = `${txType} · ${deptCode} DEPT`;
+
+  // 2. Price or Current Bid Line
+  let priceLine = `₹ ${item.price ? item.price.toLocaleString() : 'Open for Trade'}`;
+  if (isBidding) {
+    const curBid = item.currentHighestBid || item.startingBid || item.price || 500;
+    const bidCount = item.bidsCount ? ` (${item.bidsCount} bids)` : '';
+    priceLine = `Current Bid: ₹ ${curBid.toLocaleString()}${bidCount}`;
+  }
+
+  // 3. Condition and Size (with swap or bidding notes)
+  const condition = item.condition || 'Good condition';
+  const size = item.size ? item.size.replace(/^Size\s+/i, '') : 'One size';
+  let detailLine = `${condition} · ${size}`;
+  if (isBidding) {
+    detailLine += ' · Closes Fri';
+  } else if (item.openForSwap && !isBidding) {
+    detailLine += ' · Open to Swap';
+  }
 
   return `
-    <article class="product-card" data-id="${item.id}">
-      <div class="card-visual-frame">
-        <img src="${item.heroImage}" alt="${item.title}" loading="lazy">
-        <button type="button" class="card-heart-btn ${isSaved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleWishlistItem(${item.id})" title="Save piece">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="${isSaved ? '#76252D' : 'none'}" stroke="${isSaved ? '#76252D' : 'currentColor'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+    <article class="product-card" data-id="${item.id}" role="button" tabindex="0" aria-label="${item.title}, ${priceLine}">
+      <div class="product-photo-wrap">
+        <img src="${item.heroImage}" alt="${item.title}" class="product-photo" loading="lazy">
+        <button type="button" class="product-heart-btn ${isSaved ? 'saved' : ''}" 
+          onclick="event.stopPropagation(); toggleWishlistItem(${item.id})" 
+          title="${isSaved ? 'Saved to Wishlist' : 'Save piece'}" 
+          aria-label="${isSaved ? 'Saved piece' : 'Save piece'}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="${isSaved ? '#792C35' : 'none'}" stroke="${isSaved ? '#792C35' : '#1C1B19'}" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
         </button>
-        ${isBidding ? '<span class="card-tag-pill tag-bidding">🔥 LIVE BID</span>' : ''}
-        ${item.openForSwap ? '<span class="card-tag-pill tag-swap" style="right:10px; left:auto;">⇄ SWAP</span>' : ''}
       </div>
-      <div class="card-info-block">
-        <div class="card-title-row">
-          <h4 class="card-product-name">${item.title}</h4>
-        </div>
-        <div class="card-price-num">${displayPrice}</div>
-        <div class="card-meta-line">${item.category} • ${item.dept}</div>
+      <div class="product-meta-block">
+        <span class="product-meta-kicker">${kicker}</span>
+        <h4 class="product-title-text">${item.title}</h4>
+        <div class="product-price-row">${priceLine}</div>
+        <div class="product-spec-row">${detailLine}</div>
       </div>
     </article>
   `;
 }
 
 function attachProductCardEvents(container) {
+  if (!container) return;
   container.querySelectorAll('.product-card').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.product-heart-btn') || e.target.closest('.card-heart-btn')) return;
       const id = parseInt(card.dataset.id, 10);
-      const piece = AppState.listings.find(i => i.id === id) || AppState.userCloset.find(i => i.id === id);
+      const piece = AppState.listings.find(i => i.id === id) || (AppState.userCloset && AppState.userCloset.find(i => i.id === id));
       if (piece) openPdpModal(piece);
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (e.target.closest('.product-heart-btn') || e.target.closest('.card-heart-btn')) return;
+        e.preventDefault();
+        const id = parseInt(card.dataset.id, 10);
+        const piece = AppState.listings.find(i => i.id === id) || (AppState.userCloset && AppState.userCloset.find(i => i.id === id));
+        if (piece) openPdpModal(piece);
+      }
     });
   });
 }
