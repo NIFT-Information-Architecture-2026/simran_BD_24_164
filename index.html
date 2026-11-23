@@ -97,31 +97,13 @@
       <!-- ============================================================ -->
       <section id="desktop-home-view" class="desktop-subview active">
 
-        <!-- SECTION 02 — FULL-WIDTH HERO (GOLDEN-HOUR ROOFTOP PORTRAIT) -->
+        <!-- SECTION 02 — FULL-WIDTH HERO (SINGLE GOLDEN-HOUR ROOFTOP PORTRAIT) -->
         <section class="desktop-hero-section" id="hero" aria-label="Campus Hero Archive">
-          <div class="hero-carousel-container" id="desktop-hero-carousel">
+          <div class="hero-stage-container" id="desktop-hero-stage">
             
-            <div class="hero-slides-track" id="hero-slides-track">
-              <!-- Slot 01: Primary Golden-Hour Rooftop Portrait (Edge-to-Edge 16:9 Landscape) -->
-              <div class="hero-slide active" data-slide-index="0" data-slot="hero-01">
-                <img src="images/hero/Golden-Hour-Rooftop-Portrait.png" alt="Four NIFT Hyderabad students on rooftop ledge during golden hour" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
-              </div>
-              <!-- Slot 02 (Replaceable slot) -->
-              <div class="hero-slide" data-slide-index="1" data-slot="hero-02">
-                <img src="images/hero/hero-02.jpg" alt="Campus Life and Student Archival Pieces" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
-              </div>
-              <!-- Slot 03 (Replaceable slot) -->
-              <div class="hero-slide" data-slide-index="2" data-slot="hero-03">
-                <img src="images/hero/hero-03.jpg" alt="Studio Critique and Campus Garment Exchange" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
-              </div>
-              <!-- Slot 04 (Replaceable slot) -->
-              <div class="hero-slide" data-slide-index="3" data-slot="hero-04">
-                <img src="images/hero/hero-04.jpg" alt="Student Resale and Curatorial Archive" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
-              </div>
-              <!-- Slot 05 (Replaceable slot) -->
-              <div class="hero-slide" data-slide-index="4" data-slot="hero-05">
-                <img src="images/hero/hero-05.jpg" alt="NIFT Hyderabad Fashion Archive Community" class="hero-slide-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
-              </div>
+            <!-- Single Primary Golden-Hour Rooftop Portrait (Edge-to-Edge 16:9 Landscape) -->
+            <div class="hero-photo-frame">
+              <img src="images/hero/Golden-Hour-Rooftop-Portrait.png" alt="Four NIFT Hyderabad students on rooftop ledge during golden hour" class="hero-stage-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
             </div>
 
             <!-- Desktop Text Overlay: Positioned strictly in open sky negative space -->
@@ -143,28 +125,6 @@
 
             <!-- Accessible Semantic Heading (Screen Reader / SEO) -->
             <h1 class="sr-only">Students. Pieces. People. Possibilities. • A Resale Archive by NIFT Hyderabad Students</h1>
-
-            <!-- Restrained Editorial Carousel Controls (Bottom Right) -->
-            <div class="hero-carousel-controls" aria-label="Hero Carousel Navigation">
-              <button type="button" class="hero-control-btn btn-prev" onclick="prevHeroSlide()" aria-label="Previous photograph">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              </button>
-              
-              <div class="hero-carousel-dots" id="hero-carousel-dots" role="tablist">
-                <button type="button" class="hero-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Hero Slide 1 (hero-01)" onclick="goToHeroSlide(0)"></button>
-                <button type="button" class="hero-dot" data-index="1" role="tab" aria-selected="false" aria-label="Hero Slide 2 (hero-02)" onclick="goToHeroSlide(1)"></button>
-                <button type="button" class="hero-dot" data-index="2" role="tab" aria-selected="false" aria-label="Hero Slide 3 (hero-03)" onclick="goToHeroSlide(2)"></button>
-                <button type="button" class="hero-dot" data-index="3" role="tab" aria-selected="false" aria-label="Hero Slide 4 (hero-04)" onclick="goToHeroSlide(3)"></button>
-                <button type="button" class="hero-dot" data-index="4" role="tab" aria-selected="false" aria-label="Hero Slide 5 (hero-05)" onclick="goToHeroSlide(4)"></button>
-              </div>
-
-              <button type="button" class="hero-control-btn btn-next" onclick="nextHeroSlide()" aria-label="Next photograph">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </button>
-            </div>
-
-            <!-- Subtle 60s Progress Bar Indicator -->
-            <div class="hero-progress-line"><div class="hero-progress-fill" id="hero-progress-fill"></div></div>
 
           </div>
         </section>

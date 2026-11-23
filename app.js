@@ -619,121 +619,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ==========================================================================
-// HERO CAROUSEL CONTROLLER (60-SECOND CYCLE, 5 DEDICATED SLOTS)
+// HERO DISPLAY CONTROLLER (SINGLE STATIC ARCHIVE PORTRAIT)
 // ==========================================================================
 
 function initHeroCarousel() {
-  const desktopCarousel = document.getElementById('desktop-hero-carousel');
-  const mobileCarousel = document.getElementById('mobile-hero-carousel');
-  
-  // Pause on hover / interaction for desktop
-  if (desktopCarousel) {
-    desktopCarousel.addEventListener('mouseenter', () => { AppState.heroIsPaused = true; });
-    desktopCarousel.addEventListener('mouseleave', () => { AppState.heroIsPaused = false; });
-    desktopCarousel.addEventListener('focusin', () => { AppState.heroIsPaused = true; });
-    desktopCarousel.addEventListener('focusout', () => { AppState.heroIsPaused = false; });
+  // Single static hero photo display — no carousel timer or slide switching needed
+  if (AppState.heroProgressTimer) {
+    clearInterval(AppState.heroProgressTimer);
+    AppState.heroProgressTimer = null;
   }
-
-  // Pause on touch interaction for mobile
-  if (mobileCarousel) {
-    mobileCarousel.addEventListener('touchstart', () => { AppState.heroIsPaused = true; }, { passive: true });
-    mobileCarousel.addEventListener('touchend', () => { AppState.heroIsPaused = false; }, { passive: true });
-  }
-
-  // Pause when browser tab is inactive / not visible
-  document.addEventListener('visibilitychange', () => {
-    AppState.heroIsPaused = document.hidden;
-  });
-
-  // Start progress and autoplay loop
-  startHeroAutoplay();
 }
 
 function startHeroAutoplay() {
-  if (AppState.heroProgressTimer) clearInterval(AppState.heroProgressTimer);
-  AppState.heroElapsed = 0;
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  AppState.heroProgressTimer = setInterval(() => {
-    if (AppState.heroIsPaused) return;
-
-    AppState.heroElapsed += 100;
-    const pct = Math.min(100, (AppState.heroElapsed / AppState.heroAutoplayDuration) * 100);
-    
-    const fill = document.getElementById('hero-progress-fill');
-    if (fill && !prefersReducedMotion) {
-      fill.style.width = `${pct}%`;
-    }
-
-    if (AppState.heroElapsed >= AppState.heroAutoplayDuration) {
-      AppState.heroElapsed = 0;
-      nextHeroSlide();
-    }
-  }, 100);
+  if (AppState.heroProgressTimer) {
+    clearInterval(AppState.heroProgressTimer);
+    AppState.heroProgressTimer = null;
+  }
 }
 
-window.goToHeroSlide = function(index) {
-  AppState.heroCurrentIndex = (index + AppState.heroTotalSlides) % AppState.heroTotalSlides;
-  updateHeroSlideUI();
-  AppState.heroElapsed = 0;
-  const fill = document.getElementById('hero-progress-fill');
-  if (fill) fill.style.width = '0%';
-};
+window.goToHeroSlide = function(index) {};
+window.nextHeroSlide = function() {};
+window.prevHeroSlide = function() {};
 
-window.nextHeroSlide = function() {
-  window.goToHeroSlide(AppState.heroCurrentIndex + 1);
-};
-
-window.prevHeroSlide = function() {
-  window.goToHeroSlide(AppState.heroCurrentIndex - 1);
-};
-
-function updateHeroSlideUI() {
-  const cur = AppState.heroCurrentIndex;
-
-  // Desktop Slides
-  const deskSlides = document.querySelectorAll('#hero-slides-track .hero-slide');
-  deskSlides.forEach((slide, idx) => {
-    if (idx === cur) {
-      slide.classList.add('active');
-    } else {
-      slide.classList.remove('active');
-    }
-  });
-
-  // Desktop Dots
-  const deskDots = document.querySelectorAll('#hero-carousel-dots .hero-dot');
-  deskDots.forEach((dot, idx) => {
-    if (idx === cur) {
-      dot.classList.add('active');
-      dot.setAttribute('aria-selected', 'true');
-    } else {
-      dot.classList.remove('active');
-      dot.setAttribute('aria-selected', 'false');
-    }
-  });
-
-  // Mobile Slides
-  const mobSlides = document.querySelectorAll('#mob-hero-slides-track .mob-hero-slide');
-  mobSlides.forEach((slide, idx) => {
-    if (idx === cur) {
-      slide.classList.add('active');
-    } else {
-      slide.classList.remove('active');
-    }
-  });
-
-  // Mobile Dots
-  const mobDots = document.querySelectorAll('#mob-hero-dots .mob-dot');
-  mobDots.forEach((dot, idx) => {
-    if (idx === cur) {
-      dot.classList.add('active');
-    } else {
-      dot.classList.remove('active');
-    }
-  });
-}
+function updateHeroSlideUI() {}
 
 
 // ==========================================================================

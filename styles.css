@@ -428,6 +428,7 @@ img {
   overflow: hidden;
 }
 
+.hero-stage-container,
 .hero-carousel-container {
   width: 100%;
   max-width: var(--site-max-width);
@@ -436,6 +437,7 @@ img {
   overflow: hidden;
 }
 
+.hero-photo-frame,
 .hero-slides-track {
   position: relative;
   width: 100%;
@@ -461,6 +463,7 @@ img {
   pointer-events: auto;
 }
 
+.hero-stage-img,
 .hero-slide-img,
 .hero-campus-photo {
   width: 100%;
@@ -536,79 +539,10 @@ img {
   background-color: #FFFFFF;
 }
 
-/* Subtle, restrained editorial carousel controls (Bottom Right) */
-.hero-carousel-controls {
-  position: absolute;
-  bottom: 24px;
-  right: 48px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(28, 27, 25, 0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(243, 239, 231, 0.18);
-  z-index: 20;
-  transition: opacity 0.25s ease;
-}
-
-.hero-control-btn {
-  color: var(--color-warm-ivory);
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.15s ease, transform 0.15s ease;
-}
-
-.hero-control-btn:hover {
-  background-color: rgba(243, 239, 231, 0.2);
-  transform: scale(1.08);
-}
-
-.hero-carousel-dots {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(243, 239, 231, 0.4);
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  padding: 0;
-}
-
-.hero-dot.active {
-  width: 24px;
-  border-radius: 10px;
-  background: var(--color-warm-ivory);
-}
-
-/* Subtle 60s Progress Bar Line at bottom of hero */
+/* Carousel controls and progress bar are permanently removed — single static hero display */
+.hero-carousel-controls,
 .hero-progress-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2.5px;
-  background: rgba(28, 27, 25, 0.08);
-  z-index: 15;
-}
-
-.hero-progress-fill {
-  height: 100%;
-  width: 0%;
-  background-color: var(--color-muted-burgundy);
-  transition: width 0.1s linear;
+  display: none !important;
 }
 
 /* Screen Reader / Accessible Text */
