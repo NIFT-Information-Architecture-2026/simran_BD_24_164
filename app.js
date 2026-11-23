@@ -15,7 +15,7 @@ const AppState = {
   closetSubmode: 'listings', // 'listings' or 'saved'
 
   // Saved Wishlist IDs (Set of garment IDs)
-  savedIds: new Set([1002, 1, 4]),
+  savedIds: new Set([1, 4]),
 
   // Filters & Search
   activeTransactionFilter: 'all', // 'all', 'fixed', 'bidding', 'swap'
@@ -55,43 +55,38 @@ const AppState = {
   wizardStep: 1,
   wizardPricingModel: 'fixed',
 
-  // Master Campus Catalog (Includes the 4 Reference Products + Authentic Student Portfolio Pieces)
+  // Master Campus Catalog (The Curated 15-Product Archive Showcase)
   listings: [
     // ------------------------------------------------------------------------
-    // REFERENCE SECTION 04: THE 4 SIGNATURE FEATURED PRODUCTS
+    // THE 8 FEATURED HOMEPAGE PIECES (BALANCED CURATED ORDER)
     // ------------------------------------------------------------------------
+    // 01. BAG — Plaid Gathered Shoulder Bag
     {
-      id: 1001,
-      title: "Vintage Shoulder Bag",
-      brand: "Vintage Milan Archive",
+      id: 1,
+      title: "Navy Plaid Gathered Shoulder Bag with Wooden Button",
+      brand: "Subversive Studio Archive",
       category: "Bags",
       dept: "FC",
       deptFullName: "Fashion Communication (FC)",
       condition: "Gently Used",
       conditionTier: 3,
-      pricingModel: "fixed", // Tiers 1-3: FIXED
+      pricingModel: "fixed",
       price: 1200,
-      size: "One Size (Compact Underarm)",
-      heroImage: "images/reference/feat-bag-highres.png",
+      size: "One size",
+      heroImage: "images/products/product-1.jpg",
       isFeatured: true,
       openForSwap: true,
       tradeWishlist: "Open to trade for silver concho belt or leather Mary Janes",
-      flaws: "Supple cognac glazed faux-leather with polished buckle hardware; minor interior lining creasing.",
-      measurements: { width: "12.0 in", height: "7.0 in", strapDrop: "9.5 in" },
-      seller: {
-        name: "Ria Sharma",
-        handle: "@ria_fc",
-        dept: "Fashion Comm (FC)",
-        rating: 4.9,
-        circulations: 28,
-        location: "Canteen Courtyard",
-        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80"
-      },
-      dropZones: ["Canteen Amphitheatre Steps", "Textile Lawn"]
+      flaws: "Hand-pleated tartan with natural carved wooden button; flawless interior lining.",
+      measurements: { width: "14.5 in", height: "11.0 in", strapDrop: "10.0 in" },
+      seller: { name: "Ria Sharma", handle: "@ria_fc", dept: "Fashion Comm (FC)", rating: 4.9, circulations: 28, location: "Canteen Steps", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80" },
+      dropZones: ["Canteen Amphitheatre", "Textile Lawn"]
     },
+
+    // 02. CLOTHING — Brown Plaid Wrap Blouse
     {
-      id: 1002,
-      title: "Plaid Ruffle Blouse",
+      id: 2,
+      title: "Brown Plaid Wrap Blouse",
       brand: "FD Atelier Studio Drape Lab",
       category: "Tops",
       dept: "FD",
@@ -99,131 +94,21 @@ const AppState = {
       condition: "Like New",
       conditionTier: 2,
       pricingModel: "fixed",
-      price: 950,
-      size: "Fits S - Boxy M",
-      heroImage: "images/reference/feat-plaid-highres.png",
-      isFeatured: true,
-      openForSwap: false,
-      flaws: "Pristine. Tailored during Semester 3 draping project, worn once for runway evaluation.",
-      measurements: { chest: "35.5 in", waist: "28.0 in", length: "20.5 in" },
-      seller: {
-        name: "Arjun Verma",
-        handle: "@arjun_fd",
-        dept: "Fashion Design (FD)",
-        rating: 5.0,
-        circulations: 12,
-        location: "Resource Centre Lobby",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=140&q=80"
-      },
-      dropZones: ["Canteen Amphitheatre", "FD Patternmaking Lab"]
-    },
-    {
-      id: 1003,
-      title: "Suede Jacket",
-      brand: "Leather Design Heritage Lab",
-      category: "Outerwear",
-      dept: "LD",
-      deptFullName: "Leather Design (LD)",
-      condition: "Gently Used",
-      conditionTier: 3,
-      pricingModel: "fixed",
-      price: 2800,
-      size: "Size M (Boxy Cut)",
-      heroImage: "images/reference/feat-jacket-highres.png",
-      isFeatured: true,
-      openForSwap: true,
-      tradeWishlist: "Swap for heavy skater denims or platform boots",
-      flaws: "Buttery chocolate brown split suede; natural patina on collar fold from studio wear.",
-      measurements: { chest: "22.0 in", shoulder: "18.5 in", length: "24.0 in", sleeve: "24.0 in" },
-      seller: {
-        name: "Meera Nair",
-        handle: "@meera_ld",
-        dept: "Leather Design (LD)",
-        rating: 4.95,
-        circulations: 18,
-        location: "Resource Centre Lobby",
-        avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=140&q=80"
-      },
-      dropZones: ["Canteen Amphitheatre", "Library Lobby"]
-    },
-    {
-      id: 1004,
-      title: "Wide Leg Denim Jeans",
-      brand: "Textile Dept Study",
-      category: "Bottoms",
-      dept: "TD",
-      deptFullName: "Textile Design (TD)",
-      condition: "Well Used",
-      conditionTier: 4,
-      pricingModel: "bidding", // Tiers 4-5: CAMPUS BIDDING
-      startingBid: 700,
-      currentHighestBid: 1150,
-      bidsCount: 6,
-      price: 1450, // Reference price display
-      size: "Waist 28 - 30 (Extreme Puddle)",
-      heroImage: "images/reference/feat-jeans-highres.png",
-      isFeatured: true,
-      openForSwap: true,
-      tradeWishlist: "Looking to swap for chore jacket or embroidered shirts",
-      flaws: "Intentional raw distress drag at rear heel hem from campus ramp walks; heavy indigo fade.",
-      measurements: { waist: "29.5 in", hip: "41.0 in", inseam: "33.0 in", legOpening: "12.0 in" },
-      seller: {
-        name: "Devika Rao",
-        handle: "@devika_td",
-        dept: "Textile Design (TD)",
-        rating: 4.8,
-        circulations: 42,
-        location: "Textile Department Lawns",
-        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=140&q=80"
-      },
-      dropZones: ["Textile Lawn", "Canteen Amphitheatre"]
-    },
-
-    // ------------------------------------------------------------------------
-    // AUTHENTIC NIFT STUDENT PRODUCT PORTFOLIO PIECES
-    // ------------------------------------------------------------------------
-    {
-      id: 1,
-      title: "Y2K Tartan Checked Ruched Hobo Bag",
-      brand: "Subversive Studio",
-      category: "Bags",
-      dept: "FC",
-      deptFullName: "Fashion Communication (FC)",
-      condition: "Gently Used",
-      conditionTier: 3,
-      pricingModel: "fixed",
-      price: 1250,
-      size: "One Size",
-      heroImage: "images/product-1.jpg",
-      openForSwap: true,
-      tradeWishlist: "Trade for silver belts or vintage cuffs",
-      flaws: "Minor fabric softening on interior lining; carved toggle wood button intact.",
-      measurements: { width: "14.5 in", height: "11.0 in" },
-      seller: { name: "Ria Sharma", handle: "@ria_fc", dept: "Fashion Comm (FC)", rating: 4.9, circulations: 28, location: "Canteen Steps", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80" },
-      dropZones: ["Canteen Amphitheatre", "Textile Lawn"]
-    },
-    {
-      id: 2,
-      title: "Asymmetric Plaid Peplum Tie Blouse",
-      brand: "FC Atelier Drape Lab",
-      category: "Tops",
-      dept: "FC",
-      deptFullName: "Fashion Communication (FC)",
-      condition: "Like New",
-      conditionTier: 2,
-      pricingModel: "fixed",
       price: 1400,
       size: "Fits S - M",
-      heroImage: "images/product-2.jpg",
+      heroImage: "images/products/product-2.jpg",
+      isFeatured: true,
       openForSwap: false,
-      flaws: "None. Tailored for Term 3 studio styling project, pristine seams.",
+      flaws: "Asymmetric neckline with side tie detail; tailored during Term 3 draping project, pristine seams.",
       measurements: { chest: "36.0 in", waist: "29.0 in", length: "21.5 in" },
-      seller: { name: "Arjun Verma", handle: "@arjun_fd", dept: "Fashion Design (FD)", rating: 5.0, circulations: 12, location: "Library Lobby", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=140&q=80" },
-      dropZones: ["Canteen Amphitheatre"]
+      seller: { name: "Arjun Verma", handle: "@arjun_fd", dept: "Fashion Design (FD)", rating: 5.0, circulations: 12, location: "Resource Centre Lobby", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=140&q=80" },
+      dropZones: ["Canteen Amphitheatre", "FD Patternmaking Lab"]
     },
+
+    // 03. BAG — Burgundy Leather Shoulder Bag
     {
       id: 3,
-      title: "Glossy Cherry Crimson Ring Hobo",
+      title: "Burgundy Leather Shoulder Bag",
       brand: "Vintage Milan Archive",
       category: "Bags",
       dept: "AD",
@@ -232,19 +117,46 @@ const AppState = {
       conditionTier: 3,
       pricingModel: "fixed",
       price: 1850,
-      size: "Shoulder Bag",
-      heroImage: "images/product-3.jpg",
+      size: "One size",
+      heroImage: "images/products/product-3.jpg",
+      fitMode: "contain",
+      isFeatured: true,
       openForSwap: true,
       tradeWishlist: "Looking for moto boots or Mary Jane flats",
-      flaws: "Pristine cherry red glaze; hairline contact on inner metal ring.",
-      measurements: { width: "13.0 in", height: "9.5 in" },
-      seller: { name: "Devika Rao", handle: "@devika_td", dept: "Textile Design (TD)", rating: 4.8, circulations: 42, location: "Textile Lawn", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=140&q=80" },
-      dropZones: ["Canteen Amphitheatre", "Textile Lawn"]
+      flaws: "Glossy deep cherry crimson leather with polished metallic ring; supple structure.",
+      measurements: { width: "13.0 in", height: "9.5 in", strapDrop: "11.5 in" },
+      seller: { name: "Meera Nair", handle: "@meera_ad", dept: "Accessory Design (AD)", rating: 4.95, circulations: 18, location: "Resource Centre Lobby", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=140&q=80" },
+      dropZones: ["Canteen Amphitheatre", "Library Lobby"]
     },
+
+    // 04. CLOTHING — Embroidered Denim Jeans
+    {
+      id: 7,
+      title: "Embroidered Denim Jeans",
+      brand: "Jaded London Archive",
+      category: "Bottoms",
+      dept: "FC",
+      deptFullName: "Fashion Communication (FC)",
+      condition: "Like New",
+      conditionTier: 2,
+      pricingModel: "fixed",
+      price: 3200,
+      size: "Waist 30",
+      heroImage: "images/products/product-7.jpg",
+      isFeatured: true,
+      openForSwap: true,
+      tradeWishlist: "Only trading for heavy leather jacket or vintage footwear",
+      flaws: "Heavy acid wash with dense tribal flame chainstitch embroidery along the leg; pristine denim weave.",
+      measurements: { waist: "31.0 in", hip: "42.0 in", inseam: "32.5 in" },
+      seller: { name: "Karan Joshi", handle: "@karan_fc", dept: "Fashion Comm (FC)", rating: 4.88, circulations: 31, location: "Canteen Steps", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=140&q=80" },
+      dropZones: ["Canteen Amphitheatre"]
+    },
+
+    // 05. BAG — Distressed Studded Shoulder Bag
     {
       id: 4,
-      title: "Distressed Grommet Buckle Shoulder Bag",
-      brand: "Diesel Archive",
+      title: "Distressed Studded Shoulder Bag",
+      brand: "Diesel Archive Study",
       category: "Bags",
       dept: "TD",
       deptFullName: "Textile Design (TD)",
@@ -255,8 +167,9 @@ const AppState = {
       currentHighestBid: 950,
       bidsCount: 5,
       price: 950,
-      size: "Compact Flap",
-      heroImage: "images/product-4.jpg",
+      size: "One size",
+      heroImage: "images/products/product-4.jpg",
+      isFeatured: true,
       openForSwap: true,
       tradeWishlist: "Swap for wide leg skate denims or silver cuffs",
       flaws: "Authentic grunge edge wear along bottom piping; all grommets firmly secured.",
@@ -264,28 +177,34 @@ const AppState = {
       seller: { name: "Ananya Sen", handle: "@ananya_td", dept: "Textile Design (TD)", rating: 4.95, circulations: 19, location: "Textile Lawn", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=140&q=80" },
       dropZones: ["Textile Lawn", "Canteen Amphitheatre"]
     },
+
+    // 06. CLOTHING — Multicolour Striped Puff-Sleeve Top
     {
-      id: 5,
-      title: "Ornate Silver Concho Leather Waist Belt",
-      brand: "Heritage Rajasthan Guild",
-      category: "Accessories",
-      dept: "AD",
-      deptFullName: "Accessory Design (AD)",
-      condition: "Gently Used",
-      conditionTier: 3,
+      id: 10,
+      title: "Multicolour Striped Puff-Sleeve Top",
+      brand: "Textile Dept Handloom Project",
+      category: "Tops",
+      dept: "TD",
+      deptFullName: "Textile Design (TD)",
+      condition: "New / Unworn",
+      conditionTier: 1,
       pricingModel: "fixed",
-      price: 1100,
-      size: "Waist 26 - 32 in",
-      heroImage: "images/product-5.jpg",
+      price: 2600,
+      size: "Size M",
+      heroImage: "images/products/product-10.jpg",
+      isFeatured: true,
       openForSwap: true,
-      flaws: "Solid oxidised silver-finish conchos; full grain black leather.",
-      measurements: { length: "38.0 in", width: "1.5 in" },
-      seller: { name: "Meera Nair", handle: "@meera_ad", dept: "Accessory Design (AD)", rating: 5.0, circulations: 9, location: "Library Lobby", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=140&q=80" },
-      dropZones: ["Library Lobby", "Canteen Amphitheatre"]
+      tradeWishlist: "Swap for archival footwear or designer bags",
+      flaws: "Zero flaws. Pure silk-cotton chanderi multi-stripe with voluminous balloon lantern sleeves.",
+      measurements: { chest: "37.5 in", waist: "31.0 in", sleeve: "22.0 in", length: "22.5 in" },
+      seller: { name: "Devika Rao", handle: "@devika_td", dept: "Textile Design (TD)", rating: 4.8, circulations: 42, location: "Textile Lawn", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=140&q=80" },
+      dropZones: ["Textile Lawn", "Canteen Amphitheatre"]
     },
+
+    // 07. ACCESSORY — Sculptural Resin Ring Set
     {
       id: 6,
-      title: "Molten Gold & Amber Resin Bangle Stack",
+      title: "Sculptural Resin Ring Set",
       brand: "AD Studio Handcast",
       category: "Accessories",
       dept: "AD",
@@ -295,37 +214,72 @@ const AppState = {
       pricingModel: "fixed",
       price: 950,
       size: "Inner Dia 2.5 in",
-      heroImage: "images/product-6.jpg",
+      heroImage: "images/products/product-6.jpg",
+      fitMode: "contain",
+      isFeatured: true,
       openForSwap: false,
-      flaws: "Zero defects. Handcrafted amber swirl resin paired with hammered brass bangle.",
+      flaws: "Zero defects. Handcrafted amber swirl resin paired with hammered brass bangle stack.",
       measurements: { innerDiameter: "65 mm" },
       seller: { name: "Meera Nair", handle: "@meera_ad", dept: "Accessory Design (AD)", rating: 5.0, circulations: 9, location: "Library Lobby", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=140&q=80" },
       dropZones: ["Library Lobby", "Canteen Amphitheatre"]
     },
+
+    // 08. CLOTHING — Washed Wide-Leg Jeans
     {
-      id: 7,
-      title: "Tribal Flame Embroidered Baggy Jeans",
-      brand: "Jaded London Archive",
+      id: 9,
+      title: "Washed Wide-Leg Jeans",
+      brand: "Textile Dept Study",
       category: "Bottoms",
-      dept: "FC",
-      deptFullName: "Fashion Communication (FC)",
-      condition: "Like New",
-      conditionTier: 2,
-      pricingModel: "fixed",
-      price: 3200,
-      size: "Tag 30 (Fits 29-32)",
-      heroImage: "images/product-7.jpg",
+      dept: "TD",
+      deptFullName: "Textile Design (TD)",
+      condition: "Well Used",
+      conditionTier: 4,
+      pricingModel: "bidding",
+      startingBid: 700,
+      currentHighestBid: 1450,
+      bidsCount: 6,
+      price: 1450,
+      size: "Waist 28 - 30",
+      heroImage: "images/products/product-9.jpg",
+      isFeatured: true,
       openForSwap: true,
-      tradeWishlist: "Only trading for heavy leather jacket or Dr. Martens boots",
-      flaws: "Dense flame embroidery across back legs, pristine denim weave.",
-      measurements: { waist: "31.0 in", hip: "42.0 in", inseam: "32.5 in" },
-      seller: { name: "Karan Joshi", handle: "@karan_fc", dept: "Fashion Comm (FC)", rating: 4.88, circulations: 31, location: "Canteen Steps", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=140&q=80" },
-      dropZones: ["Canteen Amphitheatre"]
+      tradeWishlist: "Looking to swap for chore jacket or embroidered shirts",
+      flaws: "Intentional raw distress drag at rear heel hem; vintage dirty-wash fade.",
+      measurements: { waist: "29.5 in", hip: "41.0 in", inseam: "33.0 in", legOpening: "12.0 in" },
+      seller: { name: "Devika Rao", handle: "@devika_td", dept: "Textile Design (TD)", rating: 4.8, circulations: 42, location: "Textile Lawn", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=140&q=80" },
+      dropZones: ["Textile Lawn", "Canteen Amphitheatre"]
     },
+
+    // ------------------------------------------------------------------------
+    // ADDITIONAL CURATED ARCHIVE PIECES (FULL ARCHIVE COLLECTION VIEW)
+    // ------------------------------------------------------------------------
+    // 09. ACCESSORY — Embellished Leather Belt / Statement Accessory
+    {
+      id: 5,
+      title: "Embellished Leather Belt / Statement Accessory",
+      brand: "Heritage Rajasthan Guild",
+      category: "Accessories",
+      dept: "AD",
+      deptFullName: "Accessory Design (AD)",
+      condition: "Gently Used",
+      conditionTier: 3,
+      pricingModel: "fixed",
+      price: 1100,
+      size: "Waist 26 - 32 in",
+      heroImage: "images/products/product-5.jpg",
+      isFeatured: false,
+      openForSwap: true,
+      flaws: "Solid oxidised silver-finish conchos; full grain brown leather with metallic disc studs.",
+      measurements: { length: "38.0 in", width: "1.5 in" },
+      seller: { name: "Meera Nair", handle: "@meera_ad", dept: "Accessory Design (AD)", rating: 5.0, circulations: 9, location: "Library Lobby", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=140&q=80" },
+      dropZones: ["Library Lobby", "Canteen Amphitheatre"]
+    },
+
+    // 10. BAG — Black Buckle Shoulder Bag
     {
       id: 8,
-      title: "Noir Moto Leather Ruched Baguette",
-      brand: "Mango Premium",
+      title: "Black Buckle Shoulder Bag",
+      brand: "Mango Premium Archive",
       category: "Bags",
       dept: "LD",
       deptFullName: "Leather Design (LD)",
@@ -333,8 +287,9 @@ const AppState = {
       conditionTier: 3,
       pricingModel: "fixed",
       price: 1650,
-      size: "Underarm Baguette",
-      heroImage: "images/product-8.jpg",
+      size: "One size",
+      heroImage: "images/products/product-8.jpg",
+      isFeatured: false,
       openForSwap: true,
       tradeWishlist: "Looking for pleated skirts or oversized poplin shirts",
       flaws: "Supple lambskin feel, silver hardware buckle, slight surface rub on base corner.",
@@ -342,29 +297,11 @@ const AppState = {
       seller: { name: "Pooja Hegde", handle: "@pooja_fc", dept: "Fashion Comm (FC)", rating: 4.85, circulations: 24, location: "Library Lobby", avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=140&q=80" },
       dropZones: ["Library Lobby", "Canteen Amphitheatre"]
     },
-    {
-      id: 10,
-      title: "Chanderi Multi-Stripe Lantern Sleeve Blouse",
-      brand: "Textile Dept Handloom Project",
-      category: "Indian / Ethnic Wear",
-      dept: "TD",
-      deptFullName: "Textile Design (TD)",
-      condition: "New / Unworn",
-      conditionTier: 1,
-      pricingModel: "fixed",
-      price: 2600,
-      size: "Size M (Tailored Comfort)",
-      heroImage: "images/product-10.jpg",
-      openForSwap: true,
-      tradeWishlist: "Swap for high-end archival footwear or designer bags",
-      flaws: "Zero flaws. Pure silk-chanderi with zari temple borders woven in Pochampally cluster.",
-      measurements: { chest: "37.5 in", waist: "31.0 in", sleeve: "22.0 in", length: "22.5 in" },
-      seller: { name: "Devika Rao", handle: "@devika_td", dept: "Textile Design (TD)", rating: 4.8, circulations: 42, location: "Textile Lawn", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=140&q=80" },
-      dropZones: ["Textile Lawn", "Canteen Amphitheatre"]
-    },
+
+    // 11. CLOTHING — Burgundy Embroidered Shirt
     {
       id: 11,
-      title: "'From Venice With Love' Embroidered Shirt",
+      title: "Burgundy Embroidered Shirt",
       brand: "Bode Archive Study",
       category: "Tops",
       dept: "FC",
@@ -374,17 +311,20 @@ const AppState = {
       pricingModel: "fixed",
       price: 1500,
       size: "Size L (Boxy Fit)",
-      heroImage: "images/product-11.jpg",
+      heroImage: "images/products/product-11.jpg",
+      isFeatured: false,
       openForSwap: true,
       tradeWishlist: "Looking to swap for chore jackets or denim trousers",
-      flaws: "Carefully hand-embroidered script & boat motif; natural linen texture.",
+      flaws: "Carefully hand-embroidered cursive script across chest; breathable cotton-linen weave.",
       measurements: { chest: "23.0 in", shoulder: "19.5 in", length: "27.0 in" },
       seller: { name: "Karan Joshi", handle: "@karan_fc", dept: "Fashion Comm (FC)", rating: 4.88, circulations: 31, location: "Canteen Steps", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=140&q=80" },
       dropZones: ["Canteen Amphitheatre"]
     },
+
+    // 12. CLOTHING — Illustrated Panel Striped Shirt
     {
       id: 12,
-      title: "Statue Print Striped Oxford Shirt",
+      title: "Illustrated Panel Striped Shirt",
       brand: "FC Screenprint Atelier",
       category: "Tops",
       dept: "FC",
@@ -393,17 +333,20 @@ const AppState = {
       conditionTier: 2,
       pricingModel: "fixed",
       price: 1950,
-      size: "Oversized Fit (Fits M-XL)",
-      heroImage: "images/product-12.jpg",
+      size: "Fits M - XL",
+      heroImage: "images/products/product-12.jpg",
+      isFeatured: false,
       openForSwap: false,
-      flaws: "None. Classical Greek sculpture photo-emulsion printed onto classic Bengal stripe poplin.",
+      flaws: "Classical Greek sculpture photo-emulsion printed onto classic Bengal stripe poplin in vibrant yellow.",
       measurements: { chest: "24.0 in", shoulder: "20.5 in", length: "29.0 in" },
       seller: { name: "Ria Sharma", handle: "@ria_fc", dept: "Fashion Comm (FC)", rating: 4.9, circulations: 28, location: "Canteen Courtyard", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80" },
       dropZones: ["Canteen Amphitheatre", "Textile Lawn"]
     },
+
+    // 13. CLOTHING — Brown Striped Fitted Shirt
     {
       id: 13,
-      title: "Tailored Brown Stripe Utility Blouse",
+      title: "Brown Striped Fitted Shirt",
       brand: "Zara Woman Vintage",
       category: "Tops",
       dept: "FC",
@@ -413,7 +356,8 @@ const AppState = {
       pricingModel: "fixed",
       price: 850,
       size: "Size S (Fitted)",
-      heroImage: "images/product-13.jpg",
+      heroImage: "images/products/product-13.jpg",
+      isFeatured: false,
       openForSwap: true,
       tradeWishlist: "Swap for silver belt or mini shoulder bag",
       flaws: "Sharply pressed darting; faint button patina.",
@@ -421,9 +365,11 @@ const AppState = {
       seller: { name: "Pooja Hegde", handle: "@pooja_fc", dept: "Fashion Comm (FC)", rating: 4.85, circulations: 24, location: "Library Lobby", avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=140&q=80" },
       dropZones: ["Library Lobby", "Canteen Amphitheatre"]
     },
+
+    // 14. CLOTHING — Burgundy Graphic T-shirt
     {
       id: 14,
-      title: "1997 Archive 'Fragment Low Stance' Tee",
+      title: "Burgundy Graphic T-shirt",
       brand: "Vintage Japanese Import",
       category: "Tops",
       dept: "KD",
@@ -435,18 +381,21 @@ const AppState = {
       currentHighestBid: 850,
       bidsCount: 4,
       price: 850,
-      size: "Tag L (Boxy Heavyweight)",
-      heroImage: "images/product-14.jpg",
+      size: "Tag L (Boxy Fit)",
+      heroImage: "images/products/product-14.jpg",
+      isFeatured: false,
       openForSwap: true,
       tradeWishlist: "Open to swap for any vintage graphic tee or trucker cap",
-      flaws: "Disclosed: Vintage sun fade across shoulders and micro pinhole near back collar seam.",
+      flaws: "Disclosed: 1997 Archive Fragment Low Stance graphic print; vintage sun-fade across shoulders.",
       measurements: { chest: "22.5 in", shoulder: "21.0 in", length: "27.5 in" },
       seller: { name: "Zayn Khan", handle: "@zayn_kd", dept: "Knitwear Design (KD)", rating: 4.92, circulations: 15, location: "Canteen Courtyard", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=140&q=80" },
       dropZones: ["Canteen Amphitheatre"]
     },
+
+    // 15. CLOTHING — Cream Pinstripe Fitted Shirt
     {
       id: 15,
-      title: "Hourglass Flared Peplum Striped Blouse",
+      title: "Cream Pinstripe Fitted Shirt",
       brand: "FD Patternmaking Lab",
       category: "Tops",
       dept: "FD",
@@ -456,32 +405,13 @@ const AppState = {
       pricingModel: "fixed",
       price: 1800,
       size: "Size S / M",
-      heroImage: "images/product-15.jpg",
+      heroImage: "images/products/product-15.jpg",
+      isFeatured: false,
       openForSwap: false,
-      flaws: "Sculptural pattern drafted on Alvanon dress form, clean French seams.",
+      flaws: "Sculptural hourglass pattern with exaggerated elongated turnback cuffs; clean French seams.",
       measurements: { chest: "35.0 in", waist: "27.5 in", flareHem: "42.0 in" },
       seller: { name: "Arjun Verma", handle: "@arjun_fd", dept: "Fashion Design (FD)", rating: 5.0, circulations: 12, location: "Resource Centre", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=140&q=80" },
       dropZones: ["Canteen Amphitheatre"]
-    },
-    {
-      id: 16,
-      title: "Adidas Samba OG 'Cow Print Pony Hair'",
-      brand: "Adidas Originals Special Edition",
-      category: "Footwear",
-      dept: "TD",
-      deptFullName: "Textile Design (TD)",
-      condition: "Like New",
-      conditionTier: 2,
-      pricingModel: "fixed",
-      price: 4200,
-      size: "UK 6.5 / EU 40",
-      heroImage: "images/product-16.jpg",
-      openForSwap: true,
-      tradeWishlist: "Will trade for Salomon XT-6 or Maison Margiela Tabi",
-      flaws: "Worn once to campus exhibition. Genuine tactile calf hair texture, gum sole 98% life.",
-      measurements: { insoleLength: "25.5 cm" },
-      seller: { name: "Ananya Sen", handle: "@ananya_td", dept: "Textile Design (TD)", rating: 4.95, circulations: 19, location: "Textile Lawn", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=140&q=80" },
-      dropZones: ["Textile Lawn", "Canteen Amphitheatre"]
     }
   ],
 
@@ -744,18 +674,14 @@ function renderFeaturedThisWeek() {
   const mobCarousel = document.getElementById('mob-featured-container');
   if (!row) return;
 
-  // The 4 reference items
+  // The 8 curated featured pieces
   const featured = AppState.listings.filter(i => i.isFeatured);
 
   row.innerHTML = featured.map(item => createProductCardHTML(item)).join('');
   attachProductCardEvents(row);
 
   if (mobCarousel) {
-    mobCarousel.innerHTML = featured.map(item => `
-      <div class="mob-featured-item">
-        ${createProductCardHTML(item)}
-      </div>
-    `).join('');
+    mobCarousel.innerHTML = featured.map(item => createProductCardHTML(item)).join('');
     attachProductCardEvents(mobCarousel);
   }
 }
@@ -843,8 +769,9 @@ function renderMarketplaceGrid() {
 function createProductCardHTML(item) {
   const isSaved = AppState.savedIds.has(item.id);
   const isBidding = item.pricingModel === 'bidding';
+  const fitClass = item.fitMode === 'contain' ? 'fit-contain' : '';
   
-  // 1. Transaction Type · Department Kicker (e.g., FIXED PRICE · FC DEPT)
+  // 1. Transaction Type · Department Kicker (e.g. FIXED PRICE · FC DEPT or LIVE BID · TD DEPT)
   let txType = 'FIXED PRICE';
   if (isBidding) {
     txType = 'LIVE BID';
@@ -854,28 +781,22 @@ function createProductCardHTML(item) {
   const deptCode = item.dept || 'FC';
   const kicker = `${txType} · ${deptCode} DEPT`;
 
-  // 2. Price or Current Bid Line
+  // 2. Clearly visible price (₹ 1,200 or Current Bid: ₹ 950)
   let priceLine = `₹ ${item.price ? item.price.toLocaleString() : 'Open for Trade'}`;
   if (isBidding) {
     const curBid = item.currentHighestBid || item.startingBid || item.price || 500;
-    const bidCount = item.bidsCount ? ` (${item.bidsCount} bids)` : '';
-    priceLine = `Current Bid: ₹ ${curBid.toLocaleString()}${bidCount}`;
+    priceLine = `Current Bid: ₹ ${curBid.toLocaleString()}`;
   }
 
-  // 3. Condition and Size (with swap or bidding notes)
+  // 3. Condition and size (e.g. Good condition · One size)
   const condition = item.condition || 'Good condition';
   const size = item.size ? item.size.replace(/^Size\s+/i, '') : 'One size';
-  let detailLine = `${condition} · ${size}`;
-  if (isBidding) {
-    detailLine += ' · Closes Fri';
-  } else if (item.openForSwap && !isBidding) {
-    detailLine += ' · Open to Swap';
-  }
+  const detailLine = `${condition} · ${size}`;
 
   return `
     <article class="product-card" data-id="${item.id}" role="button" tabindex="0" aria-label="${item.title}, ${priceLine}">
       <div class="product-photo-wrap">
-        <img src="${item.heroImage}" alt="${item.title}" class="product-photo" loading="lazy">
+        <img src="${item.heroImage}" alt="${item.title}" class="product-photo ${fitClass}" loading="lazy">
         <button type="button" class="product-heart-btn ${isSaved ? 'saved' : ''}" 
           onclick="event.stopPropagation(); toggleWishlistItem(${item.id})" 
           title="${isSaved ? 'Saved to Wishlist' : 'Save piece'}" 
