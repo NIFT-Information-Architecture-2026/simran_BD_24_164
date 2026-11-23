@@ -55,6 +55,101 @@ const AppState = {
   wizardStep: 1,
   wizardPricingModel: 'fixed',
 
+  // Community Stories & Campus Gossip Shared Feed (Spotlight & Compact Boxes)
+  activeSpotlightIndex: 0,
+  communityFeed: [
+    {
+      id: 1,
+      type: "story",
+      typeLabel: "FEATURED ARCHIVE STORY",
+      dept: "TD",
+      deptFullName: "Textile Design (TD '26)",
+      author: "Ananya Sen",
+      title: "How I Built My Wardrobe at NIFT Through Swaps",
+      lead: "Coming to NIFT Hyderabad, you quickly realise how much money students spend on styling assignments and runway looks that only get worn once. Instead of letting beautiful garments gather dust in hostel lockers, we started trading in the Canteen courtyard during lunch breaks.",
+      fullText: "Coming to NIFT Hyderabad, you quickly realise how much money students spend on styling assignments and runway looks that only get worn once. Instead of letting beautiful garments gather dust in hostel lockers, we started trading in the Canteen courtyard during lunch breaks.\n\nLast semester, I traded my handloom Chanderi drape for a vintage biker jacket and tailored trousers. It’s not just circular fashion—it’s how our community connects across departments without paying courier fees or bubble-wrap waste.\n\nEvery Friday, students bring their pieces to the Canteen amphitheatre steps. You touch the textile, inspect the seams in natural daylight, and talk to the person who styled it. It has completely transformed how we view conscious fashion on campus.",
+      timeAgo: "Issue 04",
+      likesCount: 54,
+      isLiked: false,
+      isLongStory: true
+    },
+    {
+      id: 2,
+      type: "swap",
+      typeLabel: "SWAP WIN",
+      dept: "AD",
+      deptFullName: "Accessory Design (AD '25)",
+      author: "Tanvi Patel",
+      title: "Won the distressed denim jacket only for ₹450...",
+      lead: "Won the distressed biker denim jacket on a ₹450 bid and replaced all the brass rivets with custom cast buckle hardware in the AD metal workshop. Total high-fashion archive runway piece now.",
+      fullText: "Won the distressed biker denim jacket on a ₹450 bid and replaced all the brass rivets with custom cast buckle hardware in the AD metal workshop. Total high-fashion archive runway piece now.\n\nNext drop I'm bringing handmade leather cuffs and upcycled belt buckles to trade with anyone in FC or FD!",
+      timeAgo: "2h ago",
+      likesCount: 42,
+      isLiked: false,
+      isLongStory: false
+    },
+    {
+      id: 3,
+      type: "styling",
+      typeLabel: "STYLING GOSSIP",
+      dept: "FC",
+      deptFullName: "Fashion Communication (FC '25)",
+      author: "Rhea Kapoor",
+      title: "Milan showroom or NIFT hostel closet?",
+      lead: "The vintage suede trench from the Friday drop ended up being the star of our Term 4 editorial lookbook. The jury literally asked which Milan showroom we sourced it from lol.",
+      fullText: "The vintage suede trench from the Friday drop ended up being the star of our Term 4 editorial lookbook. The jury literally asked which Milan showroom we sourced it from lol. Shoutout to the FD senior who let it go for just ₹1,800 on fixed price instead of hoarding it in hostel storage!",
+      timeAgo: "4h ago",
+      likesCount: 38,
+      isLiked: false,
+      isLongStory: false
+    },
+    {
+      id: 4,
+      type: "tea",
+      typeLabel: "CAMPUS TEA",
+      dept: "TD",
+      deptFullName: "Textile Design (TD '27)",
+      author: "Meera Sen",
+      title: "Angel alert in the draping lab!",
+      lead: "Whoever dropped that indigo tie-dye corset under fixed price—you are an absolute angel. Saved me 4 entire days of vat-dyeing in the lab for the draping submission!",
+      fullText: "Whoever dropped that indigo tie-dye corset under fixed price—you are an absolute angel. Saved me 4 entire days of vat-dyeing in the lab for the draping submission! The natural indigo patina was literally museum-grade.",
+      timeAgo: "Yesterday",
+      likesCount: 31,
+      isLiked: false,
+      isLongStory: false
+    },
+    {
+      id: 5,
+      type: "random",
+      typeLabel: "RANDOM GOSSIP",
+      dept: "FD",
+      deptFullName: "Fashion Design (FD '26)",
+      author: "Kabir Mehta",
+      title: "The Canteen lunch drop is the real fashion week",
+      lead: "Forget Lakme Fashion Week, the real silhouettes are sitting on the Canteen amphitheatre steps on Friday at 1:15 PM. Everyone's fit checks are immaculate.",
+      fullText: "Forget Lakme Fashion Week, the real silhouettes are sitting on the Canteen amphitheatre steps on Friday at 1:15 PM. Everyone's fit checks are immaculate. Swapped my raw denim jacket for a hand-distressed knit in literally 3 minutes during lunch break. Zero shipping, no waiting for couriers.",
+      timeAgo: "Yesterday",
+      likesCount: 29,
+      isLiked: false,
+      isLongStory: false
+    },
+    {
+      id: 6,
+      type: "gossip",
+      typeLabel: "CAMPUS GOSSIP",
+      dept: "KD",
+      deptFullName: "Knitwear Design (KD '25)",
+      author: "Pooja Roy",
+      title: "Someone wore the sample runway knit to cafeteria",
+      lead: "Spotted someone wearing the unreleased Term 5 crochet shrug to the Nescafe counter today. Whoever traded that, you’re an icon.",
+      fullText: "Spotted someone wearing the unreleased Term 5 crochet shrug to the Nescafe counter today. Whoever traded that, you’re an icon. Half the KD department was taking notes on the stitch tension.",
+      timeAgo: "2d ago",
+      likesCount: 26,
+      isLiked: false,
+      isLongStory: false
+    }
+  ],
+
   // Master Campus Catalog (The Curated 15-Product Archive Showcase)
   listings: [
     // ------------------------------------------------------------------------
@@ -534,6 +629,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderMarketplaceGrid();
   renderActivityStream();
   renderClosetGrid();
+  initCommunitySpotlight();
   updateDynamicFitFields('Outerwear');
   updateWishlistCounters();
 
@@ -1663,11 +1759,26 @@ function renderMobileHomeFeed() {
 // 17. EVENT RSVP, STORIES & UTILITIES
 // ==========================================================================
 
+window.handleCampusDropRsvp = function(btn) {
+  const isConfirmed = btn.classList.contains('confirmed');
+  
+  if (isConfirmed) {
+    document.querySelectorAll('.btn-strip-rsvp, #btn-campus-drop-rsvp, .mob-strip-btn, #btn-hero-rsvp, .mob-rsvp').forEach(b => {
+      b.classList.remove('confirmed');
+      b.innerHTML = '<span>RSVP TO DROP &rarr;</span>';
+    });
+    showToast("RSVP cancelled for Studio Block Daylight Drop.");
+  } else {
+    document.querySelectorAll('.btn-strip-rsvp, #btn-campus-drop-rsvp, .mob-strip-btn, #btn-hero-rsvp, .mob-rsvp').forEach(b => {
+      b.classList.add('confirmed');
+      b.innerHTML = '<span>✓ RSVP CONFIRMED</span>';
+    });
+    showToast("✓ RSVP Confirmed for Studio Block Daylight Drop (28 Nov · 4:00 PM)!");
+  }
+};
+
 window.handleEventRsvp = function(btn) {
-  btn.textContent = "✓ RSVP Confirmed";
-  btn.style.backgroundColor = "#3B5F41";
-  btn.style.color = "#FFFFFF";
-  showToast("✓ RSVP Confirmed! Meet at Canteen Amphitheatre Steps @ 4:00 PM.");
+  window.handleCampusDropRsvp(btn);
 };
 
 window.openStoryModal = function() {
@@ -1701,3 +1812,305 @@ window.showToast = function(message) {
     toast.classList.remove('show');
   }, 2600);
 };
+
+// ==========================================================================
+// 18. COMMUNITY SPOTLIGHT & CAMPUS GOSSIP SHARED FEED CONTROLLER
+// ==========================================================================
+
+function initCommunitySpotlight() {
+  renderSpotlightStory();
+  renderGossipBoxes();
+}
+
+function renderSpotlightStory() {
+  if (!AppState.communityFeed || AppState.communityFeed.length === 0) return;
+  
+  if (AppState.activeSpotlightIndex >= AppState.communityFeed.length) {
+    AppState.activeSpotlightIndex = 0;
+  }
+  if (AppState.activeSpotlightIndex < 0) {
+    AppState.activeSpotlightIndex = AppState.communityFeed.length - 1;
+  }
+
+  const item = AppState.communityFeed[AppState.activeSpotlightIndex];
+  const total = AppState.communityFeed.length;
+  const currentNum = AppState.activeSpotlightIndex + 1;
+  const counterText = `${currentNum} / ${total}`;
+
+  // Update counters
+  const deskCounter = document.getElementById('spotlight-counter');
+  const mobCounter = document.getElementById('mob-spotlight-counter');
+  if (deskCounter) deskCounter.textContent = counterText;
+  if (mobCounter) mobCounter.textContent = counterText;
+
+  // Desktop spotlight text area
+  const deskArea = document.getElementById('spotlight-content-area');
+  if (deskArea) {
+    deskArea.style.opacity = '0.3';
+    setTimeout(() => {
+      deskArea.innerHTML = `
+        <div class="spotlight-badge-row">
+          <span class="spotlight-kicker">${escapeHtml(item.typeLabel)}</span>
+          <span class="spotlight-dept-pill">${escapeHtml(item.dept)} DEPT</span>
+        </div>
+        <h3 class="spotlight-title">${escapeHtml(item.title)}</h3>
+        <p class="spotlight-quote">"${escapeHtml(item.lead)}"</p>
+        <div class="spotlight-byline-row">
+          <span>By ${escapeHtml(item.author)} • ${escapeHtml(item.deptFullName)}</span>
+          <span class="drop-schedule-sep">•</span>
+          <span>${escapeHtml(item.timeAgo)}</span>
+        </div>
+        <div class="spotlight-actions-row">
+          <button type="button" class="btn-spotlight-story" onclick="openStoryModal(${item.id})">
+            <span>Read Full Story &rarr;</span>
+          </button>
+          <button type="button" class="btn-spotlight-ghost" onclick="openAddStoryModal()">
+            <span>+ Add Your POV / Gossip</span>
+          </button>
+        </div>
+      `;
+      deskArea.style.opacity = '1';
+    }, 120);
+  }
+
+  // Mobile spotlight text area
+  const mobArea = document.getElementById('mob-spotlight-content');
+  if (mobArea) {
+    mobArea.innerHTML = `
+      <span class="mob-story-kicker">${escapeHtml(item.typeLabel)} · ${escapeHtml(item.dept)} DEPT</span>
+      <h4 class="mob-story-title">${escapeHtml(item.title)}</h4>
+      <p class="mob-story-lead">"${escapeHtml(item.lead)}"</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+        <span class="mob-story-author">${escapeHtml(item.author)} (${escapeHtml(item.dept)})</span>
+        <button type="button" style="background:none; border:none; color:var(--color-muted-burgundy); font-weight:700; font-size:12px; cursor:pointer;" onclick="openStoryModal(${item.id})">Read Story &rarr;</button>
+      </div>
+    `;
+  }
+
+  // Highlight the active card in the compact grid below
+  document.querySelectorAll('.compact-gossip-card').forEach((card, idx) => {
+    if (idx === AppState.activeSpotlightIndex) {
+      card.classList.add('active-spotlight');
+    } else {
+      card.classList.remove('active-spotlight');
+    }
+  });
+}
+
+function renderGossipBoxes() {
+  const deskContainer = document.getElementById('desktop-gossip-boxes');
+  const mobContainer = document.getElementById('mob-pov-feed-container');
+
+  if (deskContainer) {
+    deskContainer.innerHTML = AppState.communityFeed.map((item, index) => {
+      const isActive = index === AppState.activeSpotlightIndex;
+      return `
+        <article class="compact-gossip-card ${isActive ? 'active-spotlight' : ''}" onclick="selectSpotlightStory(${index})">
+          <div class="compact-gossip-top">
+            <span class="pov-type-badge ${item.type}">${escapeHtml(item.typeLabel)}</span>
+            <span class="pov-dept-tag">${escapeHtml(item.dept)} '26</span>
+          </div>
+          <h4 class="compact-gossip-title">${escapeHtml(item.title)}</h4>
+          <p class="compact-gossip-snippet">"${escapeHtml(item.lead)}"</p>
+          <div class="compact-gossip-bottom">
+            <span>${escapeHtml(item.author)} • ${escapeHtml(item.timeAgo)}</span>
+            <button type="button" class="pov-like-btn ${item.isLiked ? 'liked' : ''}" onclick="event.stopPropagation(); toggleLikeStory(${item.id})" title="Like note">
+              <span>${item.isLiked ? '♥' : '♡'}</span>
+              <span>${item.likesCount}</span>
+            </button>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  if (mobContainer) {
+    mobContainer.innerHTML = AppState.communityFeed.map((item, index) => {
+      const isActive = index === AppState.activeSpotlightIndex;
+      return `
+        <div class="mob-pov-card ${isActive ? 'active-spotlight' : ''}" onclick="selectSpotlightStory(${index})">
+          <div class="pov-card-top" style="margin-bottom:6px;">
+            <span class="pov-type-badge ${item.type}">${escapeHtml(item.typeLabel)}</span>
+            <span class="pov-dept-tag">${escapeHtml(item.dept)}</span>
+          </div>
+          <p class="compact-gossip-title" style="font-size:13.5px; margin-bottom:4px;">${escapeHtml(item.title)}</p>
+          <p class="pov-note-quote" style="font-size:12px; margin-bottom:8px;">"${escapeHtml(item.lead)}"</p>
+          <div class="pov-card-bottom" style="padding-top:6px;">
+            <span style="font-size:10.5px;">${escapeHtml(item.author)} • ${escapeHtml(item.timeAgo)}</span>
+            <button type="button" class="pov-like-btn ${item.isLiked ? 'liked' : ''}" onclick="event.stopPropagation(); toggleLikeStory(${item.id})">
+              <span>${item.isLiked ? '♥' : '♡'}</span>
+              <span>${item.likesCount}</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+}
+
+window.selectSpotlightStory = function(index) {
+  AppState.activeSpotlightIndex = index;
+  renderSpotlightStory();
+  
+  // Smooth scroll up to spotlight if clicked on a lower gossip box
+  const spotlightSection = document.getElementById('community-stories-section');
+  if (spotlightSection) {
+    const rect = spotlightSection.getBoundingClientRect();
+    if (rect.top < -50 || rect.top > window.innerHeight - 150) {
+      spotlightSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+};
+
+window.nextSpotlightStory = function() {
+  AppState.activeSpotlightIndex = (AppState.activeSpotlightIndex + 1) % AppState.communityFeed.length;
+  renderSpotlightStory();
+};
+
+window.prevSpotlightStory = function() {
+  AppState.activeSpotlightIndex = (AppState.activeSpotlightIndex - 1 + AppState.communityFeed.length) % AppState.communityFeed.length;
+  renderSpotlightStory();
+};
+
+window.openStoryModal = function(storyId) {
+  let story = null;
+  if (storyId) {
+    story = AppState.communityFeed.find(s => s.id === storyId);
+  }
+  if (!story) {
+    story = AppState.communityFeed[AppState.activeSpotlightIndex] || AppState.communityFeed[0];
+  }
+  if (!story) return;
+
+  const kickerEl = document.getElementById('modal-story-kicker');
+  const titleEl = document.getElementById('modal-story-title');
+  const innerTitleEl = document.getElementById('modal-story-inner-title');
+  const bylineEl = document.getElementById('modal-story-byline');
+  const slotEl = document.getElementById('modal-story-content-slot');
+  const tagsEl = document.getElementById('modal-story-tags');
+
+  if (kickerEl) kickerEl.textContent = `${story.typeLabel} · NIFT HYDERABAD`;
+  if (titleEl) titleEl.textContent = story.typeLabel;
+  if (innerTitleEl) innerTitleEl.textContent = story.title;
+  if (bylineEl) {
+    bylineEl.innerHTML = `
+      <span>By ${escapeHtml(story.author)} • ${escapeHtml(story.deptFullName)}</span>
+      <span class="drop-schedule-sep">•</span>
+      <span>${escapeHtml(story.timeAgo)}</span>
+    `;
+  }
+  if (slotEl) {
+    const paragraphs = (story.fullText || story.lead).split('\n\n').filter(Boolean);
+    slotEl.innerHTML = paragraphs.map(p => `
+      <p class="story-modal-paragraph">${escapeHtml(p)}</p>
+    `).join('');
+  }
+  if (tagsEl) {
+    tagsEl.innerHTML = `
+      <span class="pov-type-badge ${story.type}">#${story.type.toUpperCase()}</span>
+      <span class="pov-type-badge styling">#${story.dept}Dept</span>
+      <span class="pov-type-badge drop">#NIFTHyderabad</span>
+    `;
+  }
+
+  const modal = document.getElementById('story-modal');
+  if (modal) {
+    modal.classList.add('active');
+    const scrollBody = document.getElementById('modal-story-scroll-body');
+    if (scrollBody) scrollBody.scrollTop = 0;
+  }
+};
+
+window.closeStoryModal = function() {
+  document.getElementById('story-modal')?.classList.remove('active');
+};
+
+window.openAddStoryModal = function() {
+  document.getElementById('add-story-modal')?.classList.add('active');
+};
+
+window.closeAddStoryModal = function() {
+  document.getElementById('add-story-modal')?.classList.remove('active');
+};
+
+window.handlePostCommunityStory = function(e) {
+  e.preventDefault();
+
+  const nameVal = document.getElementById('pov-input-name')?.value.trim() || 'Anonymous';
+  const deptVal = document.getElementById('pov-input-dept')?.value || 'FC';
+  const typeVal = document.getElementById('pov-input-type')?.value || 'tea';
+  const titleVal = document.getElementById('pov-input-title')?.value.trim() || 'Campus Gossip / Student Note';
+  const contentVal = document.getElementById('pov-input-content')?.value.trim();
+
+  if (!contentVal) {
+    showToast("Please enter your gossip or story note.");
+    return;
+  }
+
+  const typeMap = {
+    styling: "STYLING GOSSIP",
+    drop: "DROP REVIEW",
+    swap: "SWAP WIN",
+    tea: "CAMPUS TEA",
+    random: "CAMPUS GOSSIP"
+  };
+
+  const newStory = {
+    id: Date.now(),
+    type: typeVal,
+    typeLabel: typeMap[typeVal] || "STUDENT POV",
+    dept: deptVal,
+    deptFullName: `${deptVal} Dept ('26)`,
+    author: nameVal,
+    title: titleVal,
+    lead: contentVal.length > 180 ? contentVal.substring(0, 180) + '...' : contentVal,
+    fullText: contentVal,
+    timeAgo: "Just now",
+    likesCount: 1,
+    isLiked: true,
+    isLongStory: contentVal.length > 250
+  };
+
+  AppState.communityFeed.unshift(newStory);
+  AppState.activeSpotlightIndex = 0;
+
+  renderSpotlightStory();
+  renderGossipBoxes();
+
+  closeAddStoryModal();
+  const inputEl = document.getElementById('pov-input-content');
+  if (inputEl) inputEl.value = '';
+  const titleEl = document.getElementById('pov-input-title');
+  if (titleEl) titleEl.value = '';
+
+  showToast("✓ Your gossip / story is now spotlighted beside the group photo!");
+};
+
+window.toggleLikeStory = function(storyId) {
+  const story = AppState.communityFeed.find(s => s.id === storyId);
+  if (!story) return;
+  if (story.isLiked) {
+    story.isLiked = false;
+    story.likesCount = Math.max(0, story.likesCount - 1);
+  } else {
+    story.isLiked = true;
+    story.likesCount += 1;
+    showToast("♥ Liked campus note");
+  }
+  renderGossipBoxes();
+  renderSpotlightStory();
+};
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/[&<>"']/g, function(m) {
+    switch (m) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#039;';
+      default: return m;
+    }
+  });
+}
