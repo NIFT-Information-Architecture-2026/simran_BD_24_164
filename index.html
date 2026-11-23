@@ -103,7 +103,16 @@
             
             <!-- Single Primary Golden-Hour Rooftop Portrait (Edge-to-Edge 16:9 Landscape) -->
             <div class="hero-photo-frame">
-              <img src="images/hero/Golden-Hour-Rooftop-Portrait.png" alt="Four NIFT Hyderabad students on rooftop ledge during golden hour" class="hero-stage-img" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
+              <img 
+                src="images/hero/golden-hour-rooftop.jpg" 
+                srcset="images/hero/golden-hour-rooftop.jpg 1024w, images/hero/golden-hour-rooftop-2x.jpg 2048w" 
+                sizes="(max-width: 1024px) 100vw, 1440px" 
+                alt="Four NIFT Hyderabad students on rooftop ledge during golden hour" 
+                class="hero-stage-img"
+                loading="eager"
+                fetchpriority="high"
+                decoding="sync"
+                onerror="this.src='images/hero/Golden-Hour-Rooftop-Portrait.png'">
             </div>
 
             <!-- Desktop Text Overlay: Positioned strictly in open sky negative space -->
@@ -778,7 +787,16 @@
             <!-- Mobile Hero: Full-Width 16:9 Landscape Frame (All 4 Students Visible) -->
             <div class="mobile-hero-stage" id="mobile-hero-stage">
               <div class="mob-hero-photo-wrap">
-                <img src="images/hero/Golden-Hour-Rooftop-Portrait.png" alt="Four NIFT Hyderabad students on rooftop ledge at golden hour" class="mobile-hero-full-photo" onerror="this.src='images/hero/golden-hour-rooftop.jpg'">
+                <img 
+                  src="images/hero/golden-hour-rooftop.jpg" 
+                  srcset="images/hero/golden-hour-rooftop.jpg 1024w, images/hero/golden-hour-rooftop-2x.jpg 2048w" 
+                  sizes="(max-width: 480px) 100vw, 800px" 
+                  alt="Four NIFT Hyderabad students on rooftop ledge at golden hour" 
+                  class="mobile-hero-full-photo" 
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="sync"
+                  onerror="this.src='images/hero/Golden-Hour-Rooftop-Portrait.png'">
               </div>
               <div class="mobile-hero-action-dock">
                 <button type="button" class="mob-btn-explore-archive" onclick="switchMobileTab('m-discover')">

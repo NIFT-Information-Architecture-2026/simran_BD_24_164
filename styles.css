@@ -471,7 +471,10 @@ img {
   object-fit: cover;
   object-position: center;
   display: block;
-  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
   filter: none;
 }
 
@@ -2468,6 +2471,10 @@ img {
   object-fit: cover;
   object-position: center;
   display: block;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
   filter: none;
 }
 
