@@ -1,5 +1,5 @@
 /**
- * THRIFT Atelier CLOSET — APPLICATION ENGINE
+ * SECOND ROOM — APPLICATION ENGINE
  * Source of Truth: NIFT Hyderabad Primary Visual Identity
  * Delivers Dual Connected Experiences: Desktop Website + Dedicated Mobile Application
  */
@@ -948,14 +948,31 @@ window.filterCatalogByPillar = function(pillar) {
 window.filterCatalogByDepartment = function(deptCode) {
   AppState.activeDeptFilter = deptCode;
   
-  // Highlight dept pill
+  // Highlight dept pill across desktop & mobile
   document.querySelectorAll('.dept-pill').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.dept === deptCode);
   });
+  document.querySelectorAll('.mob-dept-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.dept === deptCode);
+  });
 
-  showDesktopView('discover');
+  if (AppState.experienceMode === 'mobile') {
+    switchMobileTab('m-discover');
+  } else {
+    showDesktopView('discover');
+  }
+
   renderMarketplaceGrid();
-  showToast(`Filtered by ${deptCode} Department 🏷️`);
+  
+  const deptNames = {
+    FC: "Fashion Communication",
+    FD: "Fashion Design",
+    TD: "Textile Design",
+    KD: "Knitwear Design",
+    AD: "Accessory Design",
+    LD: "Leather Design"
+  };
+  showToast(`Filtered by ${deptNames[deptCode] || deptCode} (${deptCode}) 🏷️`);
 };
 
 window.filterByTransaction = function(txType) {
